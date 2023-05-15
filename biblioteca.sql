@@ -626,18 +626,18 @@ INSERT INTO empleado (id_empleado, nombre_empleado, cargo) VALUES
 
 -- Solicitud
 INSERT INTO solicitud (consecutivo_solicitud, id_usuario, ISBN, fecha_solicitud, descripcion) VALUES
-('CS001', 'US001', 'LI031', '2023-05-01', 'Necesito este libro para mi curso de cálculo.'),
-('CS002', 'US002', 'LI032', '2023-05-02', 'Estoy interesado en aprender más sobre física moderna.'),
-('CS003', 'US003', 'LI033', '2023-05-03', 'Quiero estudiar química orgánica.'),
-('CS004', 'US004', 'LI034', '2023-05-04', 'Necesito este libro para mi clase de biología molecular.'),
-('CS005', 'US005', 'LI035', '2023-05-05', 'Me gustaría aprender programación en C++.'),
+('CS001', 'US001', 'LI031', '2023-05-01', 'Necesito este libro para mi curso de calculo.'),
+('CS002', 'US002', 'LI032', '2023-05-02', 'Estoy interesado en aprender mas sobre fisica moderna.'),
+('CS003', 'US003', 'LI033', '2023-05-03', 'Quiero estudiar quimica organica.'),
+('CS004', 'US004', 'LI034', '2023-05-04', 'Necesito este libro para mi clase de biologia molecular.'),
+('CS005', 'US005', 'LI035', '2023-05-05', 'Me gustaria aprender programacion en C++.'),
 ('CS006', 'US006', 'LI036', '2023-05-06', 'Estoy interesado en el diseño estructural.'),
-('CS007', 'US007', 'LI037', '2023-05-07', 'Necesito este libro para mi curso de psicología.'),
-('CS008', 'US008', 'LI038', '2023-05-08', 'Me gustaría aprender más sobre historia universal.'),
+('CS007', 'US007', 'LI037', '2023-05-07', 'Necesito este libro para mi curso de psicologia.'),
+('CS008', 'US008', 'LI038', '2023-05-08', 'Me gustaria aprender mas sobre historia universal.'),
 ('CS009', 'US009', 'LI039', '2023-05-09', 'Quiero estudiar redes de computadoras.'),
 ('CS010', 'US010', 'LI040', '2023-05-10', 'Necesito este libro para mi curso de medicina.'),
-('CS011', 'US001', 'LI032', '2023-05-11', 'También quiero aprender sobre física moderna.'),
-('CS012', 'US002', 'LI034', '2023-05-12', 'Me gustaría estudiar biología molecular y genética.');
+('CS011', 'US001', 'LI032', '2023-05-11', 'Tambien quiero aprender sobre fisica moderna.'),
+('CS012', 'US002', 'LI034', '2023-05-12', 'Me gustaria estudiar biologia molecular y genetica.');
 
 -- Descarga
 INSERT INTO descarga (id_usuario, fecha_descarga_con_hora, ISBN, URL, num_ip) VALUES
@@ -690,14 +690,14 @@ INSERT INTO presta (consecutivo_prestamo, isbn, num_ejemplar, fecha_devolucion_e
 
 -- Multa
 INSERT INTO multa (consecutivo_prestamo, ISBN, num_ejemplar, fecha_multa, valor_multa, descripcion_multa) VALUES
-('PR002', 'LI001', 2, '2023-05-10', 1200, '1 dia de retraso en la devolución'),
-('PR003', 'LI001', 3, '2023-05-13', 3600, '3 dias de retraso en la devolución'),
-('PR004', 'LI002', 1, '2023-05-13', 2400, '2 dias de retraso en la devolución'),
-('PR005', 'LI002', 2, '2023-05-14', 2400, '2 dias de retraso en la devolución'),
-('PR006', 'LI003', 1, '2023-05-15', 2400, '2 dias de retraso en la devolución'),
-('PR007', 'LI003', 2, '2023-05-16', 2400, '2 dias de retraso en la devolución'),
-('PR008', 'LI004', 1, '2023-05-16', 1200, '1 dia de retraso en la devolución'),
-('PR009', 'LI004', 2, '2023-05-18', 2400, '2 dias de retraso en la devolución'),
-('PR010', 'LI005', 1, '2023-05-19', 2400, '2 dias de retraso en la devolución'),
-('PR011', 'LI006', 1, '2023-05-20', 2400, '2 dias de retraso en la devolución'),
-('PR014', 'LI008', 1, '2023-05-23', 2400, '2 dias de retraso en la devolución');
+('PR002', 'LI001', 2, '2023-05-10', 1200, '1 dia de retraso en la devolucion'),
+('PR003', 'LI001', 3, '2023-05-13', 3600, '3 dias de retraso en la devolucion'),
+('PR004', 'LI002', 1, '2023-05-13', 2400, '2 dias de retraso en la devolucion'),
+('PR005', 'LI002', 2, '2023-05-14', 2400, '2 dias de retraso en la devolucion'),
+('PR006', 'LI003', 1, '2023-05-15', 2400, '2 dias de retraso en la devolucion'),
+('PR007', 'LI003', 2, '2023-05-16', 2400, '2 dias de retraso en la devolucion'),
+('PR008', 'LI004', 1, '2023-05-16', 1200, '1 dia de retraso en la devolucion'),
+('PR009', 'LI004', 2, '2023-05-18', 2400, '2 dias de retraso en la devolucion'),
+('PR010', 'LI005', 1, '2023-05-19', 2400, '2 dias de retraso en la devolucion'),
+('PR011', 'LI006', 1, '2023-05-20', 2400, '2 dias de retraso en la devolucion'),
+('PR014', 'LI008', 1, '2023-05-23', 2400, '2 dias de retraso en la devolucion');
