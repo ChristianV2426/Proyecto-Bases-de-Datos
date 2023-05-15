@@ -151,7 +151,7 @@ CREATE TABLE empleado (
   nombre_empleado VARCHAR(100) NOT NULL,
   cargo VARCHAR(50),
 
-  CONSTRAINT id_empleado_pk PRIMARY KEY (id_empleado)
+  PRIMARY KEY (id_empleado)
 );
 
 -- Solicitud --
@@ -178,6 +178,7 @@ CREATE TABLE descarga (
   num_ip VARCHAR(12), 
 
   PRIMARY KEY (id_usuario, fecha_descarga_con_hora),
+  FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
   FOREIGN KEY (ISBN, URL) REFERENCES digital (ISBN, URL)
 );
 
