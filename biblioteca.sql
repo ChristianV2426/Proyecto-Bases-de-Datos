@@ -653,16 +653,16 @@ INSERT INTO solicitud (consecutivo_solicitud, id_usuario, ISBN, fecha_solicitud,
 
 -- Descarga
 INSERT INTO descarga (id_usuario, fecha_descarga_con_hora, ISBN, URL, num_ip) VALUES
-('U0001', '2023-05-01 10:00:00', 'LI001', 'https://example.com/book1', '192.168.0.1'),
-('U0002', '2023-05-01 14:30:00', 'LI002', 'https://example.com/book2', '192.168.0.2'),
-('U0003', '2023-05-02 09:15:00', 'LI003', 'https://example.com/book3', '192.168.0.3'),
-('U0004', '2023-05-02 20:45:00', 'LI004', 'https://example.com/book4', '192.168.0.4'),
-('U0005', '2023-05-03 11:30:00', 'LI005', 'https://example.com/book5', '192.168.0.5'),
-('U0006', '2023-05-03 16:00:00', 'LI006', 'https://example.com/book6', '192.168.0.6'),
-('U0001', '2023-05-04 12:15:00', 'LI007', 'https://example.com/book7', '192.168.0.1'),
-('U0007', '2023-05-05 13:00:00', 'LI008', 'https://example.com/book8', '192.168.0.7'),
-('U0008', '2023-05-05 18:30:00', 'LI009', 'https://example.com/book9', '192.168.0.8'),
-('U0009', '2023-05-06 19:45:00', 'LI010', 'https://example.com/book10', '192.168.0.9');
+('US001', '2023-05-01 10:00:00', 'LI001', 'https://example.com/book1', '192.168.0.1'),
+('US002', '2023-05-01 14:30:00', 'LI002', 'https://example.com/book2', '192.168.0.2'),
+('US003', '2023-05-02 09:15:00', 'LI003', 'https://example.com/book3', '192.168.0.3'),
+('US004', '2023-05-02 20:45:00', 'LI004', 'https://example.com/book4', '192.168.0.4'),
+('US005', '2023-05-03 11:30:00', 'LI005', 'https://example.com/book5', '192.168.0.5'),
+('US006', '2023-05-03 16:00:00', 'LI006', 'https://example.com/book6', '192.168.0.6'),
+('US001', '2023-05-04 12:15:00', 'LI007', 'https://example.com/book7', '192.168.0.1'),
+('US007', '2023-05-05 13:00:00', 'LI008', 'https://example.com/book8', '192.168.0.7'),
+('US008', '2023-05-05 18:30:00', 'LI009', 'https://example.com/book9', '192.168.0.8'),
+('US009', '2023-05-06 19:45:00', 'LI010', 'https://example.com/book10', '192.168.0.9');
 
 -- Prestamo
 INSERT INTO prestamo (consecutivo_prestamo, id_usuario, id_empleado, fecha_prestamo) VALUES
