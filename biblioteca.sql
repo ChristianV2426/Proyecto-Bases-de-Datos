@@ -623,7 +623,36 @@ INSERT INTO empleado (id_empleado, nombre_empleado, cargo) VALUES
 ('EM009', 'Sara Castro', 'Asistente de conservacion'),
 ('EM010', 'Esteban Martinez', 'Encargado de sistemas');
 
--- Prestamo --
+-- Solicitud
+INSERT INTO solicitud (consecutivo_solicitud, id_usuario, ISBN, fecha_solicitud, descripcion) VALUES
+('CS001', 'US001', 'LI031', '2023-05-01', 'Necesito este libro para mi curso de cálculo.'),
+('CS002', 'US002', 'LI032', '2023-05-02', 'Estoy interesado en aprender más sobre física moderna.'),
+('CS003', 'US003', 'LI033', '2023-05-03', 'Quiero estudiar química orgánica.'),
+('CS004', 'US004', 'LI034', '2023-05-04', 'Necesito este libro para mi clase de biología molecular.'),
+('CS005', 'US005', 'LI035', '2023-05-05', 'Me gustaría aprender programación en C++.'),
+('CS006', 'US006', 'LI036', '2023-05-06', 'Estoy interesado en el diseño estructural.'),
+('CS007', 'US007', 'LI037', '2023-05-07', 'Necesito este libro para mi curso de psicología.'),
+('CS008', 'US008', 'LI038', '2023-05-08', 'Me gustaría aprender más sobre historia universal.'),
+('CS009', 'US009', 'LI039', '2023-05-09', 'Quiero estudiar redes de computadoras.'),
+('CS010', 'US010', 'LI040', '2023-05-10', 'Necesito este libro para mi curso de medicina.'),
+('CS011', 'US001', 'LI032', '2023-05-11', 'También quiero aprender sobre física moderna.'),
+('CS012', 'US002', 'LI034', '2023-05-12', 'Me gustaría estudiar biología molecular y genética.');
+
+-- Descarga
+INSERT INTO descarga (id_usuario, fecha_descarga_con_hora, ISBN, URL, num_ip) VALUES
+('U0001', '2023-05-01 10:00:00', 'LI001', 'https://example.com/book1', '192.168.0.1'),
+('U0002', '2023-05-01 14:30:00', 'LI002', 'https://example.com/book2', '192.168.0.2'),
+('U0003', '2023-05-02 09:15:00', 'LI003', 'https://example.com/book3', '192.168.0.3'),
+('U0004', '2023-05-02 20:45:00', 'LI004', 'https://example.com/book4', '192.168.0.4'),
+('U0005', '2023-05-03 11:30:00', 'LI005', 'https://example.com/book5', '192.168.0.5'),
+('U0006', '2023-05-03 16:00:00', 'LI006', 'https://example.com/book6', '192.168.0.6'),
+('U0001', '2023-05-04 12:15:00', 'LI007', 'https://example.com/book7', '192.168.0.1'),
+('U0007', '2023-05-05 13:00:00', 'LI008', 'https://example.com/book8', '192.168.0.7'),
+('U0008', '2023-05-05 18:30:00', 'LI009', 'https://example.com/book9', '192.168.0.8'),
+('U0009', '2023-05-06 19:45:00', 'LI010', 'https://example.com/book10', '192.168.0.9');
+
+
+-- Prestamo
 INSERT INTO prestamo (consecutivo_prestamo, id_usuario, id_empleado, fecha_prestamo) VALUES
 ('PR001', 'US001', 'EM001', '2023-05-01'),
 ('PR002', 'US002', 'EM001', '2023-05-02'),
@@ -641,7 +670,7 @@ INSERT INTO prestamo (consecutivo_prestamo, id_usuario, id_empleado, fecha_prest
 ('PR014', 'US014', 'EM007', '2023-05-14'),
 ('PR015', 'US015', 'EM008', '2023-05-15');
 
--- Presta --
+-- Presta
 INSERT INTO presta (consecutivo_prestamo, isbn, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real) VALUES
 ('PR001', 'LI001', 1, '2023-05-08', '2023-05-08'),
 ('PR002', 'LI001', 2, '2023-05-09', '2023-05-10'),
@@ -659,7 +688,7 @@ INSERT INTO presta (consecutivo_prestamo, isbn, num_ejemplar, fecha_devolucion_e
 ('PR014', 'LI008', 1, '2023-05-21', '2023-05-23'),
 ('PR015', 'LI009', 1, '2023-05-22', '2023-05-22');
 
--- Multa --
+-- Multa
 INSERT INTO multa (consecutivo_prestamo, ISBN, num_ejemplar, fecha_multa, valor_multa, descripcion_multa) VALUES
 ('PR002', 'LI001', 2, '2023-05-10', 1200, '1 dia de retraso en la devolución'),
 ('PR003', 'LI001', 3, '2023-05-13', 3600, '3 dias de retraso en la devolución'),
