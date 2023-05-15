@@ -622,3 +622,53 @@ INSERT INTO empleado (id_empleado, nombre_empleado, cargo) VALUES
 ('EM008', 'Alejandro Herrera', 'Encargado de conservacion'),
 ('EM009', 'Sara Castro', 'Asistente de conservacion'),
 ('EM010', 'Esteban Martinez', 'Encargado de sistemas');
+
+-- Prestamo --
+INSERT INTO prestamo (consecutivo_prestamo, id_usuario, id_empleado, fecha_prestamo) VALUES
+('PR001', 'US001', 'EM001', '2023-05-01'),
+('PR002', 'US002', 'EM001', '2023-05-02'),
+('PR003', 'US003', 'EM002', '2023-05-03'),
+('PR004', 'US004', 'EM002', '2023-05-04'),
+('PR005', 'US005', 'EM003', '2023-05-05'),
+('PR006', 'US006', 'EM003', '2023-05-06'),
+('PR007', 'US007', 'EM004', '2023-05-07'),
+('PR008', 'US008', 'EM004', '2023-05-08'),
+('PR009', 'US009', 'EM005', '2023-05-09'),
+('PR010', 'US010', 'EM005', '2023-05-10'),
+('PR011', 'US011', 'EM006', '2023-05-11'),
+('PR012', 'US012', 'EM006', '2023-05-12'),
+('PR013', 'US013', 'EM007', '2023-05-13'),
+('PR014', 'US014', 'EM007', '2023-05-14'),
+('PR015', 'US015', 'EM008', '2023-05-15');
+
+-- Presta --
+INSERT INTO presta (consecutivo_prestamo, isbn, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real) VALUES
+('PR001', 'LI001', 1, '2023-05-08', '2023-05-08'),
+('PR002', 'LI001', 2, '2023-05-09', '2023-05-10'),
+('PR003', 'LI001', 3, '2023-05-10', '2023-05-13'),
+('PR004', 'LI002', 1, '2023-05-11', '2023-05-13'),
+('PR005', 'LI002', 2, '2023-05-12', '2023-05-14'),
+('PR006', 'LI003', 1, '2023-05-13', '2023-05-15'),
+('PR007', 'LI003', 2, '2023-05-14', '2023-05-16'),
+('PR008', 'LI004', 1, '2023-05-15', '2023-05-16'),
+('PR009', 'LI004', 2, '2023-05-16', '2023-05-18'),
+('PR010', 'LI005', 1, '2023-05-17', '2023-05-19'),
+('PR011', 'LI006', 1, '2023-05-18', '2023-05-20'),
+('PR012', 'LI006', 2, '2023-05-19', '2023-05-19'),
+('PR013', 'LI007', 1, '2023-05-20', '2023-05-20'),
+('PR014', 'LI008', 1, '2023-05-21', '2023-05-23'),
+('PR015', 'LI009', 1, '2023-05-22', '2023-05-22');
+
+-- Multa --
+INSERT INTO multa (consecutivo_prestamo, ISBN, num_ejemplar, fecha_multa, valor_multa, descripcion_multa) VALUES
+('PR002', 'LI001', 2, '2023-05-10', 1200, '1 día de retraso en la devolución'),
+('PR003', 'LI001', 3, '2023-05-13', 3600, '3 días de retraso en la devolución'),
+('PR004', 'LI002', 1, '2023-05-13', 2400, '2 días de retraso en la devolución'),
+('PR005', 'LI002', 2, '2023-05-14', 2400, '2 días de retraso en la devolución'),
+('PR006', 'LI003', 1, '2023-05-15', 2400, '2 días de retraso en la devolución'),
+('PR007', 'LI003', 2, '2023-05-16', 2400, '2 días de retraso en la devolución'),
+('PR008', 'LI004', 1, '2023-05-16', 1200, '1 día de retraso en la devolución'),
+('PR009', 'LI004', 2, '2023-05-18', 2400, '2 días de retraso en la devolución'),
+('PR010', 'LI005', 1, '2023-05-19', 2400, '2 días de retraso en la devolución'),
+('PR011', 'LI006', 1, '2023-05-20', 2400, '2 días de retraso en la devolución'),
+('PR014', 'LI008', 1, '2023-05-23', 2400, '2 días de retraso en la devolución');
