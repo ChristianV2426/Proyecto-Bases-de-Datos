@@ -651,7 +651,6 @@ INSERT INTO descarga (id_usuario, fecha_descarga_con_hora, ISBN, URL, num_ip) VA
 ('U0008', '2023-05-05 18:30:00', 'LI009', 'https://example.com/book9', '192.168.0.8'),
 ('U0009', '2023-05-06 19:45:00', 'LI010', 'https://example.com/book10', '192.168.0.9');
 
-
 -- Prestamo
 INSERT INTO prestamo (consecutivo_prestamo, id_usuario, id_empleado, fecha_prestamo) VALUES
 ('PR001', 'US001', 'EM001', '2023-05-01'),
