@@ -204,6 +204,7 @@ CREATE TABLE presta (
   fecha_devolucion_real DATE, 
 
   PRIMARY KEY (consecutivo_prestamo, ISBN, num_ejemplar),
+  FOREIGN KEY (consecutivo_prestamo) REFERENCES prestamo (consecutivo_prestamo),
   FOREIGN KEY (ISBN, num_ejemplar) REFERENCES ejemplar (ISBN, num_ejemplar)
 );
 
