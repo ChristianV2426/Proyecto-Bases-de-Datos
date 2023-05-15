@@ -661,14 +661,14 @@ INSERT INTO presta (consecutivo_prestamo, isbn, num_ejemplar, fecha_devolucion_e
 
 -- Multa --
 INSERT INTO multa (consecutivo_prestamo, ISBN, num_ejemplar, fecha_multa, valor_multa, descripcion_multa) VALUES
-('PR002', 'LI001', 2, '2023-05-10', 1200, '1 día de retraso en la devolución'),
-('PR003', 'LI001', 3, '2023-05-13', 3600, '3 días de retraso en la devolución'),
-('PR004', 'LI002', 1, '2023-05-13', 2400, '2 días de retraso en la devolución'),
-('PR005', 'LI002', 2, '2023-05-14', 2400, '2 días de retraso en la devolución'),
-('PR006', 'LI003', 1, '2023-05-15', 2400, '2 días de retraso en la devolución'),
-('PR007', 'LI003', 2, '2023-05-16', 2400, '2 días de retraso en la devolución'),
-('PR008', 'LI004', 1, '2023-05-16', 1200, '1 día de retraso en la devolución'),
-('PR009', 'LI004', 2, '2023-05-18', 2400, '2 días de retraso en la devolución'),
-('PR010', 'LI005', 1, '2023-05-19', 2400, '2 días de retraso en la devolución'),
-('PR011', 'LI006', 1, '2023-05-20', 2400, '2 días de retraso en la devolución'),
-('PR014', 'LI008', 1, '2023-05-23', 2400, '2 días de retraso en la devolución');
+('PR002', 'LI001', 2, '2023-05-10', 1200, '1 dia de retraso en la devolución'),
+('PR003', 'LI001', 3, '2023-05-13', 3600, '3 dias de retraso en la devolución'),
+('PR004', 'LI002', 1, '2023-05-13', 2400, '2 dias de retraso en la devolución'),
+('PR005', 'LI002', 2, '2023-05-14', 2400, '2 dias de retraso en la devolución'),
+('PR006', 'LI003', 1, '2023-05-15', 2400, '2 dias de retraso en la devolución'),
+('PR007', 'LI003', 2, '2023-05-16', 2400, '2 dias de retraso en la devolución'),
+('PR008', 'LI004', 1, '2023-05-16', 1200, '1 dia de retraso en la devolución'),
+('PR009', 'LI004', 2, '2023-05-18', 2400, '2 dias de retraso en la devolución'),
+('PR010', 'LI005', 1, '2023-05-19', 2400, '2 dias de retraso en la devolución'),
+('PR011', 'LI006', 1, '2023-05-20', 2400, '2 dias de retraso en la devolución'),
+('PR014', 'LI008', 1, '2023-05-23', 2400, '2 dias de retraso en la devolución');
