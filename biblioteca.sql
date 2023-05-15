@@ -393,7 +393,18 @@ INSERT INTO escribe (codigo_autor, ISBN) VALUES
 ('AU007', 'LI028'),
 ('AU008', 'LI029'),
 ('AU009', 'LI030'),
-('AU010', 'LI030');
+('AU010', 'LI030'),
+('AU011', 'LI031'),
+('AU012', 'LI032'),
+('AU013', 'LI033'),
+('AU014', 'LI034'),
+('AU015', 'LI035'),
+('AU016', 'LI036'),
+('AU017', 'LI037'),
+('AU018', 'LI038'),
+('AU019', 'LI038'),
+('AU020', 'LI039'),
+('AU021', 'LI040');
 
 -- Digital
 INSERT INTO digital (ISBN, URL, tamano_bytes, formato) VALUES
