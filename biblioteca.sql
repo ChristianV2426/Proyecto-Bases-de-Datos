@@ -157,36 +157,37 @@ CREATE TABLE empleado (
 -- Solicitud --
 DROP TABLE IF EXISTS solicitud CASCADE;
 CREATE TABLE solicitud (
-  consecutivo_solicitud VARCHAR(5) NOT NULL,
+  codigo_solicitud VARCHAR(5) NOT NULL,
   id_usuario VARCHAR(5) NOT NULL,
   fecha_solicitud DATE, 
   descripcion VARCHAR(100),
 
-  PRIMARY KEY (consecutivo_solicitud),
+  PRIMARY KEY (codigo_solicitud),
   FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
 );
 
 -- Pide --
 DROP TABLE IF EXISTS pide CASCADE;
 CREATE TABLE pide (
-  consecutivo_solicitud VARCHAR(5) NOT NULL,
+  codigo_solicitud VARCHAR(5) NOT NULL,
   ISBN VARCHAR(5) NOT NULL,
 
-  PRIMARY KEY (consecutivo_solicitud, ISBN),
-  FOREIGN KEY (consecutivo_solicitud) REFERENCES solicitud (consecutivo_solicitud),
+  PRIMARY KEY (codigo_solicitud, ISBN),
+  FOREIGN KEY (codigo_solicitud) REFERENCES solicitud (codigo_solicitud),
   FOREIGN KEY (ISBN) REFERENCES libro (ISBN)
 );
 
 -- Descarga --
 DROP TABLE IF EXISTS descarga CASCADE;
 CREATE TABLE descarga (
+  codigo_descarga VARCHAR(5) NOT NULL, 
   id_usuario VARCHAR(5) NOT NULL,
-  fecha_descarga_con_hora TIMESTAMP NOT NULL,
   ISBN VARCHAR(5) NOT NULL,
   URL VARCHAR(200) NOT NULL,
+  fecha_descarga_con_hora TIMESTAMP NOT NULL,
   num_ip VARCHAR(12), 
 
-  PRIMARY KEY (id_usuario, fecha_descarga_con_hora),
+  PRIMARY KEY (codigo_descarga),
   FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
   FOREIGN KEY (ISBN, URL) REFERENCES digital (ISBN, URL)
 );
@@ -194,12 +195,12 @@ CREATE TABLE descarga (
 -- Prestamo --
 DROP TABLE IF EXISTS prestamo CASCADE;
 CREATE TABLE prestamo (
-  consecutivo_prestamo VARCHAR(5) NOT NULL, 
+  codigo_prestamo VARCHAR(5) NOT NULL, 
   id_usuario VARCHAR(5) NOT NULL,
   id_empleado VARCHAR(5) NOT NULL,
   fecha_prestamo DATE, 
 
-  PRIMARY KEY (consecutivo_prestamo),
+  PRIMARY KEY (codigo_prestamo),
   FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
   FOREIGN KEY (id_empleado) REFERENCES empleado (id_empleado)
 );
@@ -207,29 +208,29 @@ CREATE TABLE prestamo (
 -- Presta --
 DROP TABLE IF EXISTS presta CASCADE;
 CREATE TABLE presta (
-  consecutivo_prestamo VARCHAR(5) NOT NULL,
+  codigo_presta VARCHAR(5) NOT NULL, 
+  codigo_prestamo VARCHAR(5) NOT NULL,
   ISBN VARCHAR(5) NOT NULL,
   num_ejemplar INT NOT NULL,
   fecha_devolucion_esperada DATE,
   fecha_devolucion_real DATE, 
 
-  PRIMARY KEY (consecutivo_prestamo, ISBN, num_ejemplar),
-  FOREIGN KEY (consecutivo_prestamo) REFERENCES prestamo (consecutivo_prestamo),
+  PRIMARY KEY (codigo_presta),
+  FOREIGN KEY (codigo_prestamo) REFERENCES prestamo (codigo_prestamo),
   FOREIGN KEY (ISBN, num_ejemplar) REFERENCES ejemplar (ISBN, num_ejemplar)
 );
 
 -- Multa --
 DROP TABLE IF EXISTS multa CASCADE;
 CREATE TABLE multa (
-  consecutivo_prestamo VARCHAR(5) NOT NULL,
-  ISBN VARCHAR(5) NOT NULL,
-  num_ejemplar INT NOT NULL,
+  codigo_multa VARCHAR(5) NOT NULL,
+  codigo_presta VARCHAR(5) NOT NULL, 
   fecha_multa DATE, 
   valor_multa MONEY, 
   descripcion_multa VARCHAR(100),
 
-  PRIMARY KEY (consecutivo_prestamo, ISBN, num_ejemplar, fecha_multa),
-  FOREIGN KEY (consecutivo_prestamo, ISBN, num_ejemplar) REFERENCES presta (consecutivo_prestamo, ISBN, num_ejemplar)
+  PRIMARY KEY (codigo_multa),
+  FOREIGN KEY (codigo_presta) REFERENCES presta (codigo_presta)
 );
 
 INSERT INTO editorial (codigo_editorial, nombre_editorial, pais_origen, pagina_web) VALUES
@@ -646,7 +647,7 @@ INSERT INTO empleado (id_empleado, nombre_empleado, cargo) VALUES
 ('EM010', 'Esteban Martinez', 'Encargado de sistemas');
 
 -- Solicitud
-INSERT INTO solicitud (consecutivo_solicitud, id_usuario, fecha_solicitud, descripcion) VALUES
+INSERT INTO solicitud (codigo_solicitud, id_usuario, fecha_solicitud, descripcion) VALUES
 ('CS001', 'US001', '2023-05-01', 'Necesito este libro para mi curso de calculo.'),
 ('CS002', 'US002', '2023-05-02', 'Estoy interesado en aprender mas sobre fisica moderna.'),
 ('CS003', 'US003', '2023-05-03', 'Quiero estudiar quimica organica.'),
@@ -661,7 +662,7 @@ INSERT INTO solicitud (consecutivo_solicitud, id_usuario, fecha_solicitud, descr
 ('CS012', 'US002', '2023-05-12', 'Me gustaria estudiar biologia molecular y genetica.');
 
 -- Pide
-INSERT INTO pide (consecutivo_solicitud, ISBN) VALUES
+INSERT INTO pide (codigo_solicitud, ISBN) VALUES
 ('CS001', 'LI031'), 
 ('CS002', 'LI032'),
 ('CS003', 'LI033'), 
@@ -676,20 +677,20 @@ INSERT INTO pide (consecutivo_solicitud, ISBN) VALUES
 ('CS012', 'LI034');
 
 -- Descarga
-INSERT INTO descarga (id_usuario, fecha_descarga_con_hora, ISBN, URL, num_ip) VALUES
-('US001', '2023-05-01 10:00:00', 'LI001', 'https://example.com/book1', '192.168.0.1'),
-('US002', '2023-05-01 14:30:00', 'LI002', 'https://example.com/book2', '192.168.0.2'),
-('US003', '2023-05-02 09:15:00', 'LI003', 'https://example.com/book3', '192.168.0.3'),
-('US004', '2023-05-02 20:45:00', 'LI004', 'https://example.com/book4', '192.168.0.4'),
-('US005', '2023-05-03 11:30:00', 'LI005', 'https://example.com/book5', '192.168.0.5'),
-('US006', '2023-05-03 16:00:00', 'LI006', 'https://example.com/book6', '192.168.0.6'),
-('US001', '2023-05-04 12:15:00', 'LI007', 'https://example.com/book7', '192.168.0.1'),
-('US007', '2023-05-05 13:00:00', 'LI008', 'https://example.com/book8', '192.168.0.7'),
-('US008', '2023-05-05 18:30:00', 'LI009', 'https://example.com/book9', '192.168.0.8'),
-('US009', '2023-05-06 19:45:00', 'LI010', 'https://example.com/book10', '192.168.0.9');
+INSERT INTO descarga (codigo_descarga, id_usuario, ISBN, URL, fecha_descarga_con_hora, num_ip) VALUES
+('DS001', 'US001', 'LI001', 'https://example.com/book1', '2023-05-01 10:00:00', '192.168.0.1'),
+('DS002', 'US002', 'LI002', 'https://example.com/book2', '2023-05-01 14:30:00', '192.168.0.2'),
+('DS003', 'US003', 'LI003', 'https://example.com/book3', '2023-05-02 09:15:00', '192.168.0.3'),
+('DS004', 'US004', 'LI004', 'https://example.com/book4', '2023-05-02 20:45:00', '192.168.0.4'),
+('DS005', 'US005', 'LI005', 'https://example.com/book5', '2023-05-03 11:30:00', '192.168.0.5'),
+('DS006', 'US006', 'LI006', 'https://example.com/book6', '2023-05-03 16:00:00', '192.168.0.6'),
+('DS007', 'US001', 'LI007', 'https://example.com/book7', '2023-05-04 12:15:00', '192.168.0.1'),
+('DS008', 'US007', 'LI008', 'https://example.com/book8', '2023-05-05 13:00:00', '192.168.0.7'),
+('DS009', 'US008', 'LI009', 'https://example.com/book9', '2023-05-05 18:30:00', '192.168.0.8'),
+('DS010', 'US009', 'LI010', 'https://example.com/book10', '2023-05-06 19:45:00', '192.168.0.9');
 
 -- Prestamo
-INSERT INTO prestamo (consecutivo_prestamo, id_usuario, id_empleado, fecha_prestamo) VALUES
+INSERT INTO prestamo (codigo_prestamo, id_usuario, id_empleado, fecha_prestamo) VALUES
 ('PR001', 'US001', 'EM001', '2023-05-01'),
 ('PR002', 'US002', 'EM001', '2023-05-02'),
 ('PR003', 'US003', 'EM002', '2023-05-03'),
@@ -707,39 +708,39 @@ INSERT INTO prestamo (consecutivo_prestamo, id_usuario, id_empleado, fecha_prest
 ('PR015', 'US015', 'EM008', '2023-05-15');
 
 -- Presta
-INSERT INTO presta (consecutivo_prestamo, isbn, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real) VALUES
-('PR001', 'LI001', 1, '2023-05-08', '2023-05-08'),
-('PR001', 'LI010', 1, '2023-05-08', '2023-05-08'),
-('PR001', 'LI011', 1, '2023-05-08', '2023-05-08'),
-('PR002', 'LI001', 2, '2023-05-09', '2023-05-10'),
-('PR003', 'LI001', 3, '2023-05-10', '2023-05-13'),
-('PR004', 'LI002', 1, '2023-05-11', '2023-05-13'),
-('PR005', 'LI002', 2, '2023-05-12', '2023-05-14'),
-('PR006', 'LI003', 1, '2023-05-13', '2023-05-15'),
-('PR007', 'LI003', 2, '2023-05-14', '2023-05-16'),
-('PR007', 'LI030', 2, '2023-05-14', '2023-05-16'),
-('PR007', 'LI024', 1, '2023-05-14', '2023-05-16'),
-('PR008', 'LI004', 1, '2023-05-15', '2023-05-16'),
-('PR009', 'LI004', 2, '2023-05-16', '2023-05-18'),
-('PR010', 'LI005', 1, '2023-05-17', '2023-05-19'),
-('PR011', 'LI006', 1, '2023-05-18', '2023-05-20'),
-('PR012', 'LI006', 2, '2023-05-19', '2023-05-19'),
-('PR012', 'LI015', 1, '2023-05-19', '2023-05-19'),
-('PR012', 'LI020', 2, '2023-05-19', '2023-05-19'),
-('PR013', 'LI007', 1, '2023-05-20', '2023-05-20'),
-('PR014', 'LI008', 1, '2023-05-21', '2023-05-23'),
-('PR015', 'LI009', 1, '2023-05-22', '2023-05-22');
+INSERT INTO presta (codigo_presta, codigo_prestamo, isbn, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real) VALUES
+('PT001', 'PR001', 'LI001', 1, '2023-05-08', '2023-05-08'),
+('PT002', 'PR001', 'LI010', 1, '2023-05-08', '2023-05-08'),
+('PT003', 'PR001', 'LI011', 1, '2023-05-08', '2023-05-08'),
+('PT004', 'PR002', 'LI001', 2, '2023-05-09', '2023-05-10'),
+('PT005', 'PR003', 'LI001', 3, '2023-05-10', '2023-05-13'),
+('PT006', 'PR004', 'LI002', 1, '2023-05-11', '2023-05-13'),
+('PT007', 'PR005', 'LI002', 2, '2023-05-12', '2023-05-14'),
+('PT008', 'PR006', 'LI003', 1, '2023-05-13', '2023-05-15'),
+('PT009', 'PR007', 'LI003', 2, '2023-05-14', '2023-05-16'),
+('PT010', 'PR007', 'LI030', 2, '2023-05-14', '2023-05-16'),
+('PT011', 'PR007', 'LI024', 1, '2023-05-14', '2023-05-16'),
+('PT012', 'PR008', 'LI004', 1, '2023-05-15', '2023-05-16'),
+('PT013', 'PR009', 'LI004', 2, '2023-05-16', '2023-05-18'),
+('PT014', 'PR010', 'LI005', 1, '2023-05-17', '2023-05-19'),
+('PT015', 'PR011', 'LI006', 1, '2023-05-18', '2023-05-20'),
+('PT016', 'PR012', 'LI006', 2, '2023-05-19', '2023-05-19'),
+('PT017', 'PR012', 'LI015', 1, '2023-05-19', '2023-05-19'),
+('PT018', 'PR012', 'LI020', 2, '2023-05-19', '2023-05-19'),
+('PT019', 'PR013', 'LI007', 1, '2023-05-20', '2023-05-20'),
+('PT020', 'PR014', 'LI008', 1, '2023-05-21', '2023-05-23'),
+('PT021', 'PR015', 'LI009', 1, '2023-05-22', '2023-05-22');
 
 -- Multa
-INSERT INTO multa (consecutivo_prestamo, ISBN, num_ejemplar, fecha_multa, valor_multa, descripcion_multa) VALUES
-('PR002', 'LI001', 2, '2023-05-10', 1200, '1 dia de retraso en la devolucion'),
-('PR003', 'LI001', 3, '2023-05-13', 3600, '3 dias de retraso en la devolucion'),
-('PR004', 'LI002', 1, '2023-05-13', 2400, '2 dias de retraso en la devolucion'),
-('PR005', 'LI002', 2, '2023-05-14', 2400, '2 dias de retraso en la devolucion'),
-('PR006', 'LI003', 1, '2023-05-15', 2400, '2 dias de retraso en la devolucion'),
-('PR007', 'LI003', 2, '2023-05-16', 2400, '2 dias de retraso en la devolucion'),
-('PR008', 'LI004', 1, '2023-05-16', 1200, '1 dia de retraso en la devolucion'),
-('PR009', 'LI004', 2, '2023-05-18', 2400, '2 dias de retraso en la devolucion'),
-('PR010', 'LI005', 1, '2023-05-19', 2400, '2 dias de retraso en la devolucion'),
-('PR011', 'LI006', 1, '2023-05-20', 2400, '2 dias de retraso en la devolucion'),
-('PR014', 'LI008', 1, '2023-05-23', 2400, '2 dias de retraso en la devolucion');
+INSERT INTO multa (codigo_multa, codigo_presta, fecha_multa, valor_multa, descripcion_multa) VALUES
+('MU001', 'PT004', '2023-05-10', 1200, '1 dia de retraso en la devolucion'),
+('MU002', 'PT005', '2023-05-13', 3600, '3 dias de retraso en la devolucion'),
+('MU003', 'PT006', '2023-05-13', 2400, '2 dias de retraso en la devolucion'),
+('MU004', 'PT007', '2023-05-14', 2400, '2 dias de retraso en la devolucion'),
+('MU005', 'PT008', '2023-05-15', 2400, '2 dias de retraso en la devolucion'),
+('MU006', 'PT009', '2023-05-16', 2400, '2 dias de retraso en la devolucion'),
+('MU007', 'PT012', '2023-05-16', 1200, '1 dia de retraso en la devolucion'),
+('MU008', 'PT013', '2023-05-18', 2400, '2 dias de retraso en la devolucion'),
+('MU009', 'PT014', '2023-05-19', 2400, '2 dias de retraso en la devolucion'),
+('MU010', 'PT015', '2023-05-20', 2400, '2 dias de retraso en la devolucion'),
+('MU011', 'PT020', '2023-05-23', 2400, '2 dias de retraso en la devolucion');
