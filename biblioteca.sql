@@ -159,12 +159,21 @@ DROP TABLE IF EXISTS solicitud CASCADE;
 CREATE TABLE solicitud (
   consecutivo_solicitud VARCHAR(5) NOT NULL,
   id_usuario VARCHAR(5) NOT NULL,
-  ISBN VARCHAR(5) NOT NULL,
   fecha_solicitud DATE, 
   descripcion VARCHAR(100),
 
   PRIMARY KEY (consecutivo_solicitud),
-  FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
+  FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
+);
+
+-- Pide --
+DROP TABLE IF EXISTS pide CASCADE;
+CREATE TABLE pide (
+  consecutivo_solicitud VARCHAR(5) NOT NULL,
+  ISBN VARCHAR(5) NOT NULL,
+
+  PRIMARY KEY (consecutivo_solicitud, ISBN),
+  FOREIGN KEY (consecutivo_solicitud) REFERENCES solicitud (consecutivo_solicitud),
   FOREIGN KEY (ISBN) REFERENCES libro (ISBN)
 );
 
@@ -637,19 +646,34 @@ INSERT INTO empleado (id_empleado, nombre_empleado, cargo) VALUES
 ('EM010', 'Esteban Martinez', 'Encargado de sistemas');
 
 -- Solicitud
-INSERT INTO solicitud (consecutivo_solicitud, id_usuario, ISBN, fecha_solicitud, descripcion) VALUES
-('CS001', 'US001', 'LI031', '2023-05-01', 'Necesito este libro para mi curso de calculo.'),
-('CS002', 'US002', 'LI032', '2023-05-02', 'Estoy interesado en aprender mas sobre fisica moderna.'),
-('CS003', 'US003', 'LI033', '2023-05-03', 'Quiero estudiar quimica organica.'),
-('CS004', 'US004', 'LI034', '2023-05-04', 'Necesito este libro para mi clase de biologia molecular.'),
-('CS005', 'US005', 'LI035', '2023-05-05', 'Me gustaria aprender programacion en C++.'),
-('CS006', 'US006', 'LI036', '2023-05-06', 'Estoy interesado en el diseño estructural.'),
-('CS007', 'US007', 'LI037', '2023-05-07', 'Necesito este libro para mi curso de psicologia.'),
-('CS008', 'US008', 'LI038', '2023-05-08', 'Me gustaria aprender mas sobre historia universal.'),
-('CS009', 'US009', 'LI039', '2023-05-09', 'Quiero estudiar redes de computadoras.'),
-('CS010', 'US010', 'LI040', '2023-05-10', 'Necesito este libro para mi curso de medicina.'),
-('CS011', 'US001', 'LI032', '2023-05-11', 'Tambien quiero aprender sobre fisica moderna.'),
-('CS012', 'US002', 'LI034', '2023-05-12', 'Me gustaria estudiar biologia molecular y genetica.');
+INSERT INTO solicitud (consecutivo_solicitud, id_usuario, fecha_solicitud, descripcion) VALUES
+('CS001', 'US001', '2023-05-01', 'Necesito este libro para mi curso de calculo.'),
+('CS002', 'US002', '2023-05-02', 'Estoy interesado en aprender mas sobre fisica moderna.'),
+('CS003', 'US003', '2023-05-03', 'Quiero estudiar quimica organica.'),
+('CS004', 'US004', '2023-05-04', 'Necesito este libro para mi clase de biologia molecular.'),
+('CS005', 'US005', '2023-05-05', 'Me gustaria aprender programacion en C++.'),
+('CS006', 'US006', '2023-05-06', 'Estoy interesado en el diseño estructural.'),
+('CS007', 'US007', '2023-05-07', 'Necesito este libro para mi curso de psicologia.'),
+('CS008', 'US008', '2023-05-08', 'Me gustaria aprender mas sobre historia universal.'),
+('CS009', 'US009', '2023-05-09', 'Quiero estudiar redes de computadoras.'),
+('CS010', 'US010', '2023-05-10', 'Necesito este libro para mi curso de medicina.'),
+('CS011', 'US001', '2023-05-11', 'Tambien quiero aprender sobre fisica moderna.'),
+('CS012', 'US002', '2023-05-12', 'Me gustaria estudiar biologia molecular y genetica.');
+
+-- Pide
+INSERT INTO pide (consecutivo_solicitud, ISBN) VALUES
+('CS001', 'LI031'), 
+('CS002', 'LI032'),
+('CS003', 'LI033'), 
+('CS004', 'LI034'), 
+('CS005', 'LI035'), 
+('CS006', 'LI036'), 
+('CS007', 'LI037'), 
+('CS008', 'LI038'), 
+('CS009', 'LI039'), 
+('CS010', 'LI040'), 
+('CS011', 'LI032'), 
+('CS012', 'LI034');
 
 -- Descarga
 INSERT INTO descarga (id_usuario, fecha_descarga_con_hora, ISBN, URL, num_ip) VALUES
