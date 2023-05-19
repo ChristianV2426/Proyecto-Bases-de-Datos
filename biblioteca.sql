@@ -710,23 +710,23 @@ INSERT INTO prestamo (codigo_prestamo, id_usuario, id_empleado, fecha_prestamo) 
 -- Presta
 INSERT INTO presta (codigo_presta, codigo_prestamo, isbn, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real) VALUES
 ('PT001', 'PR001', 'LI001', 1, '2023-05-08', '2023-05-08'),
-('PT002', 'PR001', 'LI010', 1, '2023-05-08', '2023-05-08'),
-('PT003', 'PR001', 'LI011', 1, '2023-05-08', '2023-05-08'),
+('PT002', 'PR001', 'LI010', 1, '2023-05-08', '2023-05-07'),
+('PT003', 'PR001', 'LI011', 1, '2023-05-08', '2023-05-06'),
 ('PT004', 'PR002', 'LI001', 2, '2023-05-09', '2023-05-10'),
 ('PT005', 'PR003', 'LI001', 3, '2023-05-10', '2023-05-13'),
 ('PT006', 'PR004', 'LI002', 1, '2023-05-11', '2023-05-13'),
 ('PT007', 'PR005', 'LI002', 2, '2023-05-12', '2023-05-14'),
 ('PT008', 'PR006', 'LI003', 1, '2023-05-13', '2023-05-15'),
 ('PT009', 'PR007', 'LI003', 2, '2023-05-14', '2023-05-16'),
-('PT010', 'PR007', 'LI030', 2, '2023-05-14', '2023-05-16'),
-('PT011', 'PR007', 'LI024', 1, '2023-05-14', '2023-05-16'),
+('PT010', 'PR007', 'LI030', 2, '2023-05-14', '2023-05-13'),
+('PT011', 'PR007', 'LI024', 1, '2023-05-14', '2023-05-14'),
 ('PT012', 'PR008', 'LI004', 1, '2023-05-15', '2023-05-16'),
 ('PT013', 'PR009', 'LI004', 2, '2023-05-16', '2023-05-18'),
 ('PT014', 'PR010', 'LI005', 1, '2023-05-17', '2023-05-19'),
 ('PT015', 'PR011', 'LI006', 1, '2023-05-18', '2023-05-20'),
 ('PT016', 'PR012', 'LI006', 2, '2023-05-19', '2023-05-19'),
-('PT017', 'PR012', 'LI015', 1, '2023-05-19', '2023-05-19'),
-('PT018', 'PR012', 'LI020', 2, '2023-05-19', '2023-05-19'),
+('PT017', 'PR012', 'LI015', 1, '2023-05-19', '2023-05-18'),
+('PT018', 'PR012', 'LI020', 2, '2023-05-19', '2023-05-13'),
 ('PT019', 'PR013', 'LI007', 1, '2023-05-20', '2023-05-20'),
 ('PT020', 'PR014', 'LI008', 1, '2023-05-21', '2023-05-23'),
 ('PT021', 'PR015', 'LI009', 1, '2023-05-22', '2023-05-22');
@@ -744,3 +744,14 @@ INSERT INTO multa (codigo_multa, codigo_presta, fecha_multa, valor_multa, descri
 ('MU009', 'PT014', '2023-05-19', 2400, '2 dias de retraso en la devolucion'),
 ('MU010', 'PT015', '2023-05-20', 2400, '2 dias de retraso en la devolucion'),
 ('MU011', 'PT020', '2023-05-23', 2400, '2 dias de retraso en la devolucion');
+
+
+-- Las siguientes consultas permiten visualizar la información más relevante de la base de datos.
+
+-- Información relevante de todos los prestamos registrados
+SELECT nombre_usuario, titulo, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real
+FROM prestamo NATURAL JOIN usuario NATURAL JOIN presta NATURAL JOIN libro;
+
+-- Información relevante de las multas registradas
+SELECT nombre_usuario, titulo, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real, valor_multa
+FROM multa NATURAL JOIN presta NATURAL JOIN prestamo NATURAL JOIN usuario NATURAL JOIN libro;
