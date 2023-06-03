@@ -19,7 +19,6 @@ package co.edu.univalle.modelo;
 
 import co.edu.univalle.persistencia.*;
 
-import java.sql.*;
 import java.time.*;
 import java.io.*;
 

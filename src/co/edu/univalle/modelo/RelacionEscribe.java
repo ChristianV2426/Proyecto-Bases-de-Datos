@@ -35,7 +35,7 @@ public class RelacionEscribe {
     return codigoAutor;
   }
 
-  public String getisbn() {
+  public String getIsbn() {
     return isbn;
   }
 
