@@ -26,7 +26,6 @@ public class RelacionPresta {
   private Integer numEjemplar;
   private LocalDate fechaDevolucionEsperada;
   private LocalDate fechaDevolucionReal;
-  private static int numeroColumnas = 6;
 
   public RelacionPresta(String codigoPresta, String codigoPrestamo, String isbn, Integer numEjemplar, LocalDate fechaDevolucionEsperada) {
     this.codigoPresta = codigoPresta;
@@ -72,10 +71,6 @@ public class RelacionPresta {
 
   public void setFechaDevolucionReal(LocalDate fechaDevolucionReal) {
     this.fechaDevolucionReal = fechaDevolucionReal;
-  }
-
-  public static int getNumeroColumnas(){
-    return numeroColumnas;
   }
 
   @Override

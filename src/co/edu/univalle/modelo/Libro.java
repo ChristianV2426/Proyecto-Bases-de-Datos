@@ -26,7 +26,6 @@ public class Libro {
   private String idioma;
   private String codigoArea;
   private String codigoEditorial;
-  private static int numeroColumnas = 7;
 
   public Libro(String isbn, String titulo, Integer numPagina, Integer anioPublicacion, String idioma, String codigoArea, String codigoEditorial) {
     this.isbn = isbn;
@@ -64,10 +63,6 @@ public class Libro {
 
   public String getCodigoEditorial() {
     return codigoEditorial;
-  }
-
-  public static int getNumeroColumnas(){
-    return numeroColumnas;
   }
 
   @Override

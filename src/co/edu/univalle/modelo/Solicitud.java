@@ -24,7 +24,6 @@ public class Solicitud {
   private String idUsuario;
   private LocalDate fechaSolicitud;
   private String descripcion;
-  private static int numeroColumnas = 5;
   
   public Solicitud(String codigoSolicitud, String idUsuario, LocalDate fechaSolicitud, String descripcion) {
     this.codigoSolicitud = codigoSolicitud;
@@ -54,10 +53,6 @@ public class Solicitud {
 
   public String getDescripcion() {
     return descripcion;
-  }
-
-  public static int getNumeroColumnas(){
-    return numeroColumnas;
   }
 
   @Override

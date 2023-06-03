@@ -24,21 +24,6 @@ import java.time.*;
 import java.io.*;
 
 public class ManejadorArchivos {
-  public static int numeroFilasEnResultadoConsulta(ResultSet resultadoConsulta){
-    int numeroFilas = 0;
-    try {
-      resultadoConsulta.last();
-      numeroFilas = resultadoConsulta.getRow();
-      resultadoConsulta.beforeFirst();
-      return numeroFilas;
-
-    } catch (Exception error){
-      System.out.println("Error contando el número de filas en el resultado de la consulta.\nError: " + error.getMessage());
-      return 0;
-    }
-
-  }
-
   public static void imprimirArregloEnConsola(String[][] arreglo) {
     String configuracionImpresion = "%-30s";
 
@@ -53,7 +38,6 @@ public class ManejadorArchivos {
         System.out.printf(configuracionImpresion, arreglo[fila][columna]);
       System.out.println();
     }
-
   }
 
   public static boolean guardarEnArchivoTextoPlano(Biblioteca biblioteca, String rutaDirectorio){

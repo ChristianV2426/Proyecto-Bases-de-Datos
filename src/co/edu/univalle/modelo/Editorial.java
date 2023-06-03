@@ -22,7 +22,6 @@ public class Editorial {
   private String nombreEditorial;
   private String paisOrigen;
   private String paginaWeb;
-  private static int numeroColumnas = 4;
 
   public Editorial(String codigoEditorial, String nombreEditorial, String paisOrigen, String paginaWeb) {
     this.codigoEditorial = codigoEditorial;
@@ -45,10 +44,6 @@ public class Editorial {
 
   public String getPaginaWeb() {
     return paginaWeb;
-  }
-
-  public static int getNumeroColumnas(){
-    return numeroColumnas;
   }
 
   @Override

@@ -22,7 +22,6 @@ public class Area {
   private String nombreArea;
   private String descripcionArea;
   private String areaPadre;
-  private static int numeroColumnas = 4;
 
   public Area(String codigoArea, String nombreArea, String descripcionArea){
     this.codigoArea = codigoArea;
@@ -52,10 +51,6 @@ public class Area {
 
   public String getAreaPadre() {
     return areaPadre;
-  }
-
-  public static int getNumeroColumnas() {
-    return numeroColumnas;
   }
 
   @Override

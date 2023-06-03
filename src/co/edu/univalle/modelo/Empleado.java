@@ -21,7 +21,6 @@ public class Empleado {
   private String idEmpleado;
   private String nombreEmpleado;
   private String cargo;
-  private static int numeroColumnas = 3;
   
   public Empleado(String idEmpleado, String nombreEmpleado, String cargo) {
     this.idEmpleado = idEmpleado;
@@ -39,10 +38,6 @@ public class Empleado {
 
   public String getCargo() {
     return cargo;
-  }
-
-  public static int getNumeroColumnas(){
-    return numeroColumnas;
   }
 
   @Override

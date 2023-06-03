@@ -19,6 +19,7 @@ package co.edu.univalle;
 
 import co.edu.univalle.modelo.Area;
 import co.edu.univalle.modelo.Editorial;
+import co.edu.univalle.modelo.Libro;
 import co.edu.univalle.modelo.ManejadorArchivos;
 import co.edu.univalle.persistencia.*;
 import java.sql.*;
@@ -58,9 +59,27 @@ public class Test {
 
     System.out.println(biblioteca.getAreas().eliminarElemento("AC039"));
 
+
+    /* Pruebas CRUD sobre Libros */
+    Libro libro1 = new Libro("LI041", "TermodinamicaII", Integer.valueOf(550), Integer.valueOf(2015), "Español", "AC016", "ED001");
+    System.out.println(biblioteca.getLibros().insertarElemento(libro1));
+    Libro libro2 = biblioteca.getLibros().obtenerElemento("LI041");
+    System.out.println(libro2);
+
+    System.out.println(biblioteca.getLibros().obtenerTodosLosElementos() != null);
+
+    Libro libro3 = new Libro("LI041", "Termodinamica Quimica", Integer.valueOf(550), Integer.valueOf(2015), "Español", "AC016", "ED001");
+    System.out.println(biblioteca.getLibros().editarElemento(libro3));
+
+    System.out.println(biblioteca.getLibros().eliminarElemento("LI041"));
+
+
+
+
+
     
 
-    System.out.println(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, "C:/Users/ChristianV/Desktop/Lenguajes/SQL/Proyecto"));
+    //System.out.println(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, "C:/Users/ChristianV/Desktop/Lenguajes/SQL/Proyecto"));
 
     fachadaBD.closeConexionBD(conexionBD);
 

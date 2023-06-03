@@ -23,7 +23,6 @@ public class Usuario {
   private String telefono;
   private String direccion;
   private String email;
-  private static int numeroColumnas = 5;
 
   public Usuario(String idUsuario, String nombreUsuario, String telefono, String direccion, String email) {
     this.idUsuario = idUsuario;
@@ -51,10 +50,6 @@ public class Usuario {
 
   public String getEmail() {
     return email;
-  }
-
-  public static int getNumeroColumnas(){
-    return numeroColumnas;
   }
 
   @Override

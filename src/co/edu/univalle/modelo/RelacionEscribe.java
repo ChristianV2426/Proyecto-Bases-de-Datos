@@ -20,7 +20,6 @@ package co.edu.univalle.modelo;
 public class RelacionEscribe {
   private String codigoAutor;
   private String isbn;
-  private static int numeroColumnas = 2;
 
   public RelacionEscribe(String codigoAutor, String isbn) {
     this.codigoAutor = codigoAutor;
@@ -38,10 +37,6 @@ public class RelacionEscribe {
 
   public String getisbn() {
     return isbn;
-  }
-
-  public static int getNumeroColumnas(){
-    return numeroColumnas;
   }
 
   @Override

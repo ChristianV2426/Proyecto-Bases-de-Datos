@@ -22,10 +22,12 @@ import java.sql.*;
 public class Biblioteca {
   private DaoEditorial editoriales;
   private DaoArea areas;
+  private DaoLibro libros;
 
   public Biblioteca(Connection conexionBD) {
     this.editoriales = new DaoEditorial(conexionBD);
     this.areas = new DaoArea(conexionBD);
+    this.libros = new DaoLibro(conexionBD);
   }
 
   public DaoEditorial getEditoriales() {
@@ -35,5 +37,10 @@ public class Biblioteca {
   public DaoArea getAreas() {
     return areas;
   }
+
+  public DaoLibro getLibros() {
+    return libros;
+  }
+
   
 }

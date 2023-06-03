@@ -19,9 +19,8 @@ package co.edu.univalle.persistencia;
 
 public interface DaoGeneral<T> {
   public abstract boolean insertarElemento(T t);
-  public abstract T obtenerElemento(String llavePrimaria);
-  public abstract String[][] obtenerTodosLosElementos();
   public abstract boolean editarElemento(T t);
   public abstract boolean eliminarElemento(String llavePrimaria);
-
+  public abstract String[][] obtenerTodosLosElementos();
+  public abstract T obtenerElemento(String llavePrimaria);
 }

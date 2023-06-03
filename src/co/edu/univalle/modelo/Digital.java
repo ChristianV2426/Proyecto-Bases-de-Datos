@@ -21,7 +21,6 @@ public class Digital extends Libro{
   private String url;
   private Integer tamanoBytes;
   private String formato;
-  private static int numeroColumnas = 3;
 
   public Digital(String isbn, String titulo, Integer numPagina, Integer anioPublicacion, String idioma,
     String codigoArea, String codigoEditorial, String url, Integer tamanoBytes, String formato) {
@@ -50,10 +49,6 @@ public class Digital extends Libro{
 
   public String getFormato() {
     return formato;
-  }
-
-  public static int getNumeroColumnas() {
-    return numeroColumnas;
   }
 
   @Override
