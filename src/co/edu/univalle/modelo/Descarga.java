@@ -26,6 +26,7 @@ public class Descarga {
   private String url;
   private LocalDateTime fechaDescargaConHora;
   private String numIp;
+  private static int numeroColumnas = 6;
 
   public Descarga(String codigoDescarga, String idUsuario, String isbn, String url, LocalDateTime fechaDescargaConHora, String numIp) {
     this.codigoDescarga = codigoDescarga;
@@ -67,6 +68,10 @@ public class Descarga {
 
   public String getNumIp() {
     return numIp;
+  }
+
+  public static int getNumeroColumnas() {
+    return numeroColumnas;
   }
 
   @Override

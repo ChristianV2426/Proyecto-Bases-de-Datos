@@ -20,6 +20,7 @@ package co.edu.univalle.modelo;
 public class Profesor extends Usuario {
   private String dependencia;
   private String titulo;
+  private static int numeroColumnas = 2;
   
   public Profesor(String idUsuario, String nombreUsuario, String telefono, String direccion, String email, String dependencia, String titulo) {
     super(idUsuario, nombreUsuario, telefono, direccion, email);
@@ -39,6 +40,10 @@ public class Profesor extends Usuario {
 
   public String getTitulo() {
     return titulo;
+  }
+
+  public static int getNumeroColumnas(){
+    return numeroColumnas;
   }
 
   @Override

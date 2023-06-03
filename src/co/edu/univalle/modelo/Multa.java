@@ -26,6 +26,7 @@ public class Multa {
   private LocalDate fechaMulta;
   private Double valorMulta;
   private String descripcionMulta;
+  private static int numeroColumnas = 7;
 
   public Multa(String codigoMulta, String codigoPrestamo, String isbn, Integer numEjemplar, LocalDate fechaMulta, Double valorMulta, String descripcionMulta) {
     this.codigoMulta = codigoMulta;
@@ -73,6 +74,10 @@ public class Multa {
 
   public String getDescripcionMulta() {
     return descripcionMulta;
+  }
+
+  public static int getNumeroColumnas(){
+    return numeroColumnas;
   }
 
   @Override

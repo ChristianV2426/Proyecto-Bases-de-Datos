@@ -20,6 +20,7 @@ package co.edu.univalle.modelo;
 public class AreaInteres {
   private String idUsuario;
   private String codigoArea;
+  private static int numeroColumnas = 2;
 
   public AreaInteres(String idUsuario, String codigoArea) {
     this.idUsuario = idUsuario;
@@ -37,6 +38,10 @@ public class AreaInteres {
 
   public String getCodigoArea() {
     return codigoArea;
+  }
+
+  public static int getNumeroColumnas() {
+    return numeroColumnas;
   }
 
   @Override

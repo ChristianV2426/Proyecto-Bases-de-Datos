@@ -24,6 +24,7 @@ public class Prestamo {
   private String idUsuario;
   private String idEmpleado;
   private LocalDate fechaPrestamo;
+  private static int numeroColumnas = 4;
 
   public Prestamo(String codigoPrestamo, String idUsuario, String idEmpleado, LocalDate fechaPrestamo) {
     this.codigoPrestamo = codigoPrestamo;
@@ -53,6 +54,10 @@ public class Prestamo {
 
   public LocalDate getFechaPrestamo() {
     return fechaPrestamo;
+  }
+
+  public static int getNumeroColumnas(){
+    return numeroColumnas;
   }
 
   @Override

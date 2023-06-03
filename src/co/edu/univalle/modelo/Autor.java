@@ -23,6 +23,7 @@ public class Autor {
   private String segundoNombre;
   private String primerApellido;
   private String segundoApellido;
+  private static int numeroColumnas = 5;
 
   public Autor(String codigoAutor, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido) {
     this.codigoAutor = codigoAutor;
@@ -58,6 +59,10 @@ public class Autor {
 
   public String getSegundoApellido() {
     return segundoApellido;
+  }
+
+  public static int getNumeroColumnas() {
+    return numeroColumnas;
   }
 
   @Override

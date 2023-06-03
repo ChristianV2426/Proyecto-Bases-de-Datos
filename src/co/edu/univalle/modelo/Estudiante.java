@@ -20,6 +20,7 @@ package co.edu.univalle.modelo;
 public class Estudiante extends Usuario {
   private String carrera;
   private String universidad;
+  private static int numeroColumnas = 2;
   
   public Estudiante(String idUsuario, String nombreUsuario, String telefono, String direccion, String email, String carrera, String universidad) {
     super(idUsuario, nombreUsuario, telefono, direccion, email);
@@ -41,6 +42,10 @@ public class Estudiante extends Usuario {
     return universidad;
   }
 
+  public static int getNumeroColumnas(){
+    return numeroColumnas;
+  }
+  
   @Override
   public String toString() {
     return super.toString() + " tipo de usuario: Estudiante.";

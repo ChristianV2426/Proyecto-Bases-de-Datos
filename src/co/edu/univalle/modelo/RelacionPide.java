@@ -20,6 +20,7 @@ package co.edu.univalle.modelo;
 public class RelacionPide {
   private String codigoSolicitud;
   private String isbn;
+  private static int numeroColumnas = 2;
 
   public RelacionPide(String codigoSolicitud, String isbn) {
     this.codigoSolicitud = codigoSolicitud;
@@ -37,6 +38,10 @@ public class RelacionPide {
 
   public String getIsbn() {
     return isbn;
+  }
+
+  public static int getNumeroColumnas(){
+    return numeroColumnas;
   }
 
   @Override

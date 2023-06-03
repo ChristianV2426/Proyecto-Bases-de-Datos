@@ -23,6 +23,7 @@ public class Ejemplar extends Libro {
   private String numCajon;
   private String numPasillo;
   private String nombreSala;
+  private static int numeroColumnas = 5;
 
   public Ejemplar(String isbn, String titulo, Integer numPagina, Integer anioPublicacion, String idioma,
   String codigoArea, String codigoEditorial, Integer numEjemplar, String estante, String numCajon,
@@ -67,7 +68,11 @@ public class Ejemplar extends Libro {
 
   public String getNombreSala() {
     return nombreSala;
-  } 
+  }
+
+  public static int getNumeroColumnas(){
+    return numeroColumnas;
+  }
 
   @Override
   public String toString() {
