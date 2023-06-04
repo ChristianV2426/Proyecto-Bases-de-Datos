@@ -29,17 +29,22 @@ public class DaoEditorial implements DaoGeneral<Editorial> {
 
   @Override
   public boolean insertarElemento(Editorial editorial) {
-    String sentenciaInsert = "INSERT INTO editorial VALUES ('" + 
-      editorial.getCodigoEditorial() + "', '" + editorial.getNombreEditorial() + "', '" + 
-      editorial.getPaisOrigen() + "', '" + editorial.getPaginaWeb() + "');";
+    String sentenciaInsert =
+      "INSERT INTO editorial VALUES ('" + 
+      editorial.getCodigoEditorial() + "', '" +
+      editorial.getNombreEditorial() + "', '" + 
+      editorial.getPaisOrigen() + "', '" +
+      editorial.getPaginaWeb() + "');";
     
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
 
   @Override
   public boolean editarElemento(Editorial editorial) {
-    String sentenciaUpdate = "UPDATE editorial SET nombre_editorial='" + editorial.getNombreEditorial() +
-      "', pais_origen='" + editorial.getPaisOrigen() + "', pagina_web='" + editorial.getPaginaWeb() + 
+    String sentenciaUpdate =
+      "UPDATE editorial SET nombre_editorial='" + editorial.getNombreEditorial() +
+      "', pais_origen='" + editorial.getPaisOrigen() +
+      "', pagina_web='" + editorial.getPaginaWeb() + 
       "' WHERE codigo_editorial='" + editorial.getCodigoEditorial() + "';";
   
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
@@ -54,15 +59,14 @@ public class DaoEditorial implements DaoGeneral<Editorial> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT codigo_editorial, nombre_editorial, pais_origen, pagina_web FROM editorial;";
+    String sentenciaSelect = "SELECT * FROM editorial;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
 
   @Override
   public Editorial obtenerElemento(String llavePrimaria) {
-    String sentenciaSelect = "SELECT codigo_editorial, nombre_editorial, pais_origen, pagina_web FROM editorial " +
-      "WHERE codigo_editorial='" + llavePrimaria + "';";
+    String sentenciaSelect = "SELECT * FROM editorial WHERE codigo_editorial='" + llavePrimaria + "';";
     
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -70,7 +74,11 @@ public class DaoEditorial implements DaoGeneral<Editorial> {
 
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
-        return new Editorial(resultadoConsulta.getString(1), resultadoConsulta.getString(2), resultadoConsulta.getString(3), resultadoConsulta.getString(4));
+        return new Editorial(
+          resultadoConsulta.getString(1),
+          resultadoConsulta.getString(2),
+          resultadoConsulta.getString(3),
+          resultadoConsulta.getString(4) );
       }
 
       else

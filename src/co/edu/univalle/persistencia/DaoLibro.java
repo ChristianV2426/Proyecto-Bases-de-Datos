@@ -29,17 +29,28 @@ public class DaoLibro implements DaoGeneral<Libro>{
 
   @Override
   public boolean insertarElemento(Libro libro) {
-    String sentenciaInsert = "INSERT INTO libro VALUES ('" + 
-      libro.getIsbn() + "', '" + libro.getTitulo() + "', '" + libro.getNumPagina() + "', '" + libro.getAnioPublicacion() + "', '" + 
-      libro.getIdioma() + "', '" + libro.getCodigoArea() + "', '" +  libro.getCodigoEditorial() + "');";
+    String sentenciaInsert =
+      "INSERT INTO libro VALUES ('" +
+      libro.getIsbn() + "', '" +
+      libro.getTitulo() + "', '" +
+      libro.getNumPagina() + "', '" +
+      libro.getAnioPublicacion() + "', '" + 
+      libro.getIdioma() + "', '" +
+      libro.getCodigoArea() + "', '" +
+      libro.getCodigoEditorial() + "');";
     
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
 
   @Override
   public boolean editarElemento(Libro libro) {
-    String sentenciaUpdate = "UPDATE libro SET titulo='" + libro.getTitulo() + "', num_pagina='" + libro.getNumPagina() +
-      "', anio_publicacion='" + libro.getAnioPublicacion() + "', idioma='" + libro.getIdioma() + "', codigo_area='" + libro.getCodigoArea() + "', codigo_editorial='" +  libro.getCodigoEditorial() +
+    String sentenciaUpdate =
+      "UPDATE libro SET titulo='" + libro.getTitulo() +
+      "', num_pagina='" + libro.getNumPagina() +
+      "', anio_publicacion='" + libro.getAnioPublicacion() +
+      "', idioma='" + libro.getIdioma() +
+      "', codigo_area='" + libro.getCodigoArea() +
+      "', codigo_editorial='" +  libro.getCodigoEditorial() +
       "' WHERE ISBN='" + libro.getIsbn() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
@@ -54,15 +65,14 @@ public class DaoLibro implements DaoGeneral<Libro>{
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial FROM libro;";
+    String sentenciaSelect = "SELECT * FROM libro;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
 
   @Override
   public Libro obtenerElemento(String llavePrimaria) {
-    String sentenciaSelect = "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial FROM libro " +
-      "WHERE ISBN='" + llavePrimaria + "';";
+    String sentenciaSelect = "SELECT * FROM libro WHERE ISBN='" + llavePrimaria + "';";
     
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -70,8 +80,14 @@ public class DaoLibro implements DaoGeneral<Libro>{
 
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
-        return new Libro(resultadoConsulta.getString(1), resultadoConsulta.getString(2), Integer.valueOf(resultadoConsulta.getString(3)),
-          Integer.valueOf(resultadoConsulta.getString(4)), resultadoConsulta.getString(5),resultadoConsulta.getString(6), resultadoConsulta.getString(7));
+        return new Libro(
+          resultadoConsulta.getString(1),
+          resultadoConsulta.getString(2),
+          Integer.valueOf(resultadoConsulta.getString(3)),
+          Integer.valueOf(resultadoConsulta.getString(4)),
+          resultadoConsulta.getString(5),
+          resultadoConsulta.getString(6), 
+          resultadoConsulta.getString(7) );
       }
 
       else

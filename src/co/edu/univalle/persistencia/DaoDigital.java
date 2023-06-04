@@ -29,39 +29,49 @@ public class DaoDigital implements DaoGeneral<Digital>{
 
   @Override
   public boolean insertarElemento(Digital digital) {
-    String sentenciaInsert = "INSERT INTO digital VALUES ('" + 
-      digital.getIsbn() + "', '" + digital.getUrl() + "', '" + digital.getTamanoBytes() + "', '" + digital.getFormato() + "');";
+    String sentenciaInsert =
+      "INSERT INTO digital VALUES ('" + 
+      digital.getIsbn() + "', '" +
+      digital.getUrl() + "', '" +
+      digital.getTamanoBytes() + "', '" +
+      digital.getFormato() + "');";
   
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
 
   @Override
   public boolean editarElemento(Digital digital) {
-    String sentenciaUpdate = "UPDATE digital SET tamano_bytes='" + digital.getTamanoBytes() + "', formato='" + digital.getFormato() +
-      "' WHERE ISBN='" + digital.getIsbn() + "' AND URL='" + digital.getUrl() + "';";
+    String sentenciaUpdate =
+      "UPDATE digital SET tamano_bytes='" + digital.getTamanoBytes() +
+      "', formato='" + digital.getFormato() +
+      "' WHERE ISBN='" + digital.getIsbn() +
+      "' AND URL='" + digital.getUrl() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
 
   @Override
   public boolean eliminarElemento(String llavePrimaria) {
-    String sentenciaDelete = "DELETE FROM digital WHERE ISBN='" + llavePrimaria.substring(0, llavePrimaria.indexOf(","))
-      + "' AND URL='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
+    String sentenciaDelete = 
+      "DELETE FROM digital WHERE ISBN='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) +
+      "' AND URL='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaDelete, conexionBD);
   }
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT ISBN, URL, tamano_bytes, formato FROM digital;";
+    String sentenciaSelect = "SELECT * FROM digital;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
 
   @Override
   public Digital obtenerElemento(String llavePrimaria) {
-    String sentenciaSelect = "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial, URL, tamano_bytes, formato " + 
-      "FROM digital NATURAL JOIN libro WHERE ISBN='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) + "' AND URL='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
+    String sentenciaSelect =
+    "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial, URL, tamano_bytes, formato " + 
+    "FROM digital NATURAL JOIN libro WHERE ISBN='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) +
+    "' AND URL='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
 
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -69,9 +79,17 @@ public class DaoDigital implements DaoGeneral<Digital>{
 
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
-        return new Digital(resultadoConsulta.getString(1), resultadoConsulta.getString(2), Integer.valueOf(resultadoConsulta.getString(3)),
-          Integer.valueOf(resultadoConsulta.getString(4)), resultadoConsulta.getString(5), resultadoConsulta.getString(6), resultadoConsulta.getString(7),
-          resultadoConsulta.getString(8), Integer.valueOf(resultadoConsulta.getString(9)), resultadoConsulta.getString(10));
+        return new Digital(
+          resultadoConsulta.getString(1),
+          resultadoConsulta.getString(2),
+          Integer.valueOf(resultadoConsulta.getString(3)),
+          Integer.valueOf(resultadoConsulta.getString(4)),
+          resultadoConsulta.getString(5),
+          resultadoConsulta.getString(6),
+          resultadoConsulta.getString(7),
+          resultadoConsulta.getString(8),
+          Integer.valueOf(resultadoConsulta.getString(9)),
+          resultadoConsulta.getString(10));
       }
 
       else

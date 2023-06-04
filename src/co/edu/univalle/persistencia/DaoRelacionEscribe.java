@@ -29,39 +29,47 @@ public class DaoRelacionEscribe implements DaoGeneral<RelacionEscribe> {
 
   @Override
   public boolean insertarElemento(RelacionEscribe relacionEscribe) {
-    String sentenciaInsert = "INSERT INTO escribe VALUES ('" + 
-    relacionEscribe.getCodigoAutor() + "', '" + relacionEscribe.getIsbn() + "');";
+    String sentenciaInsert =
+      "INSERT INTO escribe VALUES ('" + 
+      relacionEscribe.getCodigoAutor() + "', '" +
+      relacionEscribe.getIsbn() + "');";
   
   return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
 
   @Override
   public boolean editarElemento(RelacionEscribe relacionEscribe) {
-    String sentenciaUpdate = "UPDATE escribe SET codigo_autor='" + relacionEscribe.getCodigoAutor() + "', ISBN='" + relacionEscribe.getIsbn() + 
-      "' WHERE codigo_autor='" + relacionEscribe.getCodigoAutor() + "' AND ISBN='" + relacionEscribe.getIsbn() + "';";
+    String sentenciaUpdate =
+      "UPDATE escribe SET codigo_autor='" + relacionEscribe.getCodigoAutor() +
+      "', ISBN='" + relacionEscribe.getIsbn() + 
+      "' WHERE codigo_autor='" + relacionEscribe.getCodigoAutor() +
+      "' AND ISBN='" + relacionEscribe.getIsbn() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
 
   @Override
   public boolean eliminarElemento(String llavePrimaria) {
-    String sentenciaDelete = "DELETE FROM escribe WHERE codigo_autor='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) + 
-      "' AND ISBN='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
+    String sentenciaDelete =
+      "DELETE FROM escribe WHERE codigo_autor='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) + 
+      "' AND ISBN='" + llavePrimaria.substring(llavePrimaria.indexOf(",") + 2) + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaDelete, conexionBD);
   }
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT codigo_autor, ISBN FROM escribe;";
+    String sentenciaSelect = "SELECT * FROM escribe;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
 
   @Override
   public RelacionEscribe obtenerElemento(String llavePrimaria) {
-    String sentenciaSelect = "SELECT codigo_autor, ISBN FROM escribe " +
-      "WHERE codigo_autor='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) + "' AND ISBN='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
+    String sentenciaSelect =
+      "SELECT * FROM escribe " +
+      "WHERE codigo_autor='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) +
+      "' AND ISBN='" + llavePrimaria.substring(llavePrimaria.indexOf(",") + 2) + "';";
 
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -69,7 +77,9 @@ public class DaoRelacionEscribe implements DaoGeneral<RelacionEscribe> {
 
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
-        return new RelacionEscribe(resultadoConsulta.getString(1), resultadoConsulta.getString(2));
+        return new RelacionEscribe(
+          resultadoConsulta.getString(1),
+          resultadoConsulta.getString(2) );
       }
 
       else

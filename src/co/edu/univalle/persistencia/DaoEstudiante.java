@@ -1,5 +1,5 @@
 /*
-  Archivo: DaoArea.java
+  Archivo: DaoEstudiante.java
   Bases de Datos - 750006C - Grupo 01
   Proyecto - Biblioteca Universidad del Valle
 
@@ -20,54 +20,53 @@ package co.edu.univalle.persistencia;
 import co.edu.univalle.modelo.*;
 import java.sql.*;
 
-public class DaoArea implements DaoGeneral<Area>{
+public class DaoEstudiante implements DaoGeneral<Estudiante> {
   Connection conexionBD;
 
-  public DaoArea(Connection conexionBD) {
+  public DaoEstudiante(Connection conexionBD) {
     this.conexionBD = conexionBD;
   }
 
   @Override
-  public boolean insertarElemento(Area area) {
+  public boolean insertarElemento(Estudiante estudiante) {
     String sentenciaInsert =
-      "INSERT INTO area_conocimiento VALUES ('" + 
-      area.getCodigoArea() + "', '" +
-      area.getNombreArea() + "', '" + 
-      area.getDescripcionArea() + "', '"
-      + area.getAreaPadre() + "');";
-    
+      "INSERT INTO estudiante VALUES ('" + 
+      estudiante.getIdUsuario() + "' , '" +
+      estudiante.getCarrera() + "', '" +
+      estudiante.getUniversidad() + "');";
+  
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
 
   @Override
-  public boolean editarElemento(Area area) {
+  public boolean editarElemento(Estudiante estudiante) {
     String sentenciaUpdate =
-      "UPDATE area_conocimiento SET nombre_area='" + area.getNombreArea() +
-      "', descripcion_area='" + area.getDescripcionArea() +
-      "', area_padre='" + area.getAreaPadre() + 
-      "' WHERE codigo_area='" + area.getCodigoArea() + "';";
-    
+      "UPDATE estudiante SET carrera='" + estudiante.getCarrera() +
+      "', universidad='" + estudiante.getUniversidad() + 
+      "' WHERE id_usuario='" + estudiante.getIdUsuario() + "';";
+
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
 
   @Override
   public boolean eliminarElemento(String llavePrimaria) {
-    String sentenciaDelete = "DELETE FROM area_conocimiento WHERE codigo_area='" + llavePrimaria + "';";
-    
+    String sentenciaDelete = "DELETE FROM estudiante WHERE id_usuario='" + llavePrimaria + "';";
+
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaDelete, conexionBD);
-  } 
+  }
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT * FROM area_conocimiento;";
+    String sentenciaSelect = "SELECT * FROM estudiante;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
-  } 
+  }
 
   @Override
-  public Area obtenerElemento(String llavePrimaria) {
-    String sentenciaSelect = "SELECT * FROM area_conocimiento " +
-      "WHERE codigo_area='" + llavePrimaria + "';";
+  public Estudiante obtenerElemento(String llavePrimaria) {
+    String sentenciaSelect =
+      "SELECT id_usuario, nombre_usuario, telefono, direccion, email, carrera, universidad " +
+      "FROM estudiante NATURAL JOIN usuario WHERE id_usuario='" + llavePrimaria + "';";
     
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -75,11 +74,14 @@ public class DaoArea implements DaoGeneral<Area>{
 
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
-        return new Area(
+        return new Estudiante(
           resultadoConsulta.getString(1),
           resultadoConsulta.getString(2),
           resultadoConsulta.getString(3),
-          resultadoConsulta.getString(4) );
+          resultadoConsulta.getString(4),
+          resultadoConsulta.getString(5),
+          resultadoConsulta.getString(6),
+          resultadoConsulta.getString(7) );
       }
 
       else
@@ -90,5 +92,6 @@ public class DaoArea implements DaoGeneral<Area>{
       return null;
     }
   }
-  
+
+
 }

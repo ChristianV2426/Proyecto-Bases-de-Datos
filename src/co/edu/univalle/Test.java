@@ -24,8 +24,12 @@ import java.sql.*;
 
 public class Test {
   public static void main(String[] args) {
-    FachadaBD fachadaBD = new FachadaBD();
+    String url = "jdbc:postgresql://localhost:5432/biblioteca";
+    String usuario = "postgres";
+    String password = "password";
+    FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
     Connection conexionBD = fachadaBD.getConexionBD();
+
     Biblioteca biblioteca = new Biblioteca(conexionBD);
 
     /* Pruebas CRUD sobre Editorial */
@@ -135,7 +139,68 @@ public class Test {
 
     System.out.println(biblioteca.getEjemplares().eliminarElemento("LI041, 1"));
     System.out.println(biblioteca.getLibros().eliminarElemento("LI041"));
+
+
+    /* Pruebas CRUD sobre usuario */
+    Usuario usuario1 = new Usuario("US021", "Elizabeth Giraldo", "", "", "");
+    System.out.println(biblioteca.getUsuarios().insertarElemento(usuario1));
+
+    Usuario usuario2 = biblioteca.getUsuarios().obtenerElemento("US021");
+    System.out.println(usuario2);
+
+    System.out.println(biblioteca.getUsuarios().obtenerTodosLosElementos() != null);
+
+    Usuario usuario3 = new Usuario("US021", "Elizabeth Giraldo", "3190011243", "Direccion", "Email");
+    System.out.println(biblioteca.getUsuarios().editarElemento(usuario3));
+
+    System.out.println(biblioteca.getUsuarios().eliminarElemento("US021"));
     
+
+    /* Pruebas CRUD sobre estudiante */
+    Estudiante estudiante1 = new Estudiante(usuario1, "Ing Sistemas", "Universidad del Valle");
+    System.out.println(biblioteca.getUsuarios().insertarElemento(usuario1));
+    System.out.println(biblioteca.getEstudiantes().insertarElemento(estudiante1));
+
+    Estudiante estudiante2 = biblioteca.getEstudiantes().obtenerElemento("US021");
+    System.out.println(estudiante2);
+
+    System.out.println(biblioteca.getEstudiantes().obtenerTodosLosElementos() != null);
+
+    Estudiante estudiante3 = new Estudiante(usuario1, "Ingenieria de sistemas", "Univalle");
+    System.out.println(biblioteca.getEstudiantes().editarElemento(estudiante3));
+
+    System.out.println(biblioteca.getEstudiantes().eliminarElemento("US021"));
+
+
+    /* Pruebas CRUD sobre profesor */
+    Profesor profesor1 = new Profesor(usuario1, "Facultad Ingneieria", "");
+    System.out.println(biblioteca.getProfesores().insertarElemento(profesor1));
+
+    Profesor profesor2 = biblioteca.getProfesores().obtenerElemento("US021");
+    System.out.println(profesor2);
+
+    System.out.println(biblioteca.getProfesores().obtenerTodosLosElementos() != null);
+
+    Profesor profesor3 = new Profesor(usuario3, "Facultad Ingenieria", "PhD");
+    System.out.println(biblioteca.getProfesores().editarElemento(profesor3));
+
+    System.out.println(biblioteca.getProfesores().eliminarElemento("US021"));
+    System.out.println(biblioteca.getUsuarios().eliminarElemento("US021"));
+
+
+    /* Pruebas CRUD sobre empleado */
+    Empleado empleado1 = new Empleado("EM011", "Paola Lopez", "");
+    System.out.println(biblioteca.getEmpleados().insertarElemento(empleado1));
+
+    Empleado empleado2 = biblioteca.getEmpleados().obtenerElemento("EM011");
+    System.out.println(empleado2);
+
+    System.out.println(biblioteca.getEmpleados().obtenerTodosLosElementos() != null);
+
+    Empleado empleado3 = new Empleado("EM011", "Paola Lopez", "Bibliotecaria");
+    System.out.println(biblioteca.getEmpleados().editarElemento(empleado3));
+    
+    System.out.println(biblioteca.getEmpleados().eliminarElemento("EM011"));
 
     //System.out.println(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, "C:/Users/ChristianV/Desktop/Lenguajes/SQL/Proyecto"));
 

@@ -29,17 +29,24 @@ public class DaoAutor implements DaoGeneral<Autor> {
 
   @Override
   public boolean insertarElemento(Autor autor) {
-    String sentenciaInsert = "INSERT INTO autor VALUES ('" + 
-    autor.getCodigoAutor() + "', '" + autor.getPrimerNombre() + "', '" + autor.getSegundoNombre() +
-    "', '" + autor.getPrimerApellido() + "', '" + autor.getSegundoApellido() + "');";
+    String sentenciaInsert =
+      "INSERT INTO autor VALUES ('" + 
+      autor.getCodigoAutor() + "', '" +
+      autor.getPrimerNombre() + "', '" +
+      autor.getSegundoNombre() + "', '" +
+      autor.getPrimerApellido() + "', '" +
+      autor.getSegundoApellido() + "');";
   
   return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
 
   @Override
   public boolean editarElemento(Autor autor) {
-    String sentenciaUpdate = "UPDATE autor SET primer_nombre='" + autor.getPrimerNombre() + "', segundo_nombre='" + autor.getSegundoNombre() +
-      "', primer_apellido='" + autor.getPrimerApellido() + "', segundo_apellido='" + autor.getSegundoApellido() +
+    String sentenciaUpdate =
+      "UPDATE autor SET primer_nombre='" + autor.getPrimerNombre() +
+      "', segundo_nombre='" + autor.getSegundoNombre() +
+      "', primer_apellido='" + autor.getPrimerApellido() +
+      "', segundo_apellido='" + autor.getSegundoApellido() +
       "' WHERE codigo_autor='" + autor.getCodigoAutor() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
@@ -54,15 +61,14 @@ public class DaoAutor implements DaoGeneral<Autor> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT codigo_autor, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido FROM autor;";
+    String sentenciaSelect = "SELECT * FROM autor;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
 
   @Override
   public Autor obtenerElemento(String llavePrimaria) {
-    String sentenciaSelect = "SELECT codigo_autor, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido FROM autor " +
-      "WHERE codigo_autor='" + llavePrimaria + "';";
+    String sentenciaSelect = "SELECT * FROM autor WHERE codigo_autor='" + llavePrimaria + "';";
     
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -70,7 +76,12 @@ public class DaoAutor implements DaoGeneral<Autor> {
 
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
-        return new Autor(resultadoConsulta.getString(1), resultadoConsulta.getString(2), resultadoConsulta.getString(3), resultadoConsulta.getString(4), resultadoConsulta.getString(5));
+        return new Autor(
+          resultadoConsulta.getString(1),
+          resultadoConsulta.getString(2),
+          resultadoConsulta.getString(3),
+          resultadoConsulta.getString(4),
+          resultadoConsulta.getString(5) );
       }
 
       else

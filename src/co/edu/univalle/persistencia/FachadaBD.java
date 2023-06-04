@@ -25,10 +25,10 @@ public class FachadaBD {
   private String password;
   private Connection conexionBD = null;
 
-  public FachadaBD() {
-    this.url = "jdbc:postgresql://localhost:5432/biblioteca";
-    this.usuario = "postgres";
-    this.password = "password";
+  public FachadaBD(String url, String usuario, String password) {
+    this.url = url;
+    this.usuario = usuario;
+    this.password = password;
   }
 
   public Connection conectar(){

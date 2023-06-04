@@ -119,7 +119,7 @@ CREATE TABLE estudiante(
   universidad VARCHAR(100),
 
   PRIMARY KEY (id_usuario),
-  FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
+  FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario) ON DELETE CASCADE
 );
 
 -- Profesor --
@@ -130,7 +130,7 @@ CREATE TABLE profesor (
   titulo VARCHAR(50),
 
   PRIMARY KEY (id_usuario),
-  FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
+  FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario) ON DELETE CASCADE
 );
 
 -- Areas interes de profesores ---

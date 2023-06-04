@@ -27,6 +27,13 @@ public class Biblioteca {
   private DaoRelacionEscribe relacionesEscribe;
   private DaoDigital digitales;
   private DaoEjemplar ejemplares;
+  private DaoUsuario usuarios;
+  private DaoEstudiante estudiantes;
+  private DaoProfesor profesores;
+  private DaoAreaInteres areasInteres;
+  private DaoEmpleado empleados;
+  private DaoSolicitud solicitudes;
+  private DaoRelacionPide relacionesPide;
 
   public Biblioteca(Connection conexionBD) {
     this.editoriales = new DaoEditorial(conexionBD);
@@ -36,6 +43,14 @@ public class Biblioteca {
     this.relacionesEscribe = new DaoRelacionEscribe(conexionBD);
     this.digitales = new DaoDigital(conexionBD);
     this.ejemplares = new DaoEjemplar(conexionBD);
+    this.usuarios = new DaoUsuario(conexionBD);
+    this.estudiantes = new DaoEstudiante(conexionBD);
+    this.profesores = new DaoProfesor(conexionBD);
+    this.areasInteres = new DaoAreaInteres(conexionBD);
+    this.empleados = new DaoEmpleado(conexionBD);
+    this.solicitudes = new DaoSolicitud(conexionBD);
+    this.relacionesPide = new DaoRelacionPide(conexionBD);
+
   }
 
   public DaoEditorial getEditoriales() {
@@ -64,6 +79,34 @@ public class Biblioteca {
 
   public DaoEjemplar getEjemplares() {
     return ejemplares;
+  }
+
+  public DaoUsuario getUsuarios() {
+    return usuarios;
+  }
+
+  public DaoEstudiante getEstudiantes() {
+    return estudiantes;
+  }
+
+  public DaoProfesor getProfesores() {
+    return profesores;
+  }
+
+  public DaoAreaInteres getAreasInteres() {
+    return areasInteres;
+  }
+
+  public DaoEmpleado getEmpleados() {
+    return empleados;
+  }
+
+  public DaoSolicitud getSolicitudes() {
+    return solicitudes;
+  }
+
+  public DaoRelacionPide getRelacionesPide() {
+    return relacionesPide;
   }
 
 }
