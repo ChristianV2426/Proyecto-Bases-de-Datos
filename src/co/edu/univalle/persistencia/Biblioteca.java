@@ -34,6 +34,10 @@ public class Biblioteca {
   private DaoEmpleado empleados;
   private DaoSolicitud solicitudes;
   private DaoRelacionPide relacionesPide;
+  private DaoDescarga descargas;
+  private DaoPrestamo prestamos;
+  private DaoRelacionPresta relacionesPresta;
+  private DaoMulta multas;
 
   public Biblioteca(Connection conexionBD) {
     this.editoriales = new DaoEditorial(conexionBD);
@@ -50,7 +54,10 @@ public class Biblioteca {
     this.empleados = new DaoEmpleado(conexionBD);
     this.solicitudes = new DaoSolicitud(conexionBD);
     this.relacionesPide = new DaoRelacionPide(conexionBD);
-
+    this.descargas = new DaoDescarga(conexionBD);
+    this.prestamos = new DaoPrestamo(conexionBD);
+    this.relacionesPresta = new DaoRelacionPresta(conexionBD);
+    this.multas = new DaoMulta(conexionBD);
   }
 
   public DaoEditorial getEditoriales() {
@@ -107,6 +114,22 @@ public class Biblioteca {
 
   public DaoRelacionPide getRelacionesPide() {
     return relacionesPide;
+  }
+
+  public DaoDescarga getDescargas() {
+    return descargas;
+  }
+
+  public DaoPrestamo getPrestamos() {
+    return prestamos;
+  }
+
+  public DaoRelacionPresta getRelacionesPresta() {
+    return relacionesPresta;
+  }
+
+  public DaoMulta getMultas() {
+    return multas;
   }
 
 }

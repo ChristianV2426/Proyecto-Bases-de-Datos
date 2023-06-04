@@ -1,5 +1,5 @@
 /*
-  Archivo: DaoSolicitud.java
+  Archivo: DaoDigital.java
   Bases de Datos - 750006C - Grupo 01
   Proyecto - Biblioteca Universidad del Valle
 
@@ -19,68 +19,76 @@ package co.edu.univalle.persistencia;
 
 import co.edu.univalle.modelo.*;
 import java.sql.*;
-import java.time.LocalDate;
+import java.time.*;
+import java.time.format.*;
 
-public class DaoSolicitud implements DaoGeneral<Solicitud> {
+public class DaoDescarga implements DaoGeneral<Descarga> {
   Connection conexionBD;
 
-  public DaoSolicitud(Connection conexionBD) {
+  public DaoDescarga(Connection conexionBD) {
     this.conexionBD = conexionBD;
   }
 
   @Override
-  public boolean insertarElemento(Solicitud solicitud) {
-    String sentenciaInsert =
-      "INSERT INTO solicitud VALUES ('" + 
-      solicitud.getCodigoSolicitud() + "' , '" +
-      solicitud.getIdUsuario() + "' , '" +
-      solicitud.getFechaSolicitud() + "', '" +
-      solicitud.getDescripcion() + "');";
-  
+  public boolean insertarElemento(Descarga descarga) {
+    String sentenciaInsert = 
+      "INSERT INTO descarga VALUES ('" +
+      descarga.getCodigoDescarga() + "', '" +
+      descarga.getIdUsuario() + "', '" +
+      descarga.getIsbn() + "', '" +
+      descarga.getUrl() + "', '" +
+      descarga.getFechaDescargaConHora() + "', '" +
+      descarga.getNumIp() + "');";
+
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
 
   @Override
-  public boolean editarElemento(Solicitud solicitud) {
+  public boolean editarElemento(Descarga descarga) {
     String sentenciaUpdate =
-      "UPDATE solicitud SET id_usuario='" + solicitud.getIdUsuario() +
-      "', fecha_solicitud='" + solicitud.getFechaSolicitud() + 
-      "', descripcion ='" + solicitud.getDescripcion() + 
-      "' WHERE codigo_solicitud='" + solicitud.getCodigoSolicitud() + "';";
+      "UPDATE descarga SET id_usuario='" + descarga.getIdUsuario() +
+      "', ISBN='" + descarga.getIsbn() +
+      "', URL='" + descarga.getUrl() +
+      "', fecha_descarga_con_hora='" + descarga.getFechaDescargaConHora() +
+      "', num_ip='" + descarga.getNumIp() +
+      "' WHERE codigo_descarga='" + descarga.getCodigoDescarga() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
 
   @Override
   public boolean eliminarElemento(String llavePrimaria) {
-    String sentenciaDelete = "DELETE FROM solicitud WHERE codigo_solicitud='" + llavePrimaria + "';";
+    String sentenciaDelete = "DELETE FROM descarga WHERE codigo_descarga='" + llavePrimaria + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaDelete, conexionBD);
   }
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT * FROM solicitud;";
+    String sentenciaSelect = "SELECT * FROM descarga;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
 
   @Override
-  public Solicitud obtenerElemento(String llavePrimaria) {
-    String sentenciaSelect =
-      "SELECT * FROM solicitud WHERE codigo_solicitud='" + llavePrimaria + "';";
-    
+  public Descarga obtenerElemento(String llavePrimaria) {
+    String sentenciaSelect = "SELECT * FROM descarga WHERE codigo_descarga='" + llavePrimaria + "';";
+
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
       ResultSet resultadoConsulta = sentenciaSQL.executeQuery(sentenciaSelect);
 
+      DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
-        return new Solicitud(
+        return new Descarga(
           resultadoConsulta.getString(1),
           resultadoConsulta.getString(2),
-          LocalDate.parse(resultadoConsulta.getString(3)),
-          resultadoConsulta.getString(4) );
+          resultadoConsulta.getString(3),
+          resultadoConsulta.getString(4),
+          LocalDateTime.parse(resultadoConsulta.getString(5), formato),
+          resultadoConsulta.getString(6) );
       }
 
       else
@@ -90,6 +98,6 @@ public class DaoSolicitud implements DaoGeneral<Solicitud> {
       System.out.println("No se pudo ejecutar la sentencia SELECT para el elemento con llave primaria: " + llavePrimaria + ".\nError: " + error.getMessage());
       return null;
     }
-  } 
+  }
 
 }

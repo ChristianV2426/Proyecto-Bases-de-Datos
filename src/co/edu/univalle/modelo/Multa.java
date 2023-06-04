@@ -16,32 +16,27 @@
 */
 package co.edu.univalle.modelo;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import java.time.*;
 
 public class Multa {
   private String codigoMulta;
-  private String codigoPrestamo;
-  private String isbn;
-  private Integer numEjemplar;
+  private String codigoPresta;
   private LocalDate fechaMulta;
-  private Double valorMulta;
+  private BigDecimal valorMulta;
   private String descripcionMulta;
 
-  public Multa(String codigoMulta, String codigoPrestamo, String isbn, Integer numEjemplar, LocalDate fechaMulta, Double valorMulta, String descripcionMulta) {
+  public Multa(String codigoMulta, String codigoPresta, LocalDate fechaMulta, BigDecimal valorMulta, String descripcionMulta) {
     this.codigoMulta = codigoMulta;
-    this.codigoPrestamo = codigoPrestamo;
-    this.isbn = isbn;
-    this.numEjemplar = numEjemplar;
+    this.codigoPresta = codigoPresta;
     this.fechaMulta = fechaMulta;
     this.valorMulta = valorMulta;
     this.descripcionMulta = descripcionMulta;
   }
 
-  public Multa(String codigoMulta, Prestamo prestamo, Ejemplar ejemplar, LocalDate fechaMulta, Double valorMulta, String descripcionMulta) {
+  public Multa(String codigoMulta, RelacionPresta relacionPresta, Ejemplar ejemplar, LocalDate fechaMulta, BigDecimal valorMulta, String descripcionMulta) {
     this.codigoMulta = codigoMulta;
-    this.codigoPrestamo = prestamo.getCodigoPrestamo();
-    this.isbn = ejemplar.getIsbn();
-    this.numEjemplar = ejemplar.getNumEjemplar();
+    this.codigoPresta = relacionPresta.getCodigoPrestamo();
     this.fechaMulta = fechaMulta;
     this.valorMulta = valorMulta;
     this.descripcionMulta = descripcionMulta;
@@ -51,23 +46,15 @@ public class Multa {
     return codigoMulta;
   }
 
-  public String getCodigoPrestamo() {
-    return codigoPrestamo;
-  }
-
-  public String getIsbn() {
-    return isbn;
-  }
-
-  public Integer getNumEjemplar() {
-    return numEjemplar;
+  public String getCodigoPresta() {
+    return codigoPresta;
   }
 
   public LocalDate getFechaMulta() {
     return fechaMulta;
   }
 
-  public Double getValorMulta() {
+  public BigDecimal getValorMulta() {
     return valorMulta;
   }
 
@@ -77,8 +64,8 @@ public class Multa {
 
   @Override
   public String toString() {
-    return "Multa [codigoMulta=" + codigoMulta + ", codigoPrestamo=" + codigoPrestamo + ", isbn=" + isbn
-      + ", numEjemplar=" + numEjemplar + ", fechaMulta=" + fechaMulta + ", valorMulta=" + valorMulta;
+    return "codigoMulta=" + codigoMulta + ", codigoPresta=" + codigoPresta + ", fechaMulta=" + fechaMulta +
+      ", valorMulta=" + valorMulta + ", descripcionMulta=" + descripcionMulta;
   }
 
 }

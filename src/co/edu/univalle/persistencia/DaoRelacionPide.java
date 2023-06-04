@@ -43,7 +43,7 @@ public class DaoRelacionPide implements DaoGeneral<RelacionPide> {
       "UPDATE pide SET codigo_solicitud='" + relacionPide.getCodigoSolicitud() +
       "', ISBN='" + relacionPide.getIsbn() + 
       "' WHERE codigo_solicitud='" + relacionPide.getCodigoSolicitud() +
-      "' AND ISBN='" + relacionPide.getIsbn() + ";";
+      "' AND ISBN='" + relacionPide.getIsbn() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }

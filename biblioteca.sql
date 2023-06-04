@@ -226,7 +226,7 @@ CREATE TABLE multa (
   codigo_multa VARCHAR(5) NOT NULL,
   codigo_presta VARCHAR(5) NOT NULL, 
   fecha_multa DATE, 
-  valor_multa MONEY, 
+  valor_multa DECIMAL, 
   descripcion_multa VARCHAR(100),
 
   PRIMARY KEY (codigo_multa),

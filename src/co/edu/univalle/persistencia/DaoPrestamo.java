@@ -1,5 +1,5 @@
 /*
-  Archivo: DaoSolicitud.java
+  Archivo: DaoPrestamo.java
   Bases de Datos - 750006C - Grupo 01
   Proyecto - Biblioteca Universidad del Valle
 
@@ -21,66 +21,65 @@ import co.edu.univalle.modelo.*;
 import java.sql.*;
 import java.time.LocalDate;
 
-public class DaoSolicitud implements DaoGeneral<Solicitud> {
+public class DaoPrestamo implements DaoGeneral<Prestamo> {
   Connection conexionBD;
 
-  public DaoSolicitud(Connection conexionBD) {
+  public DaoPrestamo(Connection conexionBD) {
     this.conexionBD = conexionBD;
   }
 
   @Override
-  public boolean insertarElemento(Solicitud solicitud) {
+  public boolean insertarElemento(Prestamo prestamo) {
     String sentenciaInsert =
-      "INSERT INTO solicitud VALUES ('" + 
-      solicitud.getCodigoSolicitud() + "' , '" +
-      solicitud.getIdUsuario() + "' , '" +
-      solicitud.getFechaSolicitud() + "', '" +
-      solicitud.getDescripcion() + "');";
-  
+      "INSERT INTO prestamo VALUES ('" +
+      prestamo.getCodigoPrestamo() + "', '" +
+      prestamo.getIdUsuario() + "', '" +
+      prestamo.getIdEmpleado() + "', '" +
+      prestamo.getFechaPrestamo() + "');";
+    
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
 
   @Override
-  public boolean editarElemento(Solicitud solicitud) {
-    String sentenciaUpdate =
-      "UPDATE solicitud SET id_usuario='" + solicitud.getIdUsuario() +
-      "', fecha_solicitud='" + solicitud.getFechaSolicitud() + 
-      "', descripcion ='" + solicitud.getDescripcion() + 
-      "' WHERE codigo_solicitud='" + solicitud.getCodigoSolicitud() + "';";
+  public boolean editarElemento(Prestamo prestamo) {
+    String sentenciaUpdate = 
+      "UPDATE prestamo SET id_usuario='" + prestamo.getIdUsuario() +
+      "', id_empleado='" + prestamo.getIdEmpleado() +
+      "', fecha_prestamo='" + prestamo.getFechaPrestamo() +
+      "' WHERE codigo_prestamo='" + prestamo.getCodigoPrestamo() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
 
   @Override
   public boolean eliminarElemento(String llavePrimaria) {
-    String sentenciaDelete = "DELETE FROM solicitud WHERE codigo_solicitud='" + llavePrimaria + "';";
+    String sentenciaDelete = "DELETE FROM prestamo WHERE codigo_prestamo='" + llavePrimaria + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaDelete, conexionBD);
   }
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT * FROM solicitud;";
+    String sentenciaSelect = "SELECT * FROM prestamo;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
 
   @Override
-  public Solicitud obtenerElemento(String llavePrimaria) {
-    String sentenciaSelect =
-      "SELECT * FROM solicitud WHERE codigo_solicitud='" + llavePrimaria + "';";
-    
+  public Prestamo obtenerElemento(String llavePrimaria) {
+    String sentenciaSelect = "SELECT * FROM prestamo WHERE codigo_prestamo='" + llavePrimaria + "';";
+
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
       ResultSet resultadoConsulta = sentenciaSQL.executeQuery(sentenciaSelect);
 
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
-        return new Solicitud(
+        return new Prestamo(
           resultadoConsulta.getString(1),
           resultadoConsulta.getString(2),
-          LocalDate.parse(resultadoConsulta.getString(3)),
-          resultadoConsulta.getString(4) );
+          resultadoConsulta.getString(3),
+          LocalDate.parse(resultadoConsulta.getString(4)) );
       }
 
       else
@@ -90,6 +89,6 @@ public class DaoSolicitud implements DaoGeneral<Solicitud> {
       System.out.println("No se pudo ejecutar la sentencia SELECT para el elemento con llave primaria: " + llavePrimaria + ".\nError: " + error.getMessage());
       return null;
     }
-  } 
+  }
 
 }

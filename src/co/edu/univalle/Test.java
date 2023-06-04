@@ -20,6 +20,8 @@ package co.edu.univalle;
 import co.edu.univalle.modelo.*;
 import co.edu.univalle.persistencia.*;
 import java.sql.*;
+import java.time.*;
+import java.math.BigDecimal;
 
 
 public class Test {
@@ -32,7 +34,7 @@ public class Test {
 
     Biblioteca biblioteca = new Biblioteca(conexionBD);
 
-    /* Pruebas CRUD sobre Editorial */
+    /* Pruebas CRUD sobre editorial */
     Editorial editorial1 = new Editorial("ED011", "Editores Santillana", "Colombia", "https://santillana.com.co/");
     System.out.println(biblioteca.getEditoriales().insertarElemento(editorial1));
 
@@ -47,7 +49,7 @@ public class Test {
     System.out.println(biblioteca.getEditoriales().eliminarElemento("ED011"));
 
 
-    /* Pruebas CRUD sobre Area */
+    /* Pruebas CRUD sobre area */
     Area area1 = new Area("AC039", "Area prueba", "Descropcion", "AC001");
     System.out.println(biblioteca.getAreas().insertarElemento(area1));
     Area area2 = biblioteca.getAreas().obtenerElemento("AC039");
@@ -61,7 +63,7 @@ public class Test {
     System.out.println(biblioteca.getAreas().eliminarElemento("AC039"));
 
 
-    /* Pruebas CRUD sobre Libro */
+    /* Pruebas CRUD sobre libro */
     Libro libro1 = new Libro("LI041", "TermodinamicaII", Integer.valueOf(550), Integer.valueOf(2015), "Español", "AC016", "ED001");
     System.out.println(biblioteca.getLibros().insertarElemento(libro1));
     Libro libro2 = biblioteca.getLibros().obtenerElemento("LI041");
@@ -75,7 +77,7 @@ public class Test {
     System.out.println(biblioteca.getLibros().eliminarElemento("LI041"));
 
 
-    /* Pruebas CRUD sobre Autor */
+    /* Pruebas CRUD sobre autor */
     Autor autor1 = new Autor("AU031", "Mario", "Jimenez");
     System.out.println(biblioteca.getAutores().insertarElemento(autor1));
 
@@ -98,6 +100,8 @@ public class Test {
 
     RelacionEscribe relacionEscribe2 = biblioteca.getRelacionesEscribe().obtenerElemento("AU031, LI041");
     System.out.println(relacionEscribe2);
+
+    System.out.println(biblioteca.getRelacionesEscribe().obtenerTodosLosElementos() != null);
 
     System.out.println(biblioteca.getRelacionesEscribe().eliminarElemento("AU031, LI041"));
 
@@ -170,22 +174,25 @@ public class Test {
     System.out.println(biblioteca.getEstudiantes().editarElemento(estudiante3));
 
     System.out.println(biblioteca.getEstudiantes().eliminarElemento("US021"));
+    System.out.println(biblioteca.getUsuarios().eliminarElemento("US021"));
 
 
     /* Pruebas CRUD sobre profesor */
-    Profesor profesor1 = new Profesor(usuario1, "Facultad Ingneieria", "");
+    Usuario usuario4 = new Usuario("US022", "Karen Torres", "", "", "");
+    Profesor profesor1 = new Profesor(usuario4, "Facultad Ingneieria", "");
+    System.out.println(biblioteca.getUsuarios().insertarElemento(usuario4));
     System.out.println(biblioteca.getProfesores().insertarElemento(profesor1));
 
-    Profesor profesor2 = biblioteca.getProfesores().obtenerElemento("US021");
+    Profesor profesor2 = biblioteca.getProfesores().obtenerElemento("US022");
     System.out.println(profesor2);
 
     System.out.println(biblioteca.getProfesores().obtenerTodosLosElementos() != null);
 
-    Profesor profesor3 = new Profesor(usuario3, "Facultad Ingenieria", "PhD");
+    Profesor profesor3 = new Profesor(usuario4, "Facultad Ingenieria", "PhD");
     System.out.println(biblioteca.getProfesores().editarElemento(profesor3));
 
-    System.out.println(biblioteca.getProfesores().eliminarElemento("US021"));
-    System.out.println(biblioteca.getUsuarios().eliminarElemento("US021"));
+    System.out.println(biblioteca.getProfesores().eliminarElemento("US022"));
+    System.out.println(biblioteca.getUsuarios().eliminarElemento("US022"));
 
 
     /* Pruebas CRUD sobre empleado */
@@ -201,6 +208,104 @@ public class Test {
     System.out.println(biblioteca.getEmpleados().editarElemento(empleado3));
     
     System.out.println(biblioteca.getEmpleados().eliminarElemento("EM011"));
+
+
+    /* Pruebas CRUD sobre solicitud */
+    Solicitud solicitud1 = new Solicitud("CS013", "US001", LocalDate.parse("2021-05-01"), "Solicitud de libro");
+    System.out.println(biblioteca.getSolicitudes().insertarElemento(solicitud1));
+
+    Solicitud solicitud2 = biblioteca.getSolicitudes().obtenerElemento("CS013");
+    System.out.println(solicitud2);
+
+    System.out.println(biblioteca.getSolicitudes().obtenerTodosLosElementos() != null);
+
+    Solicitud solicitud3 = new Solicitud("CS013", "US001", LocalDate.parse("2021-05-01"), "Solicitud de libro de física");
+    System.out.println(biblioteca.getSolicitudes().editarElemento(solicitud3));
+
+    System.out.println(biblioteca.getSolicitudes().eliminarElemento("CS013"));
+
+    /* Pruebas CRUD sobre areas_interes_profesor */
+    AreaInteres areaInteres1 = new AreaInteres("US020", "AC001");
+    System.out.println(biblioteca.getAreasInteres().insertarElemento(areaInteres1));
+
+    AreaInteres areaInteres2 = biblioteca.getAreasInteres().obtenerElemento("US020, AC001");
+    System.out.println(areaInteres2);
+    
+    System.out.println(biblioteca.getAreasInteres().obtenerTodosLosElementos() != null);
+
+    System.out.println(biblioteca.getAreasInteres().eliminarElemento("US020, AC001"));
+
+
+    /* Pruebas CRUD sobre pide */
+    RelacionPide relacionPide1 = new RelacionPide("CS001", "LI040");
+    System.out.println(biblioteca.getRelacionesPide().insertarElemento(relacionPide1));
+
+    RelacionPide relacionPide2 = biblioteca.getRelacionesPide().obtenerElemento("CS001, LI040");
+    System.out.println(relacionPide2);
+
+    System.out.println(biblioteca.getRelacionesPide().obtenerTodosLosElementos() != null);
+
+    System.out.println(biblioteca.getRelacionesPide().eliminarElemento("CS001, LI040"));
+
+
+    /* Pruebas CRUD sobre descarga */
+    Descarga descarga1 = new Descarga("DS011", "US001", "LI030", "https://example.com/book30", LocalDateTime.parse("2021-05-01T10:00:00"), "");
+    System.out.println(biblioteca.getDescargas().insertarElemento(descarga1));
+
+    Descarga descarga2 = biblioteca.getDescargas().obtenerElemento("DS011");
+    System.out.println(descarga2);
+
+    System.out.println(biblioteca.getDescargas().obtenerTodosLosElementos() != null);
+
+    Descarga descarga3 = new Descarga("DS011", "US001", "LI030", "https://example.com/book30", LocalDateTime.parse("2022-05-01T12:53:36"), "IP");
+    System.out.println(biblioteca.getDescargas().editarElemento(descarga3));
+
+    System.out.println(biblioteca.getDescargas().eliminarElemento("DS011"));
+
+
+    /* Pruebas CRUD sobre prestamo */
+    Prestamo prestamo1 = new Prestamo("PR016", "US016", "EM009", LocalDate.parse("2021-05-01"));
+    System.out.println(biblioteca.getPrestamos().insertarElemento(prestamo1));
+
+    Prestamo prestamo2 = biblioteca.getPrestamos().obtenerElemento("PR016");
+    System.out.println(prestamo2);
+
+    System.out.println(biblioteca.getPrestamos().obtenerTodosLosElementos() != null);
+
+    Prestamo prestamo3 = new Prestamo("PR016", "US016", "EM001", LocalDate.parse("2019-04-20"));
+    System.out.println(biblioteca.getPrestamos().editarElemento(prestamo3));
+
+    System.out.println(biblioteca.getPrestamos().eliminarElemento("PR016"));
+
+    
+    /* Pruebas CRUD sobre presta */
+    RelacionPresta relacionPresta1 = new RelacionPresta("PT022", "PR015", "LI010", Integer.valueOf(1), LocalDate.parse("2021-05-01"));
+    System.out.println(biblioteca.getRelacionesPresta().insertarElemento(relacionPresta1));
+
+    RelacionPresta relacionPresta2 = biblioteca.getRelacionesPresta().obtenerElemento("PT022");
+    System.out.println(relacionPresta2);
+
+    System.out.println(biblioteca.getRelacionesPresta().obtenerTodosLosElementos() != null);
+
+    RelacionPresta relacionPresta3 = new RelacionPresta("PT022", "PR015", "LI010", Integer.valueOf(1), LocalDate.parse("2018-06-01"));
+    System.out.println(biblioteca.getRelacionesPresta().editarElemento(relacionPresta3));
+
+
+    /* Pruebas CRUD sobre multa */
+    Multa multa1 = new Multa("MT012", "PT022", LocalDate.parse("2021-05-10"), BigDecimal.valueOf(Double.parseDouble("4200")), "Multa por no devolver el libro a tiempo");
+    System.out.println(biblioteca.getMultas().insertarElemento(multa1));
+
+    Multa multa2 = biblioteca.getMultas().obtenerElemento("MT012");
+    System.out.println(multa2);
+
+    System.out.println(biblioteca.getMultas().obtenerTodosLosElementos() != null);
+
+    Multa multa3 = new Multa("MT012", "PT022", LocalDate.parse("2021-05-20"), BigDecimal.valueOf(Double.parseDouble("50000")), "Multa por no devolver el libro a tiempo");
+    System.out.println(biblioteca.getMultas().editarElemento(multa3));
+
+    System.out.println(biblioteca.getMultas().eliminarElemento("MT012"));
+    System.out.println(biblioteca.getRelacionesPresta().eliminarElemento("PT022"));
+
 
     //System.out.println(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, "C:/Users/ChristianV/Desktop/Lenguajes/SQL/Proyecto"));
 

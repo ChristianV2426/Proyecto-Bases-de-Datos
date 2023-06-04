@@ -30,7 +30,7 @@ public class DaoAreaInteres implements DaoGeneral<AreaInteres> {
   @Override
   public boolean insertarElemento(AreaInteres areaInteres) {
     String sentenciaInsert =
-      "INSERT INTO area_interes_profesor VALUES ('" + 
+      "INSERT INTO areas_interes_profesor VALUES ('" + 
       areaInteres.getIdUsuario() + "' , '" +
       areaInteres.getCodigoArea() + "');";
   
@@ -40,10 +40,10 @@ public class DaoAreaInteres implements DaoGeneral<AreaInteres> {
   @Override
   public boolean editarElemento(AreaInteres areaInteres) {
     String sentenciaUpdate =
-      "UPDATE area_interes_profesor SET id_usuario='" + areaInteres.getIdUsuario() +
+      "UPDATE areas_interes_profesor SET id_usuario='" + areaInteres.getIdUsuario() +
       "', codigo_area='" + areaInteres.getCodigoArea() + 
       "' WHERE id_usuario='" + areaInteres.getIdUsuario() +
-      "' AND codigo_area='" + areaInteres.getCodigoArea() + ";";
+      "' AND codigo_area='" + areaInteres.getCodigoArea() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
@@ -51,7 +51,7 @@ public class DaoAreaInteres implements DaoGeneral<AreaInteres> {
   @Override
   public boolean eliminarElemento(String llavePrimaria) {
     String sentenciaDelete =
-      "DELETE FROM area_interes_profesor WHERE id_usuario='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) + 
+      "DELETE FROM areas_interes_profesor WHERE id_usuario='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) + 
       "' AND codigo_area='" + llavePrimaria.substring(llavePrimaria.indexOf(",") + 2) + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaDelete, conexionBD);
@@ -59,7 +59,7 @@ public class DaoAreaInteres implements DaoGeneral<AreaInteres> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT * FROM area_interes_profesor;";
+    String sentenciaSelect = "SELECT * FROM areas_interes_profesor;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
@@ -67,7 +67,7 @@ public class DaoAreaInteres implements DaoGeneral<AreaInteres> {
   @Override
   public AreaInteres obtenerElemento(String llavePrimaria) {
     String sentenciaSelect =
-      "SELECT * FROM area_interes_profesor " +
+      "SELECT * FROM areas_interes_profesor " +
       "WHERE id_usuario='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) +
       "' AND codigo_area='" + llavePrimaria.substring(llavePrimaria.indexOf(",") + 2) + "';";
 
