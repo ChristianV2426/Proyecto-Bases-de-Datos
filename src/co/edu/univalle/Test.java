@@ -21,6 +21,7 @@ import co.edu.univalle.modelo.*;
 import co.edu.univalle.persistencia.*;
 import java.sql.*;
 import java.time.*;
+import javax.swing.*;
 import java.math.BigDecimal;
 
 
@@ -306,8 +307,19 @@ public class Test {
     System.out.println(biblioteca.getMultas().eliminarElemento("MT012"));
     System.out.println(biblioteca.getRelacionesPresta().eliminarElemento("PT022"));
 
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    int seleccion = fileChooser.showOpenDialog(null);
 
-    //System.out.println(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, "C:/Users/ChristianV/Desktop/Lenguajes/SQL/Proyecto"));
+    if(seleccion != JFileChooser.CANCEL_OPTION){
+        String ruta = fileChooser.getSelectedFile().getAbsolutePath();
+        if(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, ruta)){
+            JOptionPane.showMessageDialog(null,"¡El estado de la aplicación se guardó correctamente con archivo de texto plano!", "Operación realizada con éxito", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null,"¡Hubo un problema al guardar el estado de la aplicación en un archivo de texto plano!" +
+            "\nAsegurese de haber seleccionado una carpeta de destino correcta. \nSi considera que este es un error, por favor póngase en contacto con el administrador del sistema.", "Operación fallida", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     fachadaBD.closeConexionBD(conexionBD);
 

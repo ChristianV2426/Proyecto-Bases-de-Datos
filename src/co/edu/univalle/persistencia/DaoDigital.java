@@ -61,7 +61,8 @@ public class DaoDigital implements DaoGeneral<Digital>{
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT * FROM digital;";
+    String sentenciaSelect = "SELECT ISBN, titulo, URL, formato, nombre_editorial, nombre_area " + 
+      "FROM digital NATURAL JOIN libro NATURAL JOIN editorial NATURAL JOIN area_conocimiento;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }

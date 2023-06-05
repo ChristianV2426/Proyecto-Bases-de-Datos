@@ -65,7 +65,8 @@ public class DaoDescarga implements DaoGeneral<Descarga> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT * FROM descarga;";
+    String sentenciaSelect = "SELECT codigo_descarga, ISBN, titulo, URL, id_usuario, nombre_usuario, fecha_descarga_con_hora, num_ip " +
+      "FROM descarga NATURAL JOIN digital NATURAL JOIN libro NATURAL JOIN usuario;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }

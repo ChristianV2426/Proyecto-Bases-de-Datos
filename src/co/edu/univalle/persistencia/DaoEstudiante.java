@@ -57,7 +57,7 @@ public class DaoEstudiante implements DaoGeneral<Estudiante> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT * FROM estudiante;";
+    String sentenciaSelect = "SELECT id_usuario, nombre_usuario, carrera, universidad, email FROM estudiante NATURAL JOIN usuario;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }

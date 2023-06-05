@@ -65,7 +65,8 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT * FROM ejemplar;";
+    String sentenciaSelect = "SELECT ISBN, titulo, num_ejemplar, nombre_editorial, nombre_area, num_pagina " + 
+      "FROM ejemplar NATURAL JOIN libro NATURAL JOIN editorial NATURAL JOIN area_conocimiento;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }

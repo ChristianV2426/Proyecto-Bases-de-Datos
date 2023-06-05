@@ -537,12 +537,12 @@ INSERT INTO usuario (id_usuario, nombre_usuario, telefono, direccion, email) VAL
 ('US002', 'Maria Lopez', '3124567890', 'Avenida 4 Norte # 10-20, Cali', 'maria.lopez@correounivalle.edu.co'),
 ('US003', 'Pedro Garcia', '3156789012', 'Calle 13 # 13-15, Cali', 'pedro.garcia@correounivalle.edu.co'),
 ('US004', 'Ana Rodriguez', '3203456789', 'Calle 55 # 10-11, Cali', 'ana.rodriguez@correounivalle.edu.co'),
-('US005', 'Luisa Martinez', '3237890123', 'Avenida circunvalar # 10-22, Cali', 'luisa.martinez@correounivalle.edu.co'),
+('US005', 'Luisa Martinez', '3237890123', 'Avenida circunvalar # 10-22, Cali', 'luisa.martinez@icesi.edu.co'),
 ('US006', 'Carlos Sanchez', '3202345678', 'Ventanales de Santa Monica, apto 201, Cali', 'carlos.sanchez@correounivalle.edu.co'),
 ('US007', 'Lucia Ortiz', '3134567890', 'Calle 5 Norte # 10-22, Cali', 'lucia.ortiz@correounivalle.edu.co'),
 ('US008', 'Manuel Ramirez', '3147890123', 'Carrera 24 # 44-10, Cali', 'manuel.ramirez@correounivalle.edu.co'),
 ('US009', 'Carmen Castro', '3123456789', 'Calle 39 # 4-100, Cali', 'carmen.castro@correounivalle.edu.co'),
-('US010', 'Jorge Medina', '3117890123', 'Brisas de San Antonio, apto 510, Cali', 'jorge.medina@correounivalle.edu.co'),
+('US010', 'Jorge Medina', '3117890123', 'Brisas de San Antonio, apto 510, Cali', 'jorge.medina@uao.edu.co'),
 ('US011', 'Mariana Herrera', '3151112233', 'Carrera 9 # 72-10, Cali', 'mariana.herrera@correounivalle.edu.co'),
 ('US012', 'Andres Perez', '3112223344', 'Calle 100 # 20-29, Cali', 'andres.perez@correounivalle.edu.co'),
 ('US013', 'Camila Martinez', '3183334455', 'Calle 147 # 54-20, Cali', 'camila.martinez@correounivalle.edu.co'),
@@ -744,14 +744,3 @@ INSERT INTO multa (codigo_multa, codigo_presta, fecha_multa, valor_multa, descri
 ('MU009', 'PT014', '2023-05-19', 2400, '2 dias de retraso en la devolucion'),
 ('MU010', 'PT015', '2023-05-20', 2400, '2 dias de retraso en la devolucion'),
 ('MU011', 'PT020', '2023-05-23', 2400, '2 dias de retraso en la devolucion');
-
-
--- Las siguientes consultas permiten visualizar la información más relevante de la base de datos.
-
--- Información relevante de todos los prestamos registrados
-SELECT nombre_usuario, titulo, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real
-FROM prestamo NATURAL JOIN usuario NATURAL JOIN presta NATURAL JOIN libro;
-
--- Información relevante de las multas registradas
-SELECT nombre_usuario, titulo, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real, valor_multa
-FROM multa NATURAL JOIN presta NATURAL JOIN prestamo NATURAL JOIN usuario NATURAL JOIN libro;
