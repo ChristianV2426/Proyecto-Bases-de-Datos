@@ -307,6 +307,8 @@ public class Test {
     System.out.println(biblioteca.getMultas().eliminarElemento("MT012"));
     System.out.println(biblioteca.getRelacionesPresta().eliminarElemento("PT022"));
 
+    // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
+    /*
     JFileChooser fileChooser = new JFileChooser();
     fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
     int seleccion = fileChooser.showOpenDialog(null);
@@ -314,12 +316,13 @@ public class Test {
     if(seleccion != JFileChooser.CANCEL_OPTION){
         String ruta = fileChooser.getSelectedFile().getAbsolutePath();
         if(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, ruta)){
-            JOptionPane.showMessageDialog(null,"¡El estado de la aplicación se guardó correctamente con archivo de texto plano!", "Operación realizada con éxito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"¡El resumen de la base de datos se guardó correctamente en un archivo de texto plano!", "Operación realizada con éxito", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null,"¡Hubo un problema al guardar el estado de la aplicación en un archivo de texto plano!" +
             "\nAsegurese de haber seleccionado una carpeta de destino correcta. \nSi considera que este es un error, por favor póngase en contacto con el administrador del sistema.", "Operación fallida", JOptionPane.ERROR_MESSAGE);
         }
     }
+    */
 
     fachadaBD.closeConexionBD(conexionBD);
 
