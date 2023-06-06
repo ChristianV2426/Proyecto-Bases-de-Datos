@@ -60,8 +60,8 @@ public class DaoPrestamo implements DaoGeneral<Prestamo> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT codigo_prestamo, id_usuario, nombre_usuario, ISBN, titulo, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real " +
-      "FROM prestamo NATURAL JOIN usuario NATURAL JOIN presta NATURAL JOIN libro;";
+    String sentenciaSelect = "SELECT codigo_prestamo, id_usuario, nombre_usuario, codigo_presta, ISBN, titulo, num_ejemplar, fecha_prestamo, fecha_devolucion_esperada, fecha_devolucion_real " +
+      "FROM prestamo NATURAL JOIN usuario NATURAL JOIN presta NATURAL JOIN ejemplar NATURAL JOIN libro ORDER BY codigo_prestamo, codigo_presta;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }

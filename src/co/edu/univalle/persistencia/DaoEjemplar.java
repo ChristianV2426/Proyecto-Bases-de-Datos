@@ -30,7 +30,8 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
   @Override
   public boolean insertarElemento(Ejemplar ejemplar) {
     String sentenciaInsert =
-      "INSERT INTO ejemplar VALUES ('" + 
+      "INSERT INTO ejemplar VALUES ('" +
+      ejemplar.getCodigoEjemplar() + "', '" + 
       ejemplar.getIsbn() + "', '" +
       ejemplar.getNumEjemplar() + "', '" +
       ejemplar.getEstante() + "', '" +
@@ -44,12 +45,13 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
   @Override
   public boolean editarElemento(Ejemplar ejemplar) {
     String sentenciaUpdate =
-      "UPDATE ejemplar SET estante='" + ejemplar.getEstante() +
+      "UPDATE ejemplar SET ISBN='" + ejemplar.getIsbn() +
+      "', num_ejemplar='" + ejemplar.getNumEjemplar() +
+      "', estante='" + ejemplar.getEstante() +
       "', num_cajon='" + ejemplar.getNumCajon() +
       "', num_pasillo='" + ejemplar.getNumPasillo() +
       "', nombre_sala='" + ejemplar.getNombreSala() +
-      "' WHERE ISBN='" + ejemplar.getIsbn() +
-      "' AND num_ejemplar='" + ejemplar.getNumEjemplar() + "';";
+      "' WHERE codigo_ejemplar='" + ejemplar.getCodigoEjemplar() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
@@ -57,8 +59,7 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
   @Override
   public boolean eliminarElemento(String llavePrimaria) {
     String sentenciaDelete =
-      "DELETE FROM ejemplar WHERE ISBN='" + llavePrimaria.substring(0, llavePrimaria.indexOf(","))
-      + "' AND num_ejemplar='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
+      "DELETE FROM ejemplar WHERE codigo_ejemplar='" + llavePrimaria + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaDelete, conexionBD);
   }
@@ -74,9 +75,8 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
   @Override
   public Ejemplar obtenerElemento(String llavePrimaria) {
     String sentenciaSelect =
-      "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial, num_ejemplar, estante, num_cajon, num_pasillo, nombre_sala " +
-      "FROM ejemplar NATURAL JOIN libro WHERE ISBN='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) +
-      "' AND num_ejemplar='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
+      "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial, codigo_ejemplar, num_ejemplar, estante, num_cajon, num_pasillo, nombre_sala " +
+      "FROM ejemplar NATURAL JOIN libro WHERE codigo_ejemplar='" + llavePrimaria + "';";
     
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -92,11 +92,12 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
           resultadoConsulta.getString(5),
           resultadoConsulta.getString(6),
           resultadoConsulta.getString(7),
-          Integer.valueOf(resultadoConsulta.getString(8)),
-          resultadoConsulta.getString(9),
+          resultadoConsulta.getString(8), 
+          Integer.valueOf(resultadoConsulta.getString(9)),
           resultadoConsulta.getString(10),
           resultadoConsulta.getString(11),
-          resultadoConsulta.getString(12) );
+          resultadoConsulta.getString(12),
+          resultadoConsulta.getString(13) );
       }
 
       else

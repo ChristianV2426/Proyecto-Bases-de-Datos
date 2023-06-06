@@ -115,34 +115,34 @@ public class Test {
 
     /* Pruebas CRUD sobre digital */
     System.out.println(biblioteca.getLibros().insertarElemento(libro1));
-    Digital digital1 = new Digital(libro1, "www...", Integer.valueOf(1024), "PDF");
+    Digital digital1 = new Digital(libro1, "LI041-URL01", "www...", Integer.valueOf(1024), "PDF");
     System.out.println(biblioteca.getDigitales().insertarElemento(digital1));
 
-    Digital digital2 = biblioteca.getDigitales().obtenerElemento("LI041, www...");
+    Digital digital2 = biblioteca.getDigitales().obtenerElemento("LI041-URL01");
     System.out.println(digital2);
 
     System.out.println(biblioteca.getDigitales().obtenerTodosLosElementos() != null);
 
-    Digital digital3 = new Digital(libro1, "www...", Integer.valueOf(1024), "EPUB");
+    Digital digital3 = new Digital(libro1, "LI041-URL01", "www...", Integer.valueOf(1024), "EPUB");
     System.out.println(biblioteca.getDigitales().editarElemento(digital3));
 
-    System.out.println(biblioteca.getDigitales().eliminarElemento("LI041, www..."));
+    System.out.println(biblioteca.getDigitales().eliminarElemento("LI041-URL01"));
     System.out.println(biblioteca.getLibros().eliminarElemento("LI041"));
 
     /* Pruebas CRUD sobre ejemplar */
     System.out.println(biblioteca.getLibros().insertarElemento(libro1));
-    Ejemplar ejemplar1 = new Ejemplar(libro3, Integer.valueOf(1), "null", "null", "null", "null");
+    Ejemplar ejemplar1 = new Ejemplar(libro3, "LI041-N01", Integer.valueOf(1), "null", "null", "null", "null");
     System.out.println(biblioteca.getEjemplares().insertarElemento(ejemplar1));
 
-    Ejemplar ejemplar2 = biblioteca.getEjemplares().obtenerElemento("LI041, 1");
+    Ejemplar ejemplar2 = biblioteca.getEjemplares().obtenerElemento("LI041-N01");
     System.out.println(ejemplar2);
 
     System.out.println(biblioteca.getEjemplares().obtenerTodosLosElementos() != null);
 
-    Ejemplar ejemplar3 = new Ejemplar(libro3, Integer.valueOf(1), "100", "101", "103", "SAL5");
+    Ejemplar ejemplar3 = new Ejemplar(libro3, "LI041-N01", Integer.valueOf(1), "100", "101", "103", "SAL5");
     System.out.println(biblioteca.getEjemplares().editarElemento(ejemplar3));
 
-    System.out.println(biblioteca.getEjemplares().eliminarElemento("LI041, 1"));
+    System.out.println(biblioteca.getEjemplares().eliminarElemento("LI041-N01"));
     System.out.println(biblioteca.getLibros().eliminarElemento("LI041"));
 
 
@@ -250,7 +250,7 @@ public class Test {
 
 
     /* Pruebas CRUD sobre descarga */
-    Descarga descarga1 = new Descarga("DS011", "US001", "LI030", "https://example.com/book30", LocalDateTime.parse("2021-05-01T10:00:00"), "");
+    Descarga descarga1 = new Descarga("DS011", "US001", "LI030-URL01", LocalDateTime.parse("2021-05-01T10:00:00"), "");
     System.out.println(biblioteca.getDescargas().insertarElemento(descarga1));
 
     Descarga descarga2 = biblioteca.getDescargas().obtenerElemento("DS011");
@@ -258,7 +258,7 @@ public class Test {
 
     System.out.println(biblioteca.getDescargas().obtenerTodosLosElementos() != null);
 
-    Descarga descarga3 = new Descarga("DS011", "US001", "LI030", "https://example.com/book30", LocalDateTime.parse("2022-05-01T12:53:36"), "IP");
+    Descarga descarga3 = new Descarga("DS011", "US001", "LI030-URL01", LocalDateTime.parse("2022-05-01T12:53:36"), "IP");
     System.out.println(biblioteca.getDescargas().editarElemento(descarga3));
 
     System.out.println(biblioteca.getDescargas().eliminarElemento("DS011"));
@@ -280,7 +280,7 @@ public class Test {
 
     
     /* Pruebas CRUD sobre presta */
-    RelacionPresta relacionPresta1 = new RelacionPresta("PT022", "PR015", "LI010", Integer.valueOf(1), LocalDate.parse("2021-05-01"));
+    RelacionPresta relacionPresta1 = new RelacionPresta("PT022", "PR015", "LI010-N01", LocalDate.parse("2021-05-01"));
     System.out.println(biblioteca.getRelacionesPresta().insertarElemento(relacionPresta1));
 
     RelacionPresta relacionPresta2 = biblioteca.getRelacionesPresta().obtenerElemento("PT022");
@@ -288,7 +288,7 @@ public class Test {
 
     System.out.println(biblioteca.getRelacionesPresta().obtenerTodosLosElementos() != null);
 
-    RelacionPresta relacionPresta3 = new RelacionPresta("PT022", "PR015", "LI010", Integer.valueOf(1), LocalDate.parse("2018-06-01"));
+    RelacionPresta relacionPresta3 = new RelacionPresta("PT022", "PR015", "LI010-N01", LocalDate.parse("2018-06-01"));
     System.out.println(biblioteca.getRelacionesPresta().editarElemento(relacionPresta3));
 
 

@@ -40,8 +40,7 @@ public class DaoRelacionPresta implements DaoGeneral<RelacionPresta>{
       "INSERT INTO presta VALUES ('" +
       relacionPresta.getCodigoPresta() + "', '" +
       relacionPresta.getCodigoPrestamo() + "', '" +
-      relacionPresta.getIsbn() + "', '" +
-      relacionPresta.getNumEjemplar() + "', '" +
+      relacionPresta.getCodigoEjemplar() + "', '" +
       relacionPresta.getFechaDevolucionEsperada() + "', " +
       fechaDevolucionReal + ");";
 
@@ -58,8 +57,7 @@ public class DaoRelacionPresta implements DaoGeneral<RelacionPresta>{
 
     String sentenciaUpdate = 
       "UPDATE presta SET codigo_prestamo='" + relacionPresta.getCodigoPrestamo() +
-      "', ISBN='" + relacionPresta.getIsbn() +
-      "', num_ejemplar='" + relacionPresta.getNumEjemplar() +
+      "', codigo_ejemplar='" + relacionPresta.getCodigoEjemplar() +
       "', fecha_devolucion_esperada='" + relacionPresta.getFechaDevolucionEsperada() + 
       "', fecha_devolucion_real=" + fechaDevolucionReal +
       " WHERE codigo_presta='" + relacionPresta.getCodigoPresta() + "';";
@@ -95,8 +93,7 @@ public class DaoRelacionPresta implements DaoGeneral<RelacionPresta>{
           resultadoConsulta.getString(1),
           resultadoConsulta.getString(2),
           resultadoConsulta.getString(3),
-          Integer.valueOf(resultadoConsulta.getString(4)),
-          LocalDate.parse(resultadoConsulta.getString(5)) );
+          LocalDate.parse(resultadoConsulta.getString(4)) );
       }
 
       else

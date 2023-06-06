@@ -18,6 +18,7 @@
 package co.edu.univalle.modelo;
 
 public class Ejemplar extends Libro {
+  private String codigoEjemplar;
   private Integer numEjemplar;
   private String estante;
   private String numCajon;
@@ -25,10 +26,11 @@ public class Ejemplar extends Libro {
   private String nombreSala;
 
   public Ejemplar(String isbn, String titulo, Integer numPagina, Integer anioPublicacion, String idioma,
-  String codigoArea, String codigoEditorial, Integer numEjemplar, String estante, String numCajon,
+  String codigoArea, String codigoEditorial, String codigoEjemplar, Integer numEjemplar, String estante, String numCajon,
   String numPasillo, String nombreSala) {
 
     super(isbn, titulo, numPagina, anioPublicacion, idioma, codigoArea, codigoEditorial);
+    this.codigoEjemplar = codigoEjemplar;
     this.numEjemplar = numEjemplar;
     this.estante = estante;
     this.numCajon = numCajon;
@@ -36,17 +38,22 @@ public class Ejemplar extends Libro {
     this.nombreSala = nombreSala;
   }
 
-  public Ejemplar(Libro libro, Integer numEjemplar, String estante, String numCajon,
+  public Ejemplar(Libro libro, String codigoEjemplar, Integer numEjemplar, String estante, String numCajon,
     String numPasillo, String nombreSala) {
 
     super(libro.getIsbn(), libro.getTitulo(), libro.getNumPagina(), libro.getAnioPublicacion(), libro.getIdioma(),
       libro.getCodigoArea(), libro.getCodigoEditorial());
-      
+    
+    this.codigoEjemplar = codigoEjemplar;
     this.numEjemplar = numEjemplar;
     this.estante = estante;
     this.numCajon = numCajon;
     this.numPasillo = numPasillo;
     this.nombreSala = nombreSala;
+  }
+  
+  public String getCodigoEjemplar() {
+    return codigoEjemplar;
   }
 
   public Integer getNumEjemplar() {
@@ -71,7 +78,7 @@ public class Ejemplar extends Libro {
 
   @Override
   public String toString() {
-    return super.toString() + " libro físico. Ejemplar número: " + numEjemplar;
+    return super.toString() + " libro físico. Ejemplar con código: " + codigoEjemplar;
   }
 
 }

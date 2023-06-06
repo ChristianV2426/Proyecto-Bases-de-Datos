@@ -64,7 +64,7 @@ public class DaoMulta implements DaoGeneral<Multa> {
   @Override
   public String[][] obtenerTodosLosElementos() {
     String sentenciaSelect = "SELECT codigo_multa, id_usuario, nombre_usuario, ISBN, titulo, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real, valor_multa, descripcion_multa " +
-      " FROM multa NATURAL JOIN presta NATURAL JOIN prestamo NATURAL JOIN usuario NATURAL JOIN libro;";
+      " FROM multa NATURAL JOIN presta NATURAL JOIN prestamo NATURAL JOIN usuario NATURAL JOIN ejemplar NATURAL JOIN libro;";
     
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }

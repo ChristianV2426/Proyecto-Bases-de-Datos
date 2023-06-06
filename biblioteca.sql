@@ -76,18 +76,21 @@ CREATE TABLE escribe (
 -- Digital --
 DROP TABLE IF EXISTS digital CASCADE;
 CREATE TABLE digital(
+  codigo_digital VARCHAR(11) NOT NULL,
   ISBN VARCHAR(5) NOT NULL,
   URL VARCHAR(200) NOT NULL,
   tamano_bytes INT,
   formato VARCHAR(15),
   
-  PRIMARY KEY (ISBN, URL),
-  FOREIGN KEY (ISBN) REFERENCES libro (ISBN)
+  PRIMARY KEY (codigo_digital),
+  FOREIGN KEY (ISBN) REFERENCES libro (ISBN),
+  UNIQUE (ISBN, URL)
 );
 
 -- Ejemplar --
 DROP TABLE IF EXISTS ejemplar CASCADE;
 CREATE TABLE ejemplar(
+  codigo_ejemplar VARCHAR(9) NOT NULL,
   ISBN VARCHAR(5) NOT NULL,
   num_ejemplar INT NOT NULL,
   estante VARCHAR(5),
@@ -95,8 +98,9 @@ CREATE TABLE ejemplar(
   num_pasillo VARCHAR(5),
   nombre_sala VARCHAR(100),
   
-  PRIMARY KEY (ISBN, num_ejemplar),
-  FOREIGN KEY (ISBN) REFERENCES libro (ISBN)
+  PRIMARY KEY (codigo_ejemplar),
+  FOREIGN KEY (ISBN) REFERENCES libro (ISBN),
+  UNIQUE (ISBN, num_ejemplar)
 );
 
 -- Usuario --
@@ -182,14 +186,14 @@ DROP TABLE IF EXISTS descarga CASCADE;
 CREATE TABLE descarga (
   codigo_descarga VARCHAR(5) NOT NULL, 
   id_usuario VARCHAR(5) NOT NULL,
-  ISBN VARCHAR(5) NOT NULL,
-  URL VARCHAR(200) NOT NULL,
+  codigo_digital VARCHAR(11) NOT NULL,
   fecha_descarga_con_hora TIMESTAMP NOT NULL,
   num_ip VARCHAR(12), 
 
   PRIMARY KEY (codigo_descarga),
   FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
-  FOREIGN KEY (ISBN, URL) REFERENCES digital (ISBN, URL)
+  FOREIGN KEY (codigo_digital) REFERENCES digital (codigo_digital),
+  UNIQUE (id_usuario, codigo_digital, fecha_descarga_con_hora)
 );
 
 -- Prestamo --
@@ -210,14 +214,14 @@ DROP TABLE IF EXISTS presta CASCADE;
 CREATE TABLE presta (
   codigo_presta VARCHAR(5) NOT NULL, 
   codigo_prestamo VARCHAR(5) NOT NULL,
-  ISBN VARCHAR(5) NOT NULL,
-  num_ejemplar INT NOT NULL,
+  codigo_ejemplar VARCHAR(9) NOT NULL,
   fecha_devolucion_esperada DATE,
   fecha_devolucion_real DATE, 
 
   PRIMARY KEY (codigo_presta),
   FOREIGN KEY (codigo_prestamo) REFERENCES prestamo (codigo_prestamo),
-  FOREIGN KEY (ISBN, num_ejemplar) REFERENCES ejemplar (ISBN, num_ejemplar)
+  FOREIGN KEY  (codigo_ejemplar) REFERENCES ejemplar (codigo_ejemplar),
+  UNIQUE (codigo_prestamo, codigo_ejemplar)
 );
 
 -- Multa --
@@ -329,8 +333,7 @@ INSERT INTO libro (ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_ar
 ('LI040', 'Medicina: Un Enfoque Integral', '700', '2022', 'Español', 'AC008', 'ED010');
 
 -- Autor
-INSERT INTO autor (codigo_autor, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido)
-VALUES 
+INSERT INTO autor (codigo_autor, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido) VALUES 
   ('AU001', 'John', 'Smith', 'Johnson', 'Williams'),
   ('AU002', 'Michael', 'Christopher', 'Brown', 'Jones'),
   ('AU003', 'Jennifer', 'Elizabeth', 'Davis', 'Taylor'),
@@ -417,119 +420,119 @@ INSERT INTO escribe (codigo_autor, ISBN) VALUES
 ('AU021', 'LI040');
 
 -- Digital
-INSERT INTO digital (ISBN, URL, tamano_bytes, formato) VALUES
-('LI001', 'https://example.com/book1', 2500000, 'PDF'),
-('LI002', 'https://example.com/book2', 1800000, 'EPUB'),
-('LI003', 'https://example.com/book3', 3500000, 'PDF'),
-('LI004', 'https://example.com/book4', 2100000, 'EPUB'),
-('LI005', 'https://example.com/book5', 3200000, 'PDF'),
-('LI006', 'https://example.com/book6', 2900000, 'PDF'),
-('LI007', 'https://example.com/book7', 1800000, 'EPUB'),
-('LI008', 'https://example.com/book8', 2700000, 'PDF'),
-('LI009', 'https://example.com/book9', 1500000, 'EPUB'),
-('LI010', 'https://example.com/book10', 2400000, 'PDF'),
-('LI011', 'https://example.com/book11', 2000000, 'PDF'),
-('LI012', 'https://example.com/book12', 3100000, 'EPUB'),
-('LI013', 'https://example.com/book13', 1900000, 'PDF'),
-('LI014', 'https://example.com/book14', 2600000, 'EPUB'),
-('LI015', 'https://example.com/book15', 2200000, 'PDF'),
-('LI016', 'https://example.com/book16', 3000000, 'PDF'),
-('LI017', 'https://example.com/book17', 2300000, 'EPUB'),
-('LI018', 'https://example.com/book18', 1700000, 'PDF'),
-('LI019', 'https://example.com/book19', 2800000, 'EPUB'),
-('LI020', 'https://example.com/book20', 3300000, 'PDF'),
-('LI021', 'https://example.com/book21', 2400000, 'PDF'),
-('LI022', 'https://example.com/book22', 2200000, 'EPUB'),
-('LI023', 'https://example.com/book23', 3000000, 'PDF'),
-('LI024', 'https://example.com/book24', 1900000, 'EPUB'),
-('LI025', 'https://example.com/book25', 2600000, 'PDF'),
-('LI026', 'https://example.com/book26', 2100000, 'PDF'),
-('LI027', 'https://example.com/book27', 3200000, 'EPUB'),
-('LI028', 'https://example.com/book28', 2700000, 'PDF'),
-('LI029', 'https://example.com/book29', 1800000, 'EPUB'),
-('LI030', 'https://example.com/book30', 2500000, 'PDF');
+INSERT INTO digital (codigo_digital, ISBN, URL, tamano_bytes, formato) VALUES
+('LI001-URL01', 'LI001', 'https://example.com/book1', 2500000, 'PDF'),
+('LI002-URL01', 'LI002', 'https://example.com/book2', 1800000, 'EPUB'),
+('LI003-URL01', 'LI003', 'https://example.com/book3', 3500000, 'PDF'),
+('LI004-URL01', 'LI004', 'https://example.com/book4', 2100000, 'EPUB'),
+('LI005-URL01', 'LI005', 'https://example.com/book5', 3200000, 'PDF'),
+('LI006-URL01', 'LI006', 'https://example.com/book6', 2900000, 'PDF'),
+('LI007-URL01', 'LI007', 'https://example.com/book7', 1800000, 'EPUB'),
+('LI008-URL01', 'LI008', 'https://example.com/book8', 2700000, 'PDF'),
+('LI009-URL01', 'LI009', 'https://example.com/book9', 1500000, 'EPUB'),
+('LI010-URL01', 'LI010', 'https://example.com/book10', 2400000, 'PDF'),
+('LI011-URL01', 'LI011', 'https://example.com/book11', 2000000, 'PDF'),
+('LI012-URL01', 'LI012', 'https://example.com/book12', 3100000, 'EPUB'),
+('LI013-URL01', 'LI013', 'https://example.com/book13', 1900000, 'PDF'),
+('LI014-URL01', 'LI014', 'https://example.com/book14', 2600000, 'EPUB'),
+('LI015-URL01', 'LI015', 'https://example.com/book15', 2200000, 'PDF'),
+('LI016-URL01', 'LI016', 'https://example.com/book16', 3000000, 'PDF'),
+('LI017-URL01', 'LI017', 'https://example.com/book17', 2300000, 'EPUB'),
+('LI018-URL01', 'LI018', 'https://example.com/book18', 1700000, 'PDF'),
+('LI019-URL01', 'LI019', 'https://example.com/book19', 2800000, 'EPUB'),
+('LI020-URL01', 'LI020', 'https://example.com/book20', 3300000, 'PDF'),
+('LI021-URL01', 'LI021', 'https://example.com/book21', 2400000, 'PDF'),
+('LI022-URL01', 'LI022', 'https://example.com/book22', 2200000, 'EPUB'),
+('LI023-URL01', 'LI023', 'https://example.com/book23', 3000000, 'PDF'),
+('LI024-URL01', 'LI024', 'https://example.com/book24', 1900000, 'EPUB'),
+('LI025-URL01', 'LI025', 'https://example.com/book25', 2600000, 'PDF'),
+('LI026-URL01', 'LI026', 'https://example.com/book26', 2100000, 'PDF'),
+('LI027-URL01', 'LI027', 'https://example.com/book27', 3200000, 'EPUB'),
+('LI028-URL01', 'LI028', 'https://example.com/book28', 2700000, 'PDF'),
+('LI029-URL01', 'LI029', 'https://example.com/book29', 1800000, 'EPUB'),
+('LI030-URL01', 'LI030', 'https://example.com/book30', 2500000, 'PDF');
 
 -- Ejemplar
-INSERT INTO ejemplar (ISBN, num_ejemplar, estante, num_cajon, num_pasillo, nombre_sala) VALUES
-('LI001', 1, 'ES001', 'CA001', 'PAS01', 'Sala Matematicas'),
-('LI001', 2, 'ES001', 'CA001', 'PAS01', 'Sala Matematicas'),
-('LI001', 3, 'ES001', 'CA001', 'PAS01', 'Sala Matematicas'),
-('LI001', 4, 'ES001', 'CA001', 'PAS01', 'Sala Matematicas'),
-('LI002', 1, 'ES002', 'CA002', 'PAS02', 'Sala Fisica'),
-('LI002', 2, 'ES002', 'CA002', 'PAS02', 'Sala Fisica'),
-('LI003', 1, 'ES003', 'CA003', 'PAS03', 'Sala Quimica'),
-('LI003', 2, 'ES003', 'CA003', 'PAS03', 'Sala Quimica'),
-('LI003', 3, 'ES003', 'CA003', 'PAS03', 'Sala Quimica'),
-('LI004', 1, 'ES004', 'CA004', 'PAS04', 'Sala Biologia'),
-('LI004', 2, 'ES004', 'CA004', 'PAS04', 'Sala Biologia'),
-('LI005', 1, 'ES005', 'CA005', 'PAS05', 'Sala Informatica'),
-('LI005', 2, 'ES005', 'CA005', 'PAS05', 'Sala Informatica'),
-('LI005', 3, 'ES005', 'CA005', 'PAS05', 'Sala Informatica'),
-('LI005', 4, 'ES005', 'CA005', 'PAS05', 'Sala Informatica'),
-('LI006', 1, 'ES006', 'CA006', 'PAS06', 'Sala Matematicas'),
-('LI006', 2, 'ES006', 'CA006', 'PAS06', 'Sala Matematicas'),
-('LI006', 3, 'ES006', 'CA006', 'PAS06', 'Sala Matematicas'),
-('LI006', 4, 'ES006', 'CA006', 'PAS06', 'Sala Matematicas'),
-('LI007', 1, 'ES007', 'CA007', 'PAS07', 'Sala Fisica'),
-('LI007', 2, 'ES007', 'CA007', 'PAS07', 'Sala Fisica'),
-('LI007', 3, 'ES007', 'CA007', 'PAS07', 'Sala Fisica'),
-('LI008', 1, 'ES008', 'CA008', 'PAS08', 'Sala Quimica'),
-('LI008', 2, 'ES008', 'CA008', 'PAS08', 'Sala Quimica'),
-('LI009', 1, 'ES009', 'CA009', 'PAS09', 'Sala Biologia'),
-('LI009', 2, 'ES009', 'CA009', 'PAS09', 'Sala Biologia'),
-('LI009', 3, 'ES009', 'CA009', 'PAS09', 'Sala Biologia'),
-('LI010', 1, 'ES010', 'CA010', 'PAS10', 'Sala Informatica'),
-('LI010', 2, 'ES010', 'CA010', 'PAS10', 'Sala Informatica'),
-('LI010', 3, 'ES010', 'CA010', 'PAS10', 'Sala Informatica'),
-('LI010', 4, 'ES010', 'CA010', 'PAS10', 'Sala Informatica'),
-('LI011', 1, 'ES011', 'CA011', 'PAS01', 'Sala Matematicas'),
-('LI011', 2, 'ES011', 'CA011', 'PAS01', 'Sala Matematicas'),
-('LI011', 3, 'ES011', 'CA011', 'PAS01', 'Sala Matematicas'),
-('LI012', 1, 'ES012', 'CA012', 'PAS02', 'Sala Fisica'),
-('LI012', 2, 'ES012', 'CA012', 'PAS02', 'Sala Fisica'),
-('LI013', 1, 'ES013', 'CA013', 'PAS03', 'Sala Quimica'),
-('LI013', 2, 'ES013', 'CA013', 'PAS03', 'Sala Quimica'),
-('LI013', 3, 'ES013', 'CA013', 'PAS03', 'Sala Quimica'),
-('LI013', 4, 'ES013', 'CA013', 'PAS03', 'Sala Quimica'),
-('LI014', 1, 'ES014', 'CA014', 'PAS04', 'Sala Historia'),
-('LI014', 2, 'ES014', 'CA014', 'PAS04', 'Sala Historia'),
-('LI014', 3, 'ES014', 'CA014', 'PAS04', 'Sala Historia'),
-('LI015', 1, 'ES015', 'CA015', 'PAS05', 'Sala Literatura'),
-('LI016', 1, 'ES016', 'CA016', 'PAS06', 'Sala Arte'),
-('LI016', 2, 'ES016', 'CA016', 'PAS06', 'Sala Arte'),
-('LI017', 1, 'ES017', 'CA017', 'PAS07', 'Sala Psicologia'),
-('LI018', 1, 'ES018', 'CA018', 'PAS08', 'Sala Economia'),
-('LI018', 2, 'ES018', 'CA018', 'PAS08', 'Sala Economia'),
-('LI019', 1, 'ES019', 'CA019', 'PAS09', 'Sala Biologia'),
-('LI019', 2, 'ES019', 'CA019', 'PAS09', 'Sala Biologia'),
-('LI019', 3, 'ES019', 'CA019', 'PAS09', 'Sala Biologia'),
-('LI020', 2, 'ES020', 'CA020', 'PAS10', 'Sala Informatica'),
-('LI020', 3, 'ES020', 'CA020', 'PAS10', 'Sala Informatica'),
-('LI021', 1, 'ES021', 'CA021', 'PAS01', 'Sala Matematicas'),
-('LI021', 2, 'ES021', 'CA021', 'PAS01', 'Sala Matematicas'),
-('LI021', 3, 'ES021', 'CA021', 'PAS01', 'Sala Matematicas'),
-('LI022', 1, 'ES022', 'CA022', 'PAS02', 'Sala Fisica'),
-('LI023', 1, 'ES023', 'CA023', 'PAS03', 'Sala Quimica'),
-('LI023', 2, 'ES023', 'CA023', 'PAS03', 'Sala Quimica'),
-('LI023', 3, 'ES023', 'CA023', 'PAS03', 'Sala Quimica'),
-('LI024', 1, 'ES024', 'CA024', 'PAS04', 'Sala Historia'),
-('LI025', 1, 'ES025', 'CA025', 'PAS05', 'Sala Literatura'),
-('LI025', 2, 'ES025', 'CA025', 'PAS05', 'Sala Literatura'),
-('LI025', 3, 'ES025', 'CA025', 'PAS05', 'Sala Literatura'),
-('LI026', 1, 'ES026', 'CA026', 'PAS06', 'Sala Arte'),
-('LI026', 2, 'ES026', 'CA026', 'PAS06', 'Sala Arte'),
-('LI027', 1, 'ES027', 'CA027', 'PAS07', 'Sala Psicologia'),
-('LI027', 2, 'ES027', 'CA027', 'PAS07', 'Sala Psicologia'),
-('LI027', 3, 'ES027', 'CA027', 'PAS07', 'Sala Psicologia'),
-('LI028', 1, 'ES028', 'CA028', 'PAS08', 'Sala Economia'),
-('LI028', 2, 'ES028', 'CA028', 'PAS08', 'Sala Economia'),
-('LI028', 3, 'ES028', 'CA028', 'PAS08', 'Sala Economia'),
-('LI029', 1, 'ES029', 'CA029', 'PAS09', 'Sala Biologia'),
-('LI029', 2, 'ES029', 'CA029', 'PAS09', 'Sala Biologia'),
-('LI029', 3, 'ES029', 'CA029', 'PAS09', 'Sala Biologia'),
-('LI030', 1, 'ES030', 'CA030', 'PAS10', 'Sala Informatica'),
-('LI030', 2, 'ES030', 'CA030', 'PAS10', 'Sala Informatica'),
-('LI030', 3, 'ES030', 'CA030', 'PAS10', 'Sala Informatica');
+INSERT INTO ejemplar (codigo_ejemplar, ISBN, num_ejemplar, estante, num_cajon, num_pasillo, nombre_sala) VALUES
+('LI001-N01', 'LI001', 1, 'ES001', 'CA001', 'PAS01', 'Sala Matematicas'),
+('LI001-N02', 'LI001', 2, 'ES001', 'CA001', 'PAS01', 'Sala Matematicas'),
+('LI001-N03', 'LI001', 3, 'ES001', 'CA001', 'PAS01', 'Sala Matematicas'),
+('LI001-N04', 'LI001', 4, 'ES001', 'CA001', 'PAS01', 'Sala Matematicas'),
+('LI002-N01', 'LI002', 1, 'ES002', 'CA002', 'PAS02', 'Sala Fisica'),
+('LI002-N02', 'LI002', 2, 'ES002', 'CA002', 'PAS02', 'Sala Fisica'),
+('LI003-N01', 'LI003', 1, 'ES003', 'CA003', 'PAS03', 'Sala Quimica'),
+('LI003-N02', 'LI003', 2, 'ES003', 'CA003', 'PAS03', 'Sala Quimica'),
+('LI003-N03', 'LI003', 3, 'ES003', 'CA003', 'PAS03', 'Sala Quimica'),
+('LI004-N01', 'LI004', 1, 'ES004', 'CA004', 'PAS04', 'Sala Biologia'),
+('LI004-N02', 'LI004', 2, 'ES004', 'CA004', 'PAS04', 'Sala Biologia'),
+('LI005-N01', 'LI005', 1, 'ES005', 'CA005', 'PAS05', 'Sala Informatica'),
+('LI005-N02', 'LI005', 2, 'ES005', 'CA005', 'PAS05', 'Sala Informatica'),
+('LI005-N03', 'LI005', 3, 'ES005', 'CA005', 'PAS05', 'Sala Informatica'),
+('LI005-N04', 'LI005', 4, 'ES005', 'CA005', 'PAS05', 'Sala Informatica'),
+('LI006-N01', 'LI006', 1, 'ES006', 'CA006', 'PAS06', 'Sala Matematicas'),
+('LI006-N02', 'LI006', 2, 'ES006', 'CA006', 'PAS06', 'Sala Matematicas'),
+('LI006-N03', 'LI006', 3, 'ES006', 'CA006', 'PAS06', 'Sala Matematicas'),
+('LI006-N04', 'LI006', 4, 'ES006', 'CA006', 'PAS06', 'Sala Matematicas'),
+('LI007-N01', 'LI007', 1, 'ES007', 'CA007', 'PAS07', 'Sala Fisica'),
+('LI007-N02', 'LI007', 2, 'ES007', 'CA007', 'PAS07', 'Sala Fisica'),
+('LI007-N03', 'LI007', 3, 'ES007', 'CA007', 'PAS07', 'Sala Fisica'),
+('LI008-N01', 'LI008', 1, 'ES008', 'CA008', 'PAS08', 'Sala Quimica'),
+('LI008-N02', 'LI008', 2, 'ES008', 'CA008', 'PAS08', 'Sala Quimica'),
+('LI009-N01', 'LI009', 1, 'ES009', 'CA009', 'PAS09', 'Sala Biologia'),
+('LI009-N02', 'LI009', 2, 'ES009', 'CA009', 'PAS09', 'Sala Biologia'),
+('LI009-N03', 'LI009', 3, 'ES009', 'CA009', 'PAS09', 'Sala Biologia'),
+('LI010-N01', 'LI010', 1, 'ES010', 'CA010', 'PAS10', 'Sala Informatica'),
+('LI010-N02', 'LI010', 2, 'ES010', 'CA010', 'PAS10', 'Sala Informatica'),
+('LI010-N03', 'LI010', 3, 'ES010', 'CA010', 'PAS10', 'Sala Informatica'),
+('LI010-N04', 'LI010', 4, 'ES010', 'CA010', 'PAS10', 'Sala Informatica'),
+('LI011-N01', 'LI011', 1, 'ES011', 'CA011', 'PAS01', 'Sala Matematicas'),
+('LI011-N02', 'LI011', 2, 'ES011', 'CA011', 'PAS01', 'Sala Matematicas'),
+('LI011-N03', 'LI011', 3, 'ES011', 'CA011', 'PAS01', 'Sala Matematicas'),
+('LI012-N01', 'LI012', 1, 'ES012', 'CA012', 'PAS02', 'Sala Fisica'),
+('LI012-N02', 'LI012', 2, 'ES012', 'CA012', 'PAS02', 'Sala Fisica'),
+('LI013-N01', 'LI013', 1, 'ES013', 'CA013', 'PAS03', 'Sala Quimica'),
+('LI013-N02', 'LI013', 2, 'ES013', 'CA013', 'PAS03', 'Sala Quimica'),
+('LI013-N03', 'LI013', 3, 'ES013', 'CA013', 'PAS03', 'Sala Quimica'),
+('LI013-N04', 'LI013', 4, 'ES013', 'CA013', 'PAS03', 'Sala Quimica'),
+('LI014-N01', 'LI014', 1, 'ES014', 'CA014', 'PAS04', 'Sala Historia'),
+('LI014-N02', 'LI014', 2, 'ES014', 'CA014', 'PAS04', 'Sala Historia'),
+('LI014-N03', 'LI014', 3, 'ES014', 'CA014', 'PAS04', 'Sala Historia'),
+('LI015-N01', 'LI015', 1, 'ES015', 'CA015', 'PAS05', 'Sala Literatura'),
+('LI016-N01', 'LI016', 1, 'ES016', 'CA016', 'PAS06', 'Sala Arte'),
+('LI016-N02', 'LI016', 2, 'ES016', 'CA016', 'PAS06', 'Sala Arte'),
+('LI017-N01', 'LI017', 1, 'ES017', 'CA017', 'PAS07', 'Sala Psicologia'),
+('LI018-N01', 'LI018', 1, 'ES018', 'CA018', 'PAS08', 'Sala Economia'),
+('LI018-N02', 'LI018', 2, 'ES018', 'CA018', 'PAS08', 'Sala Economia'),
+('LI019-N01', 'LI019', 1, 'ES019', 'CA019', 'PAS09', 'Sala Biologia'),
+('LI019-N02', 'LI019', 2, 'ES019', 'CA019', 'PAS09', 'Sala Biologia'),
+('LI019-N03', 'LI019', 3, 'ES019', 'CA019', 'PAS09', 'Sala Biologia'),
+('LI020-N02', 'LI020', 2, 'ES020', 'CA020', 'PAS10', 'Sala Informatica'),
+('LI020-N03', 'LI020', 3, 'ES020', 'CA020', 'PAS10', 'Sala Informatica'),
+('LI021-N01', 'LI021', 1, 'ES021', 'CA021', 'PAS01', 'Sala Matematicas'),
+('LI021-N02', 'LI021', 2, 'ES021', 'CA021', 'PAS01', 'Sala Matematicas'),
+('LI021-N03', 'LI021', 3, 'ES021', 'CA021', 'PAS01', 'Sala Matematicas'),
+('LI022-N01', 'LI022', 1, 'ES022', 'CA022', 'PAS02', 'Sala Fisica'),
+('LI023-N01', 'LI023', 1, 'ES023', 'CA023', 'PAS03', 'Sala Quimica'),
+('LI023-N02', 'LI023', 2, 'ES023', 'CA023', 'PAS03', 'Sala Quimica'),
+('LI023-N03', 'LI023', 3, 'ES023', 'CA023', 'PAS03', 'Sala Quimica'),
+('LI024-N01', 'LI024', 1, 'ES024', 'CA024', 'PAS04', 'Sala Historia'),
+('LI025-N01', 'LI025', 1, 'ES025', 'CA025', 'PAS05', 'Sala Literatura'),
+('LI025-N02', 'LI025', 2, 'ES025', 'CA025', 'PAS05', 'Sala Literatura'),
+('LI025-N03', 'LI025', 3, 'ES025', 'CA025', 'PAS05', 'Sala Literatura'),
+('LI026-N01', 'LI026', 1, 'ES026', 'CA026', 'PAS06', 'Sala Arte'),
+('LI026-N02', 'LI026', 2, 'ES026', 'CA026', 'PAS06', 'Sala Arte'),
+('LI027-N01', 'LI027', 1, 'ES027', 'CA027', 'PAS07', 'Sala Psicologia'),
+('LI027-N02', 'LI027', 2, 'ES027', 'CA027', 'PAS07', 'Sala Psicologia'),
+('LI027-N03', 'LI027', 3, 'ES027', 'CA027', 'PAS07', 'Sala Psicologia'),
+('LI028-N01', 'LI028', 1, 'ES028', 'CA028', 'PAS08', 'Sala Economia'),
+('LI028-N02', 'LI028', 2, 'ES028', 'CA028', 'PAS08', 'Sala Economia'),
+('LI028-N03', 'LI028', 3, 'ES028', 'CA028', 'PAS08', 'Sala Economia'),
+('LI029-N01', 'LI029', 1, 'ES029', 'CA029', 'PAS09', 'Sala Biologia'),
+('LI029-N02', 'LI029', 2, 'ES029', 'CA029', 'PAS09', 'Sala Biologia'),
+('LI029-N03', 'LI029', 3, 'ES029', 'CA029', 'PAS09', 'Sala Biologia'),
+('LI030-N01', 'LI030', 1, 'ES030', 'CA030', 'PAS10', 'Sala Informatica'),
+('LI030-N02', 'LI030', 2, 'ES030', 'CA030', 'PAS10', 'Sala Informatica'),
+('LI030-N03', 'LI030', 3, 'ES030', 'CA030', 'PAS10', 'Sala Informatica');
 
 -- Usuario
 INSERT INTO usuario (id_usuario, nombre_usuario, telefono, direccion, email) VALUES
@@ -677,17 +680,17 @@ INSERT INTO pide (codigo_solicitud, ISBN) VALUES
 ('CS012', 'LI034');
 
 -- Descarga
-INSERT INTO descarga (codigo_descarga, id_usuario, ISBN, URL, fecha_descarga_con_hora, num_ip) VALUES
-('DS001', 'US001', 'LI001', 'https://example.com/book1', '2023-05-01 10:00:00', '192.168.0.1'),
-('DS002', 'US002', 'LI002', 'https://example.com/book2', '2023-05-01 14:30:00', '192.168.0.2'),
-('DS003', 'US003', 'LI003', 'https://example.com/book3', '2023-05-02 09:15:00', '192.168.0.3'),
-('DS004', 'US004', 'LI004', 'https://example.com/book4', '2023-05-02 20:45:00', '192.168.0.4'),
-('DS005', 'US005', 'LI005', 'https://example.com/book5', '2023-05-03 11:30:00', '192.168.0.5'),
-('DS006', 'US006', 'LI006', 'https://example.com/book6', '2023-05-03 16:00:00', '192.168.0.6'),
-('DS007', 'US001', 'LI007', 'https://example.com/book7', '2023-05-04 12:15:00', '192.168.0.1'),
-('DS008', 'US007', 'LI008', 'https://example.com/book8', '2023-05-05 13:00:00', '192.168.0.7'),
-('DS009', 'US008', 'LI009', 'https://example.com/book9', '2023-05-05 18:30:00', '192.168.0.8'),
-('DS010', 'US009', 'LI010', 'https://example.com/book10', '2023-05-06 19:45:00', '192.168.0.9');
+INSERT INTO descarga (codigo_descarga, id_usuario, codigo_digital, fecha_descarga_con_hora, num_ip) VALUES
+('DS001', 'US001', 'LI001-URL01', '2023-05-01 10:00:00', '192.168.0.1'),
+('DS002', 'US002', 'LI002-URL01', '2023-05-01 14:30:00', '192.168.0.2'),
+('DS003', 'US003', 'LI003-URL01', '2023-05-02 09:15:00', '192.168.0.3'),
+('DS004', 'US004', 'LI004-URL01', '2023-05-02 20:45:00', '192.168.0.4'),
+('DS005', 'US005', 'LI005-URL01', '2023-05-03 11:30:00', '192.168.0.5'),
+('DS006', 'US006', 'LI006-URL01', '2023-05-03 16:00:00', '192.168.0.6'),
+('DS007', 'US001', 'LI007-URL01', '2023-05-04 12:15:00', '192.168.0.1'),
+('DS008', 'US007', 'LI008-URL01', '2023-05-05 13:00:00', '192.168.0.7'),
+('DS009', 'US008', 'LI009-URL01', '2023-05-05 18:30:00', '192.168.0.8'),
+('DS010', 'US009', 'LI010-URL01', '2023-05-06 19:45:00', '192.168.0.9');
 
 -- Prestamo
 INSERT INTO prestamo (codigo_prestamo, id_usuario, id_empleado, fecha_prestamo) VALUES
@@ -708,28 +711,28 @@ INSERT INTO prestamo (codigo_prestamo, id_usuario, id_empleado, fecha_prestamo) 
 ('PR015', 'US015', 'EM008', '2023-05-15');
 
 -- Presta
-INSERT INTO presta (codigo_presta, codigo_prestamo, isbn, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real) VALUES
-('PT001', 'PR001', 'LI001', 1, '2023-05-08', '2023-05-08'),
-('PT002', 'PR001', 'LI010', 1, '2023-05-08', '2023-05-07'),
-('PT003', 'PR001', 'LI011', 1, '2023-05-08', '2023-05-06'),
-('PT004', 'PR002', 'LI001', 2, '2023-05-09', '2023-05-10'),
-('PT005', 'PR003', 'LI001', 3, '2023-05-10', '2023-05-13'),
-('PT006', 'PR004', 'LI002', 1, '2023-05-11', '2023-05-13'),
-('PT007', 'PR005', 'LI002', 2, '2023-05-12', '2023-05-14'),
-('PT008', 'PR006', 'LI003', 1, '2023-05-13', '2023-05-15'),
-('PT009', 'PR007', 'LI003', 2, '2023-05-14', '2023-05-16'),
-('PT010', 'PR007', 'LI030', 2, '2023-05-14', '2023-05-13'),
-('PT011', 'PR007', 'LI024', 1, '2023-05-14', '2023-05-14'),
-('PT012', 'PR008', 'LI004', 1, '2023-05-15', '2023-05-16'),
-('PT013', 'PR009', 'LI004', 2, '2023-05-16', '2023-05-18'),
-('PT014', 'PR010', 'LI005', 1, '2023-05-17', '2023-05-19'),
-('PT015', 'PR011', 'LI006', 1, '2023-05-18', '2023-05-20'),
-('PT016', 'PR012', 'LI006', 2, '2023-05-19', '2023-05-19'),
-('PT017', 'PR012', 'LI015', 1, '2023-05-19', '2023-05-18'),
-('PT018', 'PR012', 'LI020', 2, '2023-05-19', '2023-05-13'),
-('PT019', 'PR013', 'LI007', 1, '2023-05-20', '2023-05-20'),
-('PT020', 'PR014', 'LI008', 1, '2023-05-21', '2023-05-23'),
-('PT021', 'PR015', 'LI009', 1, '2023-05-22', '2023-05-22');
+INSERT INTO presta (codigo_presta, codigo_prestamo, codigo_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real) VALUES
+('PT001', 'PR001', 'LI001-N01', '2023-05-08', '2023-05-08'),
+('PT002', 'PR001', 'LI010-N01', '2023-05-08', '2023-05-07'),
+('PT003', 'PR001', 'LI011-N01', '2023-05-08', '2023-05-06'),
+('PT004', 'PR002', 'LI001-N02', '2023-05-09', '2023-05-10'),
+('PT005', 'PR003', 'LI001-N03', '2023-05-10', '2023-05-13'),
+('PT006', 'PR004', 'LI002-N01', '2023-05-11', '2023-05-13'),
+('PT007', 'PR005', 'LI002-N02', '2023-05-12', '2023-05-14'),
+('PT008', 'PR006', 'LI003-N01', '2023-05-13', '2023-05-15'),
+('PT009', 'PR007', 'LI003-N02', '2023-05-14', '2023-05-16'),
+('PT010', 'PR007', 'LI030-N02', '2023-05-14', '2023-05-13'),
+('PT011', 'PR007', 'LI024-N01', '2023-05-14', '2023-05-14'),
+('PT012', 'PR008', 'LI004-N01', '2023-05-15', '2023-05-16'),
+('PT013', 'PR009', 'LI004-N02', '2023-05-16', '2023-05-18'),
+('PT014', 'PR010', 'LI005-N01', '2023-05-17', '2023-05-19'),
+('PT015', 'PR011', 'LI006-N01', '2023-05-18', '2023-05-20'),
+('PT016', 'PR012', 'LI006-N02', '2023-05-19', '2023-05-19'),
+('PT017', 'PR012', 'LI015-N01', '2023-05-19', '2023-05-18'),
+('PT018', 'PR012', 'LI020-N02', '2023-05-19', '2023-05-13'),
+('PT019', 'PR013', 'LI007-N01', '2023-05-20', '2023-05-20'),
+('PT020', 'PR014', 'LI008-N01', '2023-05-21', '2023-05-23'),
+('PT021', 'PR015', 'LI009-N01', '2023-05-22', '2023-05-22');
 
 -- Multa
 INSERT INTO multa (codigo_multa, codigo_presta, fecha_multa, valor_multa, descripcion_multa) VALUES

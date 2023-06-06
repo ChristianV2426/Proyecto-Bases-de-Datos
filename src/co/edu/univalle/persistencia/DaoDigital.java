@@ -30,7 +30,8 @@ public class DaoDigital implements DaoGeneral<Digital>{
   @Override
   public boolean insertarElemento(Digital digital) {
     String sentenciaInsert =
-      "INSERT INTO digital VALUES ('" + 
+      "INSERT INTO digital VALUES ('" +
+      digital.getCodigoDigital() + "', '" + 
       digital.getIsbn() + "', '" +
       digital.getUrl() + "', '" +
       digital.getTamanoBytes() + "', '" +
@@ -42,10 +43,11 @@ public class DaoDigital implements DaoGeneral<Digital>{
   @Override
   public boolean editarElemento(Digital digital) {
     String sentenciaUpdate =
-      "UPDATE digital SET tamano_bytes='" + digital.getTamanoBytes() +
+      "UPDATE digital SET ISBN='" + digital.getIsbn() +
+      "', URL='" + digital.getUrl() +
+      "', tamano_bytes='" + digital.getTamanoBytes() +
       "', formato='" + digital.getFormato() +
-      "' WHERE ISBN='" + digital.getIsbn() +
-      "' AND URL='" + digital.getUrl() + "';";
+      "' WHERE codigo_digital='" + digital.getCodigoDigital() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
@@ -53,8 +55,7 @@ public class DaoDigital implements DaoGeneral<Digital>{
   @Override
   public boolean eliminarElemento(String llavePrimaria) {
     String sentenciaDelete = 
-      "DELETE FROM digital WHERE ISBN='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) +
-      "' AND URL='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
+      "DELETE FROM digital WHERE codigo_digital='" + llavePrimaria + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaDelete, conexionBD);
   }
@@ -70,9 +71,8 @@ public class DaoDigital implements DaoGeneral<Digital>{
   @Override
   public Digital obtenerElemento(String llavePrimaria) {
     String sentenciaSelect =
-    "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial, URL, tamano_bytes, formato " + 
-    "FROM digital NATURAL JOIN libro WHERE ISBN='" + llavePrimaria.substring(0, llavePrimaria.indexOf(",")) +
-    "' AND URL='" + llavePrimaria.substring(llavePrimaria.indexOf(",")+2) + "';";
+    "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial, codigo_digital, URL, tamano_bytes, formato " + 
+    "FROM digital NATURAL JOIN libro WHERE codigo_digital='" + llavePrimaria + "';";
 
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -89,8 +89,9 @@ public class DaoDigital implements DaoGeneral<Digital>{
           resultadoConsulta.getString(6),
           resultadoConsulta.getString(7),
           resultadoConsulta.getString(8),
-          Integer.valueOf(resultadoConsulta.getString(9)),
-          resultadoConsulta.getString(10));
+          resultadoConsulta.getString(9),
+          Integer.valueOf(resultadoConsulta.getString(10)),
+          resultadoConsulta.getString(11) );
       }
 
       else

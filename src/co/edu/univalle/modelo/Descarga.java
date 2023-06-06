@@ -22,16 +22,14 @@ import java.time.LocalDateTime;
 public class Descarga {
   private String codigoDescarga;
   private String idUsuario;
-  private String isbn;
-  private String url;
+  private String codigoDigital;
   private LocalDateTime fechaDescargaConHora;
   private String numIp;
 
-  public Descarga(String codigoDescarga, String idUsuario, String isbn, String url, LocalDateTime fechaDescargaConHora, String numIp) {
+  public Descarga(String codigoDescarga, String idUsuario, String codigoDigital, LocalDateTime fechaDescargaConHora, String numIp) {
     this.codigoDescarga = codigoDescarga;
     this.idUsuario = idUsuario;
-    this.isbn = isbn;
-    this.url = url;
+    this.codigoDigital = codigoDigital;
     this.fechaDescargaConHora = fechaDescargaConHora;
     this.numIp = numIp;
   }
@@ -39,8 +37,7 @@ public class Descarga {
   public Descarga(String codigoDescarga, Usuario usuario, Digital digital, LocalDateTime fechaDescargaConHora, String numIp) {
     this.codigoDescarga = codigoDescarga;
     this.idUsuario = usuario.getIdUsuario();
-    this.isbn = digital.getIsbn();
-    this.url = digital.getUrl();
+    this.codigoDigital = digital.getCodigoDigital();
     this.fechaDescargaConHora = fechaDescargaConHora;
     this.numIp = numIp;
   }
@@ -53,12 +50,8 @@ public class Descarga {
     return idUsuario;
   }
 
-  public String getIsbn() {
-    return isbn;
-  }
-
-  public String getUrl() {
-    return url;
+  public String getCodigoDigital() {
+    return codigoDigital;
   }
 
   public LocalDateTime getFechaDescargaConHora() {
@@ -71,8 +64,8 @@ public class Descarga {
 
   @Override
   public String toString() {
-    return "codigoDescarga=" + codigoDescarga + ", idUsuario=" + idUsuario + ", isbn=" + isbn + ", url=" + url
-      + ", fechaDescargaConHora=" + fechaDescargaConHora + ", numIp=" + numIp;
+    return "codigoDescarga=" + codigoDescarga + ", idUsuario=" + idUsuario + ", codigoDigital="
+        + codigoDigital + ", fechaDescargaConHora=" + fechaDescargaConHora + ", numIp=" + numIp;
   }
   
 }

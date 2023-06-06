@@ -18,25 +18,32 @@
 package co.edu.univalle.modelo;
 
 public class Digital extends Libro{
+  private String codigoDigital;
   private String url;
   private Integer tamanoBytes;
   private String formato;
 
   public Digital(String isbn, String titulo, Integer numPagina, Integer anioPublicacion, String idioma,
-    String codigoArea, String codigoEditorial, String url, Integer tamanoBytes, String formato) {
+    String codigoArea, String codigoEditorial, String codigoDigital, String url, Integer tamanoBytes, String formato) {
 
     super(isbn, titulo, numPagina, anioPublicacion, idioma, codigoArea, codigoEditorial);
+    this.codigoDigital = codigoDigital;
     this.url = url;
     this.tamanoBytes = tamanoBytes;
     this.formato = formato;
   }
 
-  public Digital(Libro libro, String url, Integer tamanoBytes, String formato) {
+  public Digital(Libro libro, String codigoDigital, String url, Integer tamanoBytes, String formato) {
     super(libro.getIsbn(), libro.getTitulo(), libro.getNumPagina(), libro.getAnioPublicacion(),
     libro.getIdioma(), libro.getCodigoArea(), libro.getCodigoEditorial());
+    this.codigoDigital = codigoDigital;
     this.url = url;
     this.tamanoBytes = tamanoBytes;
     this.formato = formato;
+  }
+
+  public String getCodigoDigital() {
+    return codigoDigital;
   }
 
   public String getUrl() {
@@ -53,7 +60,7 @@ public class Digital extends Libro{
 
   @Override
   public String toString() {
-    return super.toString() + " libro digital. Url: " + url;
+    return super.toString() + " libro digital con código: " + codigoDigital;
   }
 
 }

@@ -22,16 +22,14 @@ import java.time.LocalDate;
 public class RelacionPresta {
   private String codigoPresta;
   private String codigoPrestamo;
-  private String isbn;
-  private Integer numEjemplar;
+  private String codigoEjemplar;
   private LocalDate fechaDevolucionEsperada;
   private LocalDate fechaDevolucionReal;
 
-  public RelacionPresta(String codigoPresta, String codigoPrestamo, String isbn, Integer numEjemplar, LocalDate fechaDevolucionEsperada) {
+  public RelacionPresta(String codigoPresta, String codigoPrestamo, String codigoEjemplar, LocalDate fechaDevolucionEsperada) {
     this.codigoPresta = codigoPresta;
     this.codigoPrestamo = codigoPrestamo;
-    this.isbn = isbn;
-    this.numEjemplar = numEjemplar;
+    this.codigoEjemplar = codigoEjemplar;
     this.fechaDevolucionEsperada = fechaDevolucionEsperada;
     this.fechaDevolucionReal = null;
   }
@@ -39,8 +37,7 @@ public class RelacionPresta {
   public RelacionPresta(String codigoPresta, Prestamo prestamo, Ejemplar ejemplar, LocalDate fechaDevolucionEsperada) {
     this.codigoPresta = codigoPresta;
     this.codigoPrestamo = prestamo.getCodigoPrestamo();
-    this.isbn = ejemplar.getIsbn();
-    this.numEjemplar = ejemplar.getNumEjemplar();
+    this.codigoEjemplar = ejemplar.getCodigoEjemplar();
     this.fechaDevolucionEsperada = fechaDevolucionEsperada;
     this.fechaDevolucionReal = null;
   }
@@ -53,12 +50,8 @@ public class RelacionPresta {
     return codigoPrestamo;
   }
 
-  public String getIsbn() {
-    return isbn;
-  }
-
-  public Integer getNumEjemplar() {
-    return numEjemplar;
+  public String getCodigoEjemplar() {
+    return codigoEjemplar;
   }
 
   public LocalDate getFechaDevolucionEsperada() {
@@ -75,8 +68,8 @@ public class RelacionPresta {
 
   @Override
   public String toString() {
-    return "RelacionPresta [codigoPresta=" + codigoPresta + ", codigoPrestamo=" + codigoPrestamo + ", isbn=" + isbn + ", numEjemplar=" + numEjemplar 
-      + ", fechaDevolucionEsperada=" + fechaDevolucionEsperada + ", fechaDevolucionReal=" + fechaDevolucionReal;
+    return "codigoPresta=" + codigoPresta + ", codigoPrestamo=" + codigoPrestamo + ", codigoEjemplar="
+        + codigoEjemplar + ", fechaDevolucionEsperada=" + fechaDevolucionEsperada + ", fechaDevolucionReal=" + fechaDevolucionReal;
   }
   
 }

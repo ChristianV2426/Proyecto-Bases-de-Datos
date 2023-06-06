@@ -86,7 +86,7 @@ public class ManejadorArchivos {
     String[] columnaDescarga = {"codigo_descarga", "ISBN", "titulo", "URL", "id_usuario", "nombre_usuario", "fecha_descarga_con_hora", "num_ip"};
     String[][] descargas = biblioteca.getDescargas().obtenerTodosLosElementos();
 
-    String[] columnaPrestamo = {"codigo_prestamo", "id_usuario", "nombre_usuario", "ISBN", "titulo", "num_ejemplar", "fecha_prestamo", "fecha_devolucion_esperada", "fecha_devolucion_real"};
+    String[] columnaPrestamo = {"codigo_prestamo", "id_usuario", "nombre_usuario", "codigo_presta", "ISBN", "titulo", "num_ejemplar", "fecha_prestamo", "fecha_devolucion_esperada", "fecha_devolucion_real"};
     String[][] prestamos = biblioteca.getPrestamos().obtenerTodosLosElementos();
 
     String[] columnaMulta = {"codigo_multa", "id_usuario", "nombre_usuario", "ISBN", "titulo", "num_ejemplar", "fecha_devolucion_esperada", "fecha_devolucion_real", "valor_multa", "descripcion_multa"};

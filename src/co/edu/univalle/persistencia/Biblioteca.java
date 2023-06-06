@@ -20,24 +20,24 @@ package co.edu.univalle.persistencia;
 import java.sql.*;
 
 public class Biblioteca {
-  private DaoEditorial editoriales;
-  private DaoArea areas;
-  private DaoLibro libros;
-  private DaoAutor autores;
-  private DaoRelacionEscribe relacionesEscribe;
-  private DaoDigital digitales;
-  private DaoEjemplar ejemplares;
-  private DaoUsuario usuarios;
-  private DaoEstudiante estudiantes;
-  private DaoProfesor profesores;
-  private DaoAreaInteres areasInteres;
-  private DaoEmpleado empleados;
-  private DaoSolicitud solicitudes;
-  private DaoRelacionPide relacionesPide;
-  private DaoDescarga descargas;
-  private DaoPrestamo prestamos;
-  private DaoRelacionPresta relacionesPresta;
-  private DaoMulta multas;
+    private DaoEditorial editoriales;
+    private DaoArea areas;
+    private DaoLibro libros;
+    private DaoAutor autores;
+    private DaoRelacionEscribe relacionesEscribe;
+    private DaoDigital digitales;
+    private DaoEjemplar ejemplares;
+    private DaoUsuario usuarios;
+    private DaoEstudiante estudiantes;
+    private DaoProfesor profesores;
+    private DaoAreaInteres areasInteres;
+    private DaoEmpleado empleados;
+    private DaoSolicitud solicitudes;
+    private DaoRelacionPide relacionesPide;
+    private DaoDescarga descargas;
+    private DaoPrestamo prestamos;
+    private DaoRelacionPresta relacionesPresta;
+    private DaoMulta multas;
 
   public Biblioteca(Connection conexionBD) {
     this.editoriales = new DaoEditorial(conexionBD);

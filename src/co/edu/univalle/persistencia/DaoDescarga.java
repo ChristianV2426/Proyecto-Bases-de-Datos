@@ -35,8 +35,7 @@ public class DaoDescarga implements DaoGeneral<Descarga> {
       "INSERT INTO descarga VALUES ('" +
       descarga.getCodigoDescarga() + "', '" +
       descarga.getIdUsuario() + "', '" +
-      descarga.getIsbn() + "', '" +
-      descarga.getUrl() + "', '" +
+      descarga.getCodigoDigital() + "', '" +
       descarga.getFechaDescargaConHora() + "', '" +
       descarga.getNumIp() + "');";
 
@@ -47,8 +46,7 @@ public class DaoDescarga implements DaoGeneral<Descarga> {
   public boolean editarElemento(Descarga descarga) {
     String sentenciaUpdate =
       "UPDATE descarga SET id_usuario='" + descarga.getIdUsuario() +
-      "', ISBN='" + descarga.getIsbn() +
-      "', URL='" + descarga.getUrl() +
+      "', codigo_digital='" + descarga.getCodigoDigital() +
       "', fecha_descarga_con_hora='" + descarga.getFechaDescargaConHora() +
       "', num_ip='" + descarga.getNumIp() +
       "' WHERE codigo_descarga='" + descarga.getCodigoDescarga() + "';";
@@ -87,9 +85,8 @@ public class DaoDescarga implements DaoGeneral<Descarga> {
           resultadoConsulta.getString(1),
           resultadoConsulta.getString(2),
           resultadoConsulta.getString(3),
-          resultadoConsulta.getString(4),
-          LocalDateTime.parse(resultadoConsulta.getString(5), formato),
-          resultadoConsulta.getString(6) );
+          LocalDateTime.parse(resultadoConsulta.getString(4), formato),
+          resultadoConsulta.getString(5) );
       }
 
       else
