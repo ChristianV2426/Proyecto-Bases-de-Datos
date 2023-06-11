@@ -37,7 +37,8 @@ public class DaoMulta implements DaoGeneral<Multa> {
       multa.getCodigoPresta() + "', '" +
       multa.getFechaMulta() + "', '" +
       multa.getValorMulta() + "', '" +
-      multa.getDescripcionMulta() + "');";
+      multa.getDescripcionMulta() + "', '" +
+      String.valueOf(multa.getEstadoMulta()).toUpperCase() + "');";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
@@ -49,6 +50,7 @@ public class DaoMulta implements DaoGeneral<Multa> {
       "', fecha_multa='" + multa.getFechaMulta() +
       "', valor_multa='" + multa.getValorMulta() +
       "', descripcion_multa='" + multa.getDescripcionMulta() +
+      "', estado_multa='" + String.valueOf(multa.getEstadoMulta()).toUpperCase() +
       "' WHERE codigo_multa='" + multa.getCodigoMulta() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
@@ -63,7 +65,7 @@ public class DaoMulta implements DaoGeneral<Multa> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT codigo_multa, id_usuario, nombre_usuario, ISBN, titulo, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real, valor_multa, descripcion_multa " +
+    String sentenciaSelect = "SELECT codigo_multa, id_usuario, nombre_usuario, ISBN, titulo, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real, valor_multa, descripcion_multa, estado_multa " +
       " FROM multa NATURAL JOIN presta NATURAL JOIN prestamo NATURAL JOIN usuario NATURAL JOIN ejemplar NATURAL JOIN libro;";
     
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
@@ -79,12 +81,19 @@ public class DaoMulta implements DaoGeneral<Multa> {
 
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
+        String estadoMulta;
+        if (resultadoConsulta.getString(6).toLowerCase().equals("true") || resultadoConsulta.getString(6).toLowerCase().equals("t"))
+          estadoMulta = "true";
+        else
+          estadoMulta = "false";
+
         return new Multa(
           resultadoConsulta.getString(1),
           resultadoConsulta.getString(2),
           LocalDate.parse(resultadoConsulta.getString(3)),
           BigDecimal.valueOf(Double.parseDouble(resultadoConsulta.getString(4))),
-          resultadoConsulta.getString(5) );
+          resultadoConsulta.getString(5),
+          Boolean.parseBoolean(estadoMulta) );
       }
 
       else

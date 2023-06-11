@@ -25,21 +25,24 @@ public class Multa {
   private LocalDate fechaMulta;
   private BigDecimal valorMulta;
   private String descripcionMulta;
+  private Boolean estadoMulta;
 
-  public Multa(String codigoMulta, String codigoPresta, LocalDate fechaMulta, BigDecimal valorMulta, String descripcionMulta) {
+  public Multa(String codigoMulta, String codigoPresta, LocalDate fechaMulta, BigDecimal valorMulta, String descripcionMulta, Boolean estadoMulta) {
     this.codigoMulta = codigoMulta;
     this.codigoPresta = codigoPresta;
     this.fechaMulta = fechaMulta;
     this.valorMulta = valorMulta;
     this.descripcionMulta = descripcionMulta;
+    this.estadoMulta = estadoMulta;
   }
 
-  public Multa(String codigoMulta, RelacionPresta relacionPresta, Ejemplar ejemplar, LocalDate fechaMulta, BigDecimal valorMulta, String descripcionMulta) {
+  public Multa(String codigoMulta, RelacionPresta relacionPresta, Ejemplar ejemplar, LocalDate fechaMulta, BigDecimal valorMulta, String descripcionMulta, Boolean estadoMulta) {
     this.codigoMulta = codigoMulta;
     this.codigoPresta = relacionPresta.getCodigoPrestamo();
     this.fechaMulta = fechaMulta;
     this.valorMulta = valorMulta;
     this.descripcionMulta = descripcionMulta;
+    this.estadoMulta = estadoMulta;
   }
 
   public String getCodigoMulta() {
@@ -62,10 +65,20 @@ public class Multa {
     return descripcionMulta;
   }
 
+  public Boolean getEstadoMulta() {
+    return estadoMulta;
+  }
+
   @Override
   public String toString() {
+    String stringEstadoMulta;
+    if(estadoMulta)
+      stringEstadoMulta = "Pagada";
+    else
+      stringEstadoMulta = "No pagada";
+
     return "codigoMulta=" + codigoMulta + ", codigoPresta=" + codigoPresta + ", fechaMulta=" + fechaMulta +
-      ", valorMulta=" + valorMulta + ", descripcionMulta=" + descripcionMulta;
+      ", valorMulta=" + valorMulta + ", descripcionMulta=" + descripcionMulta + ", estadoMulta=" + stringEstadoMulta;
   }
 
 }

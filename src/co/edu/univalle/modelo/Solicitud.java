@@ -24,19 +24,22 @@ public class Solicitud {
   private String idUsuario;
   private LocalDate fechaSolicitud;
   private String descripcion;
+  private String estadoSolicitud;
   
-  public Solicitud(String codigoSolicitud, String idUsuario, LocalDate fechaSolicitud, String descripcion) {
+  public Solicitud(String codigoSolicitud, String idUsuario, LocalDate fechaSolicitud, String descripcion, String estadoSolicitiud) {
     this.codigoSolicitud = codigoSolicitud;
     this.idUsuario = idUsuario;
     this.fechaSolicitud = fechaSolicitud;
     this.descripcion = descripcion;
+    this.estadoSolicitud = estadoSolicitiud;
   }
 
-  public Solicitud(String codigoSolicitud, Usuario usuario, LocalDate fechaSolicitud, String descripcion) {
+  public Solicitud(String codigoSolicitud, Usuario usuario, LocalDate fechaSolicitud, String descripcion, String estadoSolicitud) {
     this.codigoSolicitud = codigoSolicitud;
     this.idUsuario = usuario.getIdUsuario();
     this.fechaSolicitud = fechaSolicitud;
     this.descripcion = descripcion;
+    this.estadoSolicitud = estadoSolicitud;
   }
 
   public String getCodigoSolicitud() {
@@ -55,9 +58,14 @@ public class Solicitud {
     return descripcion;
   }
 
+  public String getEstadoSolicitud() {
+    return estadoSolicitud;
+  }
+
   @Override
   public String toString() {
-    return "codigoSolicitud=" + codigoSolicitud + ", idUsuario=" + idUsuario + ", fechaSolicitud=" + fechaSolicitud;
+    return "codigoSolicitud=" + codigoSolicitud + ", idUsuario=" + idUsuario +
+      ", fechaSolicitud=" + fechaSolicitud + ", estadoSolicitud=" + estadoSolicitud;
   }
 
 }

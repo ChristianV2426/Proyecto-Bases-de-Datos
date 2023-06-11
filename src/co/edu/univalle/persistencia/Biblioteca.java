@@ -28,10 +28,12 @@ public class Biblioteca {
   private DaoDigital digitales;
   private DaoEjemplar ejemplares;
   private DaoUsuario usuarios;
+  private DaoContrasenaUsuario contrasenasUsuarios;
   private DaoEstudiante estudiantes;
   private DaoProfesor profesores;
   private DaoAreaInteres areasInteres;
   private DaoEmpleado empleados;
+  private DaoContrasenaEmpleado contrasenasEmpleados;
   private DaoSolicitud solicitudes;
   private DaoRelacionPide relacionesPide;
   private DaoDescarga descargas;
@@ -48,10 +50,12 @@ public class Biblioteca {
     this.digitales = new DaoDigital(conexionBD);
     this.ejemplares = new DaoEjemplar(conexionBD);
     this.usuarios = new DaoUsuario(conexionBD);
+    this.contrasenasUsuarios = new DaoContrasenaUsuario(conexionBD);
     this.estudiantes = new DaoEstudiante(conexionBD);
     this.profesores = new DaoProfesor(conexionBD);
     this.areasInteres = new DaoAreaInteres(conexionBD);
     this.empleados = new DaoEmpleado(conexionBD);
+    this.contrasenasEmpleados = new DaoContrasenaEmpleado(conexionBD);
     this.solicitudes = new DaoSolicitud(conexionBD);
     this.relacionesPide = new DaoRelacionPide(conexionBD);
     this.descargas = new DaoDescarga(conexionBD);
@@ -92,6 +96,10 @@ public class Biblioteca {
     return usuarios;
   }
 
+  public DaoContrasenaUsuario getContrasenasUsuarios() {
+    return contrasenasUsuarios;
+  }
+
   public DaoEstudiante getEstudiantes() {
     return estudiantes;
   }
@@ -106,6 +114,10 @@ public class Biblioteca {
 
   public DaoEmpleado getEmpleados() {
     return empleados;
+  }
+
+  public DaoContrasenaEmpleado getContrasenasEmpleados() {
+    return contrasenasEmpleados;
   }
 
   public DaoSolicitud getSolicitudes() {

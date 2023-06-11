@@ -35,7 +35,8 @@ public class DaoSolicitud implements DaoGeneral<Solicitud> {
       solicitud.getCodigoSolicitud() + "' , '" +
       solicitud.getIdUsuario() + "' , '" +
       solicitud.getFechaSolicitud() + "', '" +
-      solicitud.getDescripcion() + "');";
+      solicitud.getDescripcion() +  "', '" +
+      solicitud.getEstadoSolicitud() + "');";
   
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
@@ -46,6 +47,7 @@ public class DaoSolicitud implements DaoGeneral<Solicitud> {
       "UPDATE solicitud SET id_usuario='" + solicitud.getIdUsuario() +
       "', fecha_solicitud='" + solicitud.getFechaSolicitud() + 
       "', descripcion ='" + solicitud.getDescripcion() + 
+      "', estado_solicitud='" + solicitud.getEstadoSolicitud() +
       "' WHERE codigo_solicitud='" + solicitud.getCodigoSolicitud() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
@@ -60,7 +62,7 @@ public class DaoSolicitud implements DaoGeneral<Solicitud> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT codigo_solicitud, fecha_solicitud, id_usuario, nombre_usuario, ISBN, titulo, descripcion " +
+    String sentenciaSelect = "SELECT codigo_solicitud, fecha_solicitud, id_usuario, nombre_usuario, ISBN, titulo, descripcion, estado_solicitud " +
       "FROM solicitud NATURAL JOIN usuario NATURAL JOIN pide NATURAL JOIN libro;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
@@ -81,7 +83,8 @@ public class DaoSolicitud implements DaoGeneral<Solicitud> {
           resultadoConsulta.getString(1),
           resultadoConsulta.getString(2),
           LocalDate.parse(resultadoConsulta.getString(3)),
-          resultadoConsulta.getString(4) );
+          resultadoConsulta.getString(4), 
+          resultadoConsulta.getString(5) );
       }
 
       else

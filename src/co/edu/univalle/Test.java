@@ -159,7 +159,24 @@ public class Test {
     System.out.println(biblioteca.getUsuarios().editarElemento(usuario3));
 
     System.out.println(biblioteca.getUsuarios().eliminarElemento("US021"));
-    
+
+
+    /* Pruebas CRUD sobre contraseña usuarios */
+    System.out.println(biblioteca.getUsuarios().insertarElemento(usuario1));
+    ContrasenaUsuario contrasenaUsuario1 = new ContrasenaUsuario(usuario1, "ContrasenaUsuario21");
+    System.out.println(biblioteca.getContrasenasUsuarios().insertarElemento(contrasenaUsuario1));
+
+    ContrasenaUsuario contrasenaUsuario2 = biblioteca.getContrasenasUsuarios().obtenerElemento("US021");
+    System.out.println(contrasenaUsuario2);
+
+    System.out.println(biblioteca.getContrasenasUsuarios().obtenerTodosLosElementos() != null);
+
+    ContrasenaUsuario contrasenaUsuario3 = new ContrasenaUsuario(usuario1, "ContrasenaUsuario0021");
+    System.out.println(biblioteca.getContrasenasUsuarios().editarElemento(contrasenaUsuario3));
+
+    System.out.println(biblioteca.getContrasenasUsuarios().eliminarElemento("US021"));
+    System.out.println(biblioteca.getUsuarios().eliminarElemento("US021"));
+
 
     /* Pruebas CRUD sobre estudiante */
     Estudiante estudiante1 = new Estudiante(usuario1, "Ing Sistemas", "Universidad del Valle");
@@ -210,9 +227,25 @@ public class Test {
     
     System.out.println(biblioteca.getEmpleados().eliminarElemento("EM011"));
 
+    /* Pruebas CRUD sobre contraseñas empleados */
+    System.out.println(biblioteca.getEmpleados().insertarElemento(empleado1));
+    ContrasenaEmpleado contrasenaEmpleado1 = new ContrasenaEmpleado(empleado1, "ContrasenaEmpleado11");
+    System.out.println(biblioteca.getContrasenasEmpleados().insertarElemento(contrasenaEmpleado1));
+
+    ContrasenaEmpleado contrasenaEmpleado2 = biblioteca.getContrasenasEmpleados().obtenerElemento("EM011");
+    System.out.println(contrasenaEmpleado2);
+
+    System.out.println(biblioteca.getContrasenasEmpleados().obtenerTodosLosElementos() != null);
+
+    ContrasenaEmpleado contrasenaEmpleado3 = new ContrasenaEmpleado(empleado1, "ContrasenaEmpleado0011");
+    System.out.println(biblioteca.getContrasenasEmpleados().editarElemento(contrasenaEmpleado3));
+
+    System.out.println(biblioteca.getContrasenasEmpleados().eliminarElemento("EM011"));
+    System.out.println(biblioteca.getEmpleados().eliminarElemento("EM011"));
+
 
     /* Pruebas CRUD sobre solicitud */
-    Solicitud solicitud1 = new Solicitud("CS013", "US001", LocalDate.parse("2021-05-01"), "Solicitud de libro");
+    Solicitud solicitud1 = new Solicitud("CS013", "US001", LocalDate.parse("2021-05-01"), "Solicitud de libro", "En espera");
     System.out.println(biblioteca.getSolicitudes().insertarElemento(solicitud1));
 
     Solicitud solicitud2 = biblioteca.getSolicitudes().obtenerElemento("CS013");
@@ -220,7 +253,7 @@ public class Test {
 
     System.out.println(biblioteca.getSolicitudes().obtenerTodosLosElementos() != null);
 
-    Solicitud solicitud3 = new Solicitud("CS013", "US001", LocalDate.parse("2021-05-01"), "Solicitud de libro de física");
+    Solicitud solicitud3 = new Solicitud("CS013", "US001", LocalDate.parse("2021-05-01"), "Solicitud de libro de física", "Rechazada");
     System.out.println(biblioteca.getSolicitudes().editarElemento(solicitud3));
 
     System.out.println(biblioteca.getSolicitudes().eliminarElemento("CS013"));
@@ -291,21 +324,28 @@ public class Test {
     RelacionPresta relacionPresta3 = new RelacionPresta("PT022", "PR015", "LI010-N01", LocalDate.parse("2018-06-01"));
     System.out.println(biblioteca.getRelacionesPresta().editarElemento(relacionPresta3));
 
-
     /* Pruebas CRUD sobre multa */
-    Multa multa1 = new Multa("MT012", "PT022", LocalDate.parse("2021-05-10"), BigDecimal.valueOf(Double.parseDouble("4200")), "Multa por no devolver el libro a tiempo");
+    Multa multa1 = new Multa("MU012", "PT022", LocalDate.parse("2021-05-10"), BigDecimal.valueOf(Double.parseDouble("4200")), "Multa por no devolver el libro a tiempo", Boolean.parseBoolean("FALSE"));
     System.out.println(biblioteca.getMultas().insertarElemento(multa1));
+    Multa multa2= new Multa("MU013", "PT022", LocalDate.parse("2021-05-10"), BigDecimal.valueOf(Double.parseDouble("4200")), "Multa por no devolver el libro a tiempo", Boolean.parseBoolean("TRUE"));
+    System.out.println(biblioteca.getMultas().insertarElemento(multa2));
 
-    Multa multa2 = biblioteca.getMultas().obtenerElemento("MT012");
-    System.out.println(multa2);
+    Multa multa3 = biblioteca.getMultas().obtenerElemento("MU001");
+    System.out.println(multa3);
+    Multa multa4 = biblioteca.getMultas().obtenerElemento("MU012");
+    System.out.println(multa4);
+    Multa multa5 = biblioteca.getMultas().obtenerElemento("MU013");
+    System.out.println(multa5);
 
     System.out.println(biblioteca.getMultas().obtenerTodosLosElementos() != null);
 
-    Multa multa3 = new Multa("MT012", "PT022", LocalDate.parse("2021-05-20"), BigDecimal.valueOf(Double.parseDouble("50000")), "Multa por no devolver el libro a tiempo");
-    System.out.println(biblioteca.getMultas().editarElemento(multa3));
+    Multa multa6 = new Multa("MU012", "PT022", LocalDate.parse("2021-05-20"), BigDecimal.valueOf(Double.parseDouble("50000")), "Multa por no devolver el libro a tiempo", Boolean.parseBoolean("TRUE"));
+    System.out.println(biblioteca.getMultas().editarElemento(multa6));
 
-    System.out.println(biblioteca.getMultas().eliminarElemento("MT012"));
+    System.out.println(biblioteca.getMultas().eliminarElemento("MU012"));
+    System.out.println(biblioteca.getMultas().eliminarElemento("MU013"));
     System.out.println(biblioteca.getRelacionesPresta().eliminarElemento("PT022"));
+
 
     // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
     /*

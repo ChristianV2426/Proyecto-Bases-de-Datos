@@ -60,7 +60,6 @@ public class ManejadorArchivos {
       }
     }
 
-
   }
 
   public static boolean guardarEnArchivoTextoPlano(Biblioteca biblioteca, String rutaDirectorio){
@@ -80,17 +79,19 @@ public class ManejadorArchivos {
     String[] columnasEjemplares = {"ISBN", "titulo", "num_ejemplar", "nombre_editorial", "nombre_area", "num_pagina"};
     String[][] ejemplares = biblioteca.getEjemplares().obtenerTodosLosElementos();
 
-    String[] columnaSolicitud = {"codigo_solicitud", "fecha_solicitud", "id_usuario", "nombre_usuario", "ISBN", "titulo", "descripcion"};
+    String[] columnaSolicitud = {"codigo_solicitud", "fecha_solicitud", "id_usuario", "nombre_usuario", "ISBN", "titulo", "descripcion", "estado_solicitud"};
     String[][] solicitudes = biblioteca.getSolicitudes().obtenerTodosLosElementos();
 
     String[] columnaDescarga = {"codigo_descarga", "ISBN", "titulo", "URL", "id_usuario", "nombre_usuario", "fecha_descarga_con_hora", "num_ip"};
     String[][] descargas = biblioteca.getDescargas().obtenerTodosLosElementos();
 
-    String[] columnaPrestamo = {"codigo_prestamo", "id_usuario", "nombre_usuario", "codigo_presta", "ISBN", "titulo", "num_ejemplar", "fecha_prestamo", "fecha_devolucion_esperada", "fecha_devolucion_real"};
+    String[] columnaPrestamo = {"codigo_prestamo", "id_usuario", "nombre_usuario", "codigo_presta", "ISBN", "titulo", "num_ejemplar", "fecha_prestamo", "fecha_devolucion_esperada", "fecha_devolucion_real", "estadp_prestamo"};
     String[][] prestamos = biblioteca.getPrestamos().obtenerTodosLosElementos();
+    String[][] prestamosConEstado = calcularEstadoPrestamo(prestamos);
 
-    String[] columnaMulta = {"codigo_multa", "id_usuario", "nombre_usuario", "ISBN", "titulo", "num_ejemplar", "fecha_devolucion_esperada", "fecha_devolucion_real", "valor_multa", "descripcion_multa"};
+    String[] columnaMulta = {"codigo_multa", "id_usuario", "nombre_usuario", "ISBN", "titulo", "num_ejemplar", "fecha_devolucion_esperada", "fecha_devolucion_real", "valor_multa", "descripcion_multa", "estado_multa"};
     String[][] multas = biblioteca.getMultas().obtenerTodosLosElementos();
+    actualizarEstadoMulta(multas);
 
     LocalDateTime fechaYHora = LocalDateTime.now();
     String identificador = String.valueOf(
@@ -143,7 +144,7 @@ public class ManejadorArchivos {
 
       // Datos de los prestamos
       escritorDeArchivo.print("LISTA DE PRESTAMOS\n\n");
-      funcionEscritora(prestamos, columnaPrestamo, escritorDeArchivo);
+      funcionEscritora(prestamosConEstado, columnaPrestamo, escritorDeArchivo);
       escritorDeArchivo.print("\n\n\n");
 
       // Datos de las multas
@@ -170,5 +171,50 @@ public class ManejadorArchivos {
     }
     return operacionRealizada;
   }
+
+public static void actualizarEstadoMulta(String[][] multas) {
+  for(int i = 0; i < multas.length; i++){
+    if (multas[i][10].toLowerCase().equals("true") || multas[i][10].toLowerCase().equals("t"))
+      multas[i][10] = "Pagada";
+
+    else 
+      multas[i][10] = "No pagada";
+  }
+}
+
+public static String[][] calcularEstadoPrestamo(String[][] prestamos){
+  String[][] prestamosConEstado = new String[prestamos.length][11];
+  for(int i=0; i < prestamos.length; i++)
+    for(int j=0; j < 10; j++)
+      prestamosConEstado[i][j] = prestamos[i][j];
+
+  LocalDate fechaActual = LocalDate.now();
+
+  for(int i = 0; i < prestamos.length; i++){
+    LocalDate fechaDevolucionEsperada = LocalDate.parse(prestamos[i][8]);
+    LocalDate fechaDevolucionReal;
+
+    if (prestamos[i][9] == null){
+      fechaDevolucionReal = null;
+      prestamosConEstado[i][9] = "";
+    }
+    else
+      fechaDevolucionReal = LocalDate.parse(prestamos[i][9]);
+    
+    if(fechaDevolucionReal == null && fechaActual.isBefore(fechaDevolucionEsperada))
+      prestamosConEstado[i][10] = "Vigente";
+    
+    else if(fechaDevolucionReal == null && fechaActual.isAfter(fechaDevolucionEsperada))
+      prestamosConEstado[i][10] = "En mora";
+
+    else if(fechaDevolucionReal.isBefore(fechaDevolucionEsperada) || fechaDevolucionReal.isEqual(fechaDevolucionEsperada))
+      prestamosConEstado[i][10] = "Entregado";
+    
+    else // fechaDevolucionReal.isAfter(fechaDevolucionEsperada)
+      prestamosConEstado[i][10] = "Entregado con retraso";
+  }
+
+  return prestamosConEstado;
+}
 
 }

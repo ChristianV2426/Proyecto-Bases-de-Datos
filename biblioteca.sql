@@ -115,6 +115,16 @@ CREATE TABLE usuario(
   PRIMARY KEY (id_usuario)
 );
 
+-- Contraseñas usuarios --
+DROP TABLE IF EXISTS contrasena_usuario CASCADE;
+CREATE TABLE contrasena_usuario (
+  id_usuario VARCHAR(5) NOT NULL,
+  contrasena VARCHAR(100) NOT NULL,
+
+  PRIMARY KEY (id_usuario),
+  FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
+);
+
 -- Estudiante --
 DROP TABLE IF EXISTS estudiante CASCADE;
 CREATE TABLE estudiante(
@@ -158,6 +168,16 @@ CREATE TABLE empleado (
   PRIMARY KEY (id_empleado)
 );
 
+-- Contraseñas empleados --
+DROP TABLE IF EXISTS contrasena_empleado CASCADE;
+CREATE TABLE contrasena_empleado (
+  id_empleado VARCHAR(5) NOT NULL,
+  contrasena VARCHAR(100) NOT NULL,
+
+  PRIMARY KEY (id_empleado),
+  FOREIGN KEY (id_empleado) REFERENCES empleado (id_empleado)
+);
+
 -- Solicitud --
 DROP TABLE IF EXISTS solicitud CASCADE;
 CREATE TABLE solicitud (
@@ -165,6 +185,7 @@ CREATE TABLE solicitud (
   id_usuario VARCHAR(5) NOT NULL,
   fecha_solicitud DATE, 
   descripcion VARCHAR(100),
+  estado_solicitud VARCHAR(10) NOT NULL,
 
   PRIMARY KEY (codigo_solicitud),
   FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
@@ -216,12 +237,12 @@ CREATE TABLE presta (
   codigo_prestamo VARCHAR(5) NOT NULL,
   codigo_ejemplar VARCHAR(9) NOT NULL,
   fecha_devolucion_esperada DATE,
-  fecha_devolucion_real DATE, 
+  fecha_devolucion_real DATE,
 
   PRIMARY KEY (codigo_presta),
   FOREIGN KEY (codigo_prestamo) REFERENCES prestamo (codigo_prestamo),
   FOREIGN KEY  (codigo_ejemplar) REFERENCES ejemplar (codigo_ejemplar),
-  UNIQUE (codigo_prestamo, codigo_ejemplar)
+  UNIQUE (codigo_presta, codigo_prestamo, codigo_ejemplar)
 );
 
 -- Multa --
@@ -232,6 +253,7 @@ CREATE TABLE multa (
   fecha_multa DATE, 
   valor_multa DECIMAL, 
   descripcion_multa VARCHAR(100),
+  estado_multa BOOLEAN NOT NULL, 
 
   PRIMARY KEY (codigo_multa),
   FOREIGN KEY (codigo_presta) REFERENCES presta (codigo_presta)
@@ -557,6 +579,29 @@ INSERT INTO usuario (id_usuario, nombre_usuario, telefono, direccion, email) VAL
 ('US019', 'Fernanda Gomez', '3109990011', 'Calle 9 # 50-15, Cali', 'fernanda.gomez@correounivalle.edu.co'),
 ('US020', 'David Hernandez', '3180001122', 'Avenida 6A # 24-78, Cali', 'david.hernandez@correounivalle.edu.co');
 
+-- Contraseña usuario
+INSERT INTO contrasena_usuario (id_usuario, contrasena) VALUES
+('US001', 'ContrasenaUsuario1'), 
+('US002', 'ContrasenaUsuario2'), 
+('US003', 'ContrasenaUsuario3'), 
+('US004', 'ContrasenaUsuario4'), 
+('US005', 'ContrasenaUsuario5'), 
+('US006', 'ContrasenaUsuario6'), 
+('US007', 'ContrasenaUsuario7'), 
+('US008', 'ContrasenaUsuario8'), 
+('US009', 'ContrasenaUsuario9'), 
+('US010', 'ContrasenaUsuario10'), 
+('US011', 'ContrasenaUsuario11'), 
+('US012', 'ContrasenaUsuario12'), 
+('US013', 'ContrasenaUsuario13'), 
+('US014', 'ContrasenaUsuario14'), 
+('US015', 'ContrasenaUsuario15'), 
+('US016', 'ContrasenaUsuario16'), 
+('US017', 'ContrasenaUsuario17'), 
+('US018', 'ContrasenaUsuario18'), 
+('US019', 'ContrasenaUsuario19'), 
+('US020', 'ContrasenaUsuario20');
+
 -- Estudiante
 INSERT INTO estudiante (id_usuario, carrera, universidad) VALUES
 ('US001', 'Ingenieria de Sistemas', 'Universidad del Valle'),
@@ -649,20 +694,33 @@ INSERT INTO empleado (id_empleado, nombre_empleado, cargo) VALUES
 ('EM009', 'Sara Castro', 'Asistente de conservacion'),
 ('EM010', 'Esteban Martinez', 'Encargado de sistemas');
 
+-- Contraseña empleado
+INSERT INTO contrasena_empleado (id_empleado, contrasena) VALUES
+('EM001', 'ContrasenaEmpleado1'),
+('EM002', 'ContrasenaEmpleado2'),
+('EM003', 'ContrasenaEmpleado3'),
+('EM004', 'ContrasenaEmpleado4'),
+('EM005', 'ContrasenaEmpleado5'),
+('EM006', 'ContrasenaEmpleado6'),
+('EM007', 'ContrasenaEmpleado7'),
+('EM008', 'ContrasenaEmpleado8'),
+('EM009', 'ContrasenaEmpleado9'),
+('EM010', 'ContrasenaEmpleado10');
+
 -- Solicitud
-INSERT INTO solicitud (codigo_solicitud, id_usuario, fecha_solicitud, descripcion) VALUES
-('CS001', 'US001', '2023-05-01', 'Necesito este libro para mi curso de calculo.'),
-('CS002', 'US002', '2023-05-02', 'Estoy interesado en aprender mas sobre fisica moderna.'),
-('CS003', 'US003', '2023-05-03', 'Quiero estudiar quimica organica.'),
-('CS004', 'US004', '2023-05-04', 'Necesito este libro para mi clase de biologia molecular.'),
-('CS005', 'US005', '2023-05-05', 'Me gustaria aprender programacion en C++.'),
-('CS006', 'US006', '2023-05-06', 'Estoy interesado en el diseño estructural.'),
-('CS007', 'US007', '2023-05-07', 'Necesito este libro para mi curso de psicologia.'),
-('CS008', 'US008', '2023-05-08', 'Me gustaria aprender mas sobre historia universal.'),
-('CS009', 'US009', '2023-05-09', 'Quiero estudiar redes de computadoras.'),
-('CS010', 'US010', '2023-05-10', 'Necesito este libro para mi curso de medicina.'),
-('CS011', 'US001', '2023-05-11', 'Tambien quiero aprender sobre fisica moderna.'),
-('CS012', 'US002', '2023-05-12', 'Me gustaria estudiar biologia molecular y genetica.');
+INSERT INTO solicitud (codigo_solicitud, id_usuario, fecha_solicitud, descripcion, estado_solicitud) VALUES
+('CS001', 'US001', '2023-05-01', 'Necesito este libro para mi curso de calculo.', 'En espera'),
+('CS002', 'US002', '2023-05-02', 'Estoy interesado en aprender mas sobre fisica moderna.', 'En espera'),
+('CS003', 'US003', '2023-05-03', 'Quiero estudiar quimica organica.', 'En espera'),
+('CS004', 'US004', '2023-05-04', 'Necesito este libro para mi clase de biologia molecular.', 'Rechazada'),
+('CS005', 'US005', '2023-05-05', 'Me gustaria aprender programacion en C++.', 'Rechazada'),
+('CS006', 'US006', '2023-05-06', 'Estoy interesado en el diseño estructural.', 'Rechazada'),
+('CS007', 'US007', '2023-05-07', 'Necesito este libro para mi curso de psicologia.', 'En espera'),
+('CS008', 'US008', '2023-05-08', 'Me gustaria aprender mas sobre historia universal.', 'Aceptada'),
+('CS009', 'US009', '2023-05-09', 'Quiero estudiar redes de computadoras.', 'Aceptada'),
+('CS010', 'US010', '2023-05-10', 'Necesito este libro para mi curso de medicina.', 'Aceptada'),
+('CS011', 'US001', '2023-05-11', 'Tambien quiero aprender sobre fisica moderna.', 'Rechazada'),
+('CS012', 'US002', '2023-05-12', 'Me gustaria estudiar biologia molecular y genetica.', 'En espera');
 
 -- Pide
 INSERT INTO pide (codigo_solicitud, ISBN) VALUES
@@ -732,18 +790,20 @@ INSERT INTO presta (codigo_presta, codigo_prestamo, codigo_ejemplar, fecha_devol
 ('PT018', 'PR012', 'LI020-N02', '2023-05-19', '2023-05-13'),
 ('PT019', 'PR013', 'LI007-N01', '2023-05-20', '2023-05-20'),
 ('PT020', 'PR014', 'LI008-N01', '2023-05-21', '2023-05-23'),
-('PT021', 'PR015', 'LI009-N01', '2023-05-22', '2023-05-22');
+('PT021', 'PR015', 'LI009-N01', '2023-05-22', '2023-05-22'),
+('PT023', 'PR015', 'LI010-N01', '2023-12-10', NULL),
+('PT024', 'PR015', 'LI026-N02', '2023-06-01', NULL);
 
 -- Multa
-INSERT INTO multa (codigo_multa, codigo_presta, fecha_multa, valor_multa, descripcion_multa) VALUES
-('MU001', 'PT004', '2023-05-10', 1200, '1 dia de retraso en la devolucion'),
-('MU002', 'PT005', '2023-05-13', 3600, '3 dias de retraso en la devolucion'),
-('MU003', 'PT006', '2023-05-13', 2400, '2 dias de retraso en la devolucion'),
-('MU004', 'PT007', '2023-05-14', 2400, '2 dias de retraso en la devolucion'),
-('MU005', 'PT008', '2023-05-15', 2400, '2 dias de retraso en la devolucion'),
-('MU006', 'PT009', '2023-05-16', 2400, '2 dias de retraso en la devolucion'),
-('MU007', 'PT012', '2023-05-16', 1200, '1 dia de retraso en la devolucion'),
-('MU008', 'PT013', '2023-05-18', 2400, '2 dias de retraso en la devolucion'),
-('MU009', 'PT014', '2023-05-19', 2400, '2 dias de retraso en la devolucion'),
-('MU010', 'PT015', '2023-05-20', 2400, '2 dias de retraso en la devolucion'),
-('MU011', 'PT020', '2023-05-23', 2400, '2 dias de retraso en la devolucion');
+INSERT INTO multa (codigo_multa, codigo_presta, fecha_multa, valor_multa, descripcion_multa, estado_multa) VALUES
+('MU001', 'PT004', '2023-05-10', 1200, '1 dia de retraso en la devolucion', 'TRUE'),
+('MU002', 'PT005', '2023-05-13', 3600, '3 dias de retraso en la devolucion', 'TRUE'),
+('MU003', 'PT006', '2023-05-13', 2400, '2 dias de retraso en la devolucion', 'FALSE'),
+('MU004', 'PT007', '2023-05-14', 2400, '2 dias de retraso en la devolucion', 'FALSE'),
+('MU005', 'PT008', '2023-05-15', 2400, '2 dias de retraso en la devolucion', 'TRUE'),
+('MU006', 'PT009', '2023-05-16', 2400, '2 dias de retraso en la devolucion', 'TRUE'),
+('MU007', 'PT012', '2023-05-16', 1200, '1 dia de retraso en la devolucion', 'TRUE'),
+('MU008', 'PT013', '2023-05-18', 2400, '2 dias de retraso en la devolucion', 'TRUE'),
+('MU009', 'PT014', '2023-05-19', 2400, '2 dias de retraso en la devolucion', 'TRUE'),
+('MU010', 'PT015', '2023-05-20', 2400, '2 dias de retraso en la devolucion', 'FALSE'),
+('MU011', 'PT020', '2023-05-23', 2400, '2 dias de retraso en la devolucion', 'FALSE');
