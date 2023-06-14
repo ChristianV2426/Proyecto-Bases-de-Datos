@@ -33,7 +33,7 @@ public class Test {
     FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
     Connection conexionBD = fachadaBD.getConexionBD();
 
-    co.edu.univalle.persistencia.Biblioteca biblioteca = new co.edu.univalle.persistencia.Biblioteca(conexionBD);
+    Biblioteca biblioteca = new Biblioteca(conexionBD);
 
     /* Pruebas CRUD sobre editorial */
     Editorial editorial1 = new Editorial("ED011", "Editores Santillana", "Colombia", "https://santillana.com.co/");
