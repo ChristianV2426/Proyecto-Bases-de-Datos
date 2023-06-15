@@ -16,11 +16,16 @@
 */
 
 package co.edu.univalle.vistas;
+import java.awt.Color;
 
 public class vistaLogin extends javax.swing.JFrame {
 
-    public vistaLogin() {
+    public vistaLogin(String titulo) {
         initComponents();
+        setVisible(true);
+        setTitle(titulo);
+        setResizable(false);
+        setLocationRelativeTo(null);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -34,9 +39,9 @@ public class vistaLogin extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         lblRegistro = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
-        lblLogo = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         checkPassword = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,7 +59,7 @@ public class vistaLogin extends javax.swing.JFrame {
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPassword.setText("Contraseña");
 
-        btnIngresar.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        btnIngresar.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnIngresar.setText("Ingresar");
         btnIngresar.setFocusPainted(false);
         btnIngresar.setRequestFocusEnabled(false);
@@ -68,14 +73,15 @@ public class vistaLogin extends javax.swing.JFrame {
         btnSalir.setFocusPainted(false);
         btnSalir.setRequestFocusEnabled(false);
 
-        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/univalle/Imagenes/univalle-logo.png"))); // NOI18N
-
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         checkPassword.setText("Ver contraseña");
+        checkPassword.setContentAreaFilled(false);
         checkPassword.setFocusPainted(false);
         checkPassword.setRequestFocusEnabled(false);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/univalle-logo.png"))); // NOI18N
 
         javax.swing.GroupLayout panelContenidoLayout = new javax.swing.GroupLayout(panelContenido);
         panelContenido.setLayout(panelContenidoLayout);
@@ -107,16 +113,16 @@ public class vistaLogin extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lblRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelContenidoLayout.setVerticalGroup(
             panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContenidoLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblIdentificacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,6 +140,9 @@ public class vistaLogin extends javax.swing.JFrame {
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        btnIngresar.setBackground(Color.WHITE);
+        btnSalir.setBackground(Color.WHITE);
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
@@ -171,8 +180,8 @@ public class vistaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JCheckBox checkPassword;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblIdentificacion;
-    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRegistro;
     private javax.swing.JPanel panelContenido;
