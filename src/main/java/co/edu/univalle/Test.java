@@ -27,9 +27,9 @@ import java.math.BigDecimal;
 
 public class Test {
   public static void main(String[] args) {
-    String url = "jdbc:postgresql://localhost:5432/biblioteca";
-    String usuario = "postgres";
-    String password = "password";
+    String url = "jdbc:postgresql://localhost:5432/biblioteca_database";
+    String usuario = "BleatingDog";
+    String password = "&Santi14_SQL&";
     FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
     Connection conexionBD = fachadaBD.getConexionBD();
 
