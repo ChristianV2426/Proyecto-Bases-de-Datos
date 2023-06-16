@@ -17,6 +17,11 @@
 
 package co.edu.univalle.vistas;
 import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class vistaRegistroEstudiante extends javax.swing.JFrame {
 
@@ -57,7 +62,7 @@ public class vistaRegistroEstudiante extends javax.swing.JFrame {
 
         panelFondo.setBackground(new java.awt.Color(255, 255, 255));
 
-        panelContenido.setBackground(new java.awt.Color(204, 204, 204));
+        panelContenido.setBackground(new java.awt.Color(219, 213, 213));
 
         lblIdentificacion.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdentificacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -254,6 +259,49 @@ public class vistaRegistroEstudiante extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getBtnRegistrar() {
+        return btnRegistrar;
+    }
+
+    public JButton getBtnRegresar() {
+        return btnRegresar;
+    }
+
+    public JCheckBox getCheckPassword() {
+        return checkPassword;
+    }
+
+    public JComboBox<String> getComboCarrera() {
+        return comboCarrera;
+    }
+
+    public JComboBox<String> getComboUniversidad() {
+        return comboUniversidad;
+    }
+
+    public JTextField getTxtDireccion() {
+        return txtDireccion;
+    }
+
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public JTextField getTxtIdentificacion() {
+        return txtIdentificacion;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public JPasswordField getTxtPassword() {
+        return txtPassword;
+    }
+
+    public JTextField getTxtTelefono() {
+        return txtTelefono;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;

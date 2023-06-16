@@ -17,6 +17,10 @@
 
 package co.edu.univalle.vistas;
 import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class vistaLogin extends javax.swing.JFrame {
 
@@ -41,13 +45,13 @@ public class vistaLogin extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
         checkPassword = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         panelFondo.setBackground(new java.awt.Color(255, 255, 255));
 
-        panelContenido.setBackground(new java.awt.Color(204, 204, 204));
+        panelContenido.setBackground(new java.awt.Color(219, 213, 213));
 
         lblIdentificacion.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdentificacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -80,8 +84,8 @@ public class vistaLogin extends javax.swing.JFrame {
         checkPassword.setFocusPainted(false);
         checkPassword.setRequestFocusEnabled(false);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/univalle-logo.png"))); // NOI18N
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/univalle-logo.png"))); // NOI18N
 
         javax.swing.GroupLayout panelContenidoLayout = new javax.swing.GroupLayout(panelContenido);
         panelContenido.setLayout(panelContenidoLayout);
@@ -115,13 +119,13 @@ public class vistaLogin extends javax.swing.JFrame {
                 .addContainerGap())
             .addComponent(lblIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelContenidoLayout.setVerticalGroup(
             panelContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContenidoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblIdentificacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,13 +179,32 @@ public class vistaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getBtnIngresar() {
+        return btnIngresar;
+    }
+
+    public JButton getBtnSalir() {
+        return btnSalir;
+    }
+
+    public JCheckBox getCheckPassword() {
+        return checkPassword;
+    }
+
+    public JTextField getTxtIdentificacion() {
+        return txtIdentificacion;
+    }
+
+    public JPasswordField getTxtPassword() {
+        return txtPassword;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JCheckBox checkPassword;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblIdentificacion;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRegistro;
     private javax.swing.JPanel panelContenido;

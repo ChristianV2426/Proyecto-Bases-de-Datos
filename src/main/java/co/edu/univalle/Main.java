@@ -16,9 +16,12 @@
 */
 package co.edu.univalle;
 
+import co.edu.univalle.vistas.vistaUConsultarLibro;
+
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        vistaUConsultarLibro prueba = new vistaUConsultarLibro("Consultar libro");
     }
 }
