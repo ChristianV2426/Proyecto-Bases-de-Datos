@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
-public class vistaUConsultarLibro extends javax.swing.JFrame {
+public class vistaUsuario extends javax.swing.JFrame {
 
     private JPanel panelConsultar;
     private JPanel panelSolicitar;
@@ -41,7 +41,7 @@ public class vistaUConsultarLibro extends javax.swing.JFrame {
     private JTableHeader th;
     private JScrollPane scroll;
     
-    public vistaUConsultarLibro(String titulo) {
+    public vistaUsuario(String titulo) {
         initComponents();
         componentesConsultar();
         llenarColumnas();
@@ -179,6 +179,10 @@ public class vistaUConsultarLibro extends javax.swing.JFrame {
         btnPrestamos = new javax.swing.JButton();
         btnMultas = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        panelPrincipal = new javax.swing.JPanel();
+        Solicitud = new javax.swing.JPanel();
+        prestamos = new javax.swing.JPanel();
+        multas = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -281,6 +285,49 @@ public class vistaUConsultarLibro extends javax.swing.JFrame {
 
         panelFondo.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 210, 480));
 
+        panelPrincipal.setLayout(new java.awt.CardLayout());
+
+        javax.swing.GroupLayout SolicitudLayout = new javax.swing.GroupLayout(Solicitud);
+        Solicitud.setLayout(SolicitudLayout);
+        SolicitudLayout.setHorizontalGroup(
+            SolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+        SolicitudLayout.setVerticalGroup(
+            SolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        panelPrincipal.add(Solicitud, "card4");
+
+        javax.swing.GroupLayout prestamosLayout = new javax.swing.GroupLayout(prestamos);
+        prestamos.setLayout(prestamosLayout);
+        prestamosLayout.setHorizontalGroup(
+            prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+        prestamosLayout.setVerticalGroup(
+            prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        panelPrincipal.add(prestamos, "card2");
+
+        javax.swing.GroupLayout multasLayout = new javax.swing.GroupLayout(multas);
+        multas.setLayout(multasLayout);
+        multasLayout.setHorizontalGroup(
+            multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+        multasLayout.setVerticalGroup(
+            multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        panelPrincipal.add(multas, "card3");
+
+        panelFondo.add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 740, 440));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -348,14 +395,18 @@ public class vistaUConsultarLibro extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Solicitud;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnMultas;
     private javax.swing.JButton btnPrestamos;
     private javax.swing.JButton btnSolicitud;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel multas;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelMenu;
+    private javax.swing.JPanel panelPrincipal;
     private javax.swing.JPanel panelTitulo;
+    private javax.swing.JPanel prestamos;
     // End of variables declaration//GEN-END:variables
 }
