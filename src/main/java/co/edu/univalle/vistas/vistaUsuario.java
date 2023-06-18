@@ -182,7 +182,15 @@ public class vistaUsuario extends javax.swing.JFrame {
         panelPrincipal = new javax.swing.JPanel();
         Solicitud = new javax.swing.JPanel();
         prestamos = new javax.swing.JPanel();
+        txtNomPrestamo = new javax.swing.JTextField();
+        txtFechaPrestamo = new javax.swing.JTextField();
+        scrollPrestamo = new javax.swing.JScrollPane();
+        tablaPrestamo = new javax.swing.JTable();
         multas = new javax.swing.JPanel();
+        txtNomMulta = new javax.swing.JTextField();
+        txtFechaMulta = new javax.swing.JTextField();
+        scrollMulta = new javax.swing.JScrollPane();
+        tablaMulta = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -300,28 +308,104 @@ public class vistaUsuario extends javax.swing.JFrame {
 
         panelPrincipal.add(Solicitud, "card4");
 
+        txtNomPrestamo.setEditable(false);
+        txtNomPrestamo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNomPrestamo.setText("jTextField1");
+        txtNomPrestamo.setFocusable(false);
+
+        txtFechaPrestamo.setEditable(false);
+        txtFechaPrestamo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtFechaPrestamo.setText("jTextField1");
+        txtFechaPrestamo.setFocusable(false);
+
+        tablaPrestamo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollPrestamo.setViewportView(tablaPrestamo);
+
         javax.swing.GroupLayout prestamosLayout = new javax.swing.GroupLayout(prestamos);
         prestamos.setLayout(prestamosLayout);
         prestamosLayout.setHorizontalGroup(
             prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, prestamosLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(scrollPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                    .addGroup(prestamosLayout.createSequentialGroup()
+                        .addComponent(txtNomPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60))
         );
         prestamosLayout.setVerticalGroup(
             prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(prestamosLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNomPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(scrollPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         panelPrincipal.add(prestamos, "card2");
+
+        txtNomMulta.setEditable(false);
+        txtNomMulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNomMulta.setText("jTextField1");
+        txtNomMulta.setFocusable(false);
+
+        txtFechaMulta.setEditable(false);
+        txtFechaMulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtFechaMulta.setText("jTextField1");
+        txtFechaMulta.setFocusable(false);
+
+        tablaMulta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollMulta.setViewportView(tablaMulta);
 
         javax.swing.GroupLayout multasLayout = new javax.swing.GroupLayout(multas);
         multas.setLayout(multasLayout);
         multasLayout.setHorizontalGroup(
             multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, multasLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(scrollMulta, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                    .addGroup(multasLayout.createSequentialGroup()
+                        .addComponent(txtNomMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtFechaMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60))
         );
         multasLayout.setVerticalGroup(
             multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(multasLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFechaMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNomMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(scrollMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         panelPrincipal.add(multas, "card3");
@@ -394,6 +478,38 @@ public class vistaUsuario extends javax.swing.JFrame {
         return btnSolicitud;
     }
     
+    public JTextField getTxtNomPrestamo() {
+        return txtNomPrestamo;
+    }
+    
+    public JTextField getTxtFechaPrestamo() {
+        return txtFechaPrestamo;
+    }
+    
+    public JScrollPane getScrollPrestamo() {
+        return scrollPrestamo;
+    }
+    
+    public JTable getTablaPrestamo() {
+        return tablaPrestamo;
+    }
+    
+    public JTextField getTxtNomMulta() {
+        return txtNomMulta;
+    }
+    
+    public JTextField getTxtFechaMulta() {
+        return txtFechaMulta;
+    }
+    
+    public JScrollPane getScrollMulta() {
+        return scrollMulta;
+    }
+    
+    public JTable getTablaMulta() {
+        return tablaMulta;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Solicitud;
     private javax.swing.JButton btnCerrar;
@@ -408,5 +524,13 @@ public class vistaUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JPanel panelTitulo;
     private javax.swing.JPanel prestamos;
+    private javax.swing.JScrollPane scrollMulta;
+    private javax.swing.JScrollPane scrollPrestamo;
+    private javax.swing.JTable tablaMulta;
+    private javax.swing.JTable tablaPrestamo;
+    private javax.swing.JTextField txtFechaMulta;
+    private javax.swing.JTextField txtFechaPrestamo;
+    private javax.swing.JTextField txtNomMulta;
+    private javax.swing.JTextField txtNomPrestamo;
     // End of variables declaration//GEN-END:variables
 }
