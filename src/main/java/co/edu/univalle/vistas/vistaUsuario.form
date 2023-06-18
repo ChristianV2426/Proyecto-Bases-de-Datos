@@ -262,9 +262,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="scrollPrestamo" pref="623" max="32767" attributes="0"/>
+                              <Component id="scrollPrestamo" pref="620" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="txtNomPrestamo" min="-2" pref="200" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
