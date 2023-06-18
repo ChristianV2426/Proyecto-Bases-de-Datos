@@ -126,20 +126,6 @@ public class vistaUsuario extends javax.swing.JFrame {
         panelConsultar.add(btnDescargar);
     }
     
-    public void componentesSolicitud(){
-        panelSolicitar = new JPanel();
-        
-    }
-    
-    public void componentesPrestamo(){
-        panelPrestamos = new JPanel();
-        
-    }
-    
-    public void componentesMulta(){
-        panelMultas = new JPanel();
-    }
-    
     public void llenarColumnas(){
         modeloTabla.addColumn("ISBN");
         modeloTabla.addColumn("Titulo");
