@@ -223,7 +223,7 @@
                 <Property name="requestFocusEnabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnSolicitudes.setBackground(Color.WHITE);"/>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnDescargas.setBackground(Color.WHITE);"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnCerrar">

@@ -4,6 +4,8 @@
  */
 package co.edu.univalle.vistas;
 
+import java.awt.Color;
+
 /**
  *
  * @author John
@@ -145,7 +147,7 @@ public class vistaEmpleado extends javax.swing.JFrame {
         btnLibros.setBackground(Color.WHITE);
         btnMultas.setBackground(Color.WHITE);
         btnSolicitudes.setBackground(Color.WHITE);
-        btnSolicitudes.setBackground(Color.WHITE);
+        btnDescargas.setBackground(Color.WHITE);
         btnCerrar.setBackground(Color.WHITE);
 
         panelFondo.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 210, 480));
