@@ -25,6 +25,8 @@ import co.edu.univalle.controlador.ControladorLogin;
 import co.edu.univalle.persistencia.Biblioteca;
 import co.edu.univalle.persistencia.DaoContrasenaUsuario;
 import co.edu.univalle.persistencia.DaoUsuario;
+import co.edu.univalle.persistencia.DaoEmpleado;
+import co.edu.univalle.persistencia.DaoContrasenaEmpleado;
 import co.edu.univalle.persistencia.FachadaBD;
 
 public class Main {
@@ -39,12 +41,16 @@ public class Main {
         // Crea las instancias DAO para el usuario y la contraseña
         DaoUsuario daoUsuario = new DaoUsuario(conexionBD);
         DaoContrasenaUsuario daoContrasenaUsuario = new DaoContrasenaUsuario(conexionBD);
+
+        // Crea las instancias DAO para el empleado y su contraseña
+        DaoEmpleado daoEmpleado = new DaoEmpleado(conexionBD);
+        DaoContrasenaEmpleado daoContrasenaEmpleado = new DaoContrasenaEmpleado(conexionBD);
         
         // Crea la vista
         vistaLogin vistaLogin = new vistaLogin("Inicio Sesión");
         
         // Crea el controlador pasando las instancias DAO creadas
-        ControladorLogin controladorLogin = new ControladorLogin(vistaLogin, daoUsuario, daoContrasenaUsuario);
+        ControladorLogin controladorLogin = new ControladorLogin(vistaLogin, daoUsuario, daoContrasenaUsuario, daoEmpleado, daoContrasenaEmpleado);
         
         // Inicializa la vista
         vistaLogin.setVisible(true);

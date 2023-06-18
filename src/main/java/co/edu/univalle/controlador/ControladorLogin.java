@@ -1,11 +1,8 @@
 package co.edu.univalle.controlador;
 
-import co.edu.univalle.modelo.Usuario;
-import co.edu.univalle.modelo.ContrasenaUsuario;
-import co.edu.univalle.persistencia.DaoUsuario;
-import co.edu.univalle.persistencia.DaoContrasenaUsuario;
-import co.edu.univalle.vistas.vistaLogin;
-import co.edu.univalle.vistas.vistaUConsultarLibro;
+import co.edu.univalle.modelo.*;
+import co.edu.univalle.persistencia.*;
+import co.edu.univalle.vistas.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,11 +12,15 @@ public class ControladorLogin {
     private vistaLogin vista;
     private DaoUsuario daoUsuario;
     private DaoContrasenaUsuario daoContrasena;
+    private DaoEmpleado daoEmpleado;
+    private DaoContrasenaEmpleado daoContrasenaEmpleado;
 
-    public ControladorLogin(vistaLogin vista, DaoUsuario daoUsuario, DaoContrasenaUsuario daoContrasena) {
+    public ControladorLogin(vistaLogin vista, DaoUsuario daoUsuario, DaoContrasenaUsuario daoContrasena, DaoEmpleado daoEmpleado, DaoContrasenaEmpleado daoContrasenaEmpleado) {
         this.vista = vista;
         this.daoUsuario = daoUsuario;
         this.daoContrasena = daoContrasena;
+        this.daoEmpleado = daoEmpleado;
+        this.daoContrasenaEmpleado = daoContrasenaEmpleado;
 
         this.vista.getBtnIngresar().addActionListener(new ActionListener() {
             @Override
@@ -53,6 +54,9 @@ public class ControladorLogin {
 
         Usuario usuario = daoUsuario.obtenerElemento(idUsuario);
         ContrasenaUsuario contrasenaUsuario = daoContrasena.obtenerElemento(idUsuario);
+        
+        Empleado empleado = daoEmpleado.obtenerElemento(idUsuario);
+        ContrasenaEmpleado contrasenaEmpleado = daoContrasenaEmpleado.obtenerElemento(idUsuario);
 
         if (usuario != null && contrasenaUsuario != null) {
             if (contrasenaUsuario.getContrasena().equals(contrasena)) {
@@ -61,9 +65,17 @@ public class ControladorLogin {
             } else {
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
             }
+        } else if (empleado != null && contrasenaEmpleado != null) {
+            if (contrasenaEmpleado.getContrasena().equals(contrasena)) {
+                vista.dispose();
+                // new vistaConsultarLibroEmpleado("empleado");
+                new vistaUConsultarLibro("empleado"); // Se debe de cambiar esta línea
+
+            } else {
+                JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         } else {
             JOptionPane.showMessageDialog(vista, "Usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
-

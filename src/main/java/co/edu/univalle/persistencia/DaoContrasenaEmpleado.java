@@ -83,9 +83,6 @@ public class DaoContrasenaEmpleado implements DaoGeneral<ContrasenaEmpleado> {
       return null;
     }
   }
-
-
-
   
 }
 
