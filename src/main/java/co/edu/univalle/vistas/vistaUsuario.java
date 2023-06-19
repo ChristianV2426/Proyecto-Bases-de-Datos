@@ -1,5 +1,5 @@
 /*
-  Archivo: vistaUConsultarLibro.java
+  Archivo: vistaUsuario.java
   Bases de Datos - 750006C - Grupo 01
   Proyecto - Biblioteca Universidad del Valle
 
@@ -17,39 +17,39 @@
 
 package co.edu.univalle.vistas;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import org.netbeans.lib.awtextra.AbsoluteConstraints;
 
 public class vistaUsuario extends javax.swing.JFrame {
 
     private JPanel panelConsultar;
-    private JPanel panelSolicitar;
-    private JPanel panelPrestamos;
-    private JPanel panelMultas;
     private JTextField txtIsbn;
     private JLabel lblIsbn;
     private JLabel lblConsulteTodos;
     private JButton btnConsultarLibro;
     private JButton btnConsultarLibros;
     private JButton btnDescargar;
-    private JTable tablaLibro;
+    private JTable tablaConsultar;
     private final DefaultTableModel modeloTabla = new DefaultTableModel();
     private JTableHeader th;
-    private JScrollPane scroll;
+    private JScrollPane scrollConsultar;
+    private final CardLayout cardLayout;
     
     public vistaUsuario(String titulo) {
         initComponents();
         componentesConsultar();
-        llenarColumnas();
-        diseñoTabla();
+        llenarColumnas(tablaConsultar);
+        disenoTabla(tablaConsultar, scrollConsultar);
         setVisible(true);
         setTitle(titulo);
         setResizable(false);
         setLocationRelativeTo(null);
+        cardLayout = (CardLayout) panelPrincipal.getLayout();
+        cardLayout.show(panelPrincipal, "cardConsultar");
     }
     
     public void componentesConsultar(){
@@ -62,15 +62,16 @@ public class vistaUsuario extends javax.swing.JFrame {
         btnConsultarLibro = new JButton();
         btnConsultarLibros = new JButton();
         btnDescargar = new JButton();
-        tablaLibro = new JTable();
-        scroll = new JScrollPane();
+        tablaConsultar = new JTable();
+        scrollConsultar = new JScrollPane();
         panelConsultar.setLayout(null);
         
         //Configurando el panelConsultar
         panelConsultar.setVisible(true);
         panelConsultar.setOpaque(true);
+        panelConsultar.setBounds(0, 0, 770, 440);
         panelConsultar.setBackground(new Color(219, 213, 213));
-        panelFondo.add(panelConsultar, new AbsoluteConstraints(220, 120, 770, 440));
+        panelPrincipal.add(panelConsultar, "cardConsultar");
         
         //Añadiendo componentes a panelConsultar
         txtIsbn.setFont(new Font("Segoe UI", 0, 18));
@@ -87,7 +88,7 @@ public class vistaUsuario extends javax.swing.JFrame {
         
         btnConsultarLibro.setText("Consultar");
         btnConsultarLibro.setFont(new Font("Georgia", 0, 20));
-        btnConsultarLibro.setBounds(600, 30, 150, 30);
+        btnConsultarLibro.setBounds(560, 30, 150, 30);
         btnConsultarLibro.setBackground(Color.WHITE);
         btnConsultarLibro.setFocusPainted(false);
         btnConsultarLibro.setRequestFocusEnabled(false);
@@ -102,55 +103,77 @@ public class vistaUsuario extends javax.swing.JFrame {
         
         btnConsultarLibros.setText("Consultar");
         btnConsultarLibros.setFont(new Font("Georgia", 0, 20));
-        btnConsultarLibros.setBounds(600, 90, 150, 30);
+        btnConsultarLibros.setBounds(560, 90, 150, 30);
         btnConsultarLibros.setBackground(Color.WHITE);
         btnConsultarLibros.setFocusPainted(false);
         btnConsultarLibros.setRequestFocusEnabled(false);
         panelConsultar.add(btnConsultarLibros);
         
-        tablaLibro.setFont(new Font("Agency FB", 1, 18));
-        tablaLibro.setModel(modeloTabla);
-        tablaLibro.setRowHeight(30);
-        tablaLibro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        tablaLibro.getTableHeader().setReorderingAllowed(false);
-        scroll.setViewportView(tablaLibro);
-        scroll.setBounds(15, 150, 740, 210);
-        panelConsultar.add(scroll);
+        tablaConsultar.setFont(new Font("Agency FB", 1, 18));
+        tablaConsultar.setModel(modeloTabla);
+        tablaConsultar.setRowHeight(30);
+        tablaConsultar.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tablaConsultar.getTableHeader().setReorderingAllowed(false);
+        scrollConsultar.setViewportView(tablaConsultar);
+        scrollConsultar.setBounds(15, 150, 695, 220);
+        panelConsultar.add(scrollConsultar);
         
         btnDescargar.setText("Descargar");
         btnDescargar.setFont(new Font("Georgia", 0, 20));
-        btnDescargar.setBounds(600, 395, 150, 30);
+        btnDescargar.setBounds(560, 395, 150, 30);
         btnDescargar.setBackground(Color.WHITE);
         btnDescargar.setFocusPainted(false);
         btnDescargar.setRequestFocusEnabled(false);
         panelConsultar.add(btnDescargar);
     }
     
-    public void llenarColumnas(){
-        modeloTabla.addColumn("ISBN");
-        modeloTabla.addColumn("Titulo");
-        modeloTabla.addColumn("Ejemplares");
-        modeloTabla.addColumn("Escritor");
-        modeloTabla.addColumn("Editorial");
-        modeloTabla.addColumn("Idioma");
-        modeloTabla.addColumn("Digital");
+    public void llenarColumnas(JTable tablaGenerica){
+        
+        if (tablaGenerica == tablaConsultar) {
+            modeloTabla.addColumn("ISBN");
+            modeloTabla.addColumn("Titulo");
+            modeloTabla.addColumn("Ejemplares");
+            modeloTabla.addColumn("Escritor");
+            modeloTabla.addColumn("Editorial");
+            modeloTabla.addColumn("Idioma");
+            modeloTabla.addColumn("Digital");
+        }
+        
+        if (tablaGenerica == tablaPrestamo) {
+            modeloTabla.addColumn("PréstamoID");
+            modeloTabla.addColumn("Libros");
+            modeloTabla.addColumn("Ejemplar");
+            modeloTabla.addColumn("Préstamo");
+            modeloTabla.addColumn("Devolución");
+            modeloTabla.addColumn("Estado");
+        }
+        
+        if (tablaGenerica == tablaMulta) {
+            modeloTabla.addColumn("Multa ID");
+            modeloTabla.addColumn("Préstamo");
+            modeloTabla.addColumn("ISBN");
+            modeloTabla.addColumn("Título");
+            modeloTabla.addColumn("Fecha");
+            modeloTabla.addColumn("Estado");
+            modeloTabla.addColumn("Valor");
+        }
     }
     
-    public void diseñoTabla(){
+    public void disenoTabla(JTable tablaGenerica, JScrollPane scrollGenerico){
         
         //Fuente de cabecera
-        th = tablaLibro.getTableHeader();
-        Font fuente = new Font("Georgia", Font.BOLD, 17);
+        th = tablaGenerica.getTableHeader();
+        Font fuente = new Font("Georgia", Font.BOLD, 16);
         th.setFont(fuente);
         
         //Color cabecera
-        tablaLibro.setOpaque(false);
+        tablaGenerica.setOpaque(false);
         Color colorCabecera = new Color(178, 130, 76); //Color café
         th.setBackground(colorCabecera);
         
         //Color fondo
         Color colorFondo = new Color(255, 255, 255);
-        scroll.getViewport().setBackground(colorFondo);
+        scrollGenerico.getViewport().setBackground(colorFondo);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -166,13 +189,25 @@ public class vistaUsuario extends javax.swing.JFrame {
         btnMultas = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
         panelPrincipal = new javax.swing.JPanel();
-        Solicitud = new javax.swing.JPanel();
-        prestamos = new javax.swing.JPanel();
+        panelSolicitud = new javax.swing.JPanel();
+        lblUsuarioSolicitud = new javax.swing.JLabel();
+        lblIsbnSolicitud = new javax.swing.JLabel();
+        lblFechaSolicitud = new javax.swing.JLabel();
+        txtUsuarioSolicitud = new javax.swing.JTextField();
+        txtIsbnSolicitud = new javax.swing.JTextField();
+        txtFechaSolicitud = new javax.swing.JTextField();
+        lblIdSolicitud = new javax.swing.JLabel();
+        txtIdSolicitud = new javax.swing.JTextField();
+        scrollSolicitud = new javax.swing.JScrollPane();
+        txtAreaSolicitud = new javax.swing.JTextArea();
+        lblDescribaSolicitud = new javax.swing.JLabel();
+        btnSolicitar = new javax.swing.JButton();
+        panelPrestamo = new javax.swing.JPanel();
         txtNomPrestamo = new javax.swing.JTextField();
         txtFechaPrestamo = new javax.swing.JTextField();
         scrollPrestamo = new javax.swing.JScrollPane();
         tablaPrestamo = new javax.swing.JTable();
-        multas = new javax.swing.JPanel();
+        panelMulta = new javax.swing.JPanel();
         txtNomMulta = new javax.swing.JTextField();
         txtFechaMulta = new javax.swing.JTextField();
         scrollMulta = new javax.swing.JScrollPane();
@@ -281,61 +316,130 @@ public class vistaUsuario extends javax.swing.JFrame {
 
         panelPrincipal.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout SolicitudLayout = new javax.swing.GroupLayout(Solicitud);
-        Solicitud.setLayout(SolicitudLayout);
-        SolicitudLayout.setHorizontalGroup(
-            SolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+        lblUsuarioSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblUsuarioSolicitud.setText("Usuario:");
+
+        lblIsbnSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblIsbnSolicitud.setText("ISBN:");
+
+        lblFechaSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblFechaSolicitud.setText("Fecha:");
+
+        txtUsuarioSolicitud.setEditable(false);
+        txtUsuarioSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        txtIsbnSolicitud.setEditable(false);
+        txtIsbnSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        txtFechaSolicitud.setEditable(false);
+        txtFechaSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        lblIdSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblIdSolicitud.setText("Solicitud");
+
+        txtIdSolicitud.setEditable(false);
+        txtIdSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        txtAreaSolicitud.setColumns(20);
+        txtAreaSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtAreaSolicitud.setRows(5);
+        scrollSolicitud.setViewportView(txtAreaSolicitud);
+
+        lblDescribaSolicitud.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
+        lblDescribaSolicitud.setText("Describa el motivo de su solicitud:");
+
+        btnSolicitar.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnSolicitar.setText("Solicitar libro");
+        btnSolicitar.setFocusPainted(false);
+        btnSolicitar.setRequestFocusEnabled(false);
+
+        javax.swing.GroupLayout panelSolicitudLayout = new javax.swing.GroupLayout(panelSolicitud);
+        panelSolicitud.setLayout(panelSolicitudLayout);
+        panelSolicitudLayout.setHorizontalGroup(
+            panelSolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSolicitudLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(panelSolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSolicitar)
+                    .addGroup(panelSolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(scrollSolicitud)
+                        .addComponent(lblDescribaSolicitud)
+                        .addGroup(panelSolicitudLayout.createSequentialGroup()
+                            .addGroup(panelSolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblFechaSolicitud)
+                                .addComponent(lblIsbnSolicitud)
+                                .addComponent(lblUsuarioSolicitud))
+                            .addGap(18, 18, 18)
+                            .addGroup(panelSolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtIsbnSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                .addComponent(txtUsuarioSolicitud)
+                                .addComponent(txtFechaSolicitud))
+                            .addGap(32, 32, 32)
+                            .addComponent(lblIdSolicitud)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtIdSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
-        SolicitudLayout.setVerticalGroup(
-            SolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+        panelSolicitudLayout.setVerticalGroup(
+            panelSolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSolicitudLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(panelSolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsuarioSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuarioSolicitud)
+                    .addComponent(lblIdSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdSolicitud))
+                .addGap(18, 18, 18)
+                .addGroup(panelSolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIsbnSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIsbnSolicitud))
+                .addGap(18, 18, 18)
+                .addGroup(panelSolicitudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFechaSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaSolicitud))
+                .addGap(18, 18, 18)
+                .addComponent(lblDescribaSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSolicitar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
 
-        panelPrincipal.add(Solicitud, "card4");
+        btnSolicitar.setBackground(Color.WHITE);
+
+        panelPrincipal.add(panelSolicitud, "cardSolicitud");
 
         txtNomPrestamo.setEditable(false);
         txtNomPrestamo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNomPrestamo.setText("jTextField1");
         txtNomPrestamo.setFocusable(false);
 
         txtFechaPrestamo.setEditable(false);
         txtFechaPrestamo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtFechaPrestamo.setText("jTextField1");
         txtFechaPrestamo.setFocusable(false);
 
-        tablaPrestamo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tablaPrestamo.setModel(modeloTabla);
         scrollPrestamo.setViewportView(tablaPrestamo);
 
-        javax.swing.GroupLayout prestamosLayout = new javax.swing.GroupLayout(prestamos);
-        prestamos.setLayout(prestamosLayout);
-        prestamosLayout.setHorizontalGroup(
-            prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, prestamosLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelPrestamoLayout = new javax.swing.GroupLayout(panelPrestamo);
+        panelPrestamo.setLayout(panelPrestamoLayout);
+        panelPrestamoLayout.setHorizontalGroup(
+            panelPrestamoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrestamoLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelPrestamoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(scrollPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
-                    .addGroup(prestamosLayout.createSequentialGroup()
+                    .addGroup(panelPrestamoLayout.createSequentialGroup()
                         .addComponent(txtNomPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(60, 60, 60))
         );
-        prestamosLayout.setVerticalGroup(
-            prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(prestamosLayout.createSequentialGroup()
+        panelPrestamoLayout.setVerticalGroup(
+            panelPrestamoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrestamoLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(prestamosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelPrestamoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFechaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -343,50 +447,38 @@ public class vistaUsuario extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        panelPrincipal.add(prestamos, "card2");
+        panelPrincipal.add(panelPrestamo, "cardPrestamo");
 
         txtNomMulta.setEditable(false);
         txtNomMulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNomMulta.setText("jTextField1");
         txtNomMulta.setFocusable(false);
 
         txtFechaMulta.setEditable(false);
         txtFechaMulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtFechaMulta.setText("jTextField1");
         txtFechaMulta.setFocusable(false);
 
-        tablaMulta.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        tablaMulta.setModel(modeloTabla);
         scrollMulta.setViewportView(tablaMulta);
 
-        javax.swing.GroupLayout multasLayout = new javax.swing.GroupLayout(multas);
-        multas.setLayout(multasLayout);
-        multasLayout.setHorizontalGroup(
-            multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, multasLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelMultaLayout = new javax.swing.GroupLayout(panelMulta);
+        panelMulta.setLayout(panelMultaLayout);
+        panelMultaLayout.setHorizontalGroup(
+            panelMultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMultaLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelMultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(scrollMulta, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
-                    .addGroup(multasLayout.createSequentialGroup()
+                    .addGroup(panelMultaLayout.createSequentialGroup()
                         .addComponent(txtNomMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtFechaMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(60, 60, 60))
         );
-        multasLayout.setVerticalGroup(
-            multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(multasLayout.createSequentialGroup()
+        panelMultaLayout.setVerticalGroup(
+            panelMultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMultaLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(multasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelMultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtFechaMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNomMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -394,7 +486,7 @@ public class vistaUsuario extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        panelPrincipal.add(multas, "card3");
+        panelPrincipal.add(panelMulta, "cardMulta");
 
         panelFondo.add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 740, 440));
 
@@ -414,18 +506,6 @@ public class vistaUsuario extends javax.swing.JFrame {
 
     public JPanel getPanelConsultar() {
         return panelConsultar;
-    }
-
-    public JPanel getPanelSolicitar() {
-        return panelSolicitar;
-    }
-
-    public JPanel getPanelPrestamos() {
-        return panelPrestamos;
-    }
-
-    public JPanel getPanelMultas() {
-        return panelMultas;
     }
 
     public JTextField getTxtIsbn() {
@@ -495,28 +575,84 @@ public class vistaUsuario extends javax.swing.JFrame {
     public JTable getTablaMulta() {
         return tablaMulta;
     }
+
+    public JTable getTablaConsultar() {
+        return tablaConsultar;
+    }
+
+    public JScrollPane getScrollConsultar() {
+        return scrollConsultar;
+    }
+
+    public JScrollPane getScrollSolicitud() {
+        return scrollSolicitud;
+    }
+
+    public JTextArea getTxtAreaSolicitud() {
+        return txtAreaSolicitud;
+    }
+
+    public JTextField getTxtFechaSolicitud() {
+        return txtFechaSolicitud;
+    }
+
+    public JTextField getTxtIdSolicitud() {
+        return txtIdSolicitud;
+    }
+
+    public JTextField getTxtIsbnSolicitud() {
+        return txtIsbnSolicitud;
+    }
+
+    public JTextField getTxtUsuarioSolicitud() {
+        return txtUsuarioSolicitud;
+    }
+
+    public JButton getBtnSolicitar() {
+        return btnSolicitar;
+    }
+
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
+    }
+
+    public CardLayout getCardLayout() {
+        return cardLayout;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Solicitud;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnMultas;
     private javax.swing.JButton btnPrestamos;
+    private javax.swing.JButton btnSolicitar;
     private javax.swing.JButton btnSolicitud;
+    private javax.swing.JLabel lblDescribaSolicitud;
+    private javax.swing.JLabel lblFechaSolicitud;
+    private javax.swing.JLabel lblIdSolicitud;
+    private javax.swing.JLabel lblIsbnSolicitud;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JPanel multas;
+    private javax.swing.JLabel lblUsuarioSolicitud;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelMenu;
+    private javax.swing.JPanel panelMulta;
+    private javax.swing.JPanel panelPrestamo;
     private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JPanel panelSolicitud;
     private javax.swing.JPanel panelTitulo;
-    private javax.swing.JPanel prestamos;
     private javax.swing.JScrollPane scrollMulta;
     private javax.swing.JScrollPane scrollPrestamo;
+    private javax.swing.JScrollPane scrollSolicitud;
     private javax.swing.JTable tablaMulta;
     private javax.swing.JTable tablaPrestamo;
+    private javax.swing.JTextArea txtAreaSolicitud;
     private javax.swing.JTextField txtFechaMulta;
     private javax.swing.JTextField txtFechaPrestamo;
+    private javax.swing.JTextField txtFechaSolicitud;
+    private javax.swing.JTextField txtIdSolicitud;
+    private javax.swing.JTextField txtIsbnSolicitud;
     private javax.swing.JTextField txtNomMulta;
     private javax.swing.JTextField txtNomPrestamo;
+    private javax.swing.JTextField txtUsuarioSolicitud;
     // End of variables declaration//GEN-END:variables
 }

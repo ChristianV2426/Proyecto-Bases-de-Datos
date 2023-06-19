@@ -22,6 +22,6 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        vistaUsuario prueba = new vistaUsuario("Consultar libro");
+        vistaUsuario prueba = new vistaUsuario("Modo Usuario");
     }
 }
