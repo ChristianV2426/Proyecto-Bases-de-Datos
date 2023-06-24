@@ -369,6 +369,10 @@ public class Test {
     // String[][] multas = biblioteca.getMultas().obtenerTodosLosElementos();
     // ManejadorArchivos.imprimirArregloEnConsola(multas);
 
+    String [][] librosDisponibles =     biblioteca.getLibros().obtenerLibrosDisponibles("LI010");
+    ManejadorArchivos.imprimirArregloEnConsola(librosDisponibles);
+
+
     biblioteca.getContrasenasUsuarios().encriptarContrasenas();
     System.out.println(biblioteca.getContrasenasUsuarios().validarContrasena("US002", "ContrasenaUsuario2"));
 

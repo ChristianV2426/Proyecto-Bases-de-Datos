@@ -71,7 +71,10 @@ public class DaoLibro implements DaoGeneral<Libro>{
       "FROM ejemplar NATURAL JOIN libro NATURAL JOIN autor NATURAL JOIN escribe NATURAL JOIN editorial " +
       "GROUP BY (libro.ISBN, titulo, nombre_editorial, idioma) ORDER BY libro.ISBN;";
 
-    return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+    String[][] todosLibros = Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+    actualizarDigital(todosLibros);
+
+    return todosLibros;
   }
 
   public String[][] obtenerLibrosDisponibles(String isbn) {
@@ -81,9 +84,23 @@ public class DaoLibro implements DaoGeneral<Libro>{
         "FROM ejemplar NATURAL JOIN libro NATURAL JOIN autor NATURAL JOIN escribe NATURAL JOIN editorial " +
         "WHERE ISBN='" + isbn + "' GROUP BY (libro.ISBN, codigo_ejemplar, nombre_editorial) ORDER BY codigo_ejemplar;";
 
-    return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+    String[][] librosDisponibles = Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+    actualizarDigital(librosDisponibles);
 
+    return librosDisponibles;
   }
+
+  public void actualizarDigital(String[][] librosDisponibles) {
+    for(int i = 0; i < librosDisponibles.length; i++){
+      if (librosDisponibles[i][6].toLowerCase().equals("true") || librosDisponibles[i][6].toLowerCase().equals("t"))
+        librosDisponibles[i][6] = "Sí";
+
+      else 
+        librosDisponibles[i][6] = "No";
+      }
+  }
+
+
 
   @Override
   public Libro obtenerElemento(String llavePrimaria) {
