@@ -66,6 +66,50 @@ public class DaoPrestamo implements DaoGeneral<Prestamo> {
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
 
+  public String[][] obtenerPrestamosUsuario(String id_usuario) {
+    String sentenciaSelect = "SELECT codigo_prestamo, titulo, codigo_ejemplar, fecha_prestamo, fecha_devolucion_esperada, fecha_devolucion_real " +
+      "FROM prestamo NATURAL JOIN usuario NATURAL JOIN presta NATURAL JOIN ejemplar NATURAL JOIN libro " +
+      "WHERE id_usuario='" + id_usuario + "' ORDER BY codigo_prestamo, codigo_presta;";
+
+    return calcularEstadoPrestamo(Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD));
+  }
+
+  public String[][] calcularEstadoPrestamo(String[][] prestamos){
+  String[][] prestamosConEstado = new String[prestamos.length][7];
+  for(int i=0; i < prestamos.length; i++)
+    for(int j=0; j < 6; j++)
+      prestamosConEstado[i][j] = prestamos[i][j];
+
+  LocalDate fechaActual = LocalDate.now();
+
+  for(int i = 0; i < prestamos.length; i++){
+    LocalDate fechaDevolucionEsperada = LocalDate.parse(prestamos[i][4]);
+    LocalDate fechaDevolucionReal;
+
+    if (prestamos[i][5] == null){
+      fechaDevolucionReal = null;
+      prestamosConEstado[i][5] = "";
+      prestamosConEstado[i][6] = "";
+    }
+    else
+      fechaDevolucionReal = LocalDate.parse(prestamos[i][5]);
+    
+    if(fechaDevolucionReal == null && fechaActual.isBefore(fechaDevolucionEsperada))
+      prestamosConEstado[i][6] = "Vigente";
+    
+    else if(fechaDevolucionReal == null && fechaActual.isAfter(fechaDevolucionEsperada))
+      prestamosConEstado[i][6] = "En mora";
+
+    else if(fechaDevolucionReal.isBefore(fechaDevolucionEsperada) || fechaDevolucionReal.isEqual(fechaDevolucionEsperada))
+      prestamosConEstado[i][6] = "Entregado";
+    
+    else // fechaDevolucionReal.isAfter(fechaDevolucionEsperada)
+      prestamosConEstado[i][6] = "Entregado con retraso";
+    }
+
+    return prestamosConEstado;
+  }
+
   @Override
   public Prestamo obtenerElemento(String llavePrimaria) {
     String sentenciaSelect = "SELECT * FROM prestamo WHERE codigo_prestamo='" + llavePrimaria + "';";

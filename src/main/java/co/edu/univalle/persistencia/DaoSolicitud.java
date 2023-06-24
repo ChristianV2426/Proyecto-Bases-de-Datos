@@ -62,7 +62,7 @@ public class DaoSolicitud implements DaoGeneral<Solicitud> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT codigo_solicitud, fecha_solicitud, id_usuario, nombre_usuario, ISBN, titulo, descripcion, estado_solicitud " +
+    String sentenciaSelect = "SELECT codigo_solicitud, estado_solicitud, nombre_usuario, fecha_solicitud, titulo, ISBN " +
       "FROM solicitud NATURAL JOIN usuario NATURAL JOIN pide NATURAL JOIN libro;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);

@@ -65,10 +65,31 @@ public class DaoMulta implements DaoGeneral<Multa> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT codigo_multa, id_usuario, nombre_usuario, ISBN, titulo, num_ejemplar, fecha_devolucion_esperada, fecha_devolucion_real, valor_multa, descripcion_multa, estado_multa " +
+    String sentenciaSelect = "SELECT codigo_multa, nombre_usuario, codigo_ejemplar, titulo, fecha_multa, valor_multa, estado_multa " +
       " FROM multa NATURAL JOIN presta NATURAL JOIN prestamo NATURAL JOIN usuario NATURAL JOIN ejemplar NATURAL JOIN libro;";
     
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+  }
+
+  public String[][] obtenerMultasUsuario(String id_usuarioString) {
+    String sentenciaSelect = "SELECT codigo_multa, codigo_ejemplar, titulo, fecha_multa, valor_multa, estado_multa " +
+      "FROM multa NATURAL JOIN presta NATURAL JOIN prestamo NATURAL JOIN ejemplar NATURAL JOIN libro " +
+      "WHERE id_usuario='" + id_usuarioString + "';";
+
+    String[][] multasUsuario = Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+    actualizarEstadoMulta(multasUsuario);
+
+    return multasUsuario;
+  }
+
+  public void actualizarEstadoMulta(String[][] multas) {
+  for(int i = 0; i < multas.length; i++){
+    if (multas[i][5].toLowerCase().equals("true") || multas[i][5].toLowerCase().equals("t"))
+      multas[i][5] = "Pagada";
+
+    else 
+      multas[i][5] = "No pagada";
+    }
   }
 
   @Override
