@@ -369,8 +369,8 @@ public class Test {
     // String[][] multas = biblioteca.getMultas().obtenerTodosLosElementos();
     // ManejadorArchivos.imprimirArregloEnConsola(multas);
 
-    String [][] librosDisponibles =     biblioteca.getLibros().obtenerLibrosDisponibles("LI010");
-    ManejadorArchivos.imprimirArregloEnConsola(librosDisponibles);
+    // String [][] librosDisponibles =     biblioteca.getLibros().obtenerLibrosDisponibles("LI010");
+    // ManejadorArchivos.imprimirArregloEnConsola(librosDisponibles);
 
 
     biblioteca.getContrasenasUsuarios().encriptarContrasenas();
@@ -398,7 +398,7 @@ public class Test {
     }
     */
 
-    fachadaBD.closeConexionBD(conexionBD);
+    biblioteca.cerrarConexion();
 
   }
 }
