@@ -79,7 +79,7 @@ public class DaoLibro implements DaoGeneral<Libro>{
         "libro.ISBN, titulo, codigo_ejemplar, string_agg(DISTINCT primer_nombre || ' ' || primer_apellido, ', ') AS autor, " +
         "nombre_editorial, idioma, CASE WHEN EXISTS (SELECT 1 FROM digital WHERE digital.ISBN = libro.ISBN) THEN TRUE ELSE FALSE END AS digital " +
         "FROM ejemplar NATURAL JOIN libro NATURAL JOIN autor NATURAL JOIN escribe NATURAL JOIN editorial " +
-        "WHERE ISBN='" + isbn + "' GROUP BY (libro.ISBN, codigo_ejemplar, nombre_editorial ORDER BY codigo_ejemplar;";
+        "WHERE ISBN='" + isbn + "' GROUP BY (libro.ISBN, codigo_ejemplar, nombre_editorial) ORDER BY codigo_ejemplar;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
 

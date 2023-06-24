@@ -26,7 +26,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -35,12 +37,16 @@ public class ControladorUsuario {
     private Biblioteca biblioteca;
     private Usuario usuario;
     
+    //CellRenderer para centrar columnas
+    private DefaultTableCellRenderer alinear = new DefaultTableCellRenderer();
+    
     public ControladorUsuario(VistaUsuario vista, Biblioteca biblioteca, Usuario usuario) {
         this.vista = vista;
         this.biblioteca = biblioteca;
         this.usuario = usuario;
         this.vista.addListeners(new ManejadoraDeMouse());
         this.vista.getTablaConsultar().setModel(asignarModelo(null,vista.getCabeceraConsultar()));
+        alinear.setHorizontalAlignment(SwingConstants.CENTER);
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
@@ -152,24 +158,33 @@ public class ControladorUsuario {
                         UIManager.getIcon("OptionPane.errorIcon"));
             return;
         }
-        //String[][] libroAConsultar = biblioteca.getLibros().obtenerElemento(libroIsbn);
-//        if(libroAConsultar == null){
-//            JOptionPane.showMessageDialog(vista, 
-//                        "<html><p style = \" font:12px; \">No existe un libro registrado con ese ISBN.</p></html>", 
-//                        "Error", JOptionPane.OK_OPTION, 
-//                        UIManager.getIcon("OptionPane.errorIcon"));
-//            return;
-//        }
+        String[][] libroAConsultar = biblioteca.getLibros().obtenerLibrosDisponibles(libroIsbn);
+        if(libroAConsultar == null){
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">No existe un libro registrado con ese ISBN.</p></html>", 
+                        "Error", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        String[] cabeceraConsultar = vista.getCabeceraConsultar();
+        vista.getTablaConsultar().setModel(asignarModelo(libroAConsultar,cabeceraConsultar));
         
-
-        
-    }
+        //Centra la columna especificada
+        vista.getTablaConsultar().getColumnModel().getColumn(2).setCellRenderer(alinear);
+        vista.getTablaConsultar().getColumnModel().getColumn(0).setCellRenderer(alinear);
+        vista.getTablaConsultar().getColumnModel().getColumn(6).setCellRenderer(alinear);
+        }
 
     private void opcionConsultarLibros() {
         vista.getTxtIsbn().setText("");
-        String[] cabeceraPrestamos = vista.getCabeceraPrestamos();
+        String[] cabeceraConsultar = vista.getCabeceraConsultar();
         String [][] todosLosLibros = biblioteca.getLibros().obtenerTodosLosElementos();
-        vista.getTablaMulta().setModel(asignarModelo(todosLosLibros,cabeceraPrestamos));
+        vista.getTablaConsultar().setModel(asignarModelo(todosLosLibros,cabeceraConsultar));
+        
+        //Centra la columna especificada
+        vista.getTablaConsultar().getColumnModel().getColumn(2).setCellRenderer(alinear);
+        vista.getTablaConsultar().getColumnModel().getColumn(0).setCellRenderer(alinear);
+        vista.getTablaConsultar().getColumnModel().getColumn(6).setCellRenderer(alinear);
 
     }
     private void opcionCerrar() {

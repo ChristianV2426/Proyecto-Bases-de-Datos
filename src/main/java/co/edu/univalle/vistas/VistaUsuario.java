@@ -94,6 +94,13 @@ public class VistaUsuario extends javax.swing.JFrame {
         lblIsbn.setBorder(null);
         panelConsultar.add(lblIsbn);
         
+        lblConsulteTodos.setText("Consulte todos los libros:");
+        lblConsulteTodos.setFont(new Font("Georgia", 0, 20));
+        lblConsulteTodos.setBounds(15, 90, 225, 30);
+        lblConsulteTodos.setOpaque(false);
+        lblConsulteTodos.setBorder(null);
+        panelConsultar.add(lblConsulteTodos);
+        
         btnConsultarLibro.setText("Consultar");
         btnConsultarLibro.setFont(new Font("Georgia", 0, 20));
         btnConsultarLibro.setBounds(560, 30, 150, 30);
@@ -130,6 +137,8 @@ public class VistaUsuario extends javax.swing.JFrame {
         
     public void disenoTabla(JTable tablaGenerica, JScrollPane scrollGenerico){
         
+        tablaGenerica.setFont(new Font("Segoe UI", 0, 12));
+        
         //Fuente de cabecera
         th = tablaGenerica.getTableHeader();
         Font fuente = new Font("Georgia", Font.BOLD, 15);
@@ -144,6 +153,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         //Color fondo
         Color colorFondo = new Color(255, 255, 255);
         scrollGenerico.getViewport().setBackground(colorFondo);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -623,6 +633,8 @@ public class VistaUsuario extends javax.swing.JFrame {
         btnPrestamos.addMouseListener(listener);
         btnMultas.addMouseListener(listener);
         btnCerrar.addMouseListener(listener);
+        btnConsultarLibro.addMouseListener(listener);
+        btnConsultarLibros.addMouseListener(listener);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
