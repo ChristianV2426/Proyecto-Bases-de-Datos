@@ -1,4 +1,4 @@
-/*
+ /*
   Archivo: DaoDigital.java
   Bases de Datos - 750006C - Grupo 01
   Proyecto - Biblioteca Universidad del Valle
@@ -63,7 +63,7 @@ public class DaoDescarga implements DaoGeneral<Descarga> {
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT codigo_descarga, ISBN, titulo, URL, id_usuario, nombre_usuario, fecha_descarga_con_hora, num_ip " +
+    String sentenciaSelect = "SELECT codigo_descarga, nombre_usuario, num_ip, fecha_descarga_con_hora, titulo " +
       "FROM descarga NATURAL JOIN digital NATURAL JOIN libro NATURAL JOIN usuario;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);

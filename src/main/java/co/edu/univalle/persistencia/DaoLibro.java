@@ -65,7 +65,11 @@ public class DaoLibro implements DaoGeneral<Libro>{
 
   @Override
   public String[][] obtenerTodosLosElementos() {
-    String sentenciaSelect = "SELECT * FROM libro;";
+    String sentenciaSelect = "SELECT " +
+      "libro.ISBN, titulo, COUNT(codigo_ejemplar), string_agg(DISTINCT primer_nombre || ' ' || primer_apellido, ', ') AS autor, " +
+      "nombre_editorial, idioma, CASE WHEN EXISTS (SELECT 1 FROM digital WHERE digital.ISBN = libro.ISBN) THEN TRUE ELSE FALSE END AS digital " +
+      "FROM ejemplar NATURAL JOIN libro NATURAL JOIN autor NATURAL JOIN escribe NATURAL JOIN editorial " +
+      "GROUP BY (libro.ISBN, titulo, nombre_editorial, idioma) ORDER BY libro.ISBN;";
 
     return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
