@@ -39,6 +39,10 @@ public class ContrasenaUsuario {
     return contrasena;
   }
 
+  public void setContrasena(String contrasena) {
+    this.contrasena = contrasena;
+  }
+
   @Override
   public String toString() {
     return "idUsuario=" + idUsuario + ", contrasena=" + contrasena;

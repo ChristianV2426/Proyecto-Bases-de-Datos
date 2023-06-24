@@ -19,9 +19,11 @@ package co.edu.univalle.persistencia;
 
 import co.edu.univalle.modelo.*;
 import java.sql.*;
+import org.jasypt.util.password.*;
 
 public class DaoContrasenaUsuario implements DaoGeneral<ContrasenaUsuario> {
   Connection conexionBD;
+  StrongPasswordEncryptor encriptador = new StrongPasswordEncryptor();
 
   public DaoContrasenaUsuario(Connection conexionBD) {
     this.conexionBD = conexionBD;
@@ -58,6 +60,32 @@ public class DaoContrasenaUsuario implements DaoGeneral<ContrasenaUsuario> {
   String sentenciaSelect = "SELECT * FROM contrasena_usuario;";
 
   return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+  }
+
+  public void encriptarContrasenas(){
+    String[][] contrasenas = obtenerTodosLosElementos();
+    for (String[] contrasena: contrasenas) {
+      ContrasenaUsuario contrasenaUsuario = new ContrasenaUsuario(contrasena[0], contrasena[1]);
+
+      if(contrasenaUsuario.getContrasena().length() < 50){
+        contrasenaUsuario.setContrasena(encriptador.encryptPassword(contrasenaUsuario.getContrasena()));
+        editarElemento(contrasenaUsuario);
+      }      
+    }
+  }
+
+  public String encriptarContrasena(String contrasena){
+    return encriptador.encryptPassword(contrasena);
+  }
+
+  public boolean validarContrasena(String usuario, String contrasena){
+    ContrasenaUsuario contrasenaUsuario = obtenerElemento(usuario);
+
+    if (contrasenaUsuario != null)
+      return encriptador.checkPassword(contrasena, contrasenaUsuario.getContrasena());
+    
+    else
+      return false;
   }
 
   @Override

@@ -9,18 +9,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 public class ControladorLogin {
-    private VistaLogin vista;
-    private DaoUsuario daoUsuario;
-    private DaoContrasenaUsuario daoContrasena;
-    private DaoEmpleado daoEmpleado;
-    private DaoContrasenaEmpleado daoContrasenaEmpleado;
+    private vistaLogin vista;
+    private Biblioteca biblioteca;
 
-    public ControladorLogin(VistaLogin vista, DaoUsuario daoUsuario, DaoContrasenaUsuario daoContrasena, DaoEmpleado daoEmpleado, DaoContrasenaEmpleado daoContrasenaEmpleado) {
+    public ControladorLogin(vistaLogin vista, Biblioteca biblioteca) {
         this.vista = vista;
-        this.daoUsuario = daoUsuario;
-        this.daoContrasena = daoContrasena;
-        this.daoEmpleado = daoEmpleado;
-        this.daoContrasenaEmpleado = daoContrasenaEmpleado;
+        this.biblioteca = biblioteca;
 
         this.vista.getBtnIngresar().addActionListener(new ActionListener() {
             @Override
@@ -52,30 +46,33 @@ public class ControladorLogin {
         String idUsuario = vista.getTxtIdentificacion().getText();
         String contrasena = new String(vista.getTxtPassword().getPassword());
 
-        Usuario usuario = daoUsuario.obtenerElemento(idUsuario);
-        ContrasenaUsuario contrasenaUsuario = daoContrasena.obtenerElemento(idUsuario);
+        if (contrasena.isBlank() || contrasena.isEmpty()){
+            JOptionPane.showMessageDialog(vista, "Por favor ingrese la contraseña", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
-        Empleado empleado = daoEmpleado.obtenerElemento(idUsuario);
-        ContrasenaEmpleado contrasenaEmpleado = daoContrasenaEmpleado.obtenerElemento(idUsuario);
+        ContrasenaUsuario usuario = biblioteca.getContrasenasUsuarios().obtenerElemento(idUsuario);
+        ContrasenaEmpleado empleado = biblioteca.getContrasenasEmpleados().obtenerElemento(idUsuario);
 
-        if (usuario != null && contrasenaUsuario != null) {
-            if (contrasenaUsuario.getContrasena().equals(contrasena)) {
+        if (usuario == null && empleado == null) {
+            JOptionPane.showMessageDialog(vista, "Usuario no existe. Por favor verifique el ID de usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+    
+        if (usuario != null && biblioteca.getContrasenasUsuarios().validarContrasena(idUsuario, contrasena)) {
+                System.out.println(usuario.getContrasena());
                 vista.dispose();
-                new VistaUsuario("usuario");
-            } else {
-                JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        } else if (empleado != null && contrasenaEmpleado != null) {
-            if (contrasenaEmpleado.getContrasena().equals(contrasena)) {
+                new vistaUsuario("usuario");
+
+        } else if (empleado != null && biblioteca.getContrasenasEmpleados().validarContrasena(idUsuario, contrasena)) {
+                System.out.println(empleado.getContrasena());
                 vista.dispose();
                 // new vistaConsultarLibroEmpleado("empleado");
                 new VistaEmpleado("empleado"); // Se debe de cambiar esta línea
 
-            } else {
-                JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
-            }
         } else {
-            JOptionPane.showMessageDialog(vista, "Usuario no existe", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

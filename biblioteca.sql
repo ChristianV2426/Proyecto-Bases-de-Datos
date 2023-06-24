@@ -120,7 +120,7 @@ CREATE TABLE usuario(
 DROP TABLE IF EXISTS contrasena_usuario CASCADE;
 CREATE TABLE contrasena_usuario (
   id_usuario VARCHAR(5) NOT NULL,
-  contrasena VARCHAR(100) NOT NULL,
+  contrasena VARCHAR(300) NOT NULL,
 
   PRIMARY KEY (id_usuario),
   FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
@@ -173,7 +173,7 @@ CREATE TABLE empleado (
 DROP TABLE IF EXISTS contrasena_empleado CASCADE;
 CREATE TABLE contrasena_empleado (
   id_empleado VARCHAR(5) NOT NULL,
-  contrasena VARCHAR(100) NOT NULL,
+  contrasena VARCHAR(300) NOT NULL,
 
   PRIMARY KEY (id_empleado),
   FOREIGN KEY (id_empleado) REFERENCES empleado (id_empleado)
