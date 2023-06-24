@@ -9,10 +9,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 public class ControladorLogin {
-    private vistaLogin vista;
+    private VistaLogin vista;
     private Biblioteca biblioteca;
 
-    public ControladorLogin(vistaLogin vista, Biblioteca biblioteca) {
+    public ControladorLogin(VistaLogin vista, Biblioteca biblioteca) {
         this.vista = vista;
         this.biblioteca = biblioteca;
 
@@ -63,7 +63,7 @@ public class ControladorLogin {
         if (usuario != null && biblioteca.getContrasenasUsuarios().validarContrasena(idUsuario, contrasena)) {
                 System.out.println(usuario.getContrasena());
                 vista.dispose();
-                new vistaUsuario("usuario");
+                new VistaUsuario("usuario");
 
         } else if (empleado != null && biblioteca.getContrasenasEmpleados().validarContrasena(idUsuario, contrasena)) {
                 System.out.println(empleado.getContrasena());
