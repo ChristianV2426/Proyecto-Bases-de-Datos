@@ -47,6 +47,14 @@ public class ControladorUsuario {
         this.vista.addListeners(new ManejadoraDeMouse());
         this.vista.getTablaConsultar().setModel(asignarModelo(null,vista.getCabeceraConsultar()));
         alinear.setHorizontalAlignment(SwingConstants.CENTER);
+        
+        // Listener para close.
+        vista.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                biblioteca.cerrarConexion();
+                System.exit(0); 
+            }});
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
@@ -92,6 +100,12 @@ public class ControladorUsuario {
             if (e.getSource() == vista.getBtnConsultarLibros()){
                   if (e.getButton() == 1){
                       opcionConsultarLibros();
+                  }
+            }
+            
+            if (e.getSource() == vista.getBtnDescargar()){
+                  if (e.getButton() == 1){
+                      opcionDescargar();
                   }
             }
         }
@@ -186,6 +200,28 @@ public class ControladorUsuario {
         vista.getTablaConsultar().getColumnModel().getColumn(0).setCellRenderer(alinear);
         vista.getTablaConsultar().getColumnModel().getColumn(6).setCellRenderer(alinear);
 
+    }
+    
+    private void opcionDescargar() {
+        int filaSeleccionada = vista.getTablaConsultar().getSelectedRow();
+        if (filaSeleccionada == -1){
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">No se seleccionó ningún libro.</p></html>", 
+                        "Error", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        String[] infoLibro = vista.obtenerInfoLibro(filaSeleccionada);
+        if (infoLibro[6] == "No"){
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">Este libro no está disponible digitalmente.</p></html>", 
+                        "Error", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        } else {
+            String libroADescargar = vista.libroSeleccionado(filaSeleccionada);
+            Descarga descargaUsuario = new Descarga(null, usuario.getIdUsuario(),biblioteca.getDigitales().);
+        }
     }
     private void opcionCerrar() {
         VistaLogin vistaLogin = new VistaLogin("Inicio Sesión");

@@ -156,6 +156,15 @@ public class VistaUsuario extends javax.swing.JFrame {
         
     }
 
+    public String[] obtenerInfoLibro(int fila) {
+        int columnas = cabeceraConsultar.length;
+        String[] infoLibro = new String[columnas];
+        for (int i = 0; i < columnas; i++){
+            infoLibro[i] = tablaConsultar.getValueAt(fila,i).toString();
+        }
+        return infoLibro;
+    }
+        
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
