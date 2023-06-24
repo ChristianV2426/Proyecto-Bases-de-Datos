@@ -40,7 +40,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         cardLayout = (CardLayout) panelPrincipal.getLayout();
-        cardLayout.show(panelPrincipal, "cardManejo");
+        cardLayout.show(panelPrincipal, "cardPrestamo");
         llenarColumnas(tablaPrestamoA);
         disenoTabla(tablaPrestamoA, scrollPrestamoA);
     }
@@ -70,12 +70,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         Color colorFondo = new Color(255, 255, 255);
         scrollGenerico.getViewport().setBackground(colorFondo);
     }
-
-    public void agregarEjemplares(ArrayList<String> ejemplares){
-        
-        //Se agregan los ejemplares disponibles al comboBox
-        modeloCombo.addAll(ejemplares);
-    }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -93,6 +87,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnDescargas = new javax.swing.JButton();
         btnEjemplar = new javax.swing.JButton();
         lblAdmin = new javax.swing.JLabel();
+        btnDescargarInfo = new javax.swing.JButton();
         panelPrincipal = new javax.swing.JPanel();
         panelManejo = new javax.swing.JTabbedPane();
         panelManejoAnadir = new javax.swing.JPanel();
@@ -291,7 +286,14 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnEjemplar.setPreferredSize(new java.awt.Dimension(75, 27));
         btnEjemplar.setRequestFocusEnabled(false);
 
+        lblAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAdmin.setText("Admin");
+
+        btnDescargarInfo.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        btnDescargarInfo.setText("Descargar info");
+        btnDescargarInfo.setFocusPainted(false);
+        btnDescargarInfo.setPreferredSize(new java.awt.Dimension(75, 27));
+        btnDescargarInfo.setRequestFocusEnabled(false);
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
@@ -299,17 +301,17 @@ public class VistaEmpleado extends javax.swing.JFrame {
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnSolicitudes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCerrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPrestamos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnMultas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDescargas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnManejoPersonal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnLibros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEjemplar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSolicitudes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDescargas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManejoPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLibros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEjemplar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDescargarInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         panelMenuLayout.setVerticalGroup(
@@ -330,8 +332,10 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDescargarInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -344,6 +348,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnSolicitudes.setBackground(Color.WHITE);
         btnDescargas.setBackground(Color.WHITE);
         btnEjemplar.setBackground(Color.WHITE);
+        btnDescargarInfo.setBackground(Color.WHITE);
 
         panelFondo.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 220, 480));
 
@@ -583,9 +588,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addGap(337, 337, 337)))
                 .addGroup(panelEmpleadoManejoCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(comboCargoManejoC, 0, 295, Short.MAX_VALUE)
-                    .addGroup(panelEmpleadoManejoCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtIdManejoC, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                        .addComponent(txtNombreManejoC)))
+                    .addComponent(txtIdManejoC, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                    .addComponent(txtNombreManejoC))
                 .addContainerGap())
         );
         panelEmpleadoManejoCLayout.setVerticalGroup(
@@ -1623,6 +1627,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btnCheckPrestamoC;
     private javax.swing.JButton btnCheckPrestamoE;
     private javax.swing.JButton btnCheckPrestamoM;
+    private javax.swing.JButton btnDescargarInfo;
     private javax.swing.JButton btnDescargas;
     private javax.swing.JButton btnDevolverPrestamoC;
     private javax.swing.JButton btnEjemplar;
