@@ -1,5 +1,5 @@
 /*
-  Archivo: Main.java
+  Archivo: ControladorUsuario.java
   Bases de Datos - 750006C - Grupo 01
   Proyecto - Biblioteca Universidad del Valle
 
@@ -14,16 +14,9 @@
 
   Licencia: GNU-GPL
 */
-package co.edu.univalle;
 
-import co.edu.univalle.vistas.VistaEmpleado;
-import co.edu.univalle.vistas.VistaUsuario;
+package co.edu.univalle.controlador;
 
-public class Main {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-        //vistaUsuario prueba = new VistaUsuario("Modo Usuario");
-        VistaEmpleado prueba2 = new VistaEmpleado("Modo Empleado");
-    }
+public class ControladorUsuario {
+    
 }

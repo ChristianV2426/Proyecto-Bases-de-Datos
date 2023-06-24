@@ -1,5 +1,5 @@
 package co.edu.univalle;
-import co.edu.univalle.vistas.vistaLogin;
+import co.edu.univalle.vistas.VistaLogin;
 
 import java.sql.Connection;
 
@@ -28,7 +28,7 @@ public class TestLogin {
         DaoContrasenaEmpleado daoContrasenaEmpleado = new DaoContrasenaEmpleado(conexionBD);
         
         // Crea la vista
-        vistaLogin vistaLogin = new vistaLogin("Inicio Sesión");
+        VistaLogin vistaLogin = new VistaLogin("Inicio Sesión");
         
         // Crea el controlador pasando las instancias DAO creadas
         ControladorLogin controladorLogin = new ControladorLogin(vistaLogin, daoUsuario, daoContrasenaUsuario, daoEmpleado, daoContrasenaEmpleado);

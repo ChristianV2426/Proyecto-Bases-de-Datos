@@ -9,13 +9,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 public class ControladorLogin {
-    private vistaLogin vista;
+    private VistaLogin vista;
     private DaoUsuario daoUsuario;
     private DaoContrasenaUsuario daoContrasena;
     private DaoEmpleado daoEmpleado;
     private DaoContrasenaEmpleado daoContrasenaEmpleado;
 
-    public ControladorLogin(vistaLogin vista, DaoUsuario daoUsuario, DaoContrasenaUsuario daoContrasena, DaoEmpleado daoEmpleado, DaoContrasenaEmpleado daoContrasenaEmpleado) {
+    public ControladorLogin(VistaLogin vista, DaoUsuario daoUsuario, DaoContrasenaUsuario daoContrasena, DaoEmpleado daoEmpleado, DaoContrasenaEmpleado daoContrasenaEmpleado) {
         this.vista = vista;
         this.daoUsuario = daoUsuario;
         this.daoContrasena = daoContrasena;
@@ -61,7 +61,7 @@ public class ControladorLogin {
         if (usuario != null && contrasenaUsuario != null) {
             if (contrasenaUsuario.getContrasena().equals(contrasena)) {
                 vista.dispose();
-                new vistaUsuario("usuario");
+                new VistaUsuario("usuario");
             } else {
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
             }

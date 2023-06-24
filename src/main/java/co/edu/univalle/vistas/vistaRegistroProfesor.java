@@ -1,5 +1,5 @@
 /*
-  Archivo: vistaRegistroProfesor.java
+  Archivo: VistaRegistroProfesor.java
   Bases de Datos - 750006C - Grupo 01
   Proyecto - Biblioteca Universidad del Valle
 
@@ -23,9 +23,9 @@ import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class vistaRegistroProfesor extends javax.swing.JFrame {
+public class VistaRegistroProfesor extends javax.swing.JFrame {
 
-    public vistaRegistroProfesor(String titulo) {
+    public VistaRegistroProfesor(String titulo) {
         initComponents();
         setVisible(true);
         setTitle(titulo);

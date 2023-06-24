@@ -1,5 +1,5 @@
 /*
-  Archivo: vistaLogin.java
+  Archivo: VistaLogin.java
   Bases de Datos - 750006C - Grupo 01
   Proyecto - Biblioteca Universidad del Valle
 
@@ -22,9 +22,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class vistaLogin extends javax.swing.JFrame {
+public class VistaLogin extends javax.swing.JFrame {
 
-    public vistaLogin(String titulo) {
+    public VistaLogin(String titulo) {
         initComponents();
         setVisible(true);
         setTitle(titulo);
