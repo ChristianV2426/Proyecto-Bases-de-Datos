@@ -67,13 +67,13 @@ public class ControladorLogin {
         if (usuario != null && biblioteca.getContrasenasUsuarios().validarContrasena(idUsuario, contrasena)) {
                 System.out.println(usuario.getContrasena());
                 vista.dispose();
-                new VistaUsuario("usuario");
+                new VistaUsuario("Menú Usuario", biblioteca, biblioteca.getUsuarios().obtenerElemento(idUsuario));
 
         } else if (empleado != null && biblioteca.getContrasenasEmpleados().validarContrasena(idUsuario, contrasena)) {
                 System.out.println(empleado.getContrasena());
                 vista.dispose();
                 // new vistaConsultarLibroEmpleado("empleado");
-                new VistaEmpleado("empleado"); // Se debe de cambiar esta línea
+                new VistaEmpleado("Menú Empleado"); // Se debe de cambiar esta línea
 
         } else {
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
