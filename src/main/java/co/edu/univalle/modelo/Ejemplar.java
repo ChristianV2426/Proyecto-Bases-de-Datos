@@ -24,10 +24,11 @@ public class Ejemplar extends Libro {
   private String numCajon;
   private String numPasillo;
   private String nombreSala;
+  private Boolean disponible;
 
   public Ejemplar(String isbn, String titulo, Integer numPagina, Integer anioPublicacion, String idioma,
   String codigoArea, String codigoEditorial, String codigoEjemplar, Integer numEjemplar, String estante, String numCajon,
-  String numPasillo, String nombreSala) {
+  String numPasillo, String nombreSala, Boolean disponible) {
 
     super(isbn, titulo, numPagina, anioPublicacion, idioma, codigoArea, codigoEditorial);
     this.codigoEjemplar = codigoEjemplar;
@@ -36,10 +37,11 @@ public class Ejemplar extends Libro {
     this.numCajon = numCajon;
     this.numPasillo = numPasillo;
     this.nombreSala = nombreSala;
+    this.disponible = disponible;
   }
 
   public Ejemplar(Libro libro, String codigoEjemplar, Integer numEjemplar, String estante, String numCajon,
-    String numPasillo, String nombreSala) {
+    String numPasillo, String nombreSala, Boolean disponible) {
 
     super(libro.getIsbn(), libro.getTitulo(), libro.getNumPagina(), libro.getAnioPublicacion(), libro.getIdioma(),
       libro.getCodigoArea(), libro.getCodigoEditorial());
@@ -50,6 +52,7 @@ public class Ejemplar extends Libro {
     this.numCajon = numCajon;
     this.numPasillo = numPasillo;
     this.nombreSala = nombreSala;
+    this.disponible = disponible;
   }
   
   public String getCodigoEjemplar() {
@@ -74,6 +77,10 @@ public class Ejemplar extends Libro {
 
   public String getNombreSala() {
     return nombreSala;
+  }
+
+  public Boolean getDisponible() {
+    return disponible;
   }
 
   @Override

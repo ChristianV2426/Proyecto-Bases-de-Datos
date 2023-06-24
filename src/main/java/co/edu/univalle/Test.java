@@ -28,8 +28,8 @@ import java.sql.*;
 public class Test {
   public static void main(String[] args) {
     String url = "jdbc:postgresql://localhost:5432/biblioteca_database";
-    String usuario = "ulven";
-    String password = "Ulven_1729";
+    String usuario = "";
+    String password = "";
     FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
     Connection conexionBD = fachadaBD.getConexionBD();
 
@@ -131,7 +131,7 @@ public class Test {
 
     /* Pruebas CRUD sobre ejemplar */
     // System.out.println(biblioteca.getLibros().insertarElemento(libro1));
-    // Ejemplar ejemplar1 = new Ejemplar(libro3, "LI041-N01", Integer.valueOf(1), "null", "null", "null", "null");
+    // Ejemplar ejemplar1 = new Ejemplar(libro3, "LI041-N01", Integer.valueOf(1), "null", "null", "null", "null", Boolean.valueOf(true));
     // System.out.println(biblioteca.getEjemplares().insertarElemento(ejemplar1));
 
     // Ejemplar ejemplar2 = biblioteca.getEjemplares().obtenerElemento("LI041-N01");
@@ -139,7 +139,7 @@ public class Test {
 
     // System.out.println(biblioteca.getEjemplares().obtenerTodosLosElementos() != null);
 
-    // Ejemplar ejemplar3 = new Ejemplar(libro3, "LI041-N01", Integer.valueOf(1), "100", "101", "103", "SAL5");
+    // Ejemplar ejemplar3 = new Ejemplar(libro3, "LI041-N01", Integer.valueOf(1), "100", "101", "103", "SAL5", Boolean.valueOf(true));
     // System.out.println(biblioteca.getEjemplares().editarElemento(ejemplar3));
 
     // System.out.println(biblioteca.getEjemplares().eliminarElemento("LI041-N01"));
@@ -345,6 +345,10 @@ public class Test {
     // System.out.println(biblioteca.getMultas().eliminarElemento("MU012"));
     // System.out.println(biblioteca.getMultas().eliminarElemento("MU013"));
     // System.out.println(biblioteca.getRelacionesPresta().eliminarElemento("PT022"));
+
+
+    System.out.println("Prueba");
+    System.out.println(biblioteca.getEjemplares().ejemplaresDisponibles("LI010"));
 
 
     // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
