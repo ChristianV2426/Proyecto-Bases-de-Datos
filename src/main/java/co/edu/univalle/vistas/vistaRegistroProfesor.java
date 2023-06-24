@@ -23,9 +23,9 @@ import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class VistaRegistroProfesor extends javax.swing.JFrame {
+public class vistaRegistroProfesor extends javax.swing.JFrame {
 
-    public VistaRegistroProfesor(String titulo) {
+    public vistaRegistroProfesor(String titulo) {
         initComponents();
         setVisible(true);
         setTitle(titulo);

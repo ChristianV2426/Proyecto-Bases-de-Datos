@@ -19,12 +19,13 @@ package co.edu.univalle.vistas;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class VistaLogin extends javax.swing.JFrame {
+public class vistaLogin extends javax.swing.JFrame {
 
-    public VistaLogin(String titulo) {
+    public vistaLogin(String titulo) {
         initComponents();
         setVisible(true);
         setTitle(titulo);
@@ -197,6 +198,10 @@ public class VistaLogin extends javax.swing.JFrame {
 
     public JPasswordField getTxtPassword() {
         return txtPassword;
+    }
+
+    public JLabel getLblRegistro() {
+        return lblRegistro;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

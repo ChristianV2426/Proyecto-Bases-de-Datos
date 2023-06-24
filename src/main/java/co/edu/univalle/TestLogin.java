@@ -1,5 +1,5 @@
 package co.edu.univalle;
-import co.edu.univalle.vistas.VistaLogin;
+import co.edu.univalle.vistas.*;
 
 import java.sql.*;
 import co.edu.univalle.controlador.*;
@@ -9,9 +9,9 @@ import co.edu.univalle.persistencia.*;
 
 public class TestLogin {
   public static void main(String[] args) {
-      String url = "jdbc:postgresql://localhost:5432/biblioteca";
-      String usuario = "postgres";
-      String password = "password";
+      String url = "jdbc:postgresql://localhost:5432/biblioteca_database";
+      String usuario = "ulven";
+      String password = "Ulven_1729";
       FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
       Connection conexionBD = fachadaBD.getConexionBD();
 
