@@ -24,7 +24,7 @@ import java.io.*;
 
 public class ManejadorArchivos {
   public static void imprimirArregloEnConsola(String[][] arreglo) {
-    String configuracionImpresion = "%-30s";
+    String configuracionImpresion = "%-20s";
 
     if(arreglo == null)
       System.out.println("No hay nada para imprimir en consola.");;  
@@ -50,7 +50,7 @@ public class ManejadorArchivos {
       for(String[] fila : arreglo){
         for(String dato : fila){
           if (dato != null && dato.length()>30){
-            escritorDeArchivo.printf(configuracionImpresion, dato.substring(0, 28)+"...");
+            escritorDeArchivo.printf(configuracionImpresion, dato.substring(0, 25)+"...");
             continue;
           }
 
@@ -79,17 +79,17 @@ public class ManejadorArchivos {
     String[] columnasEjemplares = {"ISBN", "titulo", "num_ejemplar", "nombre_editorial", "nombre_area", "num_pagina"};
     String[][] ejemplares = biblioteca.getEjemplares().obtenerTodosLosElementos();
 
-    String[] columnaSolicitud = {"codigo_solicitud", "fecha_solicitud", "id_usuario", "nombre_usuario", "ISBN", "titulo", "descripcion", "estado_solicitud"};
+    String[] columnaSolicitud = {"codigo_solicitud", "estado_solicitud", "nombre_usuario", "fecha_solicitud", "titulo", "ISBN"};
     String[][] solicitudes = biblioteca.getSolicitudes().obtenerTodosLosElementos();
 
-    String[] columnaDescarga = {"codigo_descarga", "ISBN", "titulo", "URL", "id_usuario", "nombre_usuario", "fecha_descarga_con_hora", "num_ip"};
+    String[] columnaDescarga = {"codigo_descarga", "nombre_usuario", "num_ip", "fecha_descarga_con_hora", "titulo"};
     String[][] descargas = biblioteca.getDescargas().obtenerTodosLosElementos();
 
-    String[] columnaPrestamo = {"codigo_prestamo", "id_usuario", "nombre_usuario", "codigo_presta", "ISBN", "titulo", "num_ejemplar", "fecha_prestamo", "fecha_devolucion_esperada", "fecha_devolucion_real", "estadp_prestamo"};
+    String[] columnaPrestamo = {"codigo_prestamo", "id_usuario", "nombre_usuario", "codigo_presta", "ISBN", "titulo", "num_ejemplar", "fecha_prestamo", "fecha_devolucion_esperada", "fecha_devolucion_real", "estado_prestamo"};
     String[][] prestamos = biblioteca.getPrestamos().obtenerTodosLosElementos();
     String[][] prestamosConEstado = calcularEstadoPrestamo(prestamos);
 
-    String[] columnaMulta = {"codigo_multa", "id_usuario", "nombre_usuario", "ISBN", "titulo", "num_ejemplar", "fecha_devolucion_esperada", "fecha_devolucion_real", "valor_multa", "descripcion_multa", "estado_multa"};
+    String[] columnaMulta = {"codigo_multa", "nombre_usuario", "num_ejemplar", "titulo", "fecha_multa", "valor_multa", "estado_multa"};
     String[][] multas = biblioteca.getMultas().obtenerTodosLosElementos();
     actualizarEstadoMulta(multas);
 
@@ -172,49 +172,49 @@ public class ManejadorArchivos {
     return operacionRealizada;
   }
 
-public static void actualizarEstadoMulta(String[][] multas) {
-  for(int i = 0; i < multas.length; i++){
-    if (multas[i][10].toLowerCase().equals("true") || multas[i][10].toLowerCase().equals("t"))
-      multas[i][10] = "Pagada";
+  public static void actualizarEstadoMulta(String[][] multas) {
+    for(int i = 0; i < multas.length; i++){
+      if (multas[i][5].toLowerCase().equals("true") || multas[i][5].toLowerCase().equals("t"))
+        multas[i][5] = "Pagada";
 
-    else 
-      multas[i][10] = "No pagada";
+      else 
+        multas[i][5] = "No pagada";
+      }
   }
-}
 
-public static String[][] calcularEstadoPrestamo(String[][] prestamos){
-  String[][] prestamosConEstado = new String[prestamos.length][11];
-  for(int i=0; i < prestamos.length; i++)
-    for(int j=0; j < 10; j++)
-      prestamosConEstado[i][j] = prestamos[i][j];
+  public static String[][] calcularEstadoPrestamo(String[][] prestamos){
+    String[][] prestamosConEstado = new String[prestamos.length][11];
+    for(int i=0; i < prestamos.length; i++)
+      for(int j=0; j < 10; j++)
+        prestamosConEstado[i][j] = prestamos[i][j];
 
-  LocalDate fechaActual = LocalDate.now();
+    LocalDate fechaActual = LocalDate.now();
 
-  for(int i = 0; i < prestamos.length; i++){
-    LocalDate fechaDevolucionEsperada = LocalDate.parse(prestamos[i][8]);
-    LocalDate fechaDevolucionReal;
+    for(int i = 0; i < prestamos.length; i++){
+      LocalDate fechaDevolucionEsperada = LocalDate.parse(prestamos[i][8]);
+      LocalDate fechaDevolucionReal;
 
-    if (prestamos[i][9] == null){
-      fechaDevolucionReal = null;
-      prestamosConEstado[i][9] = "";
+      if (prestamos[i][9] == null){
+        fechaDevolucionReal = null;
+        prestamosConEstado[i][9] = "";
+      }
+      else
+        fechaDevolucionReal = LocalDate.parse(prestamos[i][9]);
+      
+      if(fechaDevolucionReal == null && fechaActual.isBefore(fechaDevolucionEsperada))
+        prestamosConEstado[i][10] = "Vigente";
+      
+      else if(fechaDevolucionReal == null && fechaActual.isAfter(fechaDevolucionEsperada))
+        prestamosConEstado[i][10] = "En mora";
+
+      else if(fechaDevolucionReal.isBefore(fechaDevolucionEsperada) || fechaDevolucionReal.isEqual(fechaDevolucionEsperada))
+        prestamosConEstado[i][10] = "Entregado";
+      
+      else // fechaDevolucionReal.isAfter(fechaDevolucionEsperada)
+        prestamosConEstado[i][10] = "Entregado con retraso";
     }
-    else
-      fechaDevolucionReal = LocalDate.parse(prestamos[i][9]);
-    
-    if(fechaDevolucionReal == null && fechaActual.isBefore(fechaDevolucionEsperada))
-      prestamosConEstado[i][10] = "Vigente";
-    
-    else if(fechaDevolucionReal == null && fechaActual.isAfter(fechaDevolucionEsperada))
-      prestamosConEstado[i][10] = "En mora";
 
-    else if(fechaDevolucionReal.isBefore(fechaDevolucionEsperada) || fechaDevolucionReal.isEqual(fechaDevolucionEsperada))
-      prestamosConEstado[i][10] = "Entregado";
-    
-    else // fechaDevolucionReal.isAfter(fechaDevolucionEsperada)
-      prestamosConEstado[i][10] = "Entregado con retraso";
+    return prestamosConEstado;
   }
-
-  return prestamosConEstado;
-}
 
 }

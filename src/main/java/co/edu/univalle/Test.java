@@ -350,6 +350,24 @@ public class Test {
     System.out.println("Prueba");
     System.out.println(biblioteca.getEjemplares().ejemplaresDisponibles("LI010"));
 
+    // String[][] libros = biblioteca.getLibros().obtenerTodosLosElementos();
+    // System.out.println(libros.length);
+
+    // String[][] prestamosUsuario = biblioteca.getPrestamos().obtenerPrestamosUsuario("US015");
+    // ManejadorArchivos.imprimirArregloEnConsola(prestamosUsuario);
+
+    // String[][] multasUsuario = biblioteca.getMultas().obtenerMultasUsuario("US002");
+    // ManejadorArchivos.imprimirArregloEnConsola(multasUsuario);
+
+    // String[][] descargas = biblioteca.getDescargas().obtenerTodosLosElementos();
+    // ManejadorArchivos.imprimirArregloEnConsola(descargas);
+
+    // String[][] solicitudes = biblioteca.getSolicitudes().obtenerTodosLosElementos();
+    // ManejadorArchivos.imprimirArregloEnConsola(solicitudes);
+
+    // String[][] multas = biblioteca.getMultas().obtenerTodosLosElementos();
+    // ManejadorArchivos.imprimirArregloEnConsola(multas);
+
 
     // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
     /*
