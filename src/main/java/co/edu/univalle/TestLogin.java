@@ -20,7 +20,7 @@ public class TestLogin {
       biblioteca.getContrasenasEmpleados().encriptarContrasenas();
       
       // Crea la vista
-      vistaLogin vistaLogin = new vistaLogin("Inicio Sesión");
+      VistaLogin vistaLogin = new VistaLogin("Inicio Sesión");
       
       // Crea el controlador pasando las instancias DAO creadas 
       ControladorLogin controladorLogin = new ControladorLogin(vistaLogin, biblioteca);
