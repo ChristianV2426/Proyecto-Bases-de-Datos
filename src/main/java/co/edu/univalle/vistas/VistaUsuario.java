@@ -24,7 +24,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-public class vistaUsuario extends javax.swing.JFrame {
+public class VistaUsuario extends javax.swing.JFrame {
 
     private JPanel panelConsultar;
     private JTextField txtIsbn;
@@ -39,7 +39,7 @@ public class vistaUsuario extends javax.swing.JFrame {
     private JScrollPane scrollConsultar;
     private final CardLayout cardLayout;
     
-    public vistaUsuario(String titulo) {
+    public VistaUsuario(String titulo) {
         initComponents();
         componentesConsultar();
         llenarColumnas(tablaConsultar);
