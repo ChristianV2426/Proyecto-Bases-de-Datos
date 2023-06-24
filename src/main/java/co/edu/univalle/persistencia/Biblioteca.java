@@ -20,6 +20,7 @@ package co.edu.univalle.persistencia;
 import java.sql.*;
 
 public class Biblioteca {
+  private Connection conexionBD;
   private DaoEditorial editoriales;
   private DaoArea areas;
   private DaoLibro libros;
@@ -42,6 +43,7 @@ public class Biblioteca {
   private DaoMulta multas;
 
   public Biblioteca(Connection conexionBD) {
+    this.conexionBD = conexionBD;
     this.editoriales = new DaoEditorial(conexionBD);
     this.areas = new DaoArea(conexionBD);
     this.libros = new DaoLibro(conexionBD);
@@ -142,6 +144,16 @@ public class Biblioteca {
 
   public DaoMulta getMultas() {
     return multas;
+  }
+
+  public void cerrarConexion(){
+    try{
+      conexionBD.close();
+      System.out.println("Conexión con la base de datos cerrada con éxito");
+
+    } catch (SQLException error) {
+      System.out.println("Error al cerrar la base de datos. Error: " + error.getMessage());
+    }
   }
 
 }
