@@ -61,7 +61,7 @@ public class ControladorLogin {
         if (usuario != null && contrasenaUsuario != null) {
             if (contrasenaUsuario.getContrasena().equals(contrasena)) {
                 vista.dispose();
-                new vistaUConsultarLibro("usuario");
+                new vistaUsuario("usuario");
             } else {
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -69,7 +69,7 @@ public class ControladorLogin {
             if (contrasenaEmpleado.getContrasena().equals(contrasena)) {
                 vista.dispose();
                 // new vistaConsultarLibroEmpleado("empleado");
-                new vistaUConsultarLibro("empleado"); // Se debe de cambiar esta línea
+                new VistaEmpleado("empleado"); // Se debe de cambiar esta línea
 
             } else {
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
