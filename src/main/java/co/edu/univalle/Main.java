@@ -16,8 +16,7 @@
 */
 package co.edu.univalle;
 
-import co.edu.univalle.vistas.VistaEmpleado;
-import co.edu.univalle.vistas.VistaUsuario;
+import co.edu.univalle.vistas.*;
 
 public class Main {
 

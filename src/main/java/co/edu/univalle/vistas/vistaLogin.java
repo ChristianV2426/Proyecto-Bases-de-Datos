@@ -22,9 +22,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class VistaLogin extends javax.swing.JFrame {
+public class vistaLogin extends javax.swing.JFrame {
 
-    public VistaLogin(String titulo) {
+    public vistaLogin(String titulo) {
         initComponents();
         setVisible(true);
         setTitle(titulo);

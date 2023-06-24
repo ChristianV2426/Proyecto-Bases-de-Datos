@@ -46,7 +46,11 @@ public class ControladorLogin {
         String idUsuario = vista.getTxtIdentificacion().getText();
         String contrasena = new String(vista.getTxtPassword().getPassword());
 
-        if (contrasena.isBlank() || contrasena.isEmpty()){
+        if(idUsuario.isBlank() || idUsuario.isEmpty()){
+            JOptionPane.showMessageDialog(vista, "Por favor ingrese el ID de usuario", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+            
+        } else if (contrasena.isBlank() || contrasena.isEmpty()){
             JOptionPane.showMessageDialog(vista, "Por favor ingrese la contraseña", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }

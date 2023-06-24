@@ -1,10 +1,9 @@
 package co.edu.univalle;
-import co.edu.univalle.vistas.VistaLogin;
+import co.edu.univalle.vistas.*;
 
 import java.sql.*;
 import co.edu.univalle.controlador.*;
 import co.edu.univalle.persistencia.*;
-// import org.jasypt.util.password.*;
 
 
 public class TestLogin {
