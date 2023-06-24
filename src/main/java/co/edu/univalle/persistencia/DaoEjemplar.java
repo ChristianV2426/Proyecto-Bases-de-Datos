@@ -19,6 +19,7 @@ package co.edu.univalle.persistencia;
 
 import co.edu.univalle.modelo.*;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DaoEjemplar implements DaoGeneral<Ejemplar> {
   Connection conexionBD;
@@ -37,7 +38,8 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
       ejemplar.getEstante() + "', '" +
       ejemplar.getNumCajon() + "', '" +
       ejemplar.getNumPasillo() + "', '" +
-      ejemplar.getNombreSala() + "');";
+      ejemplar.getNombreSala() + "', '" +
+      ejemplar.getDisponible() + "');";
   
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
@@ -51,6 +53,7 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
       "', num_cajon='" + ejemplar.getNumCajon() +
       "', num_pasillo='" + ejemplar.getNumPasillo() +
       "', nombre_sala='" + ejemplar.getNombreSala() +
+      "', disponible='" + ejemplar.getDisponible() +
       "' WHERE codigo_ejemplar='" + ejemplar.getCodigoEjemplar() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
@@ -75,29 +78,30 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
   @Override
   public Ejemplar obtenerElemento(String llavePrimaria) {
     String sentenciaSelect =
-      "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial, codigo_ejemplar, num_ejemplar, estante, num_cajon, num_pasillo, nombre_sala " +
+      "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial, codigo_ejemplar, num_ejemplar, estante, num_cajon, num_pasillo, nombre_sala, disponible " +
       "FROM ejemplar NATURAL JOIN libro WHERE codigo_ejemplar='" + llavePrimaria + "';";
     
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-      ResultSet resultadoConsulta = sentenciaSQL.executeQuery(sentenciaSelect);
+      ResultSet resultadoPertenencia = sentenciaSQL.executeQuery(sentenciaSelect);
 
-      if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
-        resultadoConsulta.next();
+      if(Consultas.numeroFilasEnResultadoConsulta(resultadoPertenencia) == 1){
+        resultadoPertenencia.next();
         return new Ejemplar(
-          resultadoConsulta.getString(1),
-          resultadoConsulta.getString(2),
-          Integer.valueOf(resultadoConsulta.getString(3)),
-          Integer.valueOf(resultadoConsulta.getString(4)),
-          resultadoConsulta.getString(5),
-          resultadoConsulta.getString(6),
-          resultadoConsulta.getString(7),
-          resultadoConsulta.getString(8), 
-          Integer.valueOf(resultadoConsulta.getString(9)),
-          resultadoConsulta.getString(10),
-          resultadoConsulta.getString(11),
-          resultadoConsulta.getString(12),
-          resultadoConsulta.getString(13) );
+          resultadoPertenencia.getString(1),
+          resultadoPertenencia.getString(2),
+          Integer.valueOf(resultadoPertenencia.getString(3)),
+          Integer.valueOf(resultadoPertenencia.getString(4)),
+          resultadoPertenencia.getString(5),
+          resultadoPertenencia.getString(6),
+          resultadoPertenencia.getString(7),
+          resultadoPertenencia.getString(8), 
+          Integer.valueOf(resultadoPertenencia.getString(9)),
+          resultadoPertenencia.getString(10),
+          resultadoPertenencia.getString(11),
+          resultadoPertenencia.getString(12),
+          resultadoPertenencia.getString(13),
+          resultadoPertenencia.getBoolean(14) );
       }
 
       else
@@ -107,6 +111,41 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
       System.out.println("No se pudo ejecutar la sentencia SELECT para el elemento con llave primaria: " + llavePrimaria + ".\nError: " + error.getMessage());
       return null;
     }
+  }
+
+  public ArrayList<String> ejemplaresDisponibles(String isbnLibro) {
+    ArrayList<String> ejemplaresDisponibles = new ArrayList<String>();
+
+    String sentenciaPertenencia = "SELECT EXISTS (SELECT 1 FROM libro WHERE ISBN='" + isbnLibro + "');";
+    String sentenciaConsultaEjemplares = "SELECT codigo_ejemplar FROM ejemplar WHERE ISBN='" + isbnLibro + "';";
+
+    try {
+      Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+      ResultSet resultadoPertenencia = sentenciaSQL.executeQuery(sentenciaPertenencia);
+
+      resultadoPertenencia.next();
+      if(resultadoPertenencia.getBoolean(1)){
+        ResultSet resultadoConsultaEjemplares = sentenciaSQL.executeQuery(sentenciaConsultaEjemplares);
+        int numeroEjemplares = Consultas.numeroFilasEnResultadoConsulta(resultadoConsultaEjemplares);
+
+        if(numeroEjemplares > 0){
+          while(resultadoConsultaEjemplares.next()){
+            Ejemplar ejemplar = obtenerElemento(resultadoConsultaEjemplares.getString(1));
+
+            if(ejemplar.getDisponible())
+              ejemplaresDisponibles.add(ejemplar.getCodigoEjemplar());
+          }
+
+        return ejemplaresDisponibles; 
+        }
+      }
+
+    } catch (Exception error) {
+      System.out.println("No se pudo ejecutar la sentencia SELECT para comprobar la pertenencia del libro con ISBN: " + isbnLibro + " en la Base de Datos.\nError: " + error.getMessage());
+      return null;
+    }
+
+    return null;
   }
 
 }
