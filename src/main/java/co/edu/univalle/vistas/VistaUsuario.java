@@ -318,19 +318,18 @@ public class VistaUsuario extends javax.swing.JFrame {
         lblFechaSolicitud.setText("Fecha:");
 
         txtUsuarioSolicitud.setEditable(false);
-        txtUsuarioSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtUsuarioSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
 
-        txtIsbnSolicitud.setEditable(false);
-        txtIsbnSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtIsbnSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
 
         txtFechaSolicitud.setEditable(false);
-        txtFechaSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtFechaSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
 
         lblIdSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdSolicitud.setText("Solicitud");
 
         txtIdSolicitud.setEditable(false);
-        txtIdSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtIdSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
 
         txtAreaSolicitud.setColumns(20);
         txtAreaSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -645,6 +644,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         btnConsultarLibro.addMouseListener(listener);
         btnConsultarLibros.addMouseListener(listener);
         btnDescargar.addMouseListener(listener);
+        btnSolicitar.addMouseListener(listener);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

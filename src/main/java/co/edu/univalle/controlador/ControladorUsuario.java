@@ -17,12 +17,7 @@
 
 package co.edu.univalle.controlador;
 
-import co.edu.univalle.modelo.Descarga;
-import co.edu.univalle.modelo.Digital;
-import co.edu.univalle.modelo.Libro;
-import co.edu.univalle.modelo.RelacionPide;
-import co.edu.univalle.modelo.Solicitud;
-import co.edu.univalle.modelo.Usuario;
+import co.edu.univalle.modelo.*;
 import co.edu.univalle.persistencia.Biblioteca;
 import co.edu.univalle.vistas.VistaLogin;
 import co.edu.univalle.vistas.VistaUsuario;
@@ -30,13 +25,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import javax.swing.*;
+import javax.swing.table.*;
 
 public class ControladorUsuario {
     private VistaUsuario vista;
@@ -152,7 +142,7 @@ public class ControladorUsuario {
         //Ingresando datos
         vista.getTxtUsuarioSolicitud().setText(usuario.getNombreUsuario());
         vista.getTxtFechaSolicitud().setText(LocalDate.now().toString());
-        vista.getTxtIdSolicitud().setText(""); //Establecer el número consecutivo de la solicitud
+        vista.getTxtIdSolicitud().setText(biblioteca.getSerialSolicitud());
         
     }
 
@@ -237,7 +227,7 @@ public class ControladorUsuario {
         vista.getTablaConsultar().getColumnModel().getColumn(2).setCellRenderer(alinear);
         vista.getTablaConsultar().getColumnModel().getColumn(0).setCellRenderer(alinear);
         vista.getTablaConsultar().getColumnModel().getColumn(6).setCellRenderer(alinear);
-
+ 
     }
     
     private void opcionDescargar() {
@@ -264,10 +254,12 @@ public class ControladorUsuario {
             Digital libroDigital = biblioteca.getDigitales().obtenerElemento(libroADescargar);
             
             //Creando la descarga
-            Descarga descargaUsuario = new Descarga("DSB", usuario, libroDigital, LocalDateTime.now().withNano(0),"192.168.0.5");
+            String codigoDescarga = biblioteca.getSerialDescarga();
+            Descarga descargaUsuario = new Descarga(codigoDescarga, usuario, libroDigital, LocalDateTime.now().withNano(0),"192.168.0.5");
             
             //Añadiendo la descarga a la BD
             if (biblioteca.getDescargas().insertarElemento(descargaUsuario)){
+                biblioteca.sumarSerialDescarga();
                 JOptionPane.showMessageDialog(vista, 
                         "<html><p style = \" font:12px; \">Libro descargado con éxito.</p></html>", 
                         "Operación realizada con éxito", JOptionPane.OK_OPTION, 
@@ -283,7 +275,17 @@ public class ControladorUsuario {
     
     private void opcionSolicitar() {
         
+        String descripcion = vista.getTxtAreaSolicitud().getText();
         String isbn = vista.getTxtIsbnSolicitud().getText();
+        
+        if(isbn.isBlank()){
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">Debe ingresar el ISBN del libro.</p></html>", 
+                        "Error", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        
         if(biblioteca.getLibros().obtenerElemento(isbn) == null){
             JOptionPane.showMessageDialog(vista, 
                         "<html><p style = \" font:12px; \">Lo sentimos, este libro no se encuentra registrado en nuestra biblioteca.</p></html>", 
@@ -292,31 +294,34 @@ public class ControladorUsuario {
             return;
         }
         
-        //Obteniendo los datos de la vista
-        String descripcion = vista.getTxtAreaSolicitud().getText();
-        if(descripcion == ""){
+        if(descripcion.isBlank()){
             JOptionPane.showMessageDialog(vista, 
                         "<html><p style = \" font:12px; \">Debe explicar el motivo de su solicitud.</p></html>", 
                         "Error", JOptionPane.OK_OPTION, 
                         UIManager.getIcon("OptionPane.errorIcon"));
             return;
         }
-        
+        //Obteniendo los datos de la vista
         LocalDate fechaSolicitud = LocalDate.parse(vista.getTxtFechaSolicitud().getText());
+        String codigoSolicitud = biblioteca.getSerialSolicitud();
         
         //Creando la solicitud
-        Solicitud solicitudCliente = new Solicitud("SLP", usuario, fechaSolicitud, descripcion, "En espera");
+        Solicitud solicitudCliente = new Solicitud(codigoSolicitud, usuario, fechaSolicitud, descripcion, "En espera");
         //Creando la relacion pide
         RelacionPide clientePide = new RelacionPide(solicitudCliente.getCodigoSolicitud(),isbn);
         
         //Añadiendo la solicitud y la relación pide a la BD
         if(biblioteca.getSolicitudes().insertarElemento(solicitudCliente) && biblioteca.getRelacionesPide().insertarElemento(clientePide)){
+            biblioteca.sumarSerialSolicitud();
+            
             JOptionPane.showMessageDialog(vista, 
                         "<html><p style = \" font:12px; \">Su solicitud ha sido registrada, la analizaremos lo más pronto posible.</p></html>", 
                         "Operación realizada con éxito", JOptionPane.OK_OPTION, 
                         UIManager.getIcon("OptionPane.informationIcon"));
+            vista.getTxtIdSolicitud().setText(biblioteca.getSerialSolicitud());
+            //Limpiando campos
+            limpiarSolicitud();
         } else {
-            String codigoSolicitud = solicitudCliente.getCodigoSolicitud();
             biblioteca.getSolicitudes().eliminarElemento(codigoSolicitud);
             biblioteca.getRelacionesPide().eliminarElemento(codigoSolicitud);
             JOptionPane.showMessageDialog(vista, 
@@ -329,6 +334,11 @@ public class ControladorUsuario {
     private void opcionCerrar() {
         VistaLogin vistaLogin = new VistaLogin("Inicio Sesión");
         vista.dispose();
+    }
+    
+    public void limpiarSolicitud(){
+        vista.getTxtIsbnSolicitud().setText("");
+        vista.getTxtAreaSolicitud().setText("");
     }
     
     public static TableModel asignarModelo(String[][] datos, String[] encabezado) {
