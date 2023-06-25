@@ -60,14 +60,18 @@ public class ControladorLogin {
                 case 0: // Estudiante
                     vistaRegistroEstudiante vistaRegistroEstudiante = new vistaRegistroEstudiante("Registro de Estudiante");
                     new ControladorRegistroEstudiante(vistaRegistroEstudiante, biblioteca, vista);
-                    vista.setVisible(false); // ocultar la ventana actual de vistaLogin
+                    vista.setVisible(false); 
                     vistaRegistroEstudiante.setVisible(true);
                     break;
 
 
                 case 1: // Profesor
-                    // Similar para profesor
+                    vistaRegistroProfesor vistaRegistroProfesor = new vistaRegistroProfesor("Registro de Profesor");
+                    new ControladorRegistroProfesor(vistaRegistroProfesor, biblioteca, vista);
+                    vista.setVisible(false); 
+                    vistaRegistroProfesor.setVisible(true);
                     break;
+
             }
         }
     });
