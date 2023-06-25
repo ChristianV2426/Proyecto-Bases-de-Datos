@@ -332,7 +332,7 @@ public class ControladorUsuario {
     }
     
     private void opcionCerrar() {
-        VistaLogin vistaLogin = new VistaLogin("Inicio Sesión");
+        VistaLogin vistaLogin = new VistaLogin("Inicio Sesión", biblioteca);
         vista.dispose();
     }
     

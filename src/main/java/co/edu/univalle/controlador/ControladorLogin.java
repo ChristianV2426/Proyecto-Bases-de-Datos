@@ -1,12 +1,27 @@
+/*
+    Archivo: ControladorLogin.java
+    Bases de Datos - 750006C - Grupo 01
+    Proyecto - Biblioteca Universidad del Valle
+
+    Autores: 
+    John Freddy Belalcazar Rojas - john.freddy.belalcazar@correounivalle.edu.co - 2182464-3743 
+    Santiago Gonzalez Galvez - santiago.galvez@correounivalle.edu.co - 2183392-3743 
+    Juan Camilo Narvaez Tascon - juan.narvaez.tascon@correounivalle.edu.co - 2140112-3743 
+    Christian David Vargas Gutierrez - vargas.christian@correounivalle.edu.co - 2179172-3743
+
+    Profesor:
+    Ph.D. Oswaldo Solarte
+
+    Licencia: GNU-GPL
+*/
+
 package co.edu.univalle.controlador;
 
 import co.edu.univalle.modelo.*;
 import co.edu.univalle.persistencia.*;
 import co.edu.univalle.vistas.*;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class ControladorLogin {
     private VistaLogin vista;
@@ -15,39 +30,48 @@ public class ControladorLogin {
     public ControladorLogin(VistaLogin vista, Biblioteca biblioteca) {
         this.vista = vista;
         this.biblioteca = biblioteca;
+        vista.addListeners(new ManejadoraDeMouse());
 
-        this.vista.getBtnIngresar().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        // Listener para close.
+        vista.addWindowListener(new java.awt.event.WindowAdapter(){
+            public void windowClosing(java.awt.event.WindowEvent windowEvent){
+                biblioteca.cerrarConexion();
+                System.exit(0);
+        }});
+    }
+
+    class ManejadoraDeMouse extends MouseAdapter{
+        @Override
+        public void mouseClicked(MouseEvent e){
+            if(e.getSource() == vista.getCheckPassword()){
+                if (vista.getCheckPassword().isSelected()) 
+                    vista.getTxtPassword().setEchoChar((char)0);
+
+                else 
+                    vista.getTxtPassword().setEchoChar('*');
+            }
+
+            if(e.getSource() == vista.getBtnIngresar()){
                 iniciarSesion();
             }
-        });
 
-        this.vista.getBtnSalir().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == vista.getLblRegistro()){
+                System.out.println(" s!");
+            }
+
+            if(e.getSource() == vista.getBtnSalir()){
+                biblioteca.cerrarConexion();
                 System.exit(0);
             }
-        });
-
-        this.vista.getCheckPassword().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (vista.getCheckPassword().isSelected()) {
-                    vista.getTxtPassword().setEchoChar((char)0);
-                } else {
-                    vista.getTxtPassword().setEchoChar('*');
-                }
-            }
-        });
+        }
     }
 
     private void iniciarSesion() {
         String idUsuario = vista.getTxtIdentificacion().getText();
         String contrasena = new String(vista.getTxtPassword().getPassword());
 
-        if(idUsuario.isBlank() || idUsuario.isEmpty()){
-            JOptionPane.showMessageDialog(vista, "Por favor ingrese el ID de usuario", "Error", JOptionPane.ERROR_MESSAGE);
+        if(idUsuario.isBlank()){
+            JOptionPane.showMessageDialog(vista, "Por favor ingrese la identificación del usuario", "Error", JOptionPane.ERROR_MESSAGE);
             return;
             
         } else if (contrasena.isBlank() || contrasena.isEmpty()){
@@ -59,11 +83,10 @@ public class ControladorLogin {
         ContrasenaEmpleado empleado = biblioteca.getContrasenasEmpleados().obtenerElemento(idUsuario);
 
         if (usuario == null && empleado == null) {
-            JOptionPane.showMessageDialog(vista, "Usuario no existe. Por favor verifique el ID de usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista, "El usuario no existe. Por favor verifique la identificación del usuario.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-    
         if (usuario != null && biblioteca.getContrasenasUsuarios().validarContrasena(idUsuario, contrasena)) {
                 System.out.println(usuario.getContrasena());
                 vista.dispose();
@@ -76,7 +99,8 @@ public class ControladorLogin {
                 new VistaEmpleado("Menú Empleado"); // Se debe de cambiar esta línea
 
         } else {
-                JOptionPane.showMessageDialog(vista, "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "Contraseña incorrecta.\nPor favor intente nuevamente.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
 }

@@ -16,20 +16,30 @@
 */
 
 package co.edu.univalle.vistas;
+
+import co.edu.univalle.controlador.*;
+import co.edu.univalle.persistencia.*;
 import java.awt.Color;
+import java.awt.event.MouseListener;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class VistaLogin extends javax.swing.JFrame {
+    Biblioteca biblioteca; 
 
-    public VistaLogin(String titulo) {
+    public VistaLogin(String titulo, Biblioteca biblioteca) {
         initComponents();
         setVisible(true);
         setTitle(titulo);
         setResizable(false);
         setLocationRelativeTo(null);
+
+        this.biblioteca = biblioteca;
+        ControladorLogin controlador = new ControladorLogin(this, biblioteca);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -197,6 +207,17 @@ public class VistaLogin extends javax.swing.JFrame {
 
     public JPasswordField getTxtPassword() {
         return txtPassword;
+    }
+
+    public JLabel getLblRegistro() {
+        return lblRegistro;
+    }
+
+    public void addListeners(MouseListener listener){
+        btnIngresar.addMouseListener(listener);
+        btnSalir.addMouseListener(listener);
+        checkPassword.addMouseListener(listener);
+        lblRegistro.addMouseListener(listener);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

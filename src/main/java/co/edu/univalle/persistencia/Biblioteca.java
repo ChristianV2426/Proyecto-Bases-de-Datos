@@ -88,7 +88,6 @@ public class Biblioteca {
       
       ResultSet serialLibroBD = sentenciaSQL.executeQuery(selectSerialLibro);
       serialLibroBD.next();
-      System.out.println(serialLibroBD.getInt(1));
       serialLibro = serialLibroBD.getInt(1) + 1;
 
       ResultSet serialUsuarioBD = sentenciaSQL.executeQuery(selectSeriallUsuario);
