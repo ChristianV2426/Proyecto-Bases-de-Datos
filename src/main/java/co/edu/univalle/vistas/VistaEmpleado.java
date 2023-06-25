@@ -17,6 +17,7 @@
 
 package co.edu.univalle.vistas;
 
+import co.edu.univalle.controlador.ControladorEmpleado;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -25,35 +26,35 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import co.edu.univalle.modelo.Ejemplar;
+import co.edu.univalle.modelo.Empleado;
+import co.edu.univalle.persistencia.Biblioteca;
+import java.awt.event.MouseListener;
 
 public class VistaEmpleado extends javax.swing.JFrame {
-    
+    private Empleado empleado;
     private final CardLayout cardLayout;
     private final DefaultTableModel modeloTabla = new DefaultTableModel();
     private JTableHeader th;
     private DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
     
-    public VistaEmpleado(String titulo) {
+    public VistaEmpleado(String titulo, Biblioteca biblioteca, Empleado empleado) {
+        this.empleado = empleado;
         initComponents();
         setVisible(true);
         setTitle(titulo);
         setResizable(false);
         setLocationRelativeTo(null);
         cardLayout = (CardLayout) panelPrincipal.getLayout();
-        cardLayout.show(panelPrincipal, "cardPrestamo");
-        llenarColumnas(tablaPrestamoA);
-        disenoTabla(tablaPrestamoA, scrollPrestamoA);
+        cardLayout.show(panelPrincipal, "cardManejo");
+        ControladorEmpleado controladorEmpleado = new ControladorEmpleado(this, biblioteca, empleado);
+//        if (empleado.getEsAdmin() == false){
+//            cardLayout.show(panelPrincipal, "cardLibro");
+//            btnManejoPersonal.setEnabled(false);
+//        }
+//        cardLayout.show(panelPrincipal, "cardManejo");
+        btnManejoPersonal.setEnabled(false);
     }
-    
-    public void llenarColumnas(JTable tablaGenerica){
-        if (tablaGenerica == tablaPrestamoA) {
-            modeloTabla.addColumn("ISBN");
-            modeloTabla.addColumn("Titulo");
-            modeloTabla.addColumn("Ejemplar");
-            modeloTabla.addColumn("Fecha devolución");
-        }
-    }
-    
+        
     public void disenoTabla(JTable tablaGenerica, JScrollPane scrollGenerico){
         
         //Fuente de cabecera
@@ -69,6 +70,17 @@ public class VistaEmpleado extends javax.swing.JFrame {
         //Color fondo
         Color colorFondo = new Color(255, 255, 255);
         scrollGenerico.getViewport().setBackground(colorFondo);
+    }
+    
+    public void addListeners(MouseListener listener){
+        btnManejoPersonal.addMouseListener(listener);
+        btnLibros.addMouseListener(listener);
+        btnPrestamos.addMouseListener(listener);
+        btnMultas.addMouseListener(listener);
+        btnSolicitudes.addMouseListener(listener);
+        btnDescargas.addMouseListener(listener);
+        btnEjemplar.addMouseListener(listener);
+        btnCerrar.addMouseListener(listener);
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

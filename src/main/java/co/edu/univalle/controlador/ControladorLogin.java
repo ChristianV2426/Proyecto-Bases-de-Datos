@@ -126,7 +126,7 @@ public class ControladorLogin {
                 System.out.println(empleado.getContrasena());
                 vista.dispose();
                 // new vistaConsultarLibroEmpleado("empleado");
-                new VistaEmpleado("Menú Empleado"); // Se debe de cambiar esta línea
+                new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento(idUsuario)); // Se debe de cambiar esta línea
 
         } else {
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta.\nPor favor intente nuevamente.", "Error", JOptionPane.ERROR_MESSAGE);
