@@ -44,28 +44,34 @@ public class ControladorLogin {
         });
 
         this.vista.getLblRegistro().addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                Object[] options = {"Estudiante", "Profesor"};
-                int opcionRegistro = JOptionPane.showOptionDialog(vista,
-                        "¿Qué tipo de usuario desea registrar?",
-                        "Seleccione una opción",
-                        JOptionPane.YES_NO_CANCEL_OPTION,
-                        JOptionPane.QUESTION_MESSAGE,
-                        null,
-                        options,
-                        options[1]);
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            Object[] options = {"Estudiante", "Profesor"};
+            int opcionRegistro = JOptionPane.showOptionDialog(vista,
+                    "¿Qué tipo de usuario desea registrar?",
+                    "Seleccione una opción",
+                    JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    options,
+                    options[1]);
 
-                switch (opcionRegistro) {
-                    case 0: // Estudiante
-                        new vistaRegistroEstudiante("Registro de Estudiante").setVisible(true);
-                        break;
-                    case 1: // Profesor
-                        new vistaRegistroProfesor("Registro de Profesor").setVisible(true);
-                        break;
-                }
+            switch (opcionRegistro) {
+                case 0: // Estudiante
+                    vistaRegistroEstudiante vistaRegistroEstudiante = new vistaRegistroEstudiante("Registro de Estudiante");
+                    new ControladorRegistroEstudiante(vistaRegistroEstudiante, biblioteca, vista);
+                    vista.setVisible(false); // ocultar la ventana actual de vistaLogin
+                    vistaRegistroEstudiante.setVisible(true);
+                    break;
+
+
+                case 1: // Profesor
+                    // Similar para profesor
+                    break;
             }
-        });
+        }
+    });
+
     }
 
     private void iniciarSesion() {
