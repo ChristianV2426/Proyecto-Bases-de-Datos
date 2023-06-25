@@ -951,31 +951,26 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblNombreLibroA.setText("Título:");
 
         txtNombreLibroA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNombreLibroA.setText("jTextField1");
 
         lblIsbnLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIsbnLibroA.setText("ISBN:");
 
         txtIsbnLibroA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIsbnLibroA.setText("jTextField1");
 
         lblPaginasLibroA.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lblPaginasLibroA.setText("Páginas:");
 
         txtPaginasLibroA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPaginasLibroA.setText("jTextField1");
 
         lblAnoLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblAnoLibroA.setText("Año publicación:");
 
         txtAnoLibroA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtAnoLibroA.setText("jTextField1");
 
         lblIdiomaLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdiomaLibroA.setText("Idioma:");
 
         txtIdiomaLibroA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIdiomaLibroA.setText("jTextField1");
 
         lblEditorialLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEditorialLibroA.setText("Editorial:");
@@ -1002,13 +997,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblUrlLibroA.setText("URL:");
 
         txtUrlLibroA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtUrlLibroA.setText("jTextField1");
 
         lblTamanoLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblTamanoLibroA.setText("Tamaño:");
 
         txtTamanoLibroA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTamanoLibroA.setText("jTextField1");
 
         lblFormatoLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblFormatoLibroA.setText("Formato:");
@@ -1117,13 +1110,16 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addGap(150, 150, 150))
         );
 
+        btnSiLibroA.setBackground(Color.WHITE);
+        btnNoLibroA.setBackground(Color.WHITE);
+        btnAgregarLibroA.setBackground(Color.WHITE);
+
         panelLibro.addTab("Añadir", panelLibroAnadir);
 
         lblIsbnLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIsbnLibroM.setText("ISBN:");
 
         txtIsbnLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIsbnLibroM.setText("jTextField1");
 
         btnCheckLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnCheckLibroM.setText("Check");
@@ -1132,25 +1128,21 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblTituloLibroM.setText("Título:");
 
         txtTituloLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTituloLibroM.setText("jTextField1");
 
         lblPaginasLibroM.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblPaginasLibroM.setText("Páginas:");
 
         txtPaginasLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPaginasLibroM.setText("jTextField1");
 
         lblAnoLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblAnoLibroM.setText("Año publicación:");
 
         txtAnoLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtAnoLibroM.setText("jTextField1");
 
         lblIdiomaLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdiomaLibroM.setText("Idioma:");
 
         txtIdiomaLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIdiomaLibroM.setText("jTextField1");
 
         lblEditorialLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEditorialLibroM.setText("Editorial:");
@@ -1177,13 +1169,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblUrlLibroM.setText("URL:");
 
         txtUrlLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtUrlLibroM.setText("jTextField1");
 
         lblTamanoLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblTamanoLibroM.setText("Tamaño:");
 
         txtTamanoLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTamanoLibroM.setText("jTextField1");
 
         lblFormatoLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblFormatoLibroM.setText("Formato:");
@@ -1302,13 +1292,17 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addGap(29, 29, 29))))
         );
 
+        btnCheckLibroM.setBackground(Color.WHITE);
+        btnSiLibroM.setBackground(Color.WHITE);
+        btnNoLibroM.setBackground(Color.WHITE);
+        btnModificarLibroM.setBackground(Color.WHITE);
+
         panelLibro.addTab("Modificar", panelLibroModificar);
 
         lblIsbnLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIsbnLibroC.setText("ISBN:");
 
         txtIsbnLibroC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIsbnLibroC.setText("jTextField1");
 
         btnCheckLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnCheckLibroC.setText("Check");
@@ -1316,26 +1310,26 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblTituloLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblTituloLibroC.setText("Título:");
 
+        txtTituloLibroC.setEditable(false);
         txtTituloLibroC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTituloLibroC.setText("jTextField1");
 
         lblPaginasLibroC.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblPaginasLibroC.setText("Páginas:");
 
+        txtPaginasLibroC.setEditable(false);
         txtPaginasLibroC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPaginasLibroC.setText("jTextField1");
 
         lblAnoLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblAnoLibroC.setText("Año publicación:");
 
+        txtAnoLibroC.setEditable(false);
         txtAnoLibroC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtAnoLibroC.setText("jTextField1");
 
         lblIdiomaLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdiomaLibroC.setText("Idioma:");
 
+        txtIdiomaLibroC.setEditable(false);
         txtIdiomaLibroC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIdiomaLibroC.setText("jTextField1");
 
         lblEditorialLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEditorialLibroC.setText("Editorial:");
@@ -1361,14 +1355,14 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblUrlLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblUrlLibroC.setText("URL:");
 
+        txtUrlLibroC.setEditable(false);
         txtUrlLibroC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtUrlLibroC.setText("jTextField1");
 
         lblTamanoLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblTamanoLibroC.setText("Tamaño:");
 
+        txtTamanoLibroC.setEditable(false);
         txtTamanoLibroC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTamanoLibroC.setText("jTextField1");
 
         lblFormatoLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblFormatoLibroC.setText("Formato:");
@@ -1435,13 +1429,13 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(btnCheckLibroC))
                     .addComponent(lblIsbnLibroC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPaginasLibroC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblTituloLibroC)
                         .addComponent(txtTituloLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPaginasLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(txtPaginasLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPaginasLibroC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtAnoLibroC)
@@ -1471,8 +1465,12 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtTamanoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblFormatoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
+
+        btnCheckLibroC.setBackground(Color.WHITE);
+        btnSiLibroC.setBackground(Color.WHITE);
+        btnNoLibroC.setBackground(Color.WHITE);
 
         panelLibro.addTab("Consultar", panelLibroConsultar);
 
@@ -1480,7 +1478,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblIsbnLibroE.setText("ISBN:");
 
         txtIsbnLibroE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIsbnLibroE.setText("jTextField1");
 
         btnCheckLibroE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnCheckLibroE.setText("Check");
@@ -1489,25 +1486,21 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblTituloLibroE.setText("Título:");
 
         txtTituloLibroE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTituloLibroE.setText("jTextField1");
 
         lblPaginasLibroE.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         lblPaginasLibroE.setText("Páginas:");
 
         txtPaginasLibroE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPaginasLibroE.setText("jTextField1");
 
         lblAnoLibroE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblAnoLibroE.setText("Año publicación:");
 
         txtAnoLibroE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtAnoLibroE.setText("jTextField1");
 
         lblIdiomaLibroE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdiomaLibroE.setText("Idioma:");
 
         txtIdiomaLibroE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIdiomaLibroE.setText("jTextField1");
 
         lblEditorialLibroE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEditorialLibroE.setText("Editorial:");
@@ -1534,13 +1527,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblUrlLibroE.setText("URL:");
 
         txtUrlLibroE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtUrlLibroE.setText("jTextField1");
 
         lblTamanoLibroE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblTamanoLibroE.setText("Tamaño:");
 
         txtTamanoLibroE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtTamanoLibroE.setText("jTextField1");
 
         lblFormatoLibroE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblFormatoLibroE.setText("Formato:");
@@ -1658,6 +1649,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(btnEliminarLibroE)
                         .addGap(29, 29, 29))))
         );
+
+        btnCheckLibroE.setBackground(Color.WHITE);
+        btnSiLibroE.setBackground(Color.WHITE);
+        btnNoLibroE.setBackground(Color.WHITE);
+        btnEliminarLibroE.setBackground(Color.WHITE);
 
         panelLibro.addTab("Eliminar", panelLibroEliminar);
 
@@ -2073,7 +2069,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblIdMultas.setText("ID:");
 
         txtIdMultas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIdMultas.setText("jTextField1");
 
         btnCheckMultas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnCheckMultas.setText("Check");
@@ -2082,7 +2077,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblFechaMultas.setText("Fecha:");
 
         txtFechaMultas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtFechaMultas.setText("jTextField1");
 
         lblMultas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblMultas.setText("Sus multas:");
@@ -2160,6 +2154,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
+        btnMultasUsuarioU.setBackground(Color.WHITE);
+        btnMultasTodasU.setBackground(Color.WHITE);
+        btnCheckMultas.setBackground(Color.WHITE);
+        btnPagarMultas.setBackground(Color.WHITE);
+
         subPanelMulta.add(panelMultaUsuario, "card2");
 
         btnMultasUsuarioT.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -2208,6 +2207,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addComponent(scrollMultasT, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
+
+        btnMultasUsuarioT.setBackground(Color.WHITE);
+        btnMultasTodasT.setBackground(Color.WHITE);
 
         subPanelMulta.add(panelMultaTodo, "card3");
 
@@ -2277,6 +2279,10 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        btnRechazarSolicitud.setBackground(Color.WHITE);
+        btnAprobarSolicitud.setBackground(Color.WHITE);
+        btnDescripcionSolicitud.setBackground(Color.WHITE);
+
         panelSolicitud.addTab("Consultar", panelSolicitudConsultar);
 
         panelPrincipal.add(panelSolicitud, "cardSolicitud");
@@ -2332,7 +2338,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblIsbnEjemplarA.setText("ISBN:");
 
         txtIsbnEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIsbnEjemplarA.setText("jTextField1");
 
         btnCheckEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnCheckEjemplarA.setText("Check");
@@ -2341,31 +2346,26 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblNumeroEjemplarA.setText("Número de ejemplar:");
 
         txtNumeroEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNumeroEjemplarA.setText("jTextField1");
 
         lblEstanteEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEstanteEjemplarA.setText("Estante:");
 
         txtEstanteEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtEstanteEjemplarA.setText("jTextField1");
 
         lblCajonEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblCajonEjemplarA.setText("Número de cajón:");
 
         txtCajonEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtCajonEjemplarA.setText("jTextField1");
 
         lblPasilloEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblPasilloEjemplarA.setText("Número de pasillo:");
 
         txtPasilloEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPasilloEjemplarA.setText("jTextField1");
 
         lblSalaEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblSalaEjemplarA.setText("Número de sala:");
 
         txtSalaEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtSalaEjemplarA.setText("jTextField1");
 
         btnAgregarEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnAgregarEjemplarA.setText("Agregar");
@@ -2434,13 +2434,15 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
+        btnCheckEjemplarA.setBackground(Color.WHITE);
+        btnAgregarEjemplarA.setBackground(Color.WHITE);
+
         panelEjemplar.addTab("Añadir", panelEjemplarAnadir);
 
         lblIsbnEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIsbnEjemplarM.setText("ISBN:");
 
         txtIsbnEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIsbnEjemplarM.setText("jTextField1");
 
         btnCheckEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnCheckEjemplarM.setText("Check");
@@ -2449,31 +2451,26 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblNumeroEjemplarM.setText("Número de ejemplar:");
 
         txtNumeroEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNumeroEjemplarM.setText("jTextField1");
 
         lblEstanteEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEstanteEjemplarM.setText("Estante:");
 
         txtEstanteEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtEstanteEjemplarM.setText("jTextField1");
 
         lblCajonEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblCajonEjemplarM.setText("Número de cajón:");
 
         txtCajonEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtCajonEjemplarM.setText("jTextField1");
 
         lblPasilloEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblPasilloEjemplarM.setText("Número de pasillo:");
 
         txtPasilloEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPasilloEjemplarM.setText("jTextField1");
 
         lblSalaEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblSalaEjemplarM.setText("Número de sala:");
 
         txtSalaEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtSalaEjemplarM.setText("jTextField1");
 
         btnModificarEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnModificarEjemplarM.setText("Modificar");
@@ -2542,13 +2539,15 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
+        btnCheckEjemplarM.setBackground(Color.WHITE);
+        btnModificarEjemplarM.setBackground(Color.WHITE);
+
         panelEjemplar.addTab("Modificar", panelEjemplarModificar);
 
         lblIsbnEjemplarC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIsbnEjemplarC.setText("ISBN:");
 
         txtIsbnEjemplarC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIsbnEjemplarC.setText("jTextField1");
 
         btnCheckEjemplarC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnCheckEjemplarC.setText("Check");
@@ -2556,32 +2555,32 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblNumeroEjemplarC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblNumeroEjemplarC.setText("Número de ejemplar:");
 
+        txtNumeroEjemplarC.setEditable(false);
         txtNumeroEjemplarC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNumeroEjemplarC.setText("jTextField1");
 
         lblEstanteEjemplarC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEstanteEjemplarC.setText("Estante:");
 
+        txtEstanteEjemplarC.setEditable(false);
         txtEstanteEjemplarC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtEstanteEjemplarC.setText("jTextField1");
 
         lblCajonEjemplarC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblCajonEjemplarC.setText("Número de cajón:");
 
+        txtCajonEjemplarC.setEditable(false);
         txtCajonEjemplarC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtCajonEjemplarC.setText("jTextField1");
 
         lblPasilloEjemplarC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblPasilloEjemplarC.setText("Número de pasillo:");
 
+        txtPasilloEjemplarC.setEditable(false);
         txtPasilloEjemplarC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPasilloEjemplarC.setText("jTextField1");
 
         lblSalaEjemplarC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblSalaEjemplarC.setText("Número de sala:");
 
+        txtSalaEjemplarC.setEditable(false);
         txtSalaEjemplarC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtSalaEjemplarC.setText("jTextField1");
 
         javax.swing.GroupLayout panelEjemplarConsultarLayout = new javax.swing.GroupLayout(panelEjemplarConsultar);
         panelEjemplarConsultar.setLayout(panelEjemplarConsultarLayout);
@@ -2641,13 +2640,14 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addContainerGap(107, Short.MAX_VALUE))
         );
 
+        btnCheckEjemplarC.setBackground(Color.WHITE);
+
         panelEjemplar.addTab("Consultar", panelEjemplarConsultar);
 
         lblIsbnEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIsbnEjemplarE.setText("ISBN:");
 
         txtIsbnEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtIsbnEjemplarE.setText("jTextField1");
 
         btnCheckEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnCheckEjemplarE.setText("Check");
@@ -2656,31 +2656,26 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblNumeroEjemplarE.setText("Número de ejemplar:");
 
         txtNumeroEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNumeroEjemplarE.setText("jTextField1");
 
         lblEstanteEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEstanteEjemplarE.setText("Estante:");
 
         txtEstanteEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtEstanteEjemplarE.setText("jTextField1");
 
         lblCajonEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblCajonEjemplarE.setText("Número de cajón:");
 
         txtCajonEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtCajonEjemplarE.setText("jTextField1");
 
         lblPasilloEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblPasilloEjemplarE.setText("Número de pasillo:");
 
         txtPasilloEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtPasilloEjemplarE.setText("jTextField1");
 
         lblSalaEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblSalaEjemplarE.setText("Número de sala:");
 
         txtSalaEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtSalaEjemplarE.setText("jTextField1");
 
         btnEliminarEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnEliminarEjemplarE.setText("Eliminar");
@@ -2748,6 +2743,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addComponent(btnEliminarEjemplarE)
                 .addGap(28, 28, 28))
         );
+
+        btnCheckEjemplarE.setBackground(Color.WHITE);
+        btnEliminarEjemplarE.setBackground(Color.WHITE);
 
         panelEjemplar.addTab("Eliminar", panelEjemplarEliminar);
 
