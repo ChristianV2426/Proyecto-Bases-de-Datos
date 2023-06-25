@@ -350,10 +350,10 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                    <StringItem index="0" value="Universidad del Valle"/>
+                    <StringItem index="1" value="Universidad Javeriana"/>
+                    <StringItem index="2" value="Universidad Icesi"/>
+                    <StringItem index="3" value="Universidad Autonoma de Occidente"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -367,11 +367,17 @@
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="10">
+                    <StringItem index="0" value="Ingenieria de Sistemas"/>
+                    <StringItem index="1" value="Administracion de Empresas"/>
+                    <StringItem index="2" value="Derecho"/>
+                    <StringItem index="3" value="Medicina"/>
+                    <StringItem index="4" value="Contaduria Publica"/>
+                    <StringItem index="5" value="Psicologia"/>
+                    <StringItem index="6" value="Ingenieria Industrial"/>
+                    <StringItem index="7" value="Biologia"/>
+                    <StringItem index="8" value="Ingenieria Civil"/>
+                    <StringItem index="9" value="Dise&#xf1;o Grafico"/>
                   </StringArray>
                 </Property>
               </Properties>

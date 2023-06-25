@@ -126,10 +126,10 @@ public class VistaRegistroEstudiante extends javax.swing.JFrame {
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         comboUniversidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        comboUniversidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboUniversidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Universidad del Valle", "Universidad Javeriana", "Universidad Icesi", "Universidad Autonoma de Occidente" }));
 
         comboCarrera.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        comboCarrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboCarrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingenieria de Sistemas", "Administracion de Empresas", "Derecho", "Medicina", "Contaduria Publica", "Psicologia", "Ingenieria Industrial", "Biologia", "Ingenieria Civil", "Diseño Grafico" }));
 
         javax.swing.GroupLayout panelContenidoLayout = new javax.swing.GroupLayout(panelContenido);
         panelContenido.setLayout(panelContenidoLayout);

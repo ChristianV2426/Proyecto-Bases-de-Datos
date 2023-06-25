@@ -129,7 +129,7 @@ public class VistaRegistroProfesor extends javax.swing.JFrame {
 
         listaArea.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         listaArea.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "AC001 - Matematicas", "AC002 - Fisica", "AC003 - Quimica", "AC004 - Biologia", "AC005 - Informatica", "AC006 - Ingenieria de Civil", "AC007 - Ingenieria Mecanica", "AC008 - Medicina", "AC009 - Psicologia", "AC010 - Filosofia", "AC011 - Algebra", "AC012 - Geometria", "AC013 - Calculo", "AC014 - Mecanica Clasica", "AC015 - Fisica Cuantica", "AC016 - Termodinamica", "AC017 - Quimica Organica", "AC018 - Quimica Inorganica", "AC019 - Algebra Lineal", "AC020 - Geometria Analitica", "AC021 - Calculo Vectorial", "AC022 - Fisica Nuclear", "AC023 - Fisica de Particulas", "AC024 - Mecanica de Fluidos", "AC025 - Electromagnetismo", "AC026 - Bioquimica", "AC027 - Quimica Analitica", "AC028 - Ingenieria Electrica", "AC029 - Ingenieria de Materiales", "AC030 - Neurociencia", "AC031 - Ciencias de la Computacion", "AC032 - Ingenieria de Software", "AC033 - Inteligencia Artificial", "AC034 - Redes y Comunicaciones", "AC035 - Sistemas Operativos", "AC036 - Literatura", "AC037 - Literatura Colombiana", "AC038 - Historia" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -142,10 +142,10 @@ public class VistaRegistroProfesor extends javax.swing.JFrame {
         txtEmail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         comboDependencia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        comboDependencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboDependencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Departamento de Fisica", "Departamento de Matematicas", "Departamento de Quimica", "Facultad de Ingenieria", "Departamento de Biologia", "Escuela de Filosofia", "Escuela de Literatura", "Escuela de Historia", "Facultad de Artes Integradas" }));
 
         comboProfesion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        comboProfesion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboProfesion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doctor(a) en Fisica", "Doctor(a) en Matematicas", "Doctor(a) en Quimica", "Doctor(a) en Ingenieria de Sistemas", "Doctor(a) en Biologia", "Doctor(a) en Filosofia", "Doctor(a) en Literatura", "Doctor(a) en Historia", "Maestro(a) en Artes Plasticas" }));
 
         javax.swing.GroupLayout panelContenidoLayout = new javax.swing.GroupLayout(panelContenido);
         panelContenido.setLayout(panelContenidoLayout);
