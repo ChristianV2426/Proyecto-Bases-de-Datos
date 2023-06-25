@@ -164,6 +164,31 @@ public class VistaEmpleado extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         btnAgregarLibroA = new javax.swing.JButton();
         panelLibroModificar = new javax.swing.JPanel();
+        lblIsbnLibroM = new javax.swing.JLabel();
+        txtIsbnLibroM = new javax.swing.JTextField();
+        btnCheckLibroM = new javax.swing.JButton();
+        lblTituloLibroM = new javax.swing.JLabel();
+        txtTituloLibroM = new javax.swing.JTextField();
+        lblPaginasLibroM = new javax.swing.JLabel();
+        txtPaginasLibroM = new javax.swing.JTextField();
+        lblAnoLibroM = new javax.swing.JLabel();
+        txtAnoLibroM = new javax.swing.JTextField();
+        lblIdiomaLibroM = new javax.swing.JLabel();
+        txtIdiomaLibroM = new javax.swing.JTextField();
+        lblEditorialLibroM = new javax.swing.JLabel();
+        comboEditorialLibroM = new javax.swing.JComboBox<>();
+        lblAreaLibroM = new javax.swing.JLabel();
+        comboAreaLibroM = new javax.swing.JComboBox<>();
+        lblDigitalLibroM = new javax.swing.JLabel();
+        btnSiLibroM = new javax.swing.JButton();
+        btnNoLibroM = new javax.swing.JButton();
+        lblUrlLibroM = new javax.swing.JLabel();
+        txtUrlLibroM = new javax.swing.JTextField();
+        lblTamanoLibroM = new javax.swing.JLabel();
+        txtTamanoLibroM = new javax.swing.JTextField();
+        lblFormatoLibroM = new javax.swing.JLabel();
+        comboFormatoLibroM = new javax.swing.JComboBox<>();
+        btnModificarLibroM = new javax.swing.JButton();
         panelLibroConsultar = new javax.swing.JPanel();
         panelLibroEliminar = new javax.swing.JPanel();
         panelPrestamo = new javax.swing.JTabbedPane();
@@ -946,15 +971,185 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
         panelLibro.addTab("Añadir", panelLibroAnadir);
 
+        lblIsbnLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblIsbnLibroM.setText("ISBN:");
+
+        txtIsbnLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtIsbnLibroM.setText("jTextField1");
+
+        btnCheckLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnCheckLibroM.setText("Check");
+
+        lblTituloLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblTituloLibroM.setText("Título:");
+
+        txtTituloLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtTituloLibroM.setText("jTextField1");
+
+        lblPaginasLibroM.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        lblPaginasLibroM.setText("Páginas:");
+
+        txtPaginasLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtPaginasLibroM.setText("jTextField1");
+
+        lblAnoLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblAnoLibroM.setText("Año publicación:");
+
+        txtAnoLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtAnoLibroM.setText("jTextField1");
+
+        lblIdiomaLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblIdiomaLibroM.setText("Idioma:");
+
+        txtIdiomaLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtIdiomaLibroM.setText("jTextField1");
+
+        lblEditorialLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblEditorialLibroM.setText("Editorial:");
+
+        comboEditorialLibroM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboEditorialLibroM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblAreaLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblAreaLibroM.setText("Area:");
+
+        comboAreaLibroM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboAreaLibroM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblDigitalLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblDigitalLibroM.setText("Digital:");
+
+        btnSiLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnSiLibroM.setText("Si");
+
+        btnNoLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnNoLibroM.setText("No");
+
+        lblUrlLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblUrlLibroM.setText("URL:");
+
+        txtUrlLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtUrlLibroM.setText("jTextField1");
+
+        lblTamanoLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblTamanoLibroM.setText("Tamaño:");
+
+        txtTamanoLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtTamanoLibroM.setText("jTextField1");
+
+        lblFormatoLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblFormatoLibroM.setText("Formato:");
+
+        comboFormatoLibroM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboFormatoLibroM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnModificarLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnModificarLibroM.setText("Modificar");
+
         javax.swing.GroupLayout panelLibroModificarLayout = new javax.swing.GroupLayout(panelLibroModificar);
         panelLibroModificar.setLayout(panelLibroModificarLayout);
         panelLibroModificarLayout.setHorizontalGroup(
             panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTamanoLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAnoLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTituloLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblIsbnLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblEditorialLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDigitalLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtIsbnLibroM)
+                    .addComponent(txtTituloLibroM)
+                    .addComponent(txtAnoLibroM)
+                    .addComponent(comboEditorialLibroM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                        .addComponent(btnSiLibroM)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNoLibroM))
+                    .addComponent(txtTamanoLibroM))
+                .addGap(32, 32, 32)
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                        .addComponent(lblIdiomaLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtIdiomaLibroM))
+                    .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                        .addComponent(lblAreaLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(comboAreaLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCheckLibroM)
+                    .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                        .addComponent(lblPaginasLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtPaginasLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                        .addComponent(lblUrlLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtUrlLibroM))
+                    .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                        .addComponent(lblFormatoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(comboFormatoLibroM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroModificarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnModificarLibroM)
+                .addGap(321, 321, 321))
         );
         panelLibroModificarLayout.setVerticalGroup(
             panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtIsbnLibroM)
+                        .addComponent(btnCheckLibroM))
+                    .addComponent(lblIsbnLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTituloLibroM)
+                    .addComponent(txtTituloLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPaginasLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPaginasLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtAnoLibroM)
+                        .addComponent(lblIdiomaLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                        .addComponent(txtIdiomaLibroM))
+                    .addComponent(lblAnoLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblEditorialLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblAreaLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboEditorialLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboAreaLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSiLibroM)
+                        .addComponent(btnNoLibroM))
+                    .addComponent(lblDigitalLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblUrlLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtUrlLibroM)))
+                .addGap(18, 18, 18)
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                        .addComponent(lblTamanoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelLibroModificarLayout.createSequentialGroup()
+                        .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTamanoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFormatoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboFormatoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(btnModificarLibroM)
+                        .addGap(29, 29, 29))))
         );
 
         panelLibro.addTab("Modificar", panelLibroModificar);
@@ -1803,6 +1998,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarPrestamoM;
     private javax.swing.JButton btnAnadirManejoA;
     private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnCheckLibroM;
     private javax.swing.JButton btnCheckManejoC;
     private javax.swing.JButton btnCheckManejoE;
     private javax.swing.JButton btnCheckManejoM;
@@ -1820,48 +2016,61 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btnEmpleadosManejoC;
     private javax.swing.JButton btnLibros;
     private javax.swing.JButton btnManejoPersonal;
+    private javax.swing.JButton btnModificarLibroM;
     private javax.swing.JButton btnModificarManejoM;
     private javax.swing.JButton btnModificarPrestamoM;
     private javax.swing.JButton btnMultas;
     private javax.swing.JButton btnNoLibroA;
+    private javax.swing.JButton btnNoLibroM;
     private javax.swing.JButton btnPrestamos;
     private javax.swing.JButton btnRealizarPrestamoA;
     private javax.swing.JButton btnRemoverPrestamoA;
     private javax.swing.JButton btnRemoverPrestamoM;
     private javax.swing.JButton btnSiLibroA;
+    private javax.swing.JButton btnSiLibroM;
     private javax.swing.JButton btnSolicitudes;
     private javax.swing.JButton btnVerificarPrestamoA;
     private javax.swing.JButton btnVerificarPrestamoM;
     private javax.swing.JCheckBox checkPasswordManejoA;
     private javax.swing.JCheckBox checkPasswordManejoM;
     private javax.swing.JComboBox<String> comboAreaLibroA;
+    private javax.swing.JComboBox<String> comboAreaLibroM;
     private javax.swing.JComboBox<String> comboCargoManejoA;
     private javax.swing.JComboBox<String> comboCargoManejoC;
     private javax.swing.JComboBox<String> comboCargoManejoE;
     private javax.swing.JComboBox<String> comboCargoManejoM;
     private javax.swing.JComboBox<String> comboEditorialLibroA;
+    private javax.swing.JComboBox<String> comboEditorialLibroM;
     private javax.swing.JComboBox<String> comboEjemplarPrestamoA;
     private javax.swing.JComboBox<String> comboEjemplarPrestamoM;
+    private javax.swing.JComboBox<String> comboFormatoLibroM;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblAnoLibroA;
+    private javax.swing.JLabel lblAnoLibroM;
     private javax.swing.JLabel lblAreaLibroA;
+    private javax.swing.JLabel lblAreaLibroM;
     private javax.swing.JLabel lblCargoManejoA;
     private javax.swing.JLabel lblCargoManejoC;
     private javax.swing.JLabel lblCargoManejoE;
     private javax.swing.JLabel lblCargoManejoM;
     private javax.swing.JLabel lblDigitalLibroA;
+    private javax.swing.JLabel lblDigitalLibroM;
     private javax.swing.JLabel lblEditorialLibroA;
+    private javax.swing.JLabel lblEditorialLibroM;
     private javax.swing.JLabel lblEjemplarPrestamoA;
     private javax.swing.JLabel lblEjemplarPrestamoM;
     private javax.swing.JLabel lblFechaPrestamoC;
     private javax.swing.JLabel lblFormatoLibroA;
+    private javax.swing.JLabel lblFormatoLibroM;
     private javax.swing.JLabel lblIdManejoA;
     private javax.swing.JLabel lblIdManejoC;
     private javax.swing.JLabel lblIdManejoE;
     private javax.swing.JLabel lblIdManejoM;
     private javax.swing.JLabel lblIdiomaLibroA;
+    private javax.swing.JLabel lblIdiomaLibroM;
     private javax.swing.JLabel lblIsbnLibroA;
+    private javax.swing.JLabel lblIsbnLibroM;
     private javax.swing.JLabel lblIsbnPrestamoA;
     private javax.swing.JLabel lblIsbnPrestamoM;
     private javax.swing.JLabel lblNombreLibroA;
@@ -1871,13 +2080,17 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreManejoM;
     private javax.swing.JLabel lblNumPrestamoA;
     private javax.swing.JLabel lblPaginasLibroA;
+    private javax.swing.JLabel lblPaginasLibroM;
     private javax.swing.JLabel lblPasswordManejoA;
     private javax.swing.JLabel lblPasswordManejoM;
     private javax.swing.JLabel lblPrestamoE;
     private javax.swing.JLabel lblPrestamoM;
     private javax.swing.JLabel lblTamanoLibroA;
+    private javax.swing.JLabel lblTamanoLibroM;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblTituloLibroM;
     private javax.swing.JLabel lblUrlLibroA;
+    private javax.swing.JLabel lblUrlLibroM;
     private javax.swing.JLabel lblUsuarioPrestamoA;
     private javax.swing.JLabel lblUsuarioPrestamoC;
     private javax.swing.JLabel lblUsuarioPrestamoE;
@@ -1926,13 +2139,16 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTable tablaPrestamoE;
     private javax.swing.JTable tablaPrestamoM;
     private javax.swing.JTextField txtAnoLibroA;
+    private javax.swing.JTextField txtAnoLibroM;
     private javax.swing.JTextField txtFechaPrestamoC;
     private javax.swing.JTextField txtIdManejoA;
     private javax.swing.JTextField txtIdManejoC;
     private javax.swing.JTextField txtIdManejoE;
     private javax.swing.JTextField txtIdManejoM;
     private javax.swing.JTextField txtIdiomaLibroA;
+    private javax.swing.JTextField txtIdiomaLibroM;
     private javax.swing.JTextField txtIsbnLibroA;
+    private javax.swing.JTextField txtIsbnLibroM;
     private javax.swing.JTextField txtIsbnPrestamoA;
     private javax.swing.JTextField txtIsbnPrestamoM;
     private javax.swing.JTextField txtNombreLibroA;
@@ -1942,12 +2158,16 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreManejoM;
     private javax.swing.JTextField txtNumPrestamoA;
     private javax.swing.JTextField txtPaginasLibroA;
+    private javax.swing.JTextField txtPaginasLibroM;
     private javax.swing.JPasswordField txtPasswordManejoA;
     private javax.swing.JPasswordField txtPasswordManejoM;
     private javax.swing.JTextField txtPrestamoE;
     private javax.swing.JTextField txtPrestamoM;
     private javax.swing.JTextField txtTamanoLibroA;
+    private javax.swing.JTextField txtTamanoLibroM;
+    private javax.swing.JTextField txtTituloLibroM;
     private javax.swing.JTextField txtUrlLibroA;
+    private javax.swing.JTextField txtUrlLibroM;
     private javax.swing.JTextField txtUsuarioPrestamoA;
     private javax.swing.JTextField txtUsuarioPrestamoC;
     private javax.swing.JTextField txtUsuarioPrestamoE;
