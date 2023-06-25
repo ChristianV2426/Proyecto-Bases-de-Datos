@@ -4,10 +4,8 @@ import co.edu.univalle.modelo.*;
 import co.edu.univalle.persistencia.*;
 import co.edu.univalle.vistas.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JOptionPane;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class ControladorRegistroProfesor {
     private VistaRegistroProfesor vista;
@@ -18,31 +16,33 @@ public class ControladorRegistroProfesor {
         this.vista = vista;
         this.biblioteca = biblioteca;
         this.vistaLogin = vistaLogin;
+        vista.addListeners(new ManejadoraDeMouse());
 
-        this.vista.getBtnRegresar().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        // Listener para close.
+        vista.addWindowListener(new java.awt.event.WindowAdapter(){
+            public void windowClosing(java.awt.event.WindowEvent windowEvent){
+                biblioteca.cerrarConexion();
+                System.exit(0);
+        }});
+
+        vista.getTxtIdentificacion().setText(biblioteca.getSerialUsuario());
+    }
+
+    class ManejadoraDeMouse extends MouseAdapter{
+        @Override
+        public void mouseClicked(MouseEvent e){
+            if(e.getSource() == vista.getBtnRegresar()){
                 volverALogin();
             }
-        });
 
-        this.vista.getBtnRegistrar().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == vista.getBtnRegistrar()){
                 registrarProfesor();
             }
-        });
 
-        this.vista.getCheckPassword().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (vista.getCheckPassword().isSelected()) {
-                    vista.getTxtPassword().setEchoChar((char)0);
-                } else {
-                    vista.getTxtPassword().setEchoChar('*');
-                }
+            if(e.getSource() == vista.getCheckPassword()){
+                mostrarContrasena();
             }
-        });
+        }
     }
 
     private void registrarProfesor() {
@@ -85,5 +85,13 @@ public class ControladorRegistroProfesor {
     private void volverALogin() {
         vista.dispose();
         vistaLogin.setVisible(true);
+    }
+
+    private void mostrarContrasena(){
+        if (vista.getCheckPassword().isSelected()) 
+            vista.getTxtPassword().setEchoChar((char)0);
+
+        else 
+            vista.getTxtPassword().setEchoChar('*');
     }
 }
