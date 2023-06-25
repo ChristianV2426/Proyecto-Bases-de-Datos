@@ -100,8 +100,6 @@ public class DaoLibro implements DaoGeneral<Libro>{
       }
   }
 
-
-
   @Override
   public Libro obtenerElemento(String llavePrimaria) {
     String sentenciaSelect = "SELECT * FROM libro WHERE ISBN='" + llavePrimaria + "';";

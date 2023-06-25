@@ -379,6 +379,14 @@ public class Test {
     biblioteca.getContrasenasEmpleados().encriptarContrasenas();
     System.out.println(biblioteca.getContrasenasEmpleados().validarContrasena("EM001", "ContrasenaEmpleado1"));
 
+    System.out.println(biblioteca.getSerialLibro());
+    System.out.println(biblioteca.getSerialUsuario());
+    System.out.println(biblioteca.getSerialEmpleado());
+    System.out.println(biblioteca.getSerialSolicitud());
+    System.out.println(biblioteca.getSerialDescarga());
+    System.out.println(biblioteca.getSerialPrestamo());
+    System.out.println(biblioteca.getSerialMulta());
+
 
 
     // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
