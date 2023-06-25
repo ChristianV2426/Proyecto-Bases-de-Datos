@@ -23,6 +23,8 @@ import co.edu.univalle.vistas.VistaEmpleado;
 import co.edu.univalle.vistas.VistaLogin;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class ControladorEmpleado {
     private Biblioteca biblioteca;
@@ -218,5 +220,17 @@ public class ControladorEmpleado {
     private void opcionCerrar() {
         VistaLogin vistaLogin = new VistaLogin("Inicio Sesión", biblioteca);
         vista.dispose();
+    }
+    
+    public static TableModel asignarModelo(String[][] datos, String[] encabezado) {
+        TableModel model = new DefaultTableModel(datos, encabezado)
+        {
+            public boolean isCellEditable(int row, int column)
+            {
+                return false; //Esta línea se asegura de que no se editen las celdas de la tabla
+            }
+        };
+
+        return model;
     }
 }

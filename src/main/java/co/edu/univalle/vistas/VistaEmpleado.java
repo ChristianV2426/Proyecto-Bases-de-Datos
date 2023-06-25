@@ -39,7 +39,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private String[] cabeceraConsultarEmpleados = {"ID","Nombre","Cargo"};
     private String[] cabeceraPrestamo = {"ISBN","Título","Ejemplar", "Retorno"};
     private String[] cabeceraConsultarPrestamo = {"Préstamo","Libros","Ejemplar","FPréstamo","Retorno","Estado"};
-    
+    private String[] cabeceraDescargas = {"Descarga", "Usuario","IP","Fecha","Título"};
+    private String[] cabeceraSolicitudes = {"Solicitud", "Estado","Usuario","Fecha","Título","ISBN"};
+    private String[] cabeceraMultas = {"Multas", "Ejemplar","Titulo","FechaMulta","Valor","Estado"};
+    private String[] cabeceraTodaLasMultas = {"Multas", "Nombre","Ejemplar","Título","FechaMulta","Valor","Estado"};
+    private String[] cabeceraConsultarLibros = {"ISBN","Título","Ejemplar","Autores","Editorial","Idioma","Digital"};
     
     public VistaEmpleado(String titulo, Biblioteca biblioteca, Empleado empleado) {
         this.empleado = empleado;
@@ -256,6 +260,10 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblFormatoLibroE = new javax.swing.JLabel();
         comboFormatoLibroE = new javax.swing.JComboBox<>();
         btnEliminarLibroE = new javax.swing.JButton();
+        panelTodosLosLibros = new javax.swing.JPanel();
+        panelTablaTodosLosLibros = new javax.swing.JPanel();
+        scrollTodosLosLibros = new javax.swing.JScrollPane();
+        tablaTodosLosLibros = new javax.swing.JTable();
         panelPrestamo = new javax.swing.JTabbedPane();
         panelPrestamoAnadir = new javax.swing.JPanel();
         lblNumPrestamoA = new javax.swing.JLabel();
@@ -1657,6 +1665,54 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
         panelLibro.addTab("Eliminar", panelLibroEliminar);
 
+        tablaTodosLosLibros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollTodosLosLibros.setViewportView(tablaTodosLosLibros);
+
+        javax.swing.GroupLayout panelTablaTodosLosLibrosLayout = new javax.swing.GroupLayout(panelTablaTodosLosLibros);
+        panelTablaTodosLosLibros.setLayout(panelTablaTodosLosLibrosLayout);
+        panelTablaTodosLosLibrosLayout.setHorizontalGroup(
+            panelTablaTodosLosLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTablaTodosLosLibrosLayout.createSequentialGroup()
+                .addComponent(scrollTodosLosLibros, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelTablaTodosLosLibrosLayout.setVerticalGroup(
+            panelTablaTodosLosLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTablaTodosLosLibrosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollTodosLosLibros, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelTodosLosLibrosLayout = new javax.swing.GroupLayout(panelTodosLosLibros);
+        panelTodosLosLibros.setLayout(panelTodosLosLibrosLayout);
+        panelTodosLosLibrosLayout.setHorizontalGroup(
+            panelTodosLosLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTodosLosLibrosLayout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(panelTablaTodosLosLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+        panelTodosLosLibrosLayout.setVerticalGroup(
+            panelTodosLosLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTodosLosLibrosLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(panelTablaTodosLosLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        panelLibro.addTab("Todos los libros", panelTodosLosLibros);
+
         panelPrincipal.add(panelLibro, "cardLibro");
 
         panelPrestamo.setFocusable(false);
@@ -2078,7 +2134,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
         txtFechaMultas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        lblMultas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblMultas.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
         lblMultas.setText("Sus multas:");
 
         tableMultasU.setModel(new javax.swing.table.DefaultTableModel(
@@ -2147,9 +2203,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addComponent(txtFechaMultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(lblMultas)
-                .addGap(18, 18, 18)
-                .addComponent(scrollMultasU, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollMultasU, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPagarMultas)
                 .addGap(12, 12, 12))
         );
@@ -2159,7 +2215,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnCheckMultas.setBackground(Color.WHITE);
         btnPagarMultas.setBackground(Color.WHITE);
 
-        subPanelMulta.add(panelMultaUsuario, "card2");
+        subPanelMulta.add(panelMultaUsuario, "cardMultaUsuario");
 
         btnMultasUsuarioT.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnMultasUsuarioT.setText("Multas usuario");
@@ -2211,7 +2267,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnMultasUsuarioT.setBackground(Color.WHITE);
         btnMultasTodasT.setBackground(Color.WHITE);
 
-        subPanelMulta.add(panelMultaTodo, "card3");
+        subPanelMulta.add(panelMultaTodo, "cardMultaTodo");
 
         panelMulta.addTab("Consultar", subPanelMulta);
 
@@ -3269,7 +3325,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JTabbedPane panelSolicitud;
     private javax.swing.JPanel panelSolicitudConsultar;
+    private javax.swing.JPanel panelTablaTodosLosLibros;
     private javax.swing.JPanel panelTitulo;
+    private javax.swing.JPanel panelTodosLosLibros;
     private javax.swing.JScrollPane scrollAreaSolicitud;
     private javax.swing.JScrollPane scrollDescargas;
     private javax.swing.JScrollPane scrollManejoC;
@@ -3280,6 +3338,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrollPrestamoE;
     private javax.swing.JScrollPane scrollPrestamoM;
     private javax.swing.JScrollPane scrollTableSolicitud;
+    private javax.swing.JScrollPane scrollTodosLosLibros;
     private javax.swing.JPanel subPanelManejoConsultar;
     private javax.swing.JPanel subPanelMulta;
     private javax.swing.JTable tablaManejoC;
@@ -3287,6 +3346,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTable tablaPrestamoC;
     private javax.swing.JTable tablaPrestamoE;
     private javax.swing.JTable tablaPrestamoM;
+    private javax.swing.JTable tablaTodosLosLibros;
     private javax.swing.JTable tableDescargas;
     private javax.swing.JTable tableMultasT;
     private javax.swing.JTable tableMultasU;
