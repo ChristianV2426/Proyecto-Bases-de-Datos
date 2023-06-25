@@ -20,6 +20,7 @@ package co.edu.univalle.controlador;
 import co.edu.univalle.modelo.Descarga;
 import co.edu.univalle.modelo.Digital;
 import co.edu.univalle.modelo.Libro;
+import co.edu.univalle.modelo.RelacionPide;
 import co.edu.univalle.modelo.Solicitud;
 import co.edu.univalle.modelo.Usuario;
 import co.edu.univalle.persistencia.Biblioteca;
@@ -282,7 +283,15 @@ public class ControladorUsuario {
     
     private void opcionSolicitar() {
         
-        //String isbn
+        String isbn = vista.getTxtIsbnSolicitud().getText();
+        if(biblioteca.getLibros().obtenerElemento(isbn) == null){
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">Lo sentimos, este libro no se encuentra registrado en nuestra biblioteca.</p></html>", 
+                        "Error", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        
         //Obteniendo los datos de la vista
         String descripcion = vista.getTxtAreaSolicitud().getText();
         if(descripcion == ""){
@@ -296,15 +305,20 @@ public class ControladorUsuario {
         LocalDate fechaSolicitud = LocalDate.parse(vista.getTxtFechaSolicitud().getText());
         
         //Creando la solicitud
-        Solicitud solicitudCliente = new Solicitud("SLP", usuario.getIdUsuario(), fechaSolicitud, descripcion,"Pendiente");
+        Solicitud solicitudCliente = new Solicitud("SLP", usuario, fechaSolicitud, descripcion, "En espera");
+        //Creando la relacion pide
+        RelacionPide clientePide = new RelacionPide(solicitudCliente.getCodigoSolicitud(),isbn);
         
-        //Añadiendo la solicitud a la BD
-        if(biblioteca.getSolicitudes().insertarElemento(solicitudCliente)){
+        //Añadiendo la solicitud y la relación pide a la BD
+        if(biblioteca.getSolicitudes().insertarElemento(solicitudCliente) && biblioteca.getRelacionesPide().insertarElemento(clientePide)){
             JOptionPane.showMessageDialog(vista, 
                         "<html><p style = \" font:12px; \">Su solicitud ha sido registrada, la analizaremos lo más pronto posible.</p></html>", 
                         "Operación realizada con éxito", JOptionPane.OK_OPTION, 
                         UIManager.getIcon("OptionPane.informationIcon"));
         } else {
+            String codigoSolicitud = solicitudCliente.getCodigoSolicitud();
+            biblioteca.getSolicitudes().eliminarElemento(codigoSolicitud);
+            biblioteca.getRelacionesPide().eliminarElemento(codigoSolicitud);
             JOptionPane.showMessageDialog(vista, 
                         "<html><p style = \" font:12px; \">No se pudo realizar la solicitud.</p></html>", 
                         "Operación sin éxito", JOptionPane.OK_OPTION, 
