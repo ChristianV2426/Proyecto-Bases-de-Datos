@@ -299,6 +299,20 @@ public class VistaEmpleado extends javax.swing.JFrame {
         panelDescargaConsultar = new javax.swing.JPanel();
         panelEjemplar = new javax.swing.JTabbedPane();
         panelEjemplarAnadir = new javax.swing.JPanel();
+        lblIsbnEjemplarA = new javax.swing.JLabel();
+        txtIsbnEjemplarA = new javax.swing.JTextField();
+        btnCheckEjemplarA = new javax.swing.JButton();
+        lblNumeroEjemplarA = new javax.swing.JLabel();
+        txtNumeroEjemplarA = new javax.swing.JTextField();
+        lblEstanteEjemplarA = new javax.swing.JLabel();
+        txtEstanteEjemplarA = new javax.swing.JTextField();
+        lblCajonEjemplarA = new javax.swing.JLabel();
+        txtCajonEjemplarA = new javax.swing.JTextField();
+        lblPasilloEjemplarA = new javax.swing.JLabel();
+        txtPasilloEjemplarA = new javax.swing.JTextField();
+        lblSalaEjemplarA = new javax.swing.JLabel();
+        txtSalaEjemplarA = new javax.swing.JTextField();
+        btnAgregarEjemplarA = new javax.swing.JButton();
         panelEjemplarModificar = new javax.swing.JPanel();
         panelEjemplarConsultar = new javax.swing.JPanel();
         panelEjemplarEliminar = new javax.swing.JPanel();
@@ -2014,15 +2028,110 @@ public class VistaEmpleado extends javax.swing.JFrame {
         panelEjemplar.setFocusable(false);
         panelEjemplar.setRequestFocusEnabled(false);
 
+        lblIsbnEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblIsbnEjemplarA.setText("ISBN:");
+
+        txtIsbnEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtIsbnEjemplarA.setText("jTextField1");
+
+        btnCheckEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnCheckEjemplarA.setText("Check");
+
+        lblNumeroEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblNumeroEjemplarA.setText("Número de ejemplar:");
+
+        txtNumeroEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNumeroEjemplarA.setText("jTextField1");
+
+        lblEstanteEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblEstanteEjemplarA.setText("Estante:");
+
+        txtEstanteEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtEstanteEjemplarA.setText("jTextField1");
+
+        lblCajonEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblCajonEjemplarA.setText("Número de cajón:");
+
+        txtCajonEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCajonEjemplarA.setText("jTextField1");
+
+        lblPasilloEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblPasilloEjemplarA.setText("Número de pasillo:");
+
+        txtPasilloEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtPasilloEjemplarA.setText("jTextField1");
+
+        lblSalaEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblSalaEjemplarA.setText("Número de sala:");
+
+        txtSalaEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtSalaEjemplarA.setText("jTextField1");
+
+        btnAgregarEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnAgregarEjemplarA.setText("Agregar");
+
         javax.swing.GroupLayout panelEjemplarAnadirLayout = new javax.swing.GroupLayout(panelEjemplarAnadir);
         panelEjemplarAnadir.setLayout(panelEjemplarAnadirLayout);
         panelEjemplarAnadirLayout.setHorizontalGroup(
             panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGroup(panelEjemplarAnadirLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIsbnEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNumeroEjemplarA)
+                    .addComponent(lblEstanteEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCajonEjemplarA)
+                    .addComponent(lblPasilloEjemplarA)
+                    .addComponent(lblSalaEjemplarA))
+                .addGap(109, 109, 109)
+                .addGroup(panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSalaEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPasilloEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCajonEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEstanteEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEjemplarAnadirLayout.createSequentialGroup()
+                            .addComponent(txtIsbnEjemplarA)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnCheckEjemplarA))
+                        .addComponent(txtNumeroEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEjemplarAnadirLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgregarEjemplarA)
+                .addGap(330, 330, 330))
         );
         panelEjemplarAnadirLayout.setVerticalGroup(
             panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGroup(panelEjemplarAnadirLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIsbnEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIsbnEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCheckEjemplarA))
+                .addGap(18, 18, 18)
+                .addGroup(panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumeroEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumeroEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEstanteEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEstanteEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCajonEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCajonEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPasilloEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPasilloEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEjemplarAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSalaEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSalaEjemplarA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(btnAgregarEjemplarA)
+                .addGap(28, 28, 28))
         );
 
         panelEjemplar.addTab("Añadir", panelEjemplarAnadir);
@@ -2373,11 +2482,13 @@ public class VistaEmpleado extends javax.swing.JFrame {
     }
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarEjemplarA;
     private javax.swing.JButton btnAgregarLibroA;
     private javax.swing.JButton btnAgregarPrestamoA;
     private javax.swing.JButton btnAgregarPrestamoM;
     private javax.swing.JButton btnAnadirManejoA;
     private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnCheckEjemplarA;
     private javax.swing.JButton btnCheckLibroC;
     private javax.swing.JButton btnCheckLibroE;
     private javax.swing.JButton btnCheckLibroM;
@@ -2447,6 +2558,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel lblAreaLibroC;
     private javax.swing.JLabel lblAreaLibroE;
     private javax.swing.JLabel lblAreaLibroM;
+    private javax.swing.JLabel lblCajonEjemplarA;
     private javax.swing.JLabel lblCargoManejoA;
     private javax.swing.JLabel lblCargoManejoC;
     private javax.swing.JLabel lblCargoManejoE;
@@ -2461,6 +2573,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel lblEditorialLibroM;
     private javax.swing.JLabel lblEjemplarPrestamoA;
     private javax.swing.JLabel lblEjemplarPrestamoM;
+    private javax.swing.JLabel lblEstanteEjemplarA;
     private javax.swing.JLabel lblFechaPrestamoC;
     private javax.swing.JLabel lblFormatoLibroA;
     private javax.swing.JLabel lblFormatoLibroC;
@@ -2474,6 +2587,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdiomaLibroC;
     private javax.swing.JLabel lblIdiomaLibroE;
     private javax.swing.JLabel lblIdiomaLibroM;
+    private javax.swing.JLabel lblIsbnEjemplarA;
     private javax.swing.JLabel lblIsbnLibroA;
     private javax.swing.JLabel lblIsbnLibroC;
     private javax.swing.JLabel lblIsbnLibroE;
@@ -2486,14 +2600,17 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreManejoE;
     private javax.swing.JLabel lblNombreManejoM;
     private javax.swing.JLabel lblNumPrestamoA;
+    private javax.swing.JLabel lblNumeroEjemplarA;
     private javax.swing.JLabel lblPaginasLibroA;
     private javax.swing.JLabel lblPaginasLibroC;
     private javax.swing.JLabel lblPaginasLibroE;
     private javax.swing.JLabel lblPaginasLibroM;
+    private javax.swing.JLabel lblPasilloEjemplarA;
     private javax.swing.JLabel lblPasswordManejoA;
     private javax.swing.JLabel lblPasswordManejoM;
     private javax.swing.JLabel lblPrestamoE;
     private javax.swing.JLabel lblPrestamoM;
+    private javax.swing.JLabel lblSalaEjemplarA;
     private javax.swing.JLabel lblTamanoLibroA;
     private javax.swing.JLabel lblTamanoLibroC;
     private javax.swing.JLabel lblTamanoLibroE;
@@ -2557,6 +2674,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField txtAnoLibroC;
     private javax.swing.JTextField txtAnoLibroE;
     private javax.swing.JTextField txtAnoLibroM;
+    private javax.swing.JTextField txtCajonEjemplarA;
+    private javax.swing.JTextField txtEstanteEjemplarA;
     private javax.swing.JTextField txtFechaPrestamoC;
     private javax.swing.JTextField txtIdManejoA;
     private javax.swing.JTextField txtIdManejoC;
@@ -2566,6 +2685,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdiomaLibroC;
     private javax.swing.JTextField txtIdiomaLibroE;
     private javax.swing.JTextField txtIdiomaLibroM;
+    private javax.swing.JTextField txtIsbnEjemplarA;
     private javax.swing.JTextField txtIsbnLibroA;
     private javax.swing.JTextField txtIsbnLibroC;
     private javax.swing.JTextField txtIsbnLibroE;
@@ -2578,14 +2698,17 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreManejoE;
     private javax.swing.JTextField txtNombreManejoM;
     private javax.swing.JTextField txtNumPrestamoA;
+    private javax.swing.JTextField txtNumeroEjemplarA;
     private javax.swing.JTextField txtPaginasLibroA;
     private javax.swing.JTextField txtPaginasLibroC;
     private javax.swing.JTextField txtPaginasLibroE;
     private javax.swing.JTextField txtPaginasLibroM;
+    private javax.swing.JTextField txtPasilloEjemplarA;
     private javax.swing.JPasswordField txtPasswordManejoA;
     private javax.swing.JPasswordField txtPasswordManejoM;
     private javax.swing.JTextField txtPrestamoE;
     private javax.swing.JTextField txtPrestamoM;
+    private javax.swing.JTextField txtSalaEjemplarA;
     private javax.swing.JTextField txtTamanoLibroA;
     private javax.swing.JTextField txtTamanoLibroC;
     private javax.swing.JTextField txtTamanoLibroE;
