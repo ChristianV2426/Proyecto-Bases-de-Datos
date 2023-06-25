@@ -282,28 +282,56 @@ public class Biblioteca {
     serialLibro++;
   }
 
+  public void restarSerialLibro() {
+    serialLibro--;
+  }
+
   public void sumarSerialUsuario() {
     serialUsuario++;
+  }
+
+  public void restarSerialUsuario() {
+    serialUsuario--;
   }
 
   public void sumarSerialEmpleado() {
     serialEmpleado++;
   }
 
+  public void restarSerialEmpleado() {
+    serialEmpleado--;
+  }
+
   public void sumarSerialSolicitud() {
     serialSolicitud++;
+  }
+
+  public void restarSerialSolicitud() {
+    serialSolicitud--;
   }
 
   public void sumarSerialDescarga() {
     serialDescarga++;
   }
 
+  public void restarSerialDescarga() {
+    serialDescarga--;
+  }
+
   public void sumarSerialPrestamo() {
     serialPrestamo++;
   }
 
+  public void restarSerialPrestamo() {
+    serialPrestamo--;
+  }
+
   public void sumarSerialMulta() {
     serialMulta++;
+  }
+
+  public void restarSerialMulta() {
+    serialMulta--;
   }
 
   public void cerrarConexion(){
