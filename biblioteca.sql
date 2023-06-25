@@ -165,6 +165,7 @@ CREATE TABLE empleado (
   id_empleado VARCHAR(5) NOT NULL, 
   nombre_empleado VARCHAR(100) NOT NULL,
   cargo VARCHAR(50),
+  es_administrador BOOLEAN NOT NULL,
 
   PRIMARY KEY (id_empleado)
 );
@@ -676,20 +677,22 @@ INSERT INTO areas_interes_profesor (id_usuario, codigo_area) VALUES
 ('US018', 'AC038');
 
 -- Empleado
-INSERT INTO empleado (id_empleado, nombre_empleado, cargo) VALUES
-('EM001', 'Luisa Rodriguez', 'Bibliotecologa'),
-('EM002', 'Andres Gomez', 'Asistente de biblioteca'),
-('EM003', 'Maria Fernandez', 'Encargada de adquisiciones'),
-('EM004', 'Juan Torres', 'Tecnico de catalogacion'),
-('EM005', 'Carolina Sanchez', 'Encargada de prestamo'),
-('EM006', 'Pedro Gonzalez', 'Asistente de prestamo'),
-('EM007', 'Gabriela Ramirez', 'Asistente de referencia'),
-('EM008', 'Alejandro Herrera', 'Encargado de conservacion'),
-('EM009', 'Sara Castro', 'Asistente de conservacion'),
-('EM010', 'Esteban Martinez', 'Encargado de sistemas');
+INSERT INTO empleado (id_empleado, nombre_empleado, cargo, es_administrador) VALUES
+('EM000', 'Administrador', 'Administrador', TRUE),
+('EM001', 'Luisa Rodriguez', 'Bibliotecologa', FALSE),
+('EM002', 'Andres Gomez', 'Asistente de biblioteca', FALSE),
+('EM003', 'Maria Fernandez', 'Encargada de adquisiciones', FALSE),
+('EM004', 'Juan Torres', 'Tecnico de catalogacion', FALSE),
+('EM005', 'Carolina Sanchez', 'Encargada de prestamo', FALSE),
+('EM006', 'Pedro Gonzalez', 'Asistente de prestamo', FALSE),
+('EM007', 'Gabriela Ramirez', 'Asistente de referencia', FALSE),
+('EM008', 'Alejandro Herrera', 'Encargado de conservacion', FALSE),
+('EM009', 'Sara Castro', 'Asistente de conservacion', FALSE),
+('EM010', 'Esteban Martinez', 'Encargado de sistemas', FALSE);
 
 -- Contraseña empleado
 INSERT INTO contrasena_empleado (id_empleado, contrasena) VALUES
+('EM000', 'ContrasenaAdministrador'),
 ('EM001', 'ContrasenaEmpleado1'),
 ('EM002', 'ContrasenaEmpleado2'),
 ('EM003', 'ContrasenaEmpleado3'),

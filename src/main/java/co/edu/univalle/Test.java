@@ -21,8 +21,6 @@ import co.edu.univalle.modelo.*;
 import co.edu.univalle.persistencia.*;
 import java.sql.*;
 import java.time.*;
-import javax.swing.*;
-import org.jasypt.util.password.*;
 import java.math.BigDecimal;
 
 
@@ -118,6 +116,7 @@ public class Test {
     System.out.println(biblioteca.getDigitales().insertarElemento(digital1));
 
     Digital digital2 = biblioteca.getDigitales().obtenerElemento("LI041-URL01");
+    System.out.println("aqui");
     System.out.println(digital2);
 
     System.out.println(biblioteca.getDigitales().obtenerTodosLosElementos() != null);
@@ -213,7 +212,7 @@ public class Test {
 
 
     /* Pruebas CRUD sobre empleado */
-    Empleado empleado1 = new Empleado("EM011", "Paola Lopez", "");
+    Empleado empleado1 = new Empleado("EM011", "Paola Lopez", "", Boolean.FALSE);
     System.out.println(biblioteca.getEmpleados().insertarElemento(empleado1));
 
     Empleado empleado2 = biblioteca.getEmpleados().obtenerElemento("EM011");
@@ -221,7 +220,7 @@ public class Test {
 
     System.out.println(biblioteca.getEmpleados().obtenerTodosLosElementos() != null);
 
-    Empleado empleado3 = new Empleado("EM011", "Paola Lopez", "Bibliotecaria");
+    Empleado empleado3 = new Empleado("EM011", "Paola Lopez", "Bibliotecaria", Boolean.FALSE);
     System.out.println(biblioteca.getEmpleados().editarElemento(empleado3));
     
     System.out.println(biblioteca.getEmpleados().eliminarElemento("EM011"));
