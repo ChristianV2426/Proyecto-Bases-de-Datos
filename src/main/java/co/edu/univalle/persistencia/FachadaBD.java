@@ -17,7 +17,11 @@
 
 package co.edu.univalle.persistencia;
 
+import java.io.*;
 import java.sql.*;
+import java.util.*;
+import javax.swing.*;
+
 
 public class FachadaBD {
   private String url;
@@ -25,28 +29,79 @@ public class FachadaBD {
   private String password;
   private Connection conexionBD = null;
 
-  public FachadaBD(String url, String usuario, String password) {
-    this.url = url;
-    this.usuario = usuario;
-    this.password = password;
-  }
+  public FachadaBD(String rutaArchivoCredenciales) {
+    Scanner scanner = null;
+    File archivoCredenciales = null;
 
+    try {
+      archivoCredenciales = new File(rutaArchivoCredenciales);
+      scanner = new Scanner(archivoCredenciales);
+
+      for(int i = 0; i < 2; i++)
+        scanner.nextLine();
+      
+      String lineaUrl = scanner.nextLine();
+      String lineaUsuario = scanner.nextLine();
+      String lineaPassword = scanner.nextLine();
+
+      this.url = lineaUrl.substring(lineaUrl.lastIndexOf(" ") + 1);
+      this.usuario = lineaUsuario.substring(lineaUsuario.lastIndexOf(" ") + 1);
+      this.password = lineaPassword.substring(lineaPassword.lastIndexOf(" ") + 1);
+
+    } catch(FileNotFoundException exception){
+        JOptionPane.showMessageDialog(null,
+            "No se encontró el archivo de credenciales.\n\n" + archivoCredenciales.getAbsolutePath() +
+            "\n\nPor favor asegúrse de que en esta ruta se encuentre un archivo de credenciales valido.",
+            "Conexión con la base de datos fallida", JOptionPane.ERROR_MESSAGE);
+        System.exit(0);
+
+    } catch(IOException exception){
+        JOptionPane.showMessageDialog(null,
+            "No se pude leer el contenido del archivo: " + exception.getMessage() + "\nAsegúrese de que en esta ruta se encuentre un archivo de credenciales valido o contacte al administrador.",
+            "Conexión con la base de datos fallida", JOptionPane.ERROR_MESSAGE);
+        System.exit(0);
+
+    } finally {
+      try {
+        scanner.close();
+
+      } catch (Exception exception2){
+        JOptionPane.showMessageDialog(null,
+            "No se encontró el archivo de credenciales.\n\n" + archivoCredenciales.getAbsolutePath() +
+            "\n\nPor favor asegúrse de que en esta ruta se encuentre un archivo de credenciales valido o contacte al administrador.",
+            "Conexión con la base de datos fallida", JOptionPane.ERROR_MESSAGE);
+        System.exit(0);
+      }
+    }
+  }
+  
   public Connection conectar(){
     try{
       Class.forName("org.postgresql.Driver");
 
     } catch (ClassNotFoundException error) {
-      System.out.println("No se pudo cargar el Driver. Error: " + error.getMessage());
+        JOptionPane.showMessageDialog(null, "No se pudo cargar el Driver de PostgreSQL.\nPor favor Contacte al administrador.",
+            "Conexión con la base de datos fallida", JOptionPane.ERROR_MESSAGE);
+        System.exit(0);
+        System.out.println("No se pudo cargar el Driver. Error: " + error.getMessage());
     }
 
     try{
-      conexionBD = DriverManager.getConnection(url, usuario, password);
-      System.out.println("Conexión exitosa con la base de datos.");
-      return conexionBD;
+        conexionBD = DriverManager.getConnection(url, usuario, password);
+        System.out.println("Conexión exitosa con la base de datos.");
+        return conexionBD;
 
     } catch(SQLException error) {
-      System.out.println("Error al abrir la base de datos. Error: " + error.getMessage());
-      return null;
+        JOptionPane.showMessageDialog(null,
+            "Credenciales incorrectas" +
+            "\n\nURL:  " + url +
+            "\nUsuario:  " + usuario + 
+            "\nContraseña:  " + password + 
+            "\n\nPor favor asegúrese de ingresar las credenciales correctas en el archivo de credenciales.\n",
+            "Conexión con la base de datos fallida", JOptionPane.ERROR_MESSAGE);
+        System.exit(0);
+        System.out.println("Error al abrir la base de datos. Error: " + error.getMessage());
+        return null;
     }
 
   }
@@ -70,13 +125,4 @@ public class FachadaBD {
     }
 
   }
-
-  /*
-  public static void main(String[] args) {
-    FachadaBD fachadaBD = new FachadaBD();
-    Connection conexionBD = fachadaBD.getConexionBD();
-    fachadaBD.closeConexionBD(conexionBD);
-  }
-  */
-
 }
