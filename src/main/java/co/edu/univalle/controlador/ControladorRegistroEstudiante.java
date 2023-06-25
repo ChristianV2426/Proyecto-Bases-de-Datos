@@ -64,8 +64,6 @@ public class ControladorRegistroEstudiante {
 
         if (!biblioteca.getUsuarios().insertarElemento(nuevoEstudiante) || !biblioteca.getEstudiantes().insertarElemento(nuevoEstudiante)) {
             JOptionPane.showMessageDialog(vista, "Error al registrar el usuario.", "Error", JOptionPane.ERROR_MESSAGE);
-            biblioteca.getUsuarios().eliminarElemento(identificacion);
-            biblioteca.getEstudiantes().eliminarElemento(identificacion);
             return;
         }
 
