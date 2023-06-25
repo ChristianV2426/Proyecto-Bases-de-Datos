@@ -25,15 +25,15 @@ import java.sql.Connection;
 public class Main {
 
     public static void main(String[] args) {
-        String url = "jdbc:postgresql://localhost:5432/biblioteca";
-        String usuario = "postgres";
-        String password = "password";
-        FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
-        Connection conexionBD = fachadaBD.getConexionBD();
-
-        Biblioteca biblioteca = new Biblioteca(conexionBD);
-
-        VistaUsuario prueba = new VistaUsuario("Modo Usuario", biblioteca, biblioteca.getUsuarios().obtenerElemento("US001"));
+//        String url = "jdbc:postgresql://localhost:5432/biblioteca";
+//        String usuario = "postgres";
+//        String password = "password";
+//        FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
+//        Connection conexionBD = fachadaBD.getConexionBD();
+//
+//        Biblioteca biblioteca = new Biblioteca(conexionBD);
+//
+//        VistaUsuario prueba = new VistaUsuario("Modo Usuario", biblioteca, biblioteca.getUsuarios().obtenerElemento("US001"));
         //VistaEmpleado prueba2 = new VistaEmpleado("Modo Empleado");
     }
 }

@@ -17,6 +17,8 @@ public class ControladorRegistroEstudiante {
         this.biblioteca = biblioteca;
         this.vistaLogin = vistaLogin;
         vista.addListeners(new ManejadoraDeMouse());
+        verificarTexto(vista.getTxtNombre());
+        verificarNumero(vista.getTxtTelefono());
 
         // Listener para close.
         vista.addWindowListener(new java.awt.event.WindowAdapter(){
@@ -93,5 +95,31 @@ public class ControladorRegistroEstudiante {
 
         else 
             vista.getTxtPassword().setEchoChar('*');
+    }
+    
+    public final void verificarNumero(JTextField a){
+        a.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();
+                if (!Character.isDigit(c) | Character.isSpaceChar(c)){
+                    e.consume();
+                }
+            }
+        });
+    }
+    
+    public final void verificarTexto(JTextField a){
+        a.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();
+                if (Character.isAlphabetic(c) | Character.isSpaceChar(c)){
+                    e.setKeyChar(c);
+                } else {
+                    e.consume();
+                }
+            }
+        });
     }
 }

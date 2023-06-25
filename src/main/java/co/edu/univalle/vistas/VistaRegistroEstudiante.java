@@ -70,6 +70,7 @@ public class VistaRegistroEstudiante extends javax.swing.JFrame {
         lblIdentificacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblIdentificacion.setText("Identificación");
 
+        txtIdentificacion.setEditable(false);
         txtIdentificacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         btnRegistrar.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N

@@ -29,7 +29,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class VistaLogin extends javax.swing.JFrame {
-    Biblioteca biblioteca; 
+    Biblioteca biblioteca;
 
     public VistaLogin(String titulo, Biblioteca biblioteca) {
         initComponents();
@@ -79,8 +79,9 @@ public class VistaLogin extends javax.swing.JFrame {
         btnIngresar.setRequestFocusEnabled(false);
 
         lblRegistro.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        lblRegistro.setForeground(new java.awt.Color(6, 69, 173));
         lblRegistro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRegistro.setText("¿No tiene cuenta? Regístrese aquí");
+        lblRegistro.setText("¿No tienes cuenta? Regístrese aquí");
 
         btnSalir.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         btnSalir.setText("Salir");
