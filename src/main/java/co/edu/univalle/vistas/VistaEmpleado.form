@@ -1245,7 +1245,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIsbnLibroA">
@@ -1261,7 +1260,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPaginasLibroA">
@@ -1277,7 +1275,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAnoLibroA">
@@ -1293,7 +1290,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIdiomaLibroA">
@@ -1309,7 +1305,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroA">
@@ -1379,6 +1374,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Si"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnSiLibroA.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnNoLibroA">
                       <Properties>
@@ -1387,6 +1385,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnNoLibroA.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUrlLibroA">
                       <Properties>
@@ -1401,7 +1402,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTamanoLibroA">
@@ -1417,7 +1417,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblFormatoLibroA">
@@ -1453,6 +1452,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Agregar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnAgregarLibroA.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1616,7 +1618,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckLibroM">
@@ -1626,6 +1627,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckLibroM.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTituloLibroM">
                       <Properties>
@@ -1640,7 +1644,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPaginasLibroM">
@@ -1656,7 +1659,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAnoLibroM">
@@ -1672,7 +1674,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIdiomaLibroM">
@@ -1688,7 +1689,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroM">
@@ -1758,6 +1758,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Si"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnSiLibroM.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnNoLibroM">
                       <Properties>
@@ -1766,6 +1769,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnNoLibroM.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUrlLibroM">
                       <Properties>
@@ -1780,7 +1786,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTamanoLibroM">
@@ -1796,7 +1801,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblFormatoLibroM">
@@ -1832,6 +1836,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Modificar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnModificarLibroM.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1915,15 +1922,15 @@
                                   <Component id="lblIsbnLibroC" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPaginasLibroC" alignment="1" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblTituloLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtTituloLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtPaginasLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="lblPaginasLibroC" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="txtAnoLibroC" alignment="3" max="32767" attributes="0"/>
@@ -1962,7 +1969,7 @@
                                       <Component id="lblFormatoLibroC" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="107" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1981,7 +1988,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckLibroC">
@@ -1991,6 +1997,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckLibroC.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTituloLibroC">
                       <Properties>
@@ -2002,10 +2011,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTituloLibroC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPaginasLibroC">
@@ -2018,10 +2027,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPaginasLibroC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAnoLibroC">
@@ -2034,10 +2043,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtAnoLibroC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIdiomaLibroC">
@@ -2050,10 +2059,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtIdiomaLibroC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroC">
@@ -2123,6 +2132,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Si"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnSiLibroC.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnNoLibroC">
                       <Properties>
@@ -2131,6 +2143,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnNoLibroC.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUrlLibroC">
                       <Properties>
@@ -2142,10 +2157,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUrlLibroC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTamanoLibroC">
@@ -2158,10 +2173,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTamanoLibroC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblFormatoLibroC">
@@ -2352,7 +2367,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckLibroE">
@@ -2362,6 +2376,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckLibroE.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTituloLibroE">
                       <Properties>
@@ -2376,7 +2393,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPaginasLibroE">
@@ -2392,7 +2408,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAnoLibroE">
@@ -2408,7 +2423,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIdiomaLibroE">
@@ -2424,7 +2438,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroE">
@@ -2494,6 +2507,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Si"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnSiLibroE.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnNoLibroE">
                       <Properties>
@@ -2502,6 +2518,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnNoLibroE.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUrlLibroE">
                       <Properties>
@@ -2516,7 +2535,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTamanoLibroE">
@@ -2532,7 +2550,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblFormatoLibroE">
@@ -2568,6 +2585,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Eliminar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnEliminarLibroE.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -3456,6 +3476,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Multas usuario"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnMultasUsuarioU.setBackground(Color.WHITE);"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JButton" name="btnMultasTodasU">
                           <Properties>
@@ -3464,6 +3487,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Todas las multas"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnMultasTodasU.setBackground(Color.WHITE);"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblIdMultas">
                           <Properties>
@@ -3478,7 +3504,6 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="18" style="0"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="jTextField1"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JButton" name="btnCheckMultas">
@@ -3488,6 +3513,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Check"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckMultas.setBackground(Color.WHITE);"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblFechaMultas">
                           <Properties>
@@ -3502,7 +3530,6 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="18" style="0"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="jTextField1"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblMultas">
@@ -3541,6 +3568,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Pagar multa"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnPagarMultas.setBackground(Color.WHITE);"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -3595,6 +3625,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Multas usuario"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnMultasUsuarioT.setBackground(Color.WHITE);"/>
+                          </AuxValues>
                         </Component>
                         <Component class="javax.swing.JButton" name="btnMultasTodasT">
                           <Properties>
@@ -3603,6 +3636,9 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Todas las multas"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnMultasTodasT.setBackground(Color.WHITE);"/>
+                          </AuxValues>
                         </Component>
                         <Container class="javax.swing.JScrollPane" name="scrollMultasT">
                           <AuxValues>
@@ -3720,6 +3756,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Rechazar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnRechazarSolicitud.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnAprobarSolicitud">
                       <Properties>
@@ -3728,6 +3767,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Aprobar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnAprobarSolicitud.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnDescripcionSolicitud">
                       <Properties>
@@ -3736,6 +3778,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Mostrar descripci&#xf3;n"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnDescripcionSolicitud.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="scrollAreaSolicitud">
                       <AuxValues>
@@ -3954,7 +3999,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckEjemplarA">
@@ -3964,6 +4008,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckEjemplarA.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblNumeroEjemplarA">
                       <Properties>
@@ -3978,7 +4025,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEstanteEjemplarA">
@@ -3994,7 +4040,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCajonEjemplarA">
@@ -4010,7 +4055,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPasilloEjemplarA">
@@ -4026,7 +4070,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSalaEjemplarA">
@@ -4042,7 +4085,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnAgregarEjemplarA">
@@ -4052,6 +4094,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Agregar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnAgregarEjemplarA.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -4156,7 +4201,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckEjemplarM">
@@ -4166,6 +4210,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckEjemplarM.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblNumeroEjemplarM">
                       <Properties>
@@ -4180,7 +4227,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEstanteEjemplarM">
@@ -4196,7 +4242,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCajonEjemplarM">
@@ -4212,7 +4257,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPasilloEjemplarM">
@@ -4228,7 +4272,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSalaEjemplarM">
@@ -4244,7 +4287,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnModificarEjemplarM">
@@ -4254,6 +4296,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Modificar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnModificarEjemplarM.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -4351,7 +4396,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckEjemplarC">
@@ -4361,6 +4405,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckEjemplarC.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblNumeroEjemplarC">
                       <Properties>
@@ -4372,10 +4419,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNumeroEjemplarC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEstanteEjemplarC">
@@ -4388,10 +4435,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEstanteEjemplarC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCajonEjemplarC">
@@ -4404,10 +4451,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCajonEjemplarC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPasilloEjemplarC">
@@ -4420,10 +4467,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPasilloEjemplarC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSalaEjemplarC">
@@ -4436,10 +4483,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSalaEjemplarC">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -4545,7 +4592,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckEjemplarE">
@@ -4555,6 +4601,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckEjemplarE.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblNumeroEjemplarE">
                       <Properties>
@@ -4569,7 +4618,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEstanteEjemplarE">
@@ -4585,7 +4633,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCajonEjemplarE">
@@ -4601,7 +4648,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPasilloEjemplarE">
@@ -4617,7 +4663,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSalaEjemplarE">
@@ -4633,7 +4678,6 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnEliminarEjemplarE">
@@ -4643,6 +4687,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Eliminar"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnEliminarEjemplarE.setBackground(Color.WHITE);"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
