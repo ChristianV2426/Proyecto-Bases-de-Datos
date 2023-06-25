@@ -327,6 +327,10 @@ public class VistaRegistroProfesor extends javax.swing.JFrame {
     public JTextField getTxtTelefono() {
         return txtTelefono;
     }
+    
+    public JList<String> getListaArea() {
+        return listaArea;
+    }
 
     public void addListeners(MouseListener listener){
         btnRegresar.addMouseListener(listener);
