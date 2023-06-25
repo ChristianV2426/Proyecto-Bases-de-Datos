@@ -34,12 +34,25 @@ public class ControladorEmpleado {
         this.vista = vista;
         this.empleado = empleado;
         vista.addListeners(new ManejadoraDeMouse());
+        
         //Listener para close
         vista.addWindowListener(new java.awt.event.WindowAdapter(){
             public void windowClosing(java.awt.event.WindowEvent windowEvent){
                 biblioteca.cerrarConexion();
                 System.exit(0);
             }});
+        
+        //Creando controladores para el menú del empleado
+        ControladorLibros controladorLibros = new ControladorLibros(vista, biblioteca, empleado);
+        ControladorPrestamos controladorPrestamos = new ControladorPrestamos(vista, biblioteca, empleado);
+        ControladorMultas controladorMultas = new ControladorMultas(vista, biblioteca, empleado);
+        ControladorSolicitudes controladorSolicitudes = new ControladorSolicitudes(vista, biblioteca, empleado);
+        ControladorDescargas controladorDescargas = new ControladorDescargas(vista, biblioteca, empleado);
+        ControladorEjemplar controladorEjemplar = new ControladorEjemplar(vista, biblioteca, empleado);
+        ControladorManejoPersonal controladorManejoPersonal = new ControladorManejoPersonal(vista, biblioteca, empleado);
+//        if (empleado.getEsAdmin() == true){
+//            ControladorManejoPersonal controladorManejoPersonal = new ControladorManejoPersonal(vista, biblioteca, empleado);
+//        }
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
@@ -114,6 +127,7 @@ public class ControladorEmpleado {
 
     private void opcionLibros() {
         
+        //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardLibro");
         
         //Modificando elementos gráficos
@@ -127,6 +141,8 @@ public class ControladorEmpleado {
     }
 
     private void opcionPrestamos() {
+        
+        //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardPrestamo");
         
         //Modificando elementos gráficos
@@ -140,6 +156,8 @@ public class ControladorEmpleado {
     }
 
     private void opcionMultas() {
+        
+        //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardMulta");
         
         //Modificando elementos gráficos
@@ -153,6 +171,8 @@ public class ControladorEmpleado {
     }
 
     private void opcionSolicitudes() {
+        
+        //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardSolicitud");
         
         //Modificando elementos gráficos
@@ -166,6 +186,8 @@ public class ControladorEmpleado {
     }
 
     private void opcionDescargas() {
+        
+        //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardDescarga");
         
         //Modificando elementos gráficos
@@ -179,6 +201,8 @@ public class ControladorEmpleado {
     }
 
     private void opcionEjemplar() {
+        
+        //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardEjemplar");
         
         //Modificando elementos gráficos

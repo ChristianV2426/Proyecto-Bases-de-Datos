@@ -36,6 +36,10 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private final DefaultTableModel modeloTabla = new DefaultTableModel();
     private JTableHeader th;
     private DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
+    private String[] cabeceraConsultarEmpleados = {"ID","Nombre","Cargo"};
+    private String[] cabeceraPrestamo = {"ISBN","Título","Ejemplar", "Retorno"};
+    private String[] cabeceraConsultarPrestamo = {"Préstamo","Libros","Ejemplar","FPréstamo","Retorno","Estado"};
+    
     
     public VistaEmpleado(String titulo, Biblioteca biblioteca, Empleado empleado) {
         this.empleado = empleado;
