@@ -25,11 +25,13 @@ public class ControladorManejoPersonal {
     private VistaEmpleado vista;
     private Biblioteca biblioteca;
     private Empleado empleado;
+    private ControladorEmpleado controladorEmpleado;
 
-    public ControladorManejoPersonal(VistaEmpleado vista, Biblioteca biblioteca, Empleado empleado) {
+    public ControladorManejoPersonal(VistaEmpleado vista, Biblioteca biblioteca, Empleado empleado, ControladorEmpleado controladorEmpleado) {
         this.biblioteca = biblioteca;
         this.vista = vista;
         this.empleado = empleado;
+        this.controladorEmpleado = controladorEmpleado;
     }
     
     

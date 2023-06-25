@@ -25,11 +25,13 @@ public class ControladorMultas {
     private VistaEmpleado vista;
     private Biblioteca biblioteca;
     private Empleado empleado;
+    private ControladorEmpleado controladorEmpleado;
 
-    public ControladorMultas(VistaEmpleado vista, Biblioteca biblioteca, Empleado empleado) {
+    public ControladorMultas(VistaEmpleado vista, Biblioteca biblioteca, Empleado empleado, ControladorEmpleado controladorEmpleado) {
         this.vista = vista;
         this.biblioteca = biblioteca;
         this.empleado = empleado;
+        this.controladorEmpleado = controladorEmpleado;
     }
     
     

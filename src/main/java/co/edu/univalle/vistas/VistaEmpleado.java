@@ -55,13 +55,15 @@ public class VistaEmpleado extends javax.swing.JFrame {
         cardLayout = (CardLayout) panelPrincipal.getLayout();
         cardLayout.show(panelPrincipal, "cardManejo"); //Esta linea se elimina
         ControladorEmpleado controladorEmpleado = new ControladorEmpleado(this, biblioteca, empleado);
-//        if (empleado.getEsAdmin() == false){
-//            cardLayout.show(panelPrincipal, "cardLibro");
-//            btnManejoPersonal.setEnabled(false);
-//            btnLibros.setEnabled(false);
-//        }
-//        cardLayout.show(panelPrincipal, "cardManejo");
-        btnManejoPersonal.setEnabled(false);
+        if (empleado.getEsAdministrador() == false){
+            cardLayout.show(panelPrincipal, "cardLibro");
+            btnManejoPersonal.setEnabled(false);
+            btnLibros.setEnabled(false);
+            lblAdmin.setVisible(false);
+        } else {
+            cardLayout.show(panelPrincipal, "cardManejo");
+            btnManejoPersonal.setEnabled(false);
+        }
     }
         
     public void disenoTabla(JTable tablaGenerica, JScrollPane scrollGenerico){
@@ -94,6 +96,75 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnCerrar.addMouseListener(listener);
     }
     
+    public void addListenersLibros(MouseListener listener){
+        btnAgregarLibroA.addMouseListener(listener);
+        btnCheckLibroC.addMouseListener(listener);
+        btnCheckLibroE.addMouseListener(listener);
+        btnCheckLibroM.addMouseListener(listener);
+        btnModificarLibroM.addMouseListener(listener);
+        btnNoLibroA.addMouseListener(listener);
+        btnNoLibroC.addMouseListener(listener);
+        btnNoLibroE.addMouseListener(listener);
+        btnNoLibroM.addMouseListener(listener);
+        btnNoLibroA.addMouseListener(listener);
+        btnSiLibroA.addMouseListener(listener);
+        btnSiLibroC.addMouseListener(listener);
+        btnSiLibroE.addMouseListener(listener);
+        btnSiLibroM.addMouseListener(listener);
+        btnSiLibroA.addMouseListener(listener);
+    }
+    
+    public void addListenersManejo(MouseListener listeners){
+        btnAnadirManejoA.addMouseListener(listeners);
+        btnCheckManejoC.addMouseListener(listeners);
+        btnCheckManejoE.addMouseListener(listeners);
+        btnCheckManejoM.addMouseListener(listeners);
+        btnEliminarManejoE.addMouseListener(listeners);
+        btnEmpleadoManejoC.addMouseListener(listeners);
+        btnEmpleadosManejoC.addMouseListener(listeners);
+    }
+    
+    public void addListenersPrestamos(MouseListener listeners){
+        btnAgregarPrestamoA.addMouseListener(listeners);
+        btnAgregarPrestamoM.addMouseListener(listeners);
+        btnCheckPrestamoA.addMouseListener(listeners);
+        btnCheckPrestamoC.addMouseListener(listeners);
+        btnCheckPrestamoE.addMouseListener(listeners);
+        btnCheckPrestamoM.addMouseListener(listeners);
+        btnDevolverPrestamoC.addMouseListener(listeners);
+        btnEliminarPrestamoE.addMouseListener(listeners);
+        btnModificarPrestamoM.addMouseListener(listeners);
+        btnRealizarPrestamoA.addMouseListener(listeners);
+        btnRemoverPrestamoA.addMouseListener(listeners);
+        btnRemoverPrestamoM.addMouseListener(listeners);
+        btnVerificarPrestamoA.addMouseListener(listeners);
+        btnVerificarPrestamoM.addMouseListener(listeners);
+    }
+    
+    public void addListenersMultas(MouseListener listeners){
+        btnCheckMultas.addMouseListener(listeners);
+        btnMultasTodasT.addMouseListener(listeners);
+        btnMultasTodasU.addMouseListener(listeners);
+        btnMultasUsuarioT.addMouseListener(listeners);
+        btnMultasUsuarioU.addMouseListener(listeners);
+        btnPagarMultas.addMouseListener(listeners);
+    }
+    
+    public void addListenersSolicitudes(MouseListener listeners){
+        btnAprobarSolicitud.addMouseListener(listeners);
+        btnRechazarSolicitud.addMouseListener(listeners);
+        btnDescripcionSolicitud.addMouseListener(listeners);
+    }
+    
+    public void addListenersEjemplares(MouseListener listeners){
+        btnAgregarEjemplarA.addMouseListener(listeners);
+        btnCheckEjemplarA.addMouseListener(listeners);
+        btnCheckEjemplarC.addMouseListener(listeners);
+        btnCheckEjemplarE.addMouseListener(listeners);
+        btnCheckEjemplarM.addMouseListener(listeners);
+        btnEliminarEjemplarE.addMouseListener(listeners);
+    }
+            
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -2836,6 +2907,488 @@ public class VistaEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JScrollPane getScrollAreaSolicitud() {
+        return scrollAreaSolicitud;
+    }
+
+    public JScrollPane getScrollDescargas() {
+        return scrollDescargas;
+    }
+
+    public JScrollPane getScrollManejoC() {
+        return scrollManejoC;
+    }
+
+    public JScrollPane getScrollMultasT() {
+        return scrollMultasT;
+    }
+
+    public JScrollPane getScrollMultasU() {
+        return scrollMultasU;
+    }
+
+    public JScrollPane getScrollPrestamoA() {
+        return scrollPrestamoA;
+    }
+
+    public JScrollPane getScrollPrestamoC() {
+        return scrollPrestamoC;
+    }
+
+    public JScrollPane getScrollPrestamoE() {
+        return scrollPrestamoE;
+    }
+
+    public JScrollPane getScrollPrestamoM() {
+        return scrollPrestamoM;
+    }
+
+    public JScrollPane getScrollTableSolicitud() {
+        return scrollTableSolicitud;
+    }
+
+    public JScrollPane getScrollTodosLosLibros() {
+        return scrollTodosLosLibros;
+    }
+
+    
+    public String[] getCabeceraConsultarEmpleados() {
+        return cabeceraConsultarEmpleados;
+    }
+
+    public String[] getCabeceraConsultarPrestamo() {
+        return cabeceraConsultarPrestamo;
+    }
+
+    public String[] getCabeceraDescargas() {
+        return cabeceraDescargas;
+    }
+
+    public String[] getCabeceraSolicitudes() {
+        return cabeceraSolicitudes;
+    }
+
+    public String[] getCabeceraMultas() {
+        return cabeceraMultas;
+    }
+
+    public String[] getCabeceraTodaLasMultas() {
+        return cabeceraTodaLasMultas;
+    }
+
+    public String[] getCabeceraConsultarLibros() {
+        return cabeceraConsultarLibros;
+    }
+
+    public JButton getBtnAgregarEjemplarA() {
+        return btnAgregarEjemplarA;
+    }
+
+    public JButton getBtnAgregarLibroA() {
+        return btnAgregarLibroA;
+    }
+
+    public JButton getBtnAprobarSolicitud() {
+        return btnAprobarSolicitud;
+    }
+
+    public JButton getBtnCheckEjemplarA() {
+        return btnCheckEjemplarA;
+    }
+
+    public JButton getBtnCheckEjemplarC() {
+        return btnCheckEjemplarC;
+    }
+
+    public JButton getBtnCheckEjemplarE() {
+        return btnCheckEjemplarE;
+    }
+
+    public JButton getBtnCheckEjemplarM() {
+        return btnCheckEjemplarM;
+    }
+
+    public JButton getBtnCheckLibroC() {
+        return btnCheckLibroC;
+    }
+
+    public JButton getBtnCheckLibroE() {
+        return btnCheckLibroE;
+    }
+
+    public JButton getBtnCheckLibroM() {
+        return btnCheckLibroM;
+    }
+
+    public JButton getBtnCheckMultas() {
+        return btnCheckMultas;
+    }
+
+    public JButton getBtnDescargarInfo() {
+        return btnDescargarInfo;
+    }
+
+    public JButton getBtnDescripcionSolicitud() {
+        return btnDescripcionSolicitud;
+    }
+
+    public JButton getBtnEliminarEjemplarE() {
+        return btnEliminarEjemplarE;
+    }
+
+    public JButton getBtnEliminarLibroE() {
+        return btnEliminarLibroE;
+    }
+
+    public JButton getBtnModificarEjemplarM() {
+        return btnModificarEjemplarM;
+    }
+
+    public JButton getBtnModificarLibroM() {
+        return btnModificarLibroM;
+    }
+
+    public JButton getBtnMultasTodasT() {
+        return btnMultasTodasT;
+    }
+
+    public JButton getBtnMultasTodasU() {
+        return btnMultasTodasU;
+    }
+
+    public JButton getBtnMultasUsuarioT() {
+        return btnMultasUsuarioT;
+    }
+
+    public JButton getBtnMultasUsuarioU() {
+        return btnMultasUsuarioU;
+    }
+
+    public JButton getBtnNoLibroA() {
+        return btnNoLibroA;
+    }
+
+    public JButton getBtnNoLibroC() {
+        return btnNoLibroC;
+    }
+
+    public JButton getBtnNoLibroE() {
+        return btnNoLibroE;
+    }
+
+    public JButton getBtnNoLibroM() {
+        return btnNoLibroM;
+    }
+
+    public JButton getBtnPagarMultas() {
+        return btnPagarMultas;
+    }
+
+    public JButton getBtnRechazarSolicitud() {
+        return btnRechazarSolicitud;
+    }
+
+    public JButton getBtnSiLibroA() {
+        return btnSiLibroA;
+    }
+
+    public JButton getBtnSiLibroC() {
+        return btnSiLibroC;
+    }
+
+    public JButton getBtnSiLibroE() {
+        return btnSiLibroE;
+    }
+
+    public JButton getBtnSiLibroM() {
+        return btnSiLibroM;
+    }
+
+    public JComboBox<String> getComboAreaLibroA() {
+        return comboAreaLibroA;
+    }
+
+    public JComboBox<String> getComboAreaLibroC() {
+        return comboAreaLibroC;
+    }
+
+    public JComboBox<String> getComboAreaLibroE() {
+        return comboAreaLibroE;
+    }
+
+    public JComboBox<String> getComboAreaLibroM() {
+        return comboAreaLibroM;
+    }
+
+    public JComboBox<String> getComboEditorialLibroA() {
+        return comboEditorialLibroA;
+    }
+
+    public JComboBox<String> getComboEditorialLibroC() {
+        return comboEditorialLibroC;
+    }
+
+    public JComboBox<String> getComboEditorialLibroE() {
+        return comboEditorialLibroE;
+    }
+
+    public JComboBox<String> getComboEditorialLibroM() {
+        return comboEditorialLibroM;
+    }
+
+    public JComboBox<String> getComboFormatoLibroC() {
+        return comboFormatoLibroC;
+    }
+
+    public JComboBox<String> getComboFormatoLibroE() {
+        return comboFormatoLibroE;
+    }
+
+    public JComboBox<String> getComboFormatoLibroM() {
+        return comboFormatoLibroM;
+    }
+
+    public JTable getTablaTodosLosLibros() {
+        return tablaTodosLosLibros;
+    }
+
+    public JTable getTableDescargas() {
+        return tableDescargas;
+    }
+
+    public JTable getTableMultasT() {
+        return tableMultasT;
+    }
+
+    public JTable getTableMultasU() {
+        return tableMultasU;
+    }
+
+    public JTable getTableSolicitud() {
+        return tableSolicitud;
+    }
+
+    public JTextField getTxtAnoLibroA() {
+        return txtAnoLibroA;
+    }
+
+    public JTextField getTxtAnoLibroC() {
+        return txtAnoLibroC;
+    }
+
+    public JTextField getTxtAnoLibroE() {
+        return txtAnoLibroE;
+    }
+
+    public JTextField getTxtAnoLibroM() {
+        return txtAnoLibroM;
+    }
+
+    public JTextArea getTxtAreaSolicitud() {
+        return txtAreaSolicitud;
+    }
+
+    public JTextField getTxtCajonEjemplarA() {
+        return txtCajonEjemplarA;
+    }
+
+    public JTextField getTxtCajonEjemplarC() {
+        return txtCajonEjemplarC;
+    }
+
+    public JTextField getTxtCajonEjemplarE() {
+        return txtCajonEjemplarE;
+    }
+
+    public JTextField getTxtCajonEjemplarM() {
+        return txtCajonEjemplarM;
+    }
+
+    public JTextField getTxtEstanteEjemplarA() {
+        return txtEstanteEjemplarA;
+    }
+
+    public JTextField getTxtEstanteEjemplarC() {
+        return txtEstanteEjemplarC;
+    }
+
+    public JTextField getTxtEstanteEjemplarE() {
+        return txtEstanteEjemplarE;
+    }
+
+    public JTextField getTxtEstanteEjemplarM() {
+        return txtEstanteEjemplarM;
+    }
+
+    public JTextField getTxtFechaMultas() {
+        return txtFechaMultas;
+    }
+
+    public JTextField getTxtIdMultas() {
+        return txtIdMultas;
+    }
+
+    public JTextField getTxtIdiomaLibroA() {
+        return txtIdiomaLibroA;
+    }
+
+    public JTextField getTxtIdiomaLibroC() {
+        return txtIdiomaLibroC;
+    }
+
+    public JTextField getTxtIdiomaLibroE() {
+        return txtIdiomaLibroE;
+    }
+
+    public JTextField getTxtIdiomaLibroM() {
+        return txtIdiomaLibroM;
+    }
+
+    public JTextField getTxtIsbnEjemplarA() {
+        return txtIsbnEjemplarA;
+    }
+
+    public JTextField getTxtIsbnEjemplarC() {
+        return txtIsbnEjemplarC;
+    }
+
+    public JTextField getTxtIsbnEjemplarE() {
+        return txtIsbnEjemplarE;
+    }
+
+    public JTextField getTxtIsbnEjemplarM() {
+        return txtIsbnEjemplarM;
+    }
+
+    public JTextField getTxtIsbnLibroA() {
+        return txtIsbnLibroA;
+    }
+
+    public JTextField getTxtIsbnLibroC() {
+        return txtIsbnLibroC;
+    }
+
+    public JTextField getTxtIsbnLibroE() {
+        return txtIsbnLibroE;
+    }
+
+    public JTextField getTxtIsbnLibroM() {
+        return txtIsbnLibroM;
+    }
+
+    public JTextField getTxtNombreLibroA() {
+        return txtNombreLibroA;
+    }
+
+    public JTextField getTxtNumeroEjemplarA() {
+        return txtNumeroEjemplarA;
+    }
+
+    public JTextField getTxtNumeroEjemplarC() {
+        return txtNumeroEjemplarC;
+    }
+
+    public JTextField getTxtNumeroEjemplarE() {
+        return txtNumeroEjemplarE;
+    }
+
+    public JTextField getTxtNumeroEjemplarM() {
+        return txtNumeroEjemplarM;
+    }
+
+    public JTextField getTxtPaginasLibroA() {
+        return txtPaginasLibroA;
+    }
+
+    public JTextField getTxtPaginasLibroC() {
+        return txtPaginasLibroC;
+    }
+
+    public JTextField getTxtPaginasLibroE() {
+        return txtPaginasLibroE;
+    }
+
+    public JTextField getTxtPaginasLibroM() {
+        return txtPaginasLibroM;
+    }
+
+    public JTextField getTxtPasilloEjemplarA() {
+        return txtPasilloEjemplarA;
+    }
+
+    public JTextField getTxtPasilloEjemplarC() {
+        return txtPasilloEjemplarC;
+    }
+
+    public JTextField getTxtPasilloEjemplarE() {
+        return txtPasilloEjemplarE;
+    }
+
+    public JTextField getTxtPasilloEjemplarM() {
+        return txtPasilloEjemplarM;
+    }
+
+    public JTextField getTxtSalaEjemplarA() {
+        return txtSalaEjemplarA;
+    }
+
+    public JTextField getTxtSalaEjemplarC() {
+        return txtSalaEjemplarC;
+    }
+
+    public JTextField getTxtSalaEjemplarE() {
+        return txtSalaEjemplarE;
+    }
+
+    public JTextField getTxtSalaEjemplarM() {
+        return txtSalaEjemplarM;
+    }
+
+    public JTextField getTxtTamanoLibroA() {
+        return txtTamanoLibroA;
+    }
+
+    public JTextField getTxtTamanoLibroC() {
+        return txtTamanoLibroC;
+    }
+
+    public JTextField getTxtTamanoLibroE() {
+        return txtTamanoLibroE;
+    }
+
+    public JTextField getTxtTamanoLibroM() {
+        return txtTamanoLibroM;
+    }
+
+    public JTextField getTxtTituloLibroC() {
+        return txtTituloLibroC;
+    }
+
+    public JTextField getTxtTituloLibroE() {
+        return txtTituloLibroE;
+    }
+
+    public JTextField getTxtTituloLibroM() {
+        return txtTituloLibroM;
+    }
+
+    public JTextField getTxtUrlLibroA() {
+        return txtUrlLibroA;
+    }
+
+    public JTextField getTxtUrlLibroC() {
+        return txtUrlLibroC;
+    }
+
+    public JTextField getTxtUrlLibroE() {
+        return txtUrlLibroE;
+    }
+
+    public JTextField getTxtUrlLibroM() {
+        return txtUrlLibroM;
+    }
+
+    
     public CardLayout getCardLayout() {
         return cardLayout;
     }

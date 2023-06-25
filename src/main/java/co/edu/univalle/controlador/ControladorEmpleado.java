@@ -48,16 +48,14 @@ public class ControladorEmpleado {
             }});
         
         //Creando controladores para el menú del empleado
-        ControladorLibros controladorLibros = new ControladorLibros(vista, biblioteca, empleado);
-        ControladorPrestamos controladorPrestamos = new ControladorPrestamos(vista, biblioteca, empleado);
-        ControladorMultas controladorMultas = new ControladorMultas(vista, biblioteca, empleado);
-        ControladorSolicitudes controladorSolicitudes = new ControladorSolicitudes(vista, biblioteca, empleado);
-        ControladorDescargas controladorDescargas = new ControladorDescargas(vista, biblioteca, empleado);
-        ControladorEjemplar controladorEjemplar = new ControladorEjemplar(vista, biblioteca, empleado);
-        ControladorManejoPersonal controladorManejoPersonal = new ControladorManejoPersonal(vista, biblioteca, empleado);
-//        if (empleado.getEsAdmin() == true){
-//            ControladorManejoPersonal controladorManejoPersonal = new ControladorManejoPersonal(vista, biblioteca, empleado);
-//        }
+        ControladorLibros controladorLibros = new ControladorLibros(vista, biblioteca, empleado,this);
+        ControladorPrestamos controladorPrestamos = new ControladorPrestamos(vista, biblioteca, empleado,this);
+        ControladorMultas controladorMultas = new ControladorMultas(vista, biblioteca, empleado,this);
+        ControladorSolicitudes controladorSolicitudes = new ControladorSolicitudes(vista, biblioteca, empleado,this);
+        ControladorEjemplar controladorEjemplar = new ControladorEjemplar(vista, biblioteca, empleado,this);
+        if (empleado.getEsAdministrador() == true){
+            ControladorManejoPersonal controladorManejoPersonal = new ControladorManejoPersonal(vista, biblioteca, empleado,this);
+        }
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
@@ -136,12 +134,13 @@ public class ControladorEmpleado {
         
         //Modificando elementos gráficos
         vista.getBtnLibros().setEnabled(false);
-        vista.getBtnManejoPersonal().setEnabled(true);
         vista.getBtnPrestamos().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);
         vista.getBtnSolicitudes().setEnabled(true);
         vista.getBtnDescargas().setEnabled(true);
         vista.getBtnEjemplar().setEnabled(true);
+        if(empleado.getEsAdministrador() == true)
+            vista.getBtnManejoPersonal().setEnabled(true);
     }
 
     private void opcionPrestamos() {
@@ -151,12 +150,13 @@ public class ControladorEmpleado {
         
         //Modificando elementos gráficos
         vista.getBtnPrestamos().setEnabled(false);
-        vista.getBtnManejoPersonal().setEnabled(true);
         vista.getBtnLibros().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);
         vista.getBtnSolicitudes().setEnabled(true);
         vista.getBtnDescargas().setEnabled(true);
         vista.getBtnEjemplar().setEnabled(true);
+        if(empleado.getEsAdministrador() == true)
+            vista.getBtnManejoPersonal().setEnabled(true);
     }
 
     private void opcionMultas() {
@@ -166,12 +166,13 @@ public class ControladorEmpleado {
         
         //Modificando elementos gráficos
         vista.getBtnMultas().setEnabled(false);
-        vista.getBtnManejoPersonal().setEnabled(true);
         vista.getBtnLibros().setEnabled(true);
         vista.getBtnPrestamos().setEnabled(true);
         vista.getBtnSolicitudes().setEnabled(true);
         vista.getBtnDescargas().setEnabled(true);
         vista.getBtnEjemplar().setEnabled(true);
+        if(empleado.getEsAdministrador() == true)
+            vista.getBtnManejoPersonal().setEnabled(true);
     }
 
     private void opcionSolicitudes() {
@@ -181,12 +182,13 @@ public class ControladorEmpleado {
         
         //Modificando elementos gráficos
         vista.getBtnSolicitudes().setEnabled(false);
-        vista.getBtnManejoPersonal().setEnabled(true);
         vista.getBtnLibros().setEnabled(true);
         vista.getBtnPrestamos().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);
         vista.getBtnDescargas().setEnabled(true);
         vista.getBtnEjemplar().setEnabled(true);
+        if(empleado.getEsAdministrador() == true)
+            vista.getBtnManejoPersonal().setEnabled(true);
     }
 
     private void opcionDescargas() {
@@ -196,12 +198,19 @@ public class ControladorEmpleado {
         
         //Modificando elementos gráficos
         vista.getBtnDescargas().setEnabled(false);
-        vista.getBtnManejoPersonal().setEnabled(true);
         vista.getBtnLibros().setEnabled(true);
         vista.getBtnPrestamos().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);
         vista.getBtnSolicitudes().setEnabled(true);
         vista.getBtnEjemplar().setEnabled(true);
+        if(empleado.getEsAdministrador() == true)
+            vista.getBtnManejoPersonal().setEnabled(true);
+        
+        //Obteniendo descargas de la BD
+        vista.disenoTabla(vista.getTableDescargas(), vista.getScrollDescargas());
+        String[] cabeceraDescargas = vista.getCabeceraDescargas();
+        String [][] todosLasDescargas = biblioteca.getDescargas().obtenerTodosLosElementos();
+        vista.getTableDescargas().setModel(asignarModelo(todosLasDescargas,cabeceraDescargas));
     }
 
     private void opcionEjemplar() {
@@ -210,13 +219,14 @@ public class ControladorEmpleado {
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardEjemplar");
         
         //Modificando elementos gráficos
-        vista.getBtnManejoPersonal().setEnabled(true);
+        vista.getBtnEjemplar().setEnabled(false);
         vista.getBtnLibros().setEnabled(true);
         vista.getBtnPrestamos().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);
         vista.getBtnSolicitudes().setEnabled(true);
         vista.getBtnDescargas().setEnabled(true);
-        vista.getBtnEjemplar().setEnabled(false);
+        if(empleado.getEsAdministrador() == true)
+            vista.getBtnManejoPersonal().setEnabled(true);
     }
 
     private void opcionCerrar() {
