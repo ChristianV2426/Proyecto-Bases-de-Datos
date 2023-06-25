@@ -21,18 +21,15 @@ import co.edu.univalle.persistencia.*;
 import co.edu.univalle.vistas.*;
 import java.sql.*;
 
+
 public class App {
     public static void main(String[] args) {
-        String url = "jdbc:postgresql://localhost:5432/biblioteca_database";
-        String usuario = "ulven";
-        String password = "Ulven_1729";
-        FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
+        String rutaArchivoCredenciales = "./credenciales.txt";
+        FachadaBD fachadaBD = new FachadaBD(rutaArchivoCredenciales);
         Connection conexionBD = fachadaBD.getConexionBD();
-
         Biblioteca biblioteca = new Biblioteca(conexionBD);
-        biblioteca.getContrasenasUsuarios().encriptarContrasenas();
-        biblioteca.getContrasenasEmpleados().encriptarContrasenas();
+        //VistaLogin vistaLogin = new VistaLogin("Login", biblioteca);
 
-        VistaLogin vistaLogin = new VistaLogin("Login", biblioteca);
+        VistaEmpleado vistaEmpleado = new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento("EM001"));
     }
 }

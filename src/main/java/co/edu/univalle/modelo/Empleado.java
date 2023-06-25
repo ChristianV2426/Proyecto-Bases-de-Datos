@@ -21,11 +21,13 @@ public class Empleado {
   private String idEmpleado;
   private String nombreEmpleado;
   private String cargo;
+  private Boolean esAdministrador;
   
-  public Empleado(String idEmpleado, String nombreEmpleado, String cargo) {
+  public Empleado(String idEmpleado, String nombreEmpleado, String cargo, Boolean esAdministrador) {
     this.idEmpleado = idEmpleado;
     this.nombreEmpleado = nombreEmpleado;
     this.cargo = cargo;
+    this.esAdministrador = esAdministrador;
   }
 
   public String getIdEmpleado() {
@@ -38,6 +40,10 @@ public class Empleado {
 
   public String getCargo() {
     return cargo;
+  }
+
+  public Boolean getEsAdministrador() {
+    return esAdministrador;
   }
 
   @Override

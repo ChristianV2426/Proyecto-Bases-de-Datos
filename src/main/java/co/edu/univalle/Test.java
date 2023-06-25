@@ -21,19 +21,15 @@ import co.edu.univalle.modelo.*;
 import co.edu.univalle.persistencia.*;
 import java.sql.*;
 import java.time.*;
-import javax.swing.*;
-import org.jasypt.util.password.*;
 import java.math.BigDecimal;
 
 
 public class Test {
   public static void main(String[] args) {
-    String url = "jdbc:postgresql://localhost:5432/biblioteca";
-    String usuario = "postgres";
-    String password = "password";
-    FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
-    Connection conexionBD = fachadaBD.getConexionBD();
+    String rutaArchivoCredenciales = "./credenciales.txt";
 
+    FachadaBD fachadaBD = new FachadaBD(rutaArchivoCredenciales);
+    Connection conexionBD = fachadaBD.getConexionBD();
     Biblioteca biblioteca = new Biblioteca(conexionBD);
 
     /* Pruebas CRUD sobre editorial */
@@ -120,8 +116,7 @@ public class Test {
     System.out.println(biblioteca.getDigitales().insertarElemento(digital1));
 
     Digital digital2 = biblioteca.getDigitales().obtenerElemento("LI041-URL01");
-    System.out.println(digital2);
-
+    
     System.out.println(biblioteca.getDigitales().obtenerTodosLosElementos() != null);
 
     Digital digital3 = new Digital(libro1, "LI041-URL01", "www...", Integer.valueOf(1024), "EPUB");
@@ -215,7 +210,7 @@ public class Test {
 
 
     /* Pruebas CRUD sobre empleado */
-    Empleado empleado1 = new Empleado("EM011", "Paola Lopez", "");
+    Empleado empleado1 = new Empleado("EM011", "Paola Lopez", "", Boolean.FALSE);
     System.out.println(biblioteca.getEmpleados().insertarElemento(empleado1));
 
     Empleado empleado2 = biblioteca.getEmpleados().obtenerElemento("EM011");
@@ -223,7 +218,7 @@ public class Test {
 
     System.out.println(biblioteca.getEmpleados().obtenerTodosLosElementos() != null);
 
-    Empleado empleado3 = new Empleado("EM011", "Paola Lopez", "Bibliotecaria");
+    Empleado empleado3 = new Empleado("EM011", "Paola Lopez", "Bibliotecaria", Boolean.FALSE);
     System.out.println(biblioteca.getEmpleados().editarElemento(empleado3));
     
     System.out.println(biblioteca.getEmpleados().eliminarElemento("EM011"));
@@ -389,24 +384,24 @@ public class Test {
 
 
 
-    // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
-    /*
-    JFileChooser fileChooser = new JFileChooser();
-    fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-    int seleccion = fileChooser.showOpenDialog(null);
+    // // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
+    // /*
+    // JFileChooser fileChooser = new JFileChooser();
+    // fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    // int seleccion = fileChooser.showOpenDialog(null);
 
-    if(seleccion != JFileChooser.CANCEL_OPTION){
-        String ruta = fileChooser.getSelectedFile().getAbsolutePath();
-        if(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, ruta)){
-            JOptionPane.showMessageDialog(null,"¡El resumen de la base de datos se guardó correctamente en un archivo de texto plano!", "Operación realizada con éxito", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null,"¡Hubo un problema al guardar el estado de la aplicación en un archivo de texto plano!" +
-            "\nAsegurese de haber seleccionado una carpeta de destino correcta. \nSi considera que este es un error, por favor póngase en contacto con el administrador del sistema.", "Operación fallida", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    */
+    // if(seleccion != JFileChooser.CANCEL_OPTION){
+    //     String ruta = fileChooser.getSelectedFile().getAbsolutePath();
+    //     if(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, ruta)){
+    //         JOptionPane.showMessageDialog(null,"¡El resumen de la base de datos se guardó correctamente en un archivo de texto plano!", "Operación realizada con éxito", JOptionPane.INFORMATION_MESSAGE);
+    //     } else {
+    //         JOptionPane.showMessageDialog(null,"¡Hubo un problema al guardar el estado de la aplicación en un archivo de texto plano!" +
+    //         "\nAsegurese de haber seleccionado una carpeta de destino correcta. \nSi considera que este es un error, por favor póngase en contacto con el administrador del sistema.", "Operación fallida", JOptionPane.ERROR_MESSAGE);
+    //     }
+    // }
+    // */
 
     biblioteca.cerrarConexion();
-
+  
   }
 }

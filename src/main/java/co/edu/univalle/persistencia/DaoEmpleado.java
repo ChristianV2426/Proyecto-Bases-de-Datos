@@ -31,9 +31,10 @@ public class DaoEmpleado implements DaoGeneral<Empleado> {
   public boolean insertarElemento(Empleado empleado) {
     String sentenciaInsert =
       "INSERT INTO empleado VALUES ('" + 
-      empleado.getIdEmpleado() + "' , '" +
+      empleado.getIdEmpleado() + "', '" +
       empleado.getNombreEmpleado() + "', '" +
-      empleado.getCargo() + "');";
+      empleado.getCargo() + "', '" +
+      empleado.getEsAdministrador() + "');";
   
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaInsert, conexionBD);
   }
@@ -42,7 +43,8 @@ public class DaoEmpleado implements DaoGeneral<Empleado> {
   public boolean editarElemento(Empleado empleado) {
     String sentenciaUpdate =
       "UPDATE empleado SET nombre_empleado='" + empleado.getNombreEmpleado() +
-      "', cargo='" + empleado.getCargo() + 
+      "', cargo='" + empleado.getCargo() +
+      "', es_administrador='" + empleado.getEsAdministrador() +
       "' WHERE id_empleado='" + empleado.getIdEmpleado() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
@@ -76,7 +78,8 @@ public class DaoEmpleado implements DaoGeneral<Empleado> {
         return new Empleado(
           resultadoConsulta.getString(1),
           resultadoConsulta.getString(2),
-          resultadoConsulta.getString(3) );
+          resultadoConsulta.getString(3),
+          resultadoConsulta.getBoolean(4) );
       }
 
       else

@@ -77,7 +77,7 @@ public class DaoDigital implements DaoGeneral<Digital>{
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
       ResultSet resultadoConsulta = sentenciaSQL.executeQuery(sentenciaSelect);
-
+      
       if(Consultas.numeroFilasEnResultadoConsulta(resultadoConsulta) == 1){
         resultadoConsulta.next();
         return new Digital(

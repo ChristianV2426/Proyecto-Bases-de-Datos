@@ -20,7 +20,11 @@ package co.edu.univalle.controlador;
 import co.edu.univalle.modelo.*;
 import co.edu.univalle.persistencia.*;
 import co.edu.univalle.vistas.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.*;
+import java.awt.font.TextAttribute;
+import java.util.Map;
 import javax.swing.*;
 
 public class ControladorLogin {
@@ -58,6 +62,28 @@ public class ControladorLogin {
             if(e.getSource() == vista.getBtnSalir()){
                 biblioteca.cerrarConexion();
                 System.exit(0);
+            }
+        }
+        
+        @Override
+        public void mouseEntered(MouseEvent e){
+            if(e.getSource() == vista.getLblRegistro()){
+                vista.getLblRegistro().setForeground(Color.BLACK);
+                Font font = vista.getLblRegistro().getFont();
+                Map attributes = font.getAttributes();
+                attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+                vista.getLblRegistro().setFont(font.deriveFont(attributes));
+            }
+        }
+        
+        @Override
+        public void mouseExited(MouseEvent e){
+            if(e.getSource() == vista.getLblRegistro()){
+                vista.getLblRegistro().setForeground(new Color(6,69,173));
+                Font font = vista.getLblRegistro().getFont();
+                Map attributes = font.getAttributes();
+                attributes.put(TextAttribute.UNDERLINE, -1);
+                vista.getLblRegistro().setFont(font.deriveFont(attributes));
             }
         }
     }
@@ -100,7 +126,7 @@ public class ControladorLogin {
                 System.out.println(empleado.getContrasena());
                 vista.dispose();
                 // new vistaConsultarLibroEmpleado("empleado");
-                new VistaEmpleado("Menú Empleado"); // Se debe de cambiar esta línea
+                new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento(idUsuario)); // Se debe de cambiar esta línea
 
         } else {
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta.\nPor favor intente nuevamente.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -122,16 +148,13 @@ public class ControladorLogin {
             case 0: // Estudiante
                 VistaRegistroEstudiante vistaRegistroEstudiante = new VistaRegistroEstudiante("Registro de Estudiante", biblioteca, vista);
 
-                vista.setVisible(false); 
-                vistaRegistroEstudiante.setVisible(true);
+                vista.setVisible(false);
                 break;
 
             case 1: // Profesor
                 VistaRegistroProfesor vistaRegistroProfesor = new VistaRegistroProfesor("Registro de Profesor", biblioteca, vista);
-                vista.setVisible(false); 
-                vistaRegistroProfesor.setVisible(true);
+                vista.setVisible(false);
                 break;
         }
     }
-
 }

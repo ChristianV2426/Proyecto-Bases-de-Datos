@@ -17,6 +17,8 @@ public class ControladorRegistroEstudiante {
         this.biblioteca = biblioteca;
         this.vistaLogin = vistaLogin;
         vista.addListeners(new ManejadoraDeMouse());
+        verificarTexto(vista.getTxtNombre());
+        verificarNumero(vista.getTxtTelefono());
 
         // Listener para close.
         vista.addWindowListener(new java.awt.event.WindowAdapter(){
@@ -79,7 +81,7 @@ public class ControladorRegistroEstudiante {
 
         JOptionPane.showMessageDialog(vista, "Registro exitoso.", "Exito", JOptionPane.INFORMATION_MESSAGE);
         vista.dispose();
-        new VistaUsuario("Menú Usuario", biblioteca, nuevoEstudiante);
+        new VistaLogin("Login", biblioteca);
     }
 
     private void volverALogin() {
@@ -93,5 +95,33 @@ public class ControladorRegistroEstudiante {
 
         else 
             vista.getTxtPassword().setEchoChar('*');
+    }
+    
+    //Hacer que un TextField sólo permita ingresar números sin espacios
+    public final void verificarNumero(JTextField a){
+        a.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();
+                if (!Character.isDigit(c) | Character.isSpaceChar(c)){
+                    e.consume();
+                }
+            }
+        });
+    }
+    
+    //Hacer que un TextField sólo permita ingresar letras y espacios
+    public final void verificarTexto(JTextField a){
+        a.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();
+                if (Character.isAlphabetic(c) | Character.isSpaceChar(c)){
+                    e.setKeyChar(c);
+                } else {
+                    e.consume();
+                }
+            }
+        });
     }
 }
