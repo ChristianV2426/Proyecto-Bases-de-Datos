@@ -71,6 +71,9 @@ public class Biblioteca {
     this.prestamos = new DaoPrestamo(conexionBD);
     this.relacionesPresta = new DaoRelacionPresta(conexionBD);
     this.multas = new DaoMulta(conexionBD);
+  
+    contrasenasUsuarios.encriptarContrasenas();
+    contrasenasEmpleados.encriptarContrasenas();
     this.inicializarSeriales();
   }
 

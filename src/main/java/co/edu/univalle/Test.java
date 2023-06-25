@@ -28,12 +28,10 @@ import java.math.BigDecimal;
 
 public class Test {
   public static void main(String[] args) {
-    String url = "jdbc:postgresql://localhost:5432/biblioteca";
-    String usuario = "postgres";
-    String password = "password";
-    FachadaBD fachadaBD = new FachadaBD(url, usuario, password);
-    Connection conexionBD = fachadaBD.getConexionBD();
+    String rutaArchivoCredenciales = "./credenciales.txt";
 
+    FachadaBD fachadaBD = new FachadaBD(rutaArchivoCredenciales);
+    Connection conexionBD = fachadaBD.getConexionBD();
     Biblioteca biblioteca = new Biblioteca(conexionBD);
 
     /* Pruebas CRUD sobre editorial */
@@ -389,24 +387,24 @@ public class Test {
 
 
 
-    // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
-    /*
-    JFileChooser fileChooser = new JFileChooser();
-    fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-    int seleccion = fileChooser.showOpenDialog(null);
+    // // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
+    // /*
+    // JFileChooser fileChooser = new JFileChooser();
+    // fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    // int seleccion = fileChooser.showOpenDialog(null);
 
-    if(seleccion != JFileChooser.CANCEL_OPTION){
-        String ruta = fileChooser.getSelectedFile().getAbsolutePath();
-        if(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, ruta)){
-            JOptionPane.showMessageDialog(null,"¡El resumen de la base de datos se guardó correctamente en un archivo de texto plano!", "Operación realizada con éxito", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null,"¡Hubo un problema al guardar el estado de la aplicación en un archivo de texto plano!" +
-            "\nAsegurese de haber seleccionado una carpeta de destino correcta. \nSi considera que este es un error, por favor póngase en contacto con el administrador del sistema.", "Operación fallida", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    */
+    // if(seleccion != JFileChooser.CANCEL_OPTION){
+    //     String ruta = fileChooser.getSelectedFile().getAbsolutePath();
+    //     if(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, ruta)){
+    //         JOptionPane.showMessageDialog(null,"¡El resumen de la base de datos se guardó correctamente en un archivo de texto plano!", "Operación realizada con éxito", JOptionPane.INFORMATION_MESSAGE);
+    //     } else {
+    //         JOptionPane.showMessageDialog(null,"¡Hubo un problema al guardar el estado de la aplicación en un archivo de texto plano!" +
+    //         "\nAsegurese de haber seleccionado una carpeta de destino correcta. \nSi considera que este es un error, por favor póngase en contacto con el administrador del sistema.", "Operación fallida", JOptionPane.ERROR_MESSAGE);
+    //     }
+    // }
+    // */
 
     biblioteca.cerrarConexion();
-
+  
   }
 }

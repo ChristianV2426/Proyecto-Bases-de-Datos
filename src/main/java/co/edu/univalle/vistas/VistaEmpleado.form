@@ -925,6 +925,7 @@
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                                       <Connection code="modeloTabla" type="code"/>
                                     </Property>
+                                    <Property name="rowHeight" type="int" value="25"/>
                                   </Properties>
                                 </Component>
                               </SubComponents>
@@ -2660,6 +2661,7 @@
                                     <Column editable="true" title="Title 4" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
+                                <Property name="rowHeight" type="int" value="25"/>
                               </Properties>
                             </Component>
                           </SubComponents>
@@ -2890,6 +2892,7 @@
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                               <Connection code="modeloTabla" type="code"/>
                             </Property>
+                            <Property name="rowHeight" type="int" value="25"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -3134,6 +3137,7 @@
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                               <Connection code="modeloTabla" type="code"/>
                             </Property>
+                            <Property name="rowHeight" type="int" value="25"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -3284,6 +3288,7 @@
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                               <Connection code="modeloTabla" type="code"/>
                             </Property>
+                            <Property name="rowHeight" type="int" value="25"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -3421,6 +3426,7 @@
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                               <Connection code="modeloTabla" type="code"/>
                             </Property>
+                            <Property name="rowHeight" type="int" value="25"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -3634,6 +3640,7 @@
                                     <Column editable="true" title="Title 4" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
+                                <Property name="rowHeight" type="int" value="25"/>
                               </Properties>
                             </Component>
                           </SubComponents>
@@ -3734,6 +3741,7 @@
                                     <Column editable="true" title="Title 4" type="java.lang.Object"/>
                                   </Table>
                                 </Property>
+                                <Property name="rowHeight" type="int" value="25"/>
                               </Properties>
                             </Component>
                           </SubComponents>
@@ -3822,6 +3830,7 @@
                                 <Column editable="true" title="Title 4" type="java.lang.Object"/>
                               </Table>
                             </Property>
+                            <Property name="rowHeight" type="int" value="25"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -3954,6 +3963,7 @@
                                 <Column editable="true" title="Title 4" type="java.lang.Object"/>
                               </Table>
                             </Property>
+                            <Property name="rowHeight" type="int" value="25"/>
                           </Properties>
                         </Component>
                       </SubComponents>

@@ -97,6 +97,7 @@ public class ControladorRegistroEstudiante {
             vista.getTxtPassword().setEchoChar('*');
     }
     
+    //Hacer que un TextField sólo permita ingresar números sin espacios
     public final void verificarNumero(JTextField a){
         a.addKeyListener(new KeyAdapter(){
             @Override
@@ -109,6 +110,7 @@ public class ControladorRegistroEstudiante {
         });
     }
     
+    //Hacer que un TextField sólo permita ingresar letras y espacios
     public final void verificarTexto(JTextField a){
         a.addKeyListener(new KeyAdapter(){
             @Override

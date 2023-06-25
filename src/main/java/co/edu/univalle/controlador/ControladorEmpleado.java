@@ -21,8 +21,11 @@ import co.edu.univalle.modelo.Empleado;
 import co.edu.univalle.persistencia.Biblioteca;
 import co.edu.univalle.vistas.VistaEmpleado;
 import co.edu.univalle.vistas.VistaLogin;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -109,7 +112,6 @@ public class ControladorEmpleado {
                   }
             }
         }
-
     }
     
     private void opcionManejoPersonal() {
@@ -232,5 +234,33 @@ public class ControladorEmpleado {
         };
 
         return model;
+    }
+    
+    //Hacer que un TextField sólo permita ingresar números sin espacios
+    public final void verificarNumero(JTextField a){
+        a.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();
+                if (!Character.isDigit(c) | Character.isSpaceChar(c)){
+                    e.consume();
+                }
+            }
+        });
+    }
+    
+    //Hacer que un TextField sólo permita ingresar letras y espacios
+    public final void verificarTexto(JTextField a){
+        a.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();
+                if (Character.isAlphabetic(c) | Character.isSpaceChar(c)){
+                    e.setKeyChar(c);
+                } else {
+                    e.consume();
+                }
+            }
+        });
     }
 }

@@ -53,17 +53,20 @@ public class VistaEmpleado extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         cardLayout = (CardLayout) panelPrincipal.getLayout();
-        cardLayout.show(panelPrincipal, "cardManejo");
+        cardLayout.show(panelPrincipal, "cardManejo"); //Esta linea se elimina
         ControladorEmpleado controladorEmpleado = new ControladorEmpleado(this, biblioteca, empleado);
 //        if (empleado.getEsAdmin() == false){
 //            cardLayout.show(panelPrincipal, "cardLibro");
 //            btnManejoPersonal.setEnabled(false);
+//            btnLibros.setEnabled(false);
 //        }
 //        cardLayout.show(panelPrincipal, "cardManejo");
         btnManejoPersonal.setEnabled(false);
     }
         
     public void disenoTabla(JTable tablaGenerica, JScrollPane scrollGenerico){
+        
+        tablaGenerica.setFont(new Font("Segoe UI", 0, 12));
         
         //Fuente de cabecera
         th = tablaGenerica.getTableHeader();
@@ -820,6 +823,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         subPanelManejoConsultar.add(panelEmpleadoManejoC, "cardManejoEmpleado");
 
         tablaManejoC.setModel(modeloTabla);
+        tablaManejoC.setRowHeight(25);
         scrollManejoC.setViewportView(tablaManejoC);
 
         javax.swing.GroupLayout panelEmpleadosManejoCLayout = new javax.swing.GroupLayout(panelEmpleadosManejoC);
@@ -1676,6 +1680,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaTodosLosLibros.setRowHeight(25);
         scrollTodosLosLibros.setViewportView(tablaTodosLosLibros);
 
         javax.swing.GroupLayout panelTablaTodosLosLibrosLayout = new javax.swing.GroupLayout(panelTablaTodosLosLibros);
@@ -1760,6 +1765,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnAgregarPrestamoA.setRequestFocusEnabled(false);
 
         tablaPrestamoA.setModel(modeloTabla);
+        tablaPrestamoA.setRowHeight(25);
         scrollPrestamoA.setViewportView(tablaPrestamoA);
 
         btnRemoverPrestamoA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -1884,6 +1890,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnAgregarPrestamoM.setRequestFocusEnabled(false);
 
         tablaPrestamoM.setModel(modeloTabla);
+        tablaPrestamoM.setRowHeight(25);
         scrollPrestamoM.setViewportView(tablaPrestamoM);
 
         btnRemoverPrestamoM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -1982,6 +1989,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         txtFechaPrestamoC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         tablaPrestamoC.setModel(modeloTabla);
+        tablaPrestamoC.setRowHeight(25);
         scrollPrestamoC.setViewportView(tablaPrestamoC);
 
         btnDevolverPrestamoC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -2053,6 +2061,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         txtUsuarioPrestamoE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         tablaPrestamoE.setModel(modeloTabla);
+        tablaPrestamoE.setRowHeight(25);
         scrollPrestamoE.setViewportView(tablaPrestamoE);
 
         btnEliminarPrestamoE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -2148,6 +2157,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableMultasU.setRowHeight(25);
         scrollMultasU.setViewportView(tableMultasU);
 
         btnPagarMultas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -2234,6 +2244,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableMultasT.setRowHeight(25);
         scrollMultasT.setViewportView(tableMultasT);
 
         javax.swing.GroupLayout panelMultaTodoLayout = new javax.swing.GroupLayout(panelMultaTodo);
@@ -2287,6 +2298,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableSolicitud.setRowHeight(25);
         scrollTableSolicitud.setViewportView(tableSolicitud);
 
         btnRechazarSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -2360,6 +2372,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableDescargas.setRowHeight(25);
         scrollDescargas.setViewportView(tableDescargas);
 
         javax.swing.GroupLayout panelDescargaConsultarLayout = new javax.swing.GroupLayout(panelDescargaConsultar);
