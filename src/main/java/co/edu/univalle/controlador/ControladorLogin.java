@@ -122,15 +122,12 @@ public class ControladorLogin {
             case 0: // Estudiante
                 VistaRegistroEstudiante vistaRegistroEstudiante = new VistaRegistroEstudiante("Registro de Estudiante", biblioteca, vista);
 
-                new ControladorRegistroEstudiante(vistaRegistroEstudiante, biblioteca, vista);
                 vista.setVisible(false); 
                 vistaRegistroEstudiante.setVisible(true);
                 break;
 
-
             case 1: // Profesor
                 VistaRegistroProfesor vistaRegistroProfesor = new VistaRegistroProfesor("Registro de Profesor", biblioteca, vista);
-                new ControladorRegistroProfesor(vistaRegistroProfesor, biblioteca, vista);
                 vista.setVisible(false); 
                 vistaRegistroProfesor.setVisible(true);
                 break;

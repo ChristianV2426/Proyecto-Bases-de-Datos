@@ -24,7 +24,7 @@ public class ControladorRegistroEstudiante {
                 biblioteca.cerrarConexion();
                 System.exit(0);
         }});
-
+            
         vista.getTxtIdentificacion().setText(biblioteca.getSerialUsuario());
     }
 
@@ -34,11 +34,11 @@ public class ControladorRegistroEstudiante {
             if(e.getSource() == vista.getBtnRegresar()){
                 volverALogin();
             }
-
+            
             if(e.getSource() == vista.getBtnRegistrar()){
                 registrarEstudiante();
             }
-
+            
             if(e.getSource() == vista.getCheckPassword()){
                 mostrarContrasena();
             }
