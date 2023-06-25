@@ -17,6 +17,6 @@
 
 package co.edu.univalle.controlador;
 
-public class ControladorRegistroEmpleado {
+public class ControladorEmpleado {
     
 }

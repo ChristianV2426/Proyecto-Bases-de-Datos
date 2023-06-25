@@ -213,8 +213,6 @@ public class VistaLogin extends javax.swing.JFrame {
         return lblRegistro;
     }
 
-<<<<<<< HEAD
-=======
     public void addListeners(MouseListener listener){
         btnIngresar.addMouseListener(listener);
         btnSalir.addMouseListener(listener);
@@ -222,7 +220,6 @@ public class VistaLogin extends javax.swing.JFrame {
         lblRegistro.addMouseListener(listener);
     }
 
->>>>>>> origin/Christian
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;

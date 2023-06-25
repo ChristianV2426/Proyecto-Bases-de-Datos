@@ -79,7 +79,8 @@ public class ControladorRegistroProfesor {
         }
 
         JOptionPane.showMessageDialog(vista, "Registro exitoso.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-        volverALogin();
+        vista.dispose();
+        new VistaUsuario("Menú Usuario", biblioteca, nuevoUsuario);
     }
 
     private void volverALogin() {
