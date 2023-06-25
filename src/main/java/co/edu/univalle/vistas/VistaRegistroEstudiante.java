@@ -17,20 +17,22 @@
 
 package co.edu.univalle.vistas;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import javax.swing.*;
+import java.awt.event.*;
+
+import co.edu.univalle.persistencia.Biblioteca;
+import co.edu.univalle.controlador.*;
 
 public class VistaRegistroEstudiante extends javax.swing.JFrame {
 
-    public VistaRegistroEstudiante(String titulo) {
+    public VistaRegistroEstudiante(String titulo, Biblioteca biblioteca, VistaLogin vistaLogin) {
         initComponents();
         setVisible(true);
         setTitle(titulo);
         setResizable(false);
         setLocationRelativeTo(null);
+
+        new ControladorRegistroEstudiante(this, biblioteca, vistaLogin);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -301,6 +303,12 @@ public class VistaRegistroEstudiante extends javax.swing.JFrame {
 
     public JTextField getTxtTelefono() {
         return txtTelefono;
+    }
+
+    public void addListeners(MouseListener listener){
+        btnRegresar.addMouseListener(listener);
+        btnRegistrar.addMouseListener(listener);
+        checkPassword.addMouseListener(listener);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

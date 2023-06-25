@@ -44,11 +44,7 @@ public class ControladorLogin {
         @Override
         public void mouseClicked(MouseEvent e){
             if(e.getSource() == vista.getCheckPassword()){
-                if (vista.getCheckPassword().isSelected()) 
-                    vista.getTxtPassword().setEchoChar((char)0);
-
-                else 
-                    vista.getTxtPassword().setEchoChar('*');
+                mostrarContrasena();
             }
 
             if(e.getSource() == vista.getBtnIngresar()){
@@ -56,7 +52,7 @@ public class ControladorLogin {
             }
 
             if(e.getSource() == vista.getLblRegistro()){
-                System.out.println(" s!");
+                registrarNuevoUsuario();
             }
 
             if(e.getSource() == vista.getBtnSalir()){
@@ -64,6 +60,14 @@ public class ControladorLogin {
                 System.exit(0);
             }
         }
+    }
+
+    private void mostrarContrasena(){
+        if (vista.getCheckPassword().isSelected()) 
+            vista.getTxtPassword().setEchoChar((char)0);
+
+        else 
+            vista.getTxtPassword().setEchoChar('*');
     }
 
     private void iniciarSesion() {
@@ -100,6 +104,36 @@ public class ControladorLogin {
 
         } else {
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta.\nPor favor intente nuevamente.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void registrarNuevoUsuario(){
+        Object[] options = {"Estudiante", "Profesor"};
+        int opcionRegistro = JOptionPane.showOptionDialog(vista,
+                "¿Qué tipo de usuario desea registrar?",
+                "Seleccione una opción",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[1]);
+
+        switch (opcionRegistro) {
+            case 0: // Estudiante
+                VistaRegistroEstudiante vistaRegistroEstudiante = new VistaRegistroEstudiante("Registro de Estudiante", biblioteca, vista);
+
+                new ControladorRegistroEstudiante(vistaRegistroEstudiante, biblioteca, vista);
+                vista.setVisible(false); 
+                vistaRegistroEstudiante.setVisible(true);
+                break;
+
+
+            case 1: // Profesor
+                VistaRegistroProfesor vistaRegistroProfesor = new VistaRegistroProfesor("Registro de Profesor", biblioteca, vista);
+                new ControladorRegistroProfesor(vistaRegistroProfesor, biblioteca, vista);
+                vista.setVisible(false); 
+                vistaRegistroProfesor.setVisible(true);
+                break;
         }
     }
 
