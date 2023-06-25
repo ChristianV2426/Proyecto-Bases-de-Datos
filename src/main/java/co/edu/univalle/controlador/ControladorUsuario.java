@@ -17,7 +17,10 @@
 
 package co.edu.univalle.controlador;
 
+import co.edu.univalle.modelo.Descarga;
+import co.edu.univalle.modelo.Digital;
 import co.edu.univalle.modelo.Libro;
+import co.edu.univalle.modelo.Solicitud;
 import co.edu.univalle.modelo.Usuario;
 import co.edu.univalle.persistencia.Biblioteca;
 import co.edu.univalle.vistas.VistaLogin;
@@ -25,6 +28,8 @@ import co.edu.univalle.vistas.VistaUsuario;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
@@ -49,12 +54,11 @@ public class ControladorUsuario {
         alinear.setHorizontalAlignment(SwingConstants.CENTER);
         
         // Listener para close.
-        vista.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+        vista.addWindowListener(new java.awt.event.WindowAdapter(){
+            public void windowClosing(java.awt.event.WindowEvent windowEvent){
                 biblioteca.cerrarConexion();
-                System.exit(0); 
-            }});
+                System.exit(0);
+            }});
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
@@ -108,33 +112,61 @@ public class ControladorUsuario {
                       opcionDescargar();
                   }
             }
+            
+            if (e.getSource() == vista.getBtnSolicitar()){
+                  if (e.getButton() == 1){
+                      opcionSolicitar();
+                  }
+            }
         }
     }
     
     private void opcionConsultar() {
+        
+        //Mostrando el panel de consultar
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardConsultar");
+        
+        //Modificando elementos gráficos
         vista.getBtnConsultar().setEnabled(false);
         vista.getBtnSolicitud().setEnabled(true);
         vista.getBtnPrestamos().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);
+        
+        //Aplicando diseño a la tabla consultar
         vista.disenoTabla(vista.getTablaConsultar(), vista.getScrollConsultar());
         vista.getTablaConsultar().setModel(asignarModelo(null,vista.getCabeceraConsultar()));
     }
     
     private void opcionSolicitud() {
+        
+        //Mostrando el panel de consultar
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardSolicitud");
+        
+        //Modificando elementos gráficos
         vista.getBtnSolicitud().setEnabled(false);
         vista.getBtnConsultar().setEnabled(true);
         vista.getBtnPrestamos().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);
+        
+        //Ingresando datos
+        vista.getTxtUsuarioSolicitud().setText(usuario.getNombreUsuario());
+        vista.getTxtFechaSolicitud().setText(LocalDate.now().toString());
+        vista.getTxtIdSolicitud().setText(""); //Establecer el número consecutivo de la solicitud
+        
     }
 
     private void opcionPrestamos() {
+        
+        //Mostrando el panel de consultar
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardPrestamo");
+        
+        //Modificando elementos gráficos
         vista.getBtnPrestamos().setEnabled(false);
         vista.getBtnConsultar().setEnabled(true);
         vista.getBtnSolicitud().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);
+        
+        //Aplicando diseño a la tabla préstamo
         vista.disenoTabla(vista.getTablaPrestamo(), vista.getScrollPrestamo());
         
         //Ingresando datos del usuario
@@ -146,11 +178,16 @@ public class ControladorUsuario {
     }
 
     private void opcionMultas() {
+        //Aplicando diseño a la tabla consultar        
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardMulta");
+        
+        //Modificando elementos gráficos
         vista.getBtnMultas().setEnabled(false);
         vista.getBtnConsultar().setEnabled(true);
         vista.getBtnSolicitud().setEnabled(true);
         vista.getBtnPrestamos().setEnabled(true);
+        
+        //Aplicando diseño a la tabla préstamo
         vista.disenoTabla(vista.getTablaMulta(), vista.getScrollMulta());
         
         //Ingresando datos del usuario
@@ -203,6 +240,7 @@ public class ControladorUsuario {
     }
     
     private void opcionDescargar() {
+        
         int filaSeleccionada = vista.getTablaConsultar().getSelectedRow();
         if (filaSeleccionada == -1){
             JOptionPane.showMessageDialog(vista, 
@@ -211,6 +249,8 @@ public class ControladorUsuario {
                         UIManager.getIcon("OptionPane.errorIcon"));
             return;
         }
+        
+        //Oteniendo la información del libro seleccionado
         String[] infoLibro = vista.obtenerInfoLibro(filaSeleccionada);
         if (infoLibro[6] == "No"){
             JOptionPane.showMessageDialog(vista, 
@@ -219,10 +259,59 @@ public class ControladorUsuario {
                         UIManager.getIcon("OptionPane.errorIcon"));
             return;
         } else {
-            String libroADescargar = vista.libroSeleccionado(filaSeleccionada);
-            Descarga descargaUsuario = new Descarga(null, usuario.getIdUsuario(),biblioteca.getDigitales().);
+            String libroADescargar = infoLibro[0];
+            Digital libroDigital = biblioteca.getDigitales().obtenerElemento(libroADescargar);
+            
+            //Creando la descarga
+            Descarga descargaUsuario = new Descarga("DSB", usuario, libroDigital, LocalDateTime.now().withNano(0),"192.168.0.5");
+            
+            //Añadiendo la descarga a la BD
+            if (biblioteca.getDescargas().insertarElemento(descargaUsuario)){
+                JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">Libro descargado con éxito.</p></html>", 
+                        "Operación realizada con éxito", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.informationIcon"));
+            } else {
+                JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">No se pudo realizar la descarga.</p></html>", 
+                        "Operación sin éxito", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.errorIcon"));
+            }
         }
     }
+    
+    private void opcionSolicitar() {
+        
+        //String isbn
+        //Obteniendo los datos de la vista
+        String descripcion = vista.getTxtAreaSolicitud().getText();
+        if(descripcion == ""){
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">Debe explicar el motivo de su solicitud.</p></html>", 
+                        "Error", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        
+        LocalDate fechaSolicitud = LocalDate.parse(vista.getTxtFechaSolicitud().getText());
+        
+        //Creando la solicitud
+        Solicitud solicitudCliente = new Solicitud("SLP", usuario.getIdUsuario(), fechaSolicitud, descripcion,"Pendiente");
+        
+        //Añadiendo la solicitud a la BD
+        if(biblioteca.getSolicitudes().insertarElemento(solicitudCliente)){
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">Su solicitud ha sido registrada, la analizaremos lo más pronto posible.</p></html>", 
+                        "Operación realizada con éxito", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.informationIcon"));
+        } else {
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">No se pudo realizar la solicitud.</p></html>", 
+                        "Operación sin éxito", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.errorIcon"));
+        }
+    }
+    
     private void opcionCerrar() {
         VistaLogin vistaLogin = new VistaLogin("Inicio Sesión");
         vista.dispose();

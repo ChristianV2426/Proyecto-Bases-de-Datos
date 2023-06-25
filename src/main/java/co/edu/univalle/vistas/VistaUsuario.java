@@ -644,6 +644,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         btnCerrar.addMouseListener(listener);
         btnConsultarLibro.addMouseListener(listener);
         btnConsultarLibros.addMouseListener(listener);
+        btnDescargar.addMouseListener(listener);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
