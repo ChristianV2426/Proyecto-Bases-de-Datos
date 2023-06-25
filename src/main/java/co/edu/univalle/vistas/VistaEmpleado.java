@@ -292,11 +292,38 @@ public class VistaEmpleado extends javax.swing.JFrame {
         tablaPrestamoE = new javax.swing.JTable();
         btnEliminarPrestamoE = new javax.swing.JButton();
         panelMulta = new javax.swing.JTabbedPane();
-        panelMultaConsultar = new javax.swing.JPanel();
+        subPanelMulta = new javax.swing.JPanel();
+        panelMultaUsuario = new javax.swing.JPanel();
+        btnMultasUsuarioU = new javax.swing.JButton();
+        btnMultasTodasU = new javax.swing.JButton();
+        lblIdMultas = new javax.swing.JLabel();
+        txtIdMultas = new javax.swing.JTextField();
+        btnCheckMultas = new javax.swing.JButton();
+        lblFechaMultas = new javax.swing.JLabel();
+        txtFechaMultas = new javax.swing.JTextField();
+        lblMultas = new javax.swing.JLabel();
+        scrollMultasU = new javax.swing.JScrollPane();
+        tableMultasU = new javax.swing.JTable();
+        btnPagarMultas = new javax.swing.JButton();
+        panelMultaTodo = new javax.swing.JPanel();
+        btnMultasUsuarioT = new javax.swing.JButton();
+        btnMultasTodasT = new javax.swing.JButton();
+        scrollMultasT = new javax.swing.JScrollPane();
+        tableMultasT = new javax.swing.JTable();
         panelSolicitud = new javax.swing.JTabbedPane();
         panelSolicitudConsultar = new javax.swing.JPanel();
+        scrollTableSolicitud = new javax.swing.JScrollPane();
+        tableSolicitud = new javax.swing.JTable();
+        btnRechazarSolicitud = new javax.swing.JButton();
+        btnAprobarSolicitud = new javax.swing.JButton();
+        btnDescripcionSolicitud = new javax.swing.JButton();
+        scrollAreaSolicitud = new javax.swing.JScrollPane();
+        txtAreaSolicitud = new javax.swing.JTextArea();
         panelDescarga = new javax.swing.JTabbedPane();
         panelDescargaConsultar = new javax.swing.JPanel();
+        lblDescargas = new javax.swing.JLabel();
+        scrollDescargas = new javax.swing.JScrollPane();
+        tableDescargas = new javax.swing.JTable();
         panelEjemplar = new javax.swing.JTabbedPane();
         panelEjemplarAnadir = new javax.swing.JPanel();
         lblIsbnEjemplarA = new javax.swing.JLabel();
@@ -1034,19 +1061,20 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addComponent(lblNombreLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                        .addComponent(txtPaginasLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblIsbnLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtIsbnLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtIsbnLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPaginasLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelLibroAnadirLayout.createSequentialGroup()
                         .addComponent(lblPaginasLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)))
                 .addGap(18, 18, 18)
-                .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdiomaLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAnoLibroA)
-                    .addComponent(lblAnoLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblIdiomaLibroA))
+                .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAnoLibroA, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtIdiomaLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtAnoLibroA)
+                        .addComponent(lblIdiomaLibroA)))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(comboAreaLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
@@ -1213,11 +1241,12 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(btnCheckLibroM))
                     .addComponent(lblIsbnLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTituloLibroM)
-                    .addComponent(txtTituloLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPaginasLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPaginasLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPaginasLibroM, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTituloLibroM)
+                        .addComponent(txtTituloLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPaginasLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1247,10 +1276,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(lblTamanoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelLibroModificarLayout.createSequentialGroup()
-                        .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTamanoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFormatoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboFormatoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboFormatoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtTamanoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblFormatoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                         .addComponent(btnModificarLibroM)
                         .addGap(29, 29, 29))))
@@ -1389,11 +1419,12 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(btnCheckLibroC))
                     .addComponent(lblIsbnLibroC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTituloLibroC)
-                    .addComponent(txtTituloLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPaginasLibroC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPaginasLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPaginasLibroC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTituloLibroC)
+                        .addComponent(txtTituloLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPaginasLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1419,15 +1450,12 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(txtUrlLibroC)))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLibroConsultarLayout.createSequentialGroup()
-                        .addComponent(lblTamanoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelLibroConsultarLayout.createSequentialGroup()
-                        .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTamanoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFormatoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboFormatoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 108, Short.MAX_VALUE))))
+                    .addComponent(lblTamanoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboFormatoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtTamanoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFormatoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelLibro.addTab("Consultar", panelLibroConsultar);
@@ -1570,11 +1598,12 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(btnCheckLibroE))
                     .addComponent(lblIsbnLibroE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTituloLibroE)
-                    .addComponent(txtTituloLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPaginasLibroE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPaginasLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPaginasLibroE, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTituloLibroE)
+                        .addComponent(txtTituloLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPaginasLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1604,10 +1633,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(lblTamanoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelLibroEliminarLayout.createSequentialGroup()
-                        .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTamanoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFormatoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboFormatoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboFormatoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtTamanoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblFormatoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                         .addComponent(btnEliminarLibroE)
                         .addGap(29, 29, 29))))
@@ -2015,33 +2045,220 @@ public class VistaEmpleado extends javax.swing.JFrame {
         panelMulta.setFocusable(false);
         panelMulta.setRequestFocusEnabled(false);
 
-        javax.swing.GroupLayout panelMultaConsultarLayout = new javax.swing.GroupLayout(panelMultaConsultar);
-        panelMultaConsultar.setLayout(panelMultaConsultarLayout);
-        panelMultaConsultarLayout.setHorizontalGroup(
-            panelMultaConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+        subPanelMulta.setLayout(new java.awt.CardLayout());
+
+        btnMultasUsuarioU.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnMultasUsuarioU.setText("Multas usuario");
+
+        btnMultasTodasU.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnMultasTodasU.setText("Todas las multas");
+
+        lblIdMultas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblIdMultas.setText("ID:");
+
+        txtIdMultas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtIdMultas.setText("jTextField1");
+
+        btnCheckMultas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnCheckMultas.setText("Check");
+
+        lblFechaMultas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblFechaMultas.setText("Fecha:");
+
+        txtFechaMultas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtFechaMultas.setText("jTextField1");
+
+        lblMultas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblMultas.setText("Sus multas:");
+
+        tableMultasU.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollMultasU.setViewportView(tableMultasU);
+
+        btnPagarMultas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnPagarMultas.setText("Pagar multa");
+
+        javax.swing.GroupLayout panelMultaUsuarioLayout = new javax.swing.GroupLayout(panelMultaUsuario);
+        panelMultaUsuario.setLayout(panelMultaUsuarioLayout);
+        panelMultaUsuarioLayout.setHorizontalGroup(
+            panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMultaUsuarioLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMultaUsuarioLayout.createSequentialGroup()
+                        .addGroup(panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblFechaMultas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblIdMultas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMultasUsuarioU))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtFechaMultas)
+                            .addGroup(panelMultaUsuarioLayout.createSequentialGroup()
+                                .addComponent(txtIdMultas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(100, 100, 100)
+                                .addComponent(btnCheckMultas)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelMultaUsuarioLayout.createSequentialGroup()
+                        .addGroup(panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnMultasTodasU)
+                            .addGroup(panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblMultas)
+                                .addComponent(scrollMultasU, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 20, Short.MAX_VALUE))))
+            .addGroup(panelMultaUsuarioLayout.createSequentialGroup()
+                .addGap(311, 311, 311)
+                .addComponent(btnPagarMultas)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        panelMultaConsultarLayout.setVerticalGroup(
-            panelMultaConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+        panelMultaUsuarioLayout.setVerticalGroup(
+            panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMultaUsuarioLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMultasUsuarioU)
+                    .addComponent(btnMultasTodasU))
+                .addGap(18, 18, 18)
+                .addGroup(panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblIdMultas)
+                    .addComponent(txtIdMultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCheckMultas))
+                .addGap(18, 18, 18)
+                .addGroup(panelMultaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFechaMultas)
+                    .addComponent(txtFechaMultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lblMultas)
+                .addGap(18, 18, 18)
+                .addComponent(scrollMultasU, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnPagarMultas)
+                .addGap(12, 12, 12))
         );
 
-        panelMulta.addTab("Consultar", panelMultaConsultar);
+        subPanelMulta.add(panelMultaUsuario, "card2");
+
+        btnMultasUsuarioT.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnMultasUsuarioT.setText("Multas usuario");
+
+        btnMultasTodasT.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnMultasTodasT.setText("Todas las multas");
+
+        tableMultasT.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollMultasT.setViewportView(tableMultasT);
+
+        javax.swing.GroupLayout panelMultaTodoLayout = new javax.swing.GroupLayout(panelMultaTodo);
+        panelMultaTodo.setLayout(panelMultaTodoLayout);
+        panelMultaTodoLayout.setHorizontalGroup(
+            panelMultaTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMultaTodoLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelMultaTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMultaTodoLayout.createSequentialGroup()
+                        .addComponent(btnMultasUsuarioT)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelMultaTodoLayout.createSequentialGroup()
+                        .addGroup(panelMultaTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnMultasTodasT)
+                            .addComponent(scrollMultasT, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 20, Short.MAX_VALUE))))
+        );
+        panelMultaTodoLayout.setVerticalGroup(
+            panelMultaTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMultaTodoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelMultaTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMultasUsuarioT)
+                    .addComponent(btnMultasTodasT))
+                .addGap(18, 18, 18)
+                .addComponent(scrollMultasT, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        subPanelMulta.add(panelMultaTodo, "card3");
+
+        panelMulta.addTab("Consultar", subPanelMulta);
 
         panelPrincipal.add(panelMulta, "cardMulta");
 
         panelSolicitud.setFocusable(false);
         panelSolicitud.setRequestFocusEnabled(false);
 
+        tableSolicitud.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollTableSolicitud.setViewportView(tableSolicitud);
+
+        btnRechazarSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnRechazarSolicitud.setText("Rechazar");
+
+        btnAprobarSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnAprobarSolicitud.setText("Aprobar");
+
+        btnDescripcionSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        btnDescripcionSolicitud.setText("Mostrar descripción");
+
+        txtAreaSolicitud.setColumns(20);
+        txtAreaSolicitud.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtAreaSolicitud.setRows(4);
+        scrollAreaSolicitud.setViewportView(txtAreaSolicitud);
+
         javax.swing.GroupLayout panelSolicitudConsultarLayout = new javax.swing.GroupLayout(panelSolicitudConsultar);
         panelSolicitudConsultar.setLayout(panelSolicitudConsultarLayout);
         panelSolicitudConsultarLayout.setHorizontalGroup(
             panelSolicitudConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGroup(panelSolicitudConsultarLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelSolicitudConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelSolicitudConsultarLayout.createSequentialGroup()
+                        .addComponent(btnRechazarSolicitud)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                        .addComponent(btnDescripcionSolicitud)
+                        .addGap(149, 149, 149)
+                        .addComponent(btnAprobarSolicitud))
+                    .addComponent(scrollTableSolicitud)
+                    .addComponent(scrollAreaSolicitud))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         panelSolicitudConsultarLayout.setVerticalGroup(
             panelSolicitudConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGroup(panelSolicitudConsultarLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(scrollTableSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelSolicitudConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRechazarSolicitud)
+                    .addComponent(btnAprobarSolicitud)
+                    .addComponent(btnDescripcionSolicitud))
+                .addGap(18, 18, 18)
+                .addComponent(scrollAreaSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         panelSolicitud.addTab("Consultar", panelSolicitudConsultar);
@@ -2051,15 +2268,41 @@ public class VistaEmpleado extends javax.swing.JFrame {
         panelDescarga.setFocusable(false);
         panelDescarga.setRequestFocusEnabled(false);
 
+        lblDescargas.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
+        lblDescargas.setText("Todas las descargas:");
+
+        tableDescargas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollDescargas.setViewportView(tableDescargas);
+
         javax.swing.GroupLayout panelDescargaConsultarLayout = new javax.swing.GroupLayout(panelDescargaConsultar);
         panelDescargaConsultar.setLayout(panelDescargaConsultarLayout);
         panelDescargaConsultarLayout.setHorizontalGroup(
             panelDescargaConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGroup(panelDescargaConsultarLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(panelDescargaConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDescargas)
+                    .addComponent(scrollDescargas, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         panelDescargaConsultarLayout.setVerticalGroup(
             panelDescargaConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGroup(panelDescargaConsultarLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lblDescargas)
+                .addGap(18, 18, 18)
+                .addComponent(scrollDescargas, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         panelDescarga.addTab("Consultar", panelDescargaConsultar);
@@ -2804,6 +3047,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarPrestamoA;
     private javax.swing.JButton btnAgregarPrestamoM;
     private javax.swing.JButton btnAnadirManejoA;
+    private javax.swing.JButton btnAprobarSolicitud;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnCheckEjemplarA;
     private javax.swing.JButton btnCheckEjemplarC;
@@ -2815,12 +3059,14 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btnCheckManejoC;
     private javax.swing.JButton btnCheckManejoE;
     private javax.swing.JButton btnCheckManejoM;
+    private javax.swing.JButton btnCheckMultas;
     private javax.swing.JButton btnCheckPrestamoA;
     private javax.swing.JButton btnCheckPrestamoC;
     private javax.swing.JButton btnCheckPrestamoE;
     private javax.swing.JButton btnCheckPrestamoM;
     private javax.swing.JButton btnDescargarInfo;
     private javax.swing.JButton btnDescargas;
+    private javax.swing.JButton btnDescripcionSolicitud;
     private javax.swing.JButton btnDevolverPrestamoC;
     private javax.swing.JButton btnEjemplar;
     private javax.swing.JButton btnEliminarEjemplarE;
@@ -2836,12 +3082,18 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btnModificarManejoM;
     private javax.swing.JButton btnModificarPrestamoM;
     private javax.swing.JButton btnMultas;
+    private javax.swing.JButton btnMultasTodasT;
+    private javax.swing.JButton btnMultasTodasU;
+    private javax.swing.JButton btnMultasUsuarioT;
+    private javax.swing.JButton btnMultasUsuarioU;
     private javax.swing.JButton btnNoLibroA;
     private javax.swing.JButton btnNoLibroC;
     private javax.swing.JButton btnNoLibroE;
     private javax.swing.JButton btnNoLibroM;
+    private javax.swing.JButton btnPagarMultas;
     private javax.swing.JButton btnPrestamos;
     private javax.swing.JButton btnRealizarPrestamoA;
+    private javax.swing.JButton btnRechazarSolicitud;
     private javax.swing.JButton btnRemoverPrestamoA;
     private javax.swing.JButton btnRemoverPrestamoM;
     private javax.swing.JButton btnSiLibroA;
@@ -2888,6 +3140,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel lblCargoManejoC;
     private javax.swing.JLabel lblCargoManejoE;
     private javax.swing.JLabel lblCargoManejoM;
+    private javax.swing.JLabel lblDescargas;
     private javax.swing.JLabel lblDigitalLibroA;
     private javax.swing.JLabel lblDigitalLibroC;
     private javax.swing.JLabel lblDigitalLibroE;
@@ -2902,6 +3155,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel lblEstanteEjemplarC;
     private javax.swing.JLabel lblEstanteEjemplarE;
     private javax.swing.JLabel lblEstanteEjemplarM;
+    private javax.swing.JLabel lblFechaMultas;
     private javax.swing.JLabel lblFechaPrestamoC;
     private javax.swing.JLabel lblFormatoLibroA;
     private javax.swing.JLabel lblFormatoLibroC;
@@ -2911,6 +3165,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdManejoC;
     private javax.swing.JLabel lblIdManejoE;
     private javax.swing.JLabel lblIdManejoM;
+    private javax.swing.JLabel lblIdMultas;
     private javax.swing.JLabel lblIdiomaLibroA;
     private javax.swing.JLabel lblIdiomaLibroC;
     private javax.swing.JLabel lblIdiomaLibroE;
@@ -2925,6 +3180,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel lblIsbnLibroM;
     private javax.swing.JLabel lblIsbnPrestamoA;
     private javax.swing.JLabel lblIsbnPrestamoM;
+    private javax.swing.JLabel lblMultas;
     private javax.swing.JLabel lblNombreLibroA;
     private javax.swing.JLabel lblNombreManejoA;
     private javax.swing.JLabel lblNombreManejoC;
@@ -2989,7 +3245,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JPanel panelManejoModificar;
     private javax.swing.JPanel panelMenu;
     private javax.swing.JTabbedPane panelMulta;
-    private javax.swing.JPanel panelMultaConsultar;
+    private javax.swing.JPanel panelMultaTodo;
+    private javax.swing.JPanel panelMultaUsuario;
     private javax.swing.JTabbedPane panelPrestamo;
     private javax.swing.JPanel panelPrestamoAnadir;
     private javax.swing.JPanel panelPrestamoConsultar;
@@ -2999,21 +3256,32 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTabbedPane panelSolicitud;
     private javax.swing.JPanel panelSolicitudConsultar;
     private javax.swing.JPanel panelTitulo;
+    private javax.swing.JScrollPane scrollAreaSolicitud;
+    private javax.swing.JScrollPane scrollDescargas;
     private javax.swing.JScrollPane scrollManejoC;
+    private javax.swing.JScrollPane scrollMultasT;
+    private javax.swing.JScrollPane scrollMultasU;
     private javax.swing.JScrollPane scrollPrestamoA;
     private javax.swing.JScrollPane scrollPrestamoC;
     private javax.swing.JScrollPane scrollPrestamoE;
     private javax.swing.JScrollPane scrollPrestamoM;
+    private javax.swing.JScrollPane scrollTableSolicitud;
     private javax.swing.JPanel subPanelManejoConsultar;
+    private javax.swing.JPanel subPanelMulta;
     private javax.swing.JTable tablaManejoC;
     private javax.swing.JTable tablaPrestamoA;
     private javax.swing.JTable tablaPrestamoC;
     private javax.swing.JTable tablaPrestamoE;
     private javax.swing.JTable tablaPrestamoM;
+    private javax.swing.JTable tableDescargas;
+    private javax.swing.JTable tableMultasT;
+    private javax.swing.JTable tableMultasU;
+    private javax.swing.JTable tableSolicitud;
     private javax.swing.JTextField txtAnoLibroA;
     private javax.swing.JTextField txtAnoLibroC;
     private javax.swing.JTextField txtAnoLibroE;
     private javax.swing.JTextField txtAnoLibroM;
+    private javax.swing.JTextArea txtAreaSolicitud;
     private javax.swing.JTextField txtCajonEjemplarA;
     private javax.swing.JTextField txtCajonEjemplarC;
     private javax.swing.JTextField txtCajonEjemplarE;
@@ -3022,11 +3290,13 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField txtEstanteEjemplarC;
     private javax.swing.JTextField txtEstanteEjemplarE;
     private javax.swing.JTextField txtEstanteEjemplarM;
+    private javax.swing.JTextField txtFechaMultas;
     private javax.swing.JTextField txtFechaPrestamoC;
     private javax.swing.JTextField txtIdManejoA;
     private javax.swing.JTextField txtIdManejoC;
     private javax.swing.JTextField txtIdManejoE;
     private javax.swing.JTextField txtIdManejoM;
+    private javax.swing.JTextField txtIdMultas;
     private javax.swing.JTextField txtIdiomaLibroA;
     private javax.swing.JTextField txtIdiomaLibroC;
     private javax.swing.JTextField txtIdiomaLibroE;
