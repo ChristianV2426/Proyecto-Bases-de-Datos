@@ -81,7 +81,7 @@ public class ControladorRegistroEstudiante {
 
         JOptionPane.showMessageDialog(vista, "Registro exitoso.", "Exito", JOptionPane.INFORMATION_MESSAGE);
         vista.dispose();
-        new VistaUsuario("Menú Usuario", biblioteca, nuevoEstudiante);
+        new VistaLogin("Login", biblioteca);
     }
 
     private void volverALogin() {
