@@ -83,6 +83,9 @@ public class DaoMulta implements DaoGeneral<Multa> {
   }
 
   public void actualizarEstadoMulta(String[][] multas) {
+  if (multas == null){
+      return;
+  }
   for(int i = 0; i < multas.length; i++){
     if (multas[i][5].toLowerCase().equals("true") || multas[i][5].toLowerCase().equals("t"))
       multas[i][5] = "Pagada";
