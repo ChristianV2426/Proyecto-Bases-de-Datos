@@ -72,7 +72,7 @@ public class DaoDigital implements DaoGeneral<Digital>{
   public Digital obtenerElemento(String llavePrimaria) {
     String sentenciaSelect =
     "SELECT ISBN, titulo, num_pagina, anio_publicacion, idioma, codigo_area, codigo_editorial, codigo_digital, URL, tamano_bytes, formato " + 
-    "FROM digital NATURAL JOIN libro WHERE codigo_digital='" + llavePrimaria + "';";
+    "FROM digital NATURAL JOIN libro WHERE ISBN='" + llavePrimaria + "';";
 
     try {
       Statement sentenciaSQL = conexionBD.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);

@@ -116,9 +116,7 @@ public class Test {
     System.out.println(biblioteca.getDigitales().insertarElemento(digital1));
 
     Digital digital2 = biblioteca.getDigitales().obtenerElemento("LI041-URL01");
-    System.out.println("aqui");
-    System.out.println(digital2);
-
+    
     System.out.println(biblioteca.getDigitales().obtenerTodosLosElementos() != null);
 
     Digital digital3 = new Digital(libro1, "LI041-URL01", "www...", Integer.valueOf(1024), "EPUB");
