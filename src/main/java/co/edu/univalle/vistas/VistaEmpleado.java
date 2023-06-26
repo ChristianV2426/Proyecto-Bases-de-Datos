@@ -166,6 +166,15 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnCheckEjemplarM.addMouseListener(listeners);
         btnEliminarEjemplarE.addMouseListener(listeners);
     }
+    
+    public String[] obtenerInfoSolicitud(int fila) {
+        int columnas = cabeceraSolicitudes.length;
+        String[] infoLibro = new String[columnas];
+        for (int i = 0; i < columnas; i++){
+            infoLibro[i] = tableSolicitud.getValueAt(fila,i).toString();
+        }
+        return infoLibro;
+    }
             
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -2373,6 +2382,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         ));
         tableSolicitud.setRowHeight(25);
         scrollTableSolicitud.setViewportView(tableSolicitud);
+        tableSolicitud.getTableHeader().setReorderingAllowed(false) ;
 
         btnRechazarSolicitud.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnRechazarSolicitud.setText("Rechazar");

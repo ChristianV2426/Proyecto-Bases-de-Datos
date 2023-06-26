@@ -3832,6 +3832,9 @@
                             </Property>
                             <Property name="rowHeight" type="int" value="25"/>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="tableSolicitud.getTableHeader().setReorderingAllowed(false) ;"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>
