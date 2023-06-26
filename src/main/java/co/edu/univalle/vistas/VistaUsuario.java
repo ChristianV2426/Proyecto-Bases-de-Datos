@@ -43,7 +43,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private JScrollPane scrollConsultar;
     private final CardLayout cardLayout;
     private String[] cabeceraConsultar = {"ISBN","Título","Ejemplar","Autores","Editorial","Idioma","Digital"};
-    private String[] cabeceraPrestamos = {"PréstamoID","Libros","Ejemplar","FPréstamo","FRetorno","FRetornado","Estado"};
+    private String[] cabeceraPrestamos = {"Presta","Libros","Ejemplar","FPréstamo","FRetorno","FRetornado","Estado"};
     private String[] cabeceraMultas = {"Multa ID","Ejemplar", "Título", "Fecha multa","Valor","Estado"};
     
     public VistaUsuario(String titulo, Biblioteca biblioteca, Usuario usuario) {

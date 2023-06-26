@@ -56,6 +56,8 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
       "', disponible='" + ejemplar.getDisponible() +
       "' WHERE codigo_ejemplar='" + ejemplar.getCodigoEjemplar() + "';";
 
+      System.out.println(sentenciaUpdate);
+
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
 

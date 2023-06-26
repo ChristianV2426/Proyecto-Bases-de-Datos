@@ -62,19 +62,19 @@ public class ControladorMultas {
                 }
             }
 
-            else if(e.getSource() == vista.getBtnMultasUsuarioT()){
+            if(e.getSource() == vista.getBtnMultasUsuarioT()){
                 if(e.getButton() == 1){
                     opcionMultasUsuario();
                 }
             }
 
-            else if(e.getSource() == vista.getBtnCheckMultas()){
+            if(e.getSource() == vista.getBtnCheckMultas()){
                 if(e.getButton() == 1){
                     opcionCheckMultas();
                 }
             }
 
-            else if(e.getSource() == vista.getBtnPagarMultas()){
+            if(e.getSource() == vista.getBtnPagarMultas()){
                 if(e.getButton() == 1){
                     opcionPagarMulta();
                 }
