@@ -20,6 +20,8 @@ package co.edu.univalle.controlador;
 import co.edu.univalle.modelo.Empleado;
 import co.edu.univalle.persistencia.Biblioteca;
 import co.edu.univalle.vistas.VistaEmpleado;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ControladorSolicitudes {
     private VistaEmpleado vista;
@@ -32,7 +34,47 @@ public class ControladorSolicitudes {
         this.biblioteca = biblioteca;
         this.empleado = empleado;
         this.controladorEmpleado = controladorEmpleado;
+        vista.addListenersSolicitudes(new ManejadoraDeMouse());
+        actualizarTabla();
     }
     
+    class ManejadoraDeMouse extends MouseAdapter{
+        
+        @Override
+        public void mouseClicked(MouseEvent e){
+            if (e.getSource() == vista.getBtnRechazarSolicitud()){
+                if (e.getButton() == 1 && vista.getBtnRechazarSolicitud().isEnabled()){
+                    opcionRechazar();
+                }
+            }
+            
+            if (e.getSource() == vista.getBtnDescripcionSolicitud()){
+                if (e.getButton() == 1 && vista.getBtnDescripcionSolicitud().isEnabled()){
+                    opcionMostrar();
+                }
+            }
+            
+            if (e.getSource() == vista.getBtnAprobarSolicitud()){
+                if (e.getButton() == 1 && vista.getBtnAprobarSolicitud().isEnabled()){
+                    opcionAprobar();
+                }
+            }
+        }
+    }
+
+    private void actualizarTabla() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
+    private void opcionRechazar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void opcionMostrar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void opcionAprobar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
