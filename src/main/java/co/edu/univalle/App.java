@@ -30,7 +30,6 @@ public class App {
         Biblioteca biblioteca = new Biblioteca(conexionBD);
 
         //VistaLogin vistaLogin = new VistaLogin("Login", biblioteca);
-
         VistaEmpleado vistaEmpleado = new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento("EM000"));
     }
 }
