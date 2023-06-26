@@ -209,7 +209,8 @@ public class ControladorEmpleado {
         
         //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardSolicitud");
-        
+        vista.disenoTabla(vista.getTableSolicitud(), vista.getScrollTableSolicitud());
+        controladorSolicitudes.actualizarTabla();
         //Modificando elementos gráficos
         vista.getBtnSolicitudes().setEnabled(false);
         vista.getBtnLibros().setEnabled(true);

@@ -67,7 +67,7 @@ public class ControladorSolicitudes {
         }
     }
 
-    private void actualizarTabla() {
+    public void actualizarTabla() {
         String[] cabeceraSolicitudes = vista.getCabeceraSolicitudes();
         String [][] todasLasSolicitudes = biblioteca.getSolicitudes().obtenerTodosLosElementos();
         vista.getTableSolicitud().setModel(asignarModelo(todasLasSolicitudes,cabeceraSolicitudes));
