@@ -118,12 +118,10 @@ public class ControladorLogin {
         }
 
         if (usuario != null && biblioteca.getContrasenasUsuarios().validarContrasena(idUsuario, contrasena)) {
-                System.out.println(usuario.getContrasena());
                 vista.dispose();
                 new VistaUsuario("Menú Usuario", biblioteca, biblioteca.getUsuarios().obtenerElemento(idUsuario));
 
         } else if (empleado != null && biblioteca.getContrasenasEmpleados().validarContrasena(idUsuario, contrasena)) {
-                System.out.println(empleado.getContrasena());
                 vista.dispose();
                 // new vistaConsultarLibroEmpleado("empleado");
                 new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento(idUsuario)); // Se debe de cambiar esta línea
