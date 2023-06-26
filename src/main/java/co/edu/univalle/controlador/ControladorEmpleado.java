@@ -139,10 +139,38 @@ public class ControladorEmpleado {
 
     private void opcionLibros() {
         
+        //Estableciendo el ISBN del libro
+        vista.getTxtIsbnLibroA().setText(biblioteca.getSerialLibro());
+        vista.disenoTabla(vista.getTablaTodosLosLibros(), vista.getScrollTodosLosLibros());
+        String[] cabeceraLibros = vista.getCabeceraConsultarLibros();
+        String[][] todosLosLibros = biblioteca.getLibros().obtenerTodosLosElementos();
+        vista.getTablaTodosLosLibros().setModel(asignarModelo(todosLosLibros,cabeceraLibros));
+        
+        //Modificando elementos gráficos del panel libro añadir
+        vista.getBtnSiLibroA().setEnabled(true);
+        vista.getBtnNoLibroA().setEnabled(false);
+        vista.getTxtUrlLibroA().setVisible(false);
+        vista.getTxtTamanoLibroA().setVisible(false);
+        vista.getComboFormatoLibroA().setVisible(false);
+        vista.getLblFormatoLibroA().setVisible(false);
+        vista.getLblUrlLibroA().setVisible(false);
+        vista.getLblTamanoLibroA().setVisible(false);
+        
+        //Modificando elementos gráficos del panel libro eliminar
+        vista.getBtnSiLibroE().setEnabled(false);
+        vista.getBtnEliminarLibroE().setEnabled(false);
+        vista.getBtnNoLibroE().setEnabled(false);
+        vista.getTxtUrlLibroE().setVisible(false);
+        vista.getTxtTamanoLibroE().setVisible(false);
+        vista.getComboFormatoLibroE().setVisible(false);
+        vista.getLblFormatoLibroE().setVisible(false);
+        vista.getLblUrlLibroE().setVisible(false);
+        vista.getLblTamanoLibroE().setVisible(false);
+        
         //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardLibro");
         
-        //Modificando elementos gráficos
+        //Modificando elementos gráficos del menú
         vista.getBtnLibros().setEnabled(false);
         vista.getBtnPrestamos().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);

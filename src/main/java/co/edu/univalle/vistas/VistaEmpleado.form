@@ -870,11 +870,18 @@
                                   <Font name="Segoe UI" size="14" style="0"/>
                                 </Property>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                                  <StringArray count="4">
-                                    <StringItem index="0" value="Item 1"/>
-                                    <StringItem index="1" value="Item 2"/>
-                                    <StringItem index="2" value="Item 3"/>
-                                    <StringItem index="3" value="Item 4"/>
+                                  <StringArray count="11">
+                                    <StringItem index="0" value="Administrador"/>
+                                    <StringItem index="1" value="Bibliotecologa"/>
+                                    <StringItem index="2" value="Asistente de biblioteca"/>
+                                    <StringItem index="3" value="Encargada de adquisiciones"/>
+                                    <StringItem index="4" value="Tecnico de catalogacion"/>
+                                    <StringItem index="5" value="Encargada de prestamo"/>
+                                    <StringItem index="6" value="Asistente de prestamo"/>
+                                    <StringItem index="7" value="Asistente de referencia"/>
+                                    <StringItem index="8" value="Encargado de conservacion"/>
+                                    <StringItem index="9" value="Asistente de conservacion"/>
+                                    <StringItem index="10" value="Encargado de sistemas"/>
                                   </StringArray>
                                 </Property>
                                 <Property name="enabled" type="boolean" value="false"/>
@@ -1111,126 +1118,8 @@
                     </Constraint>
                   </Constraints>
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblTamanoLibroA" max="32767" attributes="0"/>
-                                  <Component id="lblDigitalLibroA" max="32767" attributes="0"/>
-                                  <Component id="lblNombreLibroA" max="32767" attributes="0"/>
-                                  <Component id="lblIsbnLibroA" max="32767" attributes="0"/>
-                                  <Component id="lblAnoLibroA" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblEditorialLibroA" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="txtIsbnLibroA" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="lblPaginasLibroA" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroA" min="-2" pref="150" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtNombreLibroA" min="-2" pref="500" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtAnoLibroA" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Component id="comboEditorialLibroA" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="btnSiLibroA" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="btnNoLibroA" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="txtTamanoLibroA" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblIdiomaLibroA" max="32767" attributes="0"/>
-                                          <Component id="lblAreaLibroA" max="32767" attributes="0"/>
-                                          <Component id="lblUrlLibroA" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblFormatoLibroA" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="comboAreaLibroA" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtIdiomaLibroA" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtUrlLibroA" alignment="0" pref="150" max="32767" attributes="0"/>
-                                          <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnAgregarLibroA" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="330" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtNombreLibroA" max="32767" attributes="0"/>
-                                  <Component id="lblNombreLibroA" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblIsbnLibroA" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtIsbnLibroA" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroA" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblPaginasLibroA" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblAnoLibroA" alignment="1" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtIdiomaLibroA" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtAnoLibroA" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="lblIdiomaLibroA" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="comboAreaLibroA" pref="31" max="32767" attributes="0"/>
-                                  <Component id="lblEditorialLibroA" max="32767" attributes="0"/>
-                                  <Component id="lblAreaLibroA" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="comboEditorialLibroA" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnSiLibroA" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnNoLibroA" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblUrlLibroA" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtUrlLibroA" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblDigitalLibroA" min="-2" pref="31" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtTamanoLibroA" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="lblFormatoLibroA" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblTamanoLibroA" max="32767" attributes="0"/>
-                                  <Component id="jComboBox1" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="btnAgregarLibroA" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                    <Property name="useNullLayout" type="boolean" value="false"/>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="lblNombreLibroA">
@@ -1240,6 +1129,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="T&#xed;tulo:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="30" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNombreLibroA">
                       <Properties>
@@ -1247,6 +1141,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="190" y="30" width="550" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIsbnLibroA">
                       <Properties>
@@ -1255,13 +1154,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="ISBN:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="79" width="148" height="32"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtIsbnLibroA">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="80" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPaginasLibroA">
                       <Properties>
@@ -1270,6 +1180,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="P&#xe1;ginas:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="79" width="82" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPaginasLibroA">
                       <Properties>
@@ -1277,6 +1192,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="510" y="80" width="230" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAnoLibroA">
                       <Properties>
@@ -1285,6 +1205,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="A&#xf1;o publicaci&#xf3;n:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="129" width="-1" height="33"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtAnoLibroA">
                       <Properties>
@@ -1292,6 +1217,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="129" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIdiomaLibroA">
                       <Properties>
@@ -1300,13 +1230,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Idioma:"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtIdiomaLibroA">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="18" style="0"/>
-                        </Property>
-                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="133" width="82" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroA">
                       <Properties>
@@ -1315,6 +1243,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Editorial:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="180" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboEditorialLibroA">
                       <Properties>
@@ -1322,17 +1255,28 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="10">
+                            <StringItem index="0" value="ED001-McGraw-Hill"/>
+                            <StringItem index="1" value="ED002-Pearson Education"/>
+                            <StringItem index="2" value="ED003-Wiley"/>
+                            <StringItem index="3" value="ED004-Oxford University Press"/>
+                            <StringItem index="4" value="ED005-Cambridge University Press"/>
+                            <StringItem index="5" value="ED006-Springer"/>
+                            <StringItem index="6" value="ED007-Addison-Wesley"/>
+                            <StringItem index="7" value="ED008-Elsevier"/>
+                            <StringItem index="8" value="ED009-HarperCollins Publishers"/>
+                            <StringItem index="9" value="ED010-Cengage Learning"/>
                           </StringArray>
                         </Property>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="180" width="190" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAreaLibroA">
                       <Properties>
@@ -1341,6 +1285,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="&#xc1;rea:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="180" width="82" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboAreaLibroA">
                       <Properties>
@@ -1348,17 +1297,56 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="38">
+                            <StringItem index="0" value="AC001 - Matematicas"/>
+                            <StringItem index="1" value="AC002 - Fisica"/>
+                            <StringItem index="2" value="AC003 - Quimica"/>
+                            <StringItem index="3" value="AC004 - Biologia"/>
+                            <StringItem index="4" value="AC005 - Informatica"/>
+                            <StringItem index="5" value="AC006 - Ingenieria de Civil"/>
+                            <StringItem index="6" value="AC007 - Ingenieria Mecanica"/>
+                            <StringItem index="7" value="AC008 - Medicina"/>
+                            <StringItem index="8" value="AC009 - Psicologia"/>
+                            <StringItem index="9" value="AC010 - Filosofia"/>
+                            <StringItem index="10" value="AC011 - Algebra"/>
+                            <StringItem index="11" value="AC012 - Geometria"/>
+                            <StringItem index="12" value="AC013 - Calculo"/>
+                            <StringItem index="13" value="AC014 - Mecanica Clasica"/>
+                            <StringItem index="14" value="AC015 - Fisica Cuantica"/>
+                            <StringItem index="15" value="AC016 - Termodinamica"/>
+                            <StringItem index="16" value="AC017 - Quimica Organica"/>
+                            <StringItem index="17" value="AC018 - Quimica Inorganica"/>
+                            <StringItem index="18" value="AC019 - Algebra Lineal"/>
+                            <StringItem index="19" value="AC020 - Geometria Analitica"/>
+                            <StringItem index="20" value="AC021 - Calculo Vectorial"/>
+                            <StringItem index="21" value="AC022 - Fisica Nuclear"/>
+                            <StringItem index="22" value="AC023 - Fisica de Particulas"/>
+                            <StringItem index="23" value="AC024 - Mecanica de Fluidos"/>
+                            <StringItem index="24" value="AC025 - Electromagnetismo"/>
+                            <StringItem index="25" value="AC026 - Bioquimica"/>
+                            <StringItem index="26" value="AC027 - Quimica Analitica"/>
+                            <StringItem index="27" value="AC028 - Ingenieria Electrica"/>
+                            <StringItem index="28" value="AC029 - Ingenieria de Materiales"/>
+                            <StringItem index="29" value="AC030 - Neurociencia"/>
+                            <StringItem index="30" value="AC031 - Ciencias de la Computacion"/>
+                            <StringItem index="31" value="AC032 - Ingenieria de Software"/>
+                            <StringItem index="32" value="AC033 - Inteligencia Artificial"/>
+                            <StringItem index="33" value="AC034 - Redes y Comunicaciones"/>
+                            <StringItem index="34" value="AC035 - Sistemas Operativos"/>
+                            <StringItem index="35" value="AC036 - Literatura"/>
+                            <StringItem index="36" value="AC037 - Literatura Colombiana"/>
+                            <StringItem index="37" value="AC038 - Historia"/>
                           </StringArray>
                         </Property>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="510" y="180" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDigitalLibroA">
                       <Properties>
@@ -1367,6 +1355,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Digital:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="229" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSiLibroA">
                       <Properties>
@@ -1374,10 +1367,17 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Si"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnSiLibroA.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="190" y="230" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnNoLibroA">
                       <Properties>
@@ -1385,10 +1385,17 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnNoLibroA.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="306" y="230" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUrlLibroA">
                       <Properties>
@@ -1397,6 +1404,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="URL:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="233" width="82" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUrlLibroA">
                       <Properties>
@@ -1404,6 +1416,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="510" y="229" width="230" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTamanoLibroA">
                       <Properties>
@@ -1412,6 +1429,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Tama&#xf1;o:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="278" width="148" height="32"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTamanoLibroA">
                       <Properties>
@@ -1419,6 +1441,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="278" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblFormatoLibroA">
                       <Properties>
@@ -1427,24 +1454,32 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Formato:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="279" width="-1" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Component class="javax.swing.JComboBox" name="comboFormatoLibroA">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="2">
+                            <StringItem index="0" value="PDF"/>
+                            <StringItem index="1" value="EPUB"/>
                           </StringArray>
                         </Property>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="510" y="278" width="230" height="32"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnAgregarLibroA">
                       <Properties>
@@ -1452,10 +1487,41 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Agregar"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnAgregarLibroA.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="330" y="358" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboIdiomaLibroA">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="0"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="5">
+                            <StringItem index="0" value="Espa&#xf1;ol"/>
+                            <StringItem index="1" value="Ingl&#xe9;s"/>
+                            <StringItem index="2" value="Portugu&#xe9;s"/>
+                            <StringItem index="3" value="Alem&#xe1;n"/>
+                            <StringItem index="4" value="Chino mandar&#xed;n"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="510" y="131" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1468,142 +1534,8 @@
                     </Constraint>
                   </Constraints>
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblTamanoLibroM" max="32767" attributes="0"/>
-                                  <Component id="lblAnoLibroM" max="32767" attributes="0"/>
-                                  <Component id="lblTituloLibroM" max="32767" attributes="0"/>
-                                  <Component id="lblIsbnLibroM" max="32767" attributes="0"/>
-                                  <Component id="lblEditorialLibroM" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblDigitalLibroM" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtIsbnLibroM" max="32767" attributes="0"/>
-                                  <Component id="txtTituloLibroM" max="32767" attributes="0"/>
-                                  <Component id="txtAnoLibroM" max="32767" attributes="0"/>
-                                  <Component id="comboEditorialLibroM" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnSiLibroM" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnNoLibroM" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtTamanoLibroM" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblIdiomaLibroM" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtIdiomaLibroM" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblAreaLibroM" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="comboAreaLibroM" min="-2" pref="150" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="btnCheckLibroM" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblPaginasLibroM" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroM" min="-2" pref="150" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblUrlLibroM" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtUrlLibroM" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblFormatoLibroM" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="comboFormatoLibroM" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnModificarLibroM" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtIsbnLibroM" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="btnCheckLibroM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblIsbnLibroM" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPaginasLibroM" alignment="1" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblTituloLibroM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtTituloLibroM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtAnoLibroM" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="lblIdiomaLibroM" alignment="3" pref="31" max="32767" attributes="0"/>
-                                      <Component id="txtIdiomaLibroM" alignment="3" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblAnoLibroM" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblEditorialLibroM" pref="32" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblAreaLibroM" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="comboEditorialLibroM" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="comboAreaLibroM" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnSiLibroM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnNoLibroM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblDigitalLibroM" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblUrlLibroM" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="txtUrlLibroM" alignment="3" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblTamanoLibroM" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="comboFormatoLibroM" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="txtTamanoLibroM" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblFormatoLibroM" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace pref="48" max="32767" attributes="0"/>
-                                      <Component id="btnModificarLibroM" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                    <Property name="useNullLayout" type="boolean" value="false"/>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="lblIsbnLibroM">
@@ -1613,6 +1545,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="ISBN:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="30" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtIsbnLibroM">
                       <Properties>
@@ -1620,6 +1557,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="30" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckLibroM">
                       <Properties>
@@ -1627,10 +1569,17 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckLibroM.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="31" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTituloLibroM">
                       <Properties>
@@ -1639,13 +1588,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="T&#xed;tulo:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="83" width="148" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTituloLibroM">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="79" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPaginasLibroM">
                       <Properties>
@@ -1654,13 +1614,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="P&#xe1;ginas:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="79" width="90" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPaginasLibroM">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="79" width="230" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAnoLibroM">
                       <Properties>
@@ -1669,13 +1640,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="A&#xf1;o publicaci&#xf3;n:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="128" width="-1" height="33"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtAnoLibroM">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="128" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIdiomaLibroM">
                       <Properties>
@@ -1684,13 +1666,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Idioma:"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtIdiomaLibroM">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="18" style="0"/>
-                        </Property>
-                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="129" width="90" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroM">
                       <Properties>
@@ -1699,6 +1679,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Editorial:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="179" width="148" height="32"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboEditorialLibroM">
                       <Properties>
@@ -1706,17 +1691,29 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="10">
+                            <StringItem index="0" value="ED001-McGraw-Hill"/>
+                            <StringItem index="1" value="ED002-Pearson Education"/>
+                            <StringItem index="2" value="ED003-Wiley"/>
+                            <StringItem index="3" value="ED004-Oxford University Press"/>
+                            <StringItem index="4" value="ED005-Cambridge University Press"/>
+                            <StringItem index="5" value="ED006-Springer"/>
+                            <StringItem index="6" value="ED007-Addison-Wesley"/>
+                            <StringItem index="7" value="ED008-Elsevier"/>
+                            <StringItem index="8" value="ED009-HarperCollins Publishers"/>
+                            <StringItem index="9" value="ED010-Cengage Learning"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="180" width="190" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAreaLibroM">
                       <Properties>
@@ -1725,6 +1722,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Area:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="179" width="90" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboAreaLibroM">
                       <Properties>
@@ -1732,17 +1734,57 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="38">
+                            <StringItem index="0" value="AC001 - Matematicas"/>
+                            <StringItem index="1" value="AC002 - Fisica"/>
+                            <StringItem index="2" value="AC003 - Quimica"/>
+                            <StringItem index="3" value="AC004 - Biologia"/>
+                            <StringItem index="4" value="AC005 - Informatica"/>
+                            <StringItem index="5" value="AC006 - Ingenieria de Civil"/>
+                            <StringItem index="6" value="AC007 - Ingenieria Mecanica"/>
+                            <StringItem index="7" value="AC008 - Medicina"/>
+                            <StringItem index="8" value="AC009 - Psicologia"/>
+                            <StringItem index="9" value="AC010 - Filosofia"/>
+                            <StringItem index="10" value="AC011 - Algebra"/>
+                            <StringItem index="11" value="AC012 - Geometria"/>
+                            <StringItem index="12" value="AC013 - Calculo"/>
+                            <StringItem index="13" value="AC014 - Mecanica Clasica"/>
+                            <StringItem index="14" value="AC015 - Fisica Cuantica"/>
+                            <StringItem index="15" value="AC016 - Termodinamica"/>
+                            <StringItem index="16" value="AC017 - Quimica Organica"/>
+                            <StringItem index="17" value="AC018 - Quimica Inorganica"/>
+                            <StringItem index="18" value="AC019 - Algebra Lineal"/>
+                            <StringItem index="19" value="AC020 - Geometria Analitica"/>
+                            <StringItem index="20" value="AC021 - Calculo Vectorial"/>
+                            <StringItem index="21" value="AC022 - Fisica Nuclear"/>
+                            <StringItem index="22" value="AC023 - Fisica de Particulas"/>
+                            <StringItem index="23" value="AC024 - Mecanica de Fluidos"/>
+                            <StringItem index="24" value="AC025 - Electromagnetismo"/>
+                            <StringItem index="25" value="AC026 - Bioquimica"/>
+                            <StringItem index="26" value="AC027 - Quimica Analitica"/>
+                            <StringItem index="27" value="AC028 - Ingenieria Electrica"/>
+                            <StringItem index="28" value="AC029 - Ingenieria de Materiales"/>
+                            <StringItem index="29" value="AC030 - Neurociencia"/>
+                            <StringItem index="30" value="AC031 - Ciencias de la Computacion"/>
+                            <StringItem index="31" value="AC032 - Ingenieria de Software"/>
+                            <StringItem index="32" value="AC033 - Inteligencia Artificial"/>
+                            <StringItem index="33" value="AC034 - Redes y Comunicaciones"/>
+                            <StringItem index="34" value="AC035 - Sistemas Operativos"/>
+                            <StringItem index="35" value="AC036 - Literatura"/>
+                            <StringItem index="36" value="AC037 - Literatura Colombiana"/>
+                            <StringItem index="37" value="AC038 - Historia"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="180" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDigitalLibroM">
                       <Properties>
@@ -1751,6 +1793,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Digital:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="229" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSiLibroM">
                       <Properties>
@@ -1758,10 +1805,18 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Si"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnSiLibroM.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="190" y="230" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnNoLibroM">
                       <Properties>
@@ -1769,10 +1824,18 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnNoLibroM.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="306" y="229" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUrlLibroM">
                       <Properties>
@@ -1781,13 +1844,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="URL:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="233" width="150" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUrlLibroM">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="229" width="230" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTamanoLibroM">
                       <Properties>
@@ -1796,13 +1870,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Tama&#xf1;o:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="278" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTamanoLibroM">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="278" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblFormatoLibroM">
                       <Properties>
@@ -1811,6 +1896,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Formato:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="278" width="150" height="33"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboFormatoLibroM">
                       <Properties>
@@ -1818,17 +1908,21 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="2">
+                            <StringItem index="0" value="PDF"/>
+                            <StringItem index="1" value="EPUB"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="278" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnModificarLibroM">
                       <Properties>
@@ -1836,10 +1930,43 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Modificar"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnModificarLibroM.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="324" y="358" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboIdiomaLibroM">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="0"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="5">
+                            <StringItem index="0" value="Espa&#xf1;ol"/>
+                            <StringItem index="1" value="Ingl&#xe9;s"/>
+                            <StringItem index="2" value="Portugu&#xe9;s"/>
+                            <StringItem index="3" value="Alem&#xe1;n"/>
+                            <StringItem index="4" value="Chino mandar&#xed;n"/>
+                          </StringArray>
+                        </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="130" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1852,128 +1979,8 @@
                     </Constraint>
                   </Constraints>
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblTamanoLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblAnoLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblTituloLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblIsbnLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblEditorialLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblDigitalLibroC" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtIsbnLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtTituloLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtAnoLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboEditorialLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnSiLibroC" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnNoLibroC" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtTamanoLibroC" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblIdiomaLibroC" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtIdiomaLibroC" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblAreaLibroC" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="comboAreaLibroC" min="-2" pref="150" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="btnCheckLibroC" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblPaginasLibroC" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroC" min="-2" pref="150" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblUrlLibroC" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtUrlLibroC" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblFormatoLibroC" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="comboFormatoLibroC" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="txtIsbnLibroC" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="btnCheckLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblIsbnLibroC" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblTituloLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtTituloLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblPaginasLibroC" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="txtAnoLibroC" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="lblIdiomaLibroC" alignment="3" pref="31" max="32767" attributes="0"/>
-                                      <Component id="txtIdiomaLibroC" alignment="3" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblAnoLibroC" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblEditorialLibroC" alignment="0" pref="32" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="lblAreaLibroC" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="comboEditorialLibroC" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="comboAreaLibroC" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="btnSiLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnNoLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblDigitalLibroC" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="lblUrlLibroC" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="txtUrlLibroC" alignment="3" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblTamanoLibroC" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="comboFormatoLibroC" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtTamanoLibroC" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblFormatoLibroC" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="107" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                    <Property name="useNullLayout" type="boolean" value="false"/>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="lblIsbnLibroC">
@@ -1983,6 +1990,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="ISBN:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="30" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtIsbnLibroC">
                       <Properties>
@@ -1990,6 +2002,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="30" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckLibroC">
                       <Properties>
@@ -1997,10 +2014,17 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckLibroC.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="31" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTituloLibroC">
                       <Properties>
@@ -2009,6 +2033,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="T&#xed;tulo:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="83" width="148" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTituloLibroC">
                       <Properties>
@@ -2017,6 +2046,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="79" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPaginasLibroC">
                       <Properties>
@@ -2025,6 +2059,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="P&#xe1;ginas:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="79" width="150" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPaginasLibroC">
                       <Properties>
@@ -2033,6 +2072,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="79" width="230" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAnoLibroC">
                       <Properties>
@@ -2041,6 +2085,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="A&#xf1;o publicaci&#xf3;n:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="128" width="-1" height="33"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtAnoLibroC">
                       <Properties>
@@ -2049,6 +2098,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="128" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIdiomaLibroC">
                       <Properties>
@@ -2057,14 +2111,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Idioma:"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtIdiomaLibroC">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="18" style="0"/>
-                        </Property>
-                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="129" width="150" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroC">
                       <Properties>
@@ -2073,6 +2124,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Editorial:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="179" width="148" height="32"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboEditorialLibroC">
                       <Properties>
@@ -2080,17 +2136,29 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="10">
+                            <StringItem index="0" value="ED001-McGraw-Hill"/>
+                            <StringItem index="1" value="ED002-Pearson Education"/>
+                            <StringItem index="2" value="ED003-Wiley"/>
+                            <StringItem index="3" value="ED004-Oxford University Press"/>
+                            <StringItem index="4" value="ED005-Cambridge University Press"/>
+                            <StringItem index="5" value="ED006-Springer"/>
+                            <StringItem index="6" value="ED007-Addison-Wesley"/>
+                            <StringItem index="7" value="ED008-Elsevier"/>
+                            <StringItem index="8" value="ED009-HarperCollins Publishers"/>
+                            <StringItem index="9" value="ED010-Cengage Learning"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="180" width="190" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAreaLibroC">
                       <Properties>
@@ -2099,6 +2167,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Area:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="179" width="150" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboAreaLibroC">
                       <Properties>
@@ -2106,17 +2179,57 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="38">
+                            <StringItem index="0" value="AC001 - Matematicas"/>
+                            <StringItem index="1" value="AC002 - Fisica"/>
+                            <StringItem index="2" value="AC003 - Quimica"/>
+                            <StringItem index="3" value="AC004 - Biologia"/>
+                            <StringItem index="4" value="AC005 - Informatica"/>
+                            <StringItem index="5" value="AC006 - Ingenieria de Civil"/>
+                            <StringItem index="6" value="AC007 - Ingenieria Mecanica"/>
+                            <StringItem index="7" value="AC008 - Medicina"/>
+                            <StringItem index="8" value="AC009 - Psicologia"/>
+                            <StringItem index="9" value="AC010 - Filosofia"/>
+                            <StringItem index="10" value="AC011 - Algebra"/>
+                            <StringItem index="11" value="AC012 - Geometria"/>
+                            <StringItem index="12" value="AC013 - Calculo"/>
+                            <StringItem index="13" value="AC014 - Mecanica Clasica"/>
+                            <StringItem index="14" value="AC015 - Fisica Cuantica"/>
+                            <StringItem index="15" value="AC016 - Termodinamica"/>
+                            <StringItem index="16" value="AC017 - Quimica Organica"/>
+                            <StringItem index="17" value="AC018 - Quimica Inorganica"/>
+                            <StringItem index="18" value="AC019 - Algebra Lineal"/>
+                            <StringItem index="19" value="AC020 - Geometria Analitica"/>
+                            <StringItem index="20" value="AC021 - Calculo Vectorial"/>
+                            <StringItem index="21" value="AC022 - Fisica Nuclear"/>
+                            <StringItem index="22" value="AC023 - Fisica de Particulas"/>
+                            <StringItem index="23" value="AC024 - Mecanica de Fluidos"/>
+                            <StringItem index="24" value="AC025 - Electromagnetismo"/>
+                            <StringItem index="25" value="AC026 - Bioquimica"/>
+                            <StringItem index="26" value="AC027 - Quimica Analitica"/>
+                            <StringItem index="27" value="AC028 - Ingenieria Electrica"/>
+                            <StringItem index="28" value="AC029 - Ingenieria de Materiales"/>
+                            <StringItem index="29" value="AC030 - Neurociencia"/>
+                            <StringItem index="30" value="AC031 - Ciencias de la Computacion"/>
+                            <StringItem index="31" value="AC032 - Ingenieria de Software"/>
+                            <StringItem index="32" value="AC033 - Inteligencia Artificial"/>
+                            <StringItem index="33" value="AC034 - Redes y Comunicaciones"/>
+                            <StringItem index="34" value="AC035 - Sistemas Operativos"/>
+                            <StringItem index="35" value="AC036 - Literatura"/>
+                            <StringItem index="36" value="AC037 - Literatura Colombiana"/>
+                            <StringItem index="37" value="AC038 - Historia"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="180" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDigitalLibroC">
                       <Properties>
@@ -2125,6 +2238,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Digital:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="229" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSiLibroC">
                       <Properties>
@@ -2132,10 +2250,18 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Si"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnSiLibroC.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="190" y="230" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnNoLibroC">
                       <Properties>
@@ -2143,10 +2269,18 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnNoLibroC.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="306" y="229" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUrlLibroC">
                       <Properties>
@@ -2155,6 +2289,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="URL:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="233" width="150" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUrlLibroC">
                       <Properties>
@@ -2163,6 +2302,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="229" width="230" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTamanoLibroC">
                       <Properties>
@@ -2171,6 +2315,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Tama&#xf1;o:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="278" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTamanoLibroC">
                       <Properties>
@@ -2179,6 +2328,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="278" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblFormatoLibroC">
                       <Properties>
@@ -2187,6 +2341,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Formato:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="278" width="150" height="33"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboFormatoLibroC">
                       <Properties>
@@ -2194,17 +2353,46 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="2">
+                            <StringItem index="0" value="PDF"/>
+                            <StringItem index="1" value="EPUB"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="278" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboIdiomaLibroC">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="0"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="5">
+                            <StringItem index="0" value="Espa&#xf1;ol"/>
+                            <StringItem index="1" value="Ingl&#xe9;s"/>
+                            <StringItem index="2" value="Portugu&#xe9;s"/>
+                            <StringItem index="3" value="Alem&#xe1;n"/>
+                            <StringItem index="4" value="Chino mandar&#xed;n"/>
+                          </StringArray>
+                        </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="130" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2217,142 +2405,8 @@
                     </Constraint>
                   </Constraints>
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblTamanoLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblAnoLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblTituloLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblIsbnLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblEditorialLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblDigitalLibroE" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtIsbnLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtTituloLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtAnoLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboEditorialLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnSiLibroE" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnNoLibroE" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtTamanoLibroE" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblIdiomaLibroE" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtIdiomaLibroE" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblAreaLibroE" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="comboAreaLibroE" min="-2" pref="150" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="btnCheckLibroE" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblPaginasLibroE" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroE" min="-2" pref="150" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblUrlLibroE" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtUrlLibroE" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblFormatoLibroE" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="comboFormatoLibroE" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnEliminarLibroE" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="txtIsbnLibroE" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="btnCheckLibroE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblIsbnLibroE" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPaginasLibroE" alignment="1" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblTituloLibroE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtTituloLibroE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="txtAnoLibroE" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="lblIdiomaLibroE" alignment="3" pref="31" max="32767" attributes="0"/>
-                                      <Component id="txtIdiomaLibroE" alignment="3" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblAnoLibroE" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="lblEditorialLibroE" alignment="0" pref="32" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="lblAreaLibroE" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="comboEditorialLibroE" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="comboAreaLibroE" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="btnSiLibroE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnNoLibroE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="lblDigitalLibroE" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="lblUrlLibroE" alignment="3" max="32767" attributes="0"/>
-                                      <Component id="txtUrlLibroE" alignment="3" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblTamanoLibroE" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="comboFormatoLibroE" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="txtTamanoLibroE" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblFormatoLibroE" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace pref="48" max="32767" attributes="0"/>
-                                      <Component id="btnEliminarLibroE" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                    <Property name="useNullLayout" type="boolean" value="false"/>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="lblIsbnLibroE">
@@ -2362,6 +2416,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="ISBN:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="30" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtIsbnLibroE">
                       <Properties>
@@ -2369,6 +2428,11 @@
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="30" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCheckLibroE">
                       <Properties>
@@ -2376,10 +2440,17 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Check"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnCheckLibroE.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="31" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTituloLibroE">
                       <Properties>
@@ -2388,13 +2459,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="T&#xed;tulo:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="83" width="148" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTituloLibroE">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="79" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPaginasLibroE">
                       <Properties>
@@ -2403,13 +2485,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="P&#xe1;ginas:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="79" width="150" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPaginasLibroE">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="79" width="230" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAnoLibroE">
                       <Properties>
@@ -2418,13 +2511,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="A&#xf1;o publicaci&#xf3;n:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="128" width="-1" height="33"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtAnoLibroE">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="128" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblIdiomaLibroE">
                       <Properties>
@@ -2433,13 +2537,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Idioma:"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtIdiomaLibroE">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="18" style="0"/>
-                        </Property>
-                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="129" width="150" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroE">
                       <Properties>
@@ -2448,6 +2550,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Editorial:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="179" width="148" height="32"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboEditorialLibroE">
                       <Properties>
@@ -2455,17 +2562,29 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="10">
+                            <StringItem index="0" value="ED001-McGraw-Hill"/>
+                            <StringItem index="1" value="ED002-Pearson Education"/>
+                            <StringItem index="2" value="ED003-Wiley"/>
+                            <StringItem index="3" value="ED004-Oxford University Press"/>
+                            <StringItem index="4" value="ED005-Cambridge University Press"/>
+                            <StringItem index="5" value="ED006-Springer"/>
+                            <StringItem index="6" value="ED007-Addison-Wesley"/>
+                            <StringItem index="7" value="ED008-Elsevier"/>
+                            <StringItem index="8" value="ED009-HarperCollins Publishers"/>
+                            <StringItem index="9" value="ED010-Cengage Learning"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="180" width="190" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAreaLibroE">
                       <Properties>
@@ -2474,6 +2593,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Area:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="179" width="150" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboAreaLibroE">
                       <Properties>
@@ -2481,17 +2605,57 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="38">
+                            <StringItem index="0" value="AC001 - Matematicas"/>
+                            <StringItem index="1" value="AC002 - Fisica"/>
+                            <StringItem index="2" value="AC003 - Quimica"/>
+                            <StringItem index="3" value="AC004 - Biologia"/>
+                            <StringItem index="4" value="AC005 - Informatica"/>
+                            <StringItem index="5" value="AC006 - Ingenieria de Civil"/>
+                            <StringItem index="6" value="AC007 - Ingenieria Mecanica"/>
+                            <StringItem index="7" value="AC008 - Medicina"/>
+                            <StringItem index="8" value="AC009 - Psicologia"/>
+                            <StringItem index="9" value="AC010 - Filosofia"/>
+                            <StringItem index="10" value="AC011 - Algebra"/>
+                            <StringItem index="11" value="AC012 - Geometria"/>
+                            <StringItem index="12" value="AC013 - Calculo"/>
+                            <StringItem index="13" value="AC014 - Mecanica Clasica"/>
+                            <StringItem index="14" value="AC015 - Fisica Cuantica"/>
+                            <StringItem index="15" value="AC016 - Termodinamica"/>
+                            <StringItem index="16" value="AC017 - Quimica Organica"/>
+                            <StringItem index="17" value="AC018 - Quimica Inorganica"/>
+                            <StringItem index="18" value="AC019 - Algebra Lineal"/>
+                            <StringItem index="19" value="AC020 - Geometria Analitica"/>
+                            <StringItem index="20" value="AC021 - Calculo Vectorial"/>
+                            <StringItem index="21" value="AC022 - Fisica Nuclear"/>
+                            <StringItem index="22" value="AC023 - Fisica de Particulas"/>
+                            <StringItem index="23" value="AC024 - Mecanica de Fluidos"/>
+                            <StringItem index="24" value="AC025 - Electromagnetismo"/>
+                            <StringItem index="25" value="AC026 - Bioquimica"/>
+                            <StringItem index="26" value="AC027 - Quimica Analitica"/>
+                            <StringItem index="27" value="AC028 - Ingenieria Electrica"/>
+                            <StringItem index="28" value="AC029 - Ingenieria de Materiales"/>
+                            <StringItem index="29" value="AC030 - Neurociencia"/>
+                            <StringItem index="30" value="AC031 - Ciencias de la Computacion"/>
+                            <StringItem index="31" value="AC032 - Ingenieria de Software"/>
+                            <StringItem index="32" value="AC033 - Inteligencia Artificial"/>
+                            <StringItem index="33" value="AC034 - Redes y Comunicaciones"/>
+                            <StringItem index="34" value="AC035 - Sistemas Operativos"/>
+                            <StringItem index="35" value="AC036 - Literatura"/>
+                            <StringItem index="36" value="AC037 - Literatura Colombiana"/>
+                            <StringItem index="37" value="AC038 - Historia"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="180" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDigitalLibroE">
                       <Properties>
@@ -2500,6 +2664,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Digital:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="229" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSiLibroE">
                       <Properties>
@@ -2507,10 +2676,18 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Si"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnSiLibroE.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="190" y="230" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnNoLibroE">
                       <Properties>
@@ -2518,10 +2695,18 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnNoLibroE.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="306" y="229" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUrlLibroE">
                       <Properties>
@@ -2530,13 +2715,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="URL:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="233" width="150" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUrlLibroE">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="229" width="230" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblTamanoLibroE">
                       <Properties>
@@ -2545,13 +2741,24 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Tama&#xf1;o:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="20" y="278" width="148" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTamanoLibroE">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="188" y="278" width="190" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblFormatoLibroE">
                       <Properties>
@@ -2560,6 +2767,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Formato:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="410" y="278" width="150" height="33"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="comboFormatoLibroE">
                       <Properties>
@@ -2567,17 +2779,21 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="2">
+                            <StringItem index="0" value="PDF"/>
+                            <StringItem index="1" value="EPUB"/>
                           </StringArray>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="278" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnEliminarLibroE">
                       <Properties>
@@ -2585,10 +2801,43 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Eliminar"/>
+                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="focusPainted" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnEliminarLibroE.setBackground(Color.WHITE);"/>
                       </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="327" y="358" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboIdiomaLibroE">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="0"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="5">
+                            <StringItem index="0" value="Espa&#xf1;ol"/>
+                            <StringItem index="1" value="Ingl&#xe9;s"/>
+                            <StringItem index="2" value="Portugu&#xe9;s"/>
+                            <StringItem index="3" value="Alem&#xe1;n"/>
+                            <StringItem index="4" value="Chino mandar&#xed;n"/>
+                          </StringArray>
+                        </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="508" y="130" width="230" height="31"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                   </SubComponents>
                 </Container>
