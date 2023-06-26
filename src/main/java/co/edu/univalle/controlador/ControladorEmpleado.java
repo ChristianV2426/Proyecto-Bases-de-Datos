@@ -145,6 +145,7 @@ public class ControladorEmpleado {
         String[] cabeceraLibros = vista.getCabeceraConsultarLibros();
         String[][] todosLosLibros = biblioteca.getLibros().obtenerTodosLosElementos();
         vista.getTablaTodosLosLibros().setModel(asignarModelo(todosLosLibros,cabeceraLibros));
+        vista.getPanelLibro().removeTabAt(3);
         
         //Modificando elementos gráficos del panel libro añadir
         vista.getBtnSiLibroA().setEnabled(true);
@@ -185,7 +186,7 @@ public class ControladorEmpleado {
         
         //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardPrestamo");
-        
+        vista.getPanelPrestamo().removeTabAt(1);
         //Modificando elementos gráficos
         vista.getBtnPrestamos().setEnabled(false);
         vista.getBtnLibros().setEnabled(true);
