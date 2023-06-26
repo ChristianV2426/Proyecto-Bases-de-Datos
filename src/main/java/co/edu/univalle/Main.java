@@ -30,8 +30,7 @@ public class Main {
         Connection conexionBD = fachadaBD.getConexionBD();
         Biblioteca biblioteca = new Biblioteca(conexionBD);
 
-        VistaLogin vistaLoginUsuario = new VistaLogin("Login", biblioteca);
-        VistaLogin vistaLoginEmpleado = new VistaLogin("Login", biblioteca);
+        VistaLogin vistaLogin = new VistaLogin("Login", biblioteca);
         
     }
 }
