@@ -41,11 +41,11 @@ public class DaoContrasenaEmpleado implements DaoGeneral<ContrasenaEmpleado> {
 
   @Override
   public boolean editarElemento(ContrasenaEmpleado contrasena) {
-  String sentenciaUpdate = 
-    "UPDATE contrasena_empleado SET contrasena='" + contrasena.getContrasena() +
-    "' WHERE id_empleado='" + contrasena.getIdEmpleado() + "';";
+    String sentenciaUpdate = 
+      "UPDATE contrasena_empleado SET contrasena='" + contrasena.getContrasena() +
+      "' WHERE id_empleado='" + contrasena.getIdEmpleado() + "';";
 
-  return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
+    return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
 
   @Override

@@ -122,6 +122,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnEliminarManejoE.addMouseListener(listeners);
         btnEmpleadoManejoC.addMouseListener(listeners);
         btnEmpleadosManejoC.addMouseListener(listeners);
+        btnModificarManejoM.addMouseListener(listeners);
+        checkPasswordManejoA.addMouseListener(listeners);
+        checkPasswordManejoM.addMouseListener(listeners);
     }
     
     public void addListenersPrestamos(MouseListener listeners){
@@ -636,6 +639,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         panelManejo.setFocusable(false);
         panelManejo.setRequestFocusEnabled(false);
 
+        txtIdManejoA.setEditable(false);
         txtIdManejoA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblIdManejoA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -3671,6 +3675,10 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
     public JTable getTablaPrestamoE() {
         return tablaPrestamoE;
+    }
+
+    public JPanel getSubPanelManejoConsultar() {
+        return subPanelManejoConsultar;
     }
 
     public JTable getTablaPrestamoM() {
