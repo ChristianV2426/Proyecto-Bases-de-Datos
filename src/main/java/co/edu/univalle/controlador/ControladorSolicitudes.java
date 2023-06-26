@@ -175,5 +175,6 @@ public class ControladorSolicitudes {
         if(empleado.getEsAdministrador() == true)
             vista.getBtnManejoPersonal().setEnabled(true);
         vista.getTxtIsbnEjemplarA().setText(ISBN);
+        controladorEmpleado.getControladorEjemplar().provieneDeSolicitud();
     }
 }

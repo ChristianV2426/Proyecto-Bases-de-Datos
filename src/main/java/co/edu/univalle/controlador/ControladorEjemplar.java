@@ -35,7 +35,7 @@ public class ControladorEjemplar {
     private Boolean swicheCheckA = false;
     private Boolean swicheCheckM = false;
     private Boolean swicheCheckE = false;
-
+    private Boolean solicitud = false;
     public ControladorEjemplar(VistaEmpleado vista, Biblioteca biblioteca, Empleado empleado, ControladorEmpleado controladorEmpleado) {
         this.vista = vista;
         this.biblioteca = biblioteca;
@@ -107,7 +107,6 @@ public class ControladorEjemplar {
                             UIManager.getIcon("OptionPane.errorIcon"));
                 return;
             }
-            
             vista.getBtnCheckEjemplarA().setText("Cancelar");
             vista.getTxtIsbnEjemplarA().setEnabled(false);
             swicheCheckA = true;
@@ -170,6 +169,14 @@ public class ControladorEjemplar {
                     UIManager.getIcon("OptionPane.informationIcon"));
         vista.getBtnCheckEjemplarA().setText("Check");
         vista.getTxtIsbnEjemplarA().setEnabled(true);
+        
+        if(solicitud){
+            vista.getCardLayout().show(vista.getPanelPrincipal(), "cardSolicitud");
+            solicitud = false;
+            vista.getBtnSolicitudes().setEnabled(false);
+            vista.getBtnEjemplar().setEnabled(true);
+        }
+        
         swicheCheckA = false;
         vista.getTxtNumeroEjemplarA().setText("");
         vista.getTxtEstanteEjemplarA().setText("");
@@ -222,6 +229,7 @@ public class ControladorEjemplar {
                         "<html><p style = \" font:12px; \">El ISBN ingresado corresponde a: " + libro.getTitulo() + ".</p></html>", 
                         "Información", JOptionPane.OK_OPTION, 
                         UIManager.getIcon("OptionPane.informationIcon"));
+            vista.getTxtEstanteEjemplarM().setEnabled(true);
             vista.getTxtEstanteEjemplarM().setText(ejemplar.getEstante());
             vista.getTxtCajonEjemplarM().setText(ejemplar.getNumCajon());
             vista.getTxtPasilloEjemplarM().setText(ejemplar.getNumPasillo());
@@ -441,5 +449,9 @@ public class ControladorEjemplar {
         vista.getTxtCajonEjemplarE().setText("");
         vista.getTxtPasilloEjemplarE().setText("");
         vista.getTxtSalaEjemplarE().setText("");
+    }
+    
+    public void provieneDeSolicitud(){
+        solicitud = true;
     }
 }

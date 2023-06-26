@@ -650,7 +650,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         panelManejo.setFocusable(false);
         panelManejo.setRequestFocusEnabled(false);
 
-        txtIdManejoA.setEditable(false);
         txtIdManejoA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblIdManejoA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -2253,6 +2252,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblNumeroEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblNumeroEjemplarA.setText("Número de ejemplar:");
 
+        txtNumeroEjemplarA.setEditable(false);
         txtNumeroEjemplarA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblEstanteEjemplarA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -2363,21 +2363,25 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblEstanteEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEstanteEjemplarM.setText("Estante:");
 
+        txtEstanteEjemplarM.setEditable(false);
         txtEstanteEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblCajonEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblCajonEjemplarM.setText("Número de cajón:");
 
+        txtCajonEjemplarM.setEditable(false);
         txtCajonEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblPasilloEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblPasilloEjemplarM.setText("Número de pasillo:");
 
+        txtPasilloEjemplarM.setEditable(false);
         txtPasilloEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblSalaEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblSalaEjemplarM.setText("Número de sala:");
 
+        txtSalaEjemplarM.setEditable(false);
         txtSalaEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         btnModificarEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N

@@ -28,13 +28,13 @@ public class ControladorEmpleado {
     private Biblioteca biblioteca;
     private VistaEmpleado vista;
     private Empleado empleado;
-
+    private ControladorSolicitudes controladorSolicitudes;
+    private ControladorEjemplar controladorEjemplar;
     public ControladorEmpleado(VistaEmpleado vista, Biblioteca biblioteca, Empleado empleado) {
         this.biblioteca = biblioteca;
         this.vista = vista;
         this.empleado = empleado;
         vista.addListeners(new ManejadoraDeMouse());
-        
         //Listener para close
         vista.addWindowListener(new java.awt.event.WindowAdapter(){
             public void windowClosing(java.awt.event.WindowEvent windowEvent){
@@ -46,8 +46,8 @@ public class ControladorEmpleado {
         ControladorLibros controladorLibros = new ControladorLibros(vista, biblioteca, empleado,this);
         ControladorPrestamos controladorPrestamos = new ControladorPrestamos(vista, biblioteca, empleado,this);
         ControladorMultas controladorMultas = new ControladorMultas(vista, biblioteca, empleado,this);
-        ControladorSolicitudes controladorSolicitudes = new ControladorSolicitudes(vista, biblioteca, empleado,this);
-        ControladorEjemplar controladorEjemplar = new ControladorEjemplar(vista, biblioteca, empleado,this);
+        controladorSolicitudes = new ControladorSolicitudes(vista, biblioteca, empleado,this);
+        controladorEjemplar = new ControladorEjemplar(vista, biblioteca, empleado,this);
         if (empleado.getEsAdministrador() == true){
             ControladorManejoPersonal controladorManejoPersonal = new ControladorManejoPersonal(vista, biblioteca, empleado,this);
         }
@@ -319,5 +319,9 @@ public class ControladorEmpleado {
                 }
             }
         });
+    }
+
+    public ControladorEjemplar getControladorEjemplar() {
+        return controladorEjemplar;
     }
 }

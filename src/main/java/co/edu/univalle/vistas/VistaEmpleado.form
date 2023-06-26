@@ -4361,6 +4361,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNumeroEjemplarA">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
@@ -4578,6 +4579,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEstanteEjemplarM">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
@@ -4593,6 +4595,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCajonEjemplarM">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
@@ -4608,6 +4611,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPasilloEjemplarM">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
@@ -4623,6 +4627,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSalaEjemplarM">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
