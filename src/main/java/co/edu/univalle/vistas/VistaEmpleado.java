@@ -162,6 +162,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnCheckEjemplarA.addMouseListener(listeners);
         btnCheckEjemplarC.addMouseListener(listeners);
         btnCheckEjemplarE.addMouseListener(listeners);
+        btnModificarEjemplarM.addMouseListener(listeners);
         btnCheckEjemplarM.addMouseListener(listeners);
         btnEliminarEjemplarE.addMouseListener(listeners);
     }
@@ -2696,7 +2697,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblNumeroEjemplarC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblNumeroEjemplarC.setText("Número de ejemplar:");
 
-        txtNumeroEjemplarC.setEditable(false);
         txtNumeroEjemplarC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblEstanteEjemplarC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -2801,21 +2801,25 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblEstanteEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEstanteEjemplarE.setText("Estante:");
 
+        txtEstanteEjemplarE.setEditable(false);
         txtEstanteEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblCajonEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblCajonEjemplarE.setText("Número de cajón:");
 
+        txtCajonEjemplarE.setEditable(false);
         txtCajonEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblPasilloEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblPasilloEjemplarE.setText("Número de pasillo:");
 
+        txtPasilloEjemplarE.setEditable(false);
         txtPasilloEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblSalaEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblSalaEjemplarE.setText("Número de sala:");
 
+        txtSalaEjemplarE.setEditable(false);
         txtSalaEjemplarE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         btnEliminarEjemplarE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
