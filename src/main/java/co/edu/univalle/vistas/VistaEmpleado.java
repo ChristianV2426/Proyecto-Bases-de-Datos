@@ -2664,6 +2664,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JPanel getPanelLibroEliminar() {
+        return panelLibroEliminar;
+    }
+
+    
     public JScrollPane getScrollAreaSolicitud() {
         return scrollAreaSolicitud;
     }
