@@ -38,17 +38,18 @@ public class ControladorMultas {
         this.biblioteca = biblioteca;
         this.empleado = empleado;
         this.controladorEmpleado = controladorEmpleado;
+        alinear.setHorizontalAlignment(SwingConstants.CENTER);
 
         vista.addListenersMultas(new ManejadoraDeMouse());
 
-        vista.getBtnMultasUsuarioU().setEnabled(false);
         vista.getTxtIdMultas().setText("");
         vista.getTxtFechaMultas().setText(LocalDate.now().toString());
+
+        vista.getBtnMultasUsuarioU().setEnabled(false);
         vista.getTxtFechaMultas().setEditable(false);
 
         vista.disenoTabla(vista.getTableMultasU(), vista.getScrollMultasU());
         vista.getTableMultasU().setModel(ControladorEmpleado.asignarModelo(null, vista.getCabeceraMultas()));
-        alinear.setHorizontalAlignment(SwingConstants.CENTER);
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
@@ -108,7 +109,6 @@ public class ControladorMultas {
         vista.getBtnMultasTodasU().setEnabled(true);
         vista.getTxtIdMultas().setText("");
 
-        vista.disenoTabla(vista.getTableMultasU(), vista.getScrollMultasU());
         vista.getTableMultasU().setModel(ControladorEmpleado.asignarModelo(null, vista.getCabeceraMultas()));  
     }
 

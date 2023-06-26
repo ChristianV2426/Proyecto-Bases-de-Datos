@@ -2959,6 +2959,10 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
     public String[] getCabeceraConsultarPrestamo() {
         return cabeceraConsultarPrestamo;
+    }  
+
+    public String[] getCabeceraPrestamo() {
+        return cabeceraPrestamo;
     }
 
     public String[] getCabeceraDescargas() {

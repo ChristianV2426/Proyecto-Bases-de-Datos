@@ -113,6 +113,22 @@ public class DaoEjemplar implements DaoGeneral<Ejemplar> {
     }
   }
 
+  public int ejemplaresEnTotal(String isbnLibro) {
+    String setenciaSelect = "SELECT COUNT(codigo_ejemplar) FROM ejemplar WHERE ISBN='" + isbnLibro + "';";
+
+    try{
+      Statement sentenciaSQL = conexionBD.createStatement();
+      ResultSet resultado = sentenciaSQL.executeQuery(setenciaSelect);
+
+      resultado.next();
+      return resultado.getInt(1);
+
+    } catch (Exception error) {
+      System.out.println("No se pudo ejecutar la sentencia SELECT para comprobar el número de ejemplares del libro con ISBN: " + isbnLibro + " en la Base de Datos.\nError: " + error.getMessage());
+      return -1;
+    }
+  }
+
   public ArrayList<String> ejemplaresDisponibles(String isbnLibro) {
     ArrayList<String> ejemplaresDisponibles = new ArrayList<String>();
 
