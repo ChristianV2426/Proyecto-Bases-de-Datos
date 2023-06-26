@@ -29,6 +29,6 @@ public class App {
         Connection conexionBD = fachadaBD.getConexionBD();
         Biblioteca biblioteca = new Biblioteca(conexionBD);
         //VistaLogin vistaLogin = new VistaLogin("Login", biblioteca);
-        VistaEmpleado vistaEmpleado = new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento("EM001"));
+        VistaEmpleado vistaEmpleado = new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento("EM000"));
     }
 }

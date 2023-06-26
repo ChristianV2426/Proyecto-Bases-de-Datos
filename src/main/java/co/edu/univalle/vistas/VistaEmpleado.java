@@ -242,7 +242,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblAnoLibroA = new javax.swing.JLabel();
         txtAnoLibroA = new javax.swing.JTextField();
         lblIdiomaLibroA = new javax.swing.JLabel();
-        txtIdiomaLibroA = new javax.swing.JTextField();
         lblEditorialLibroA = new javax.swing.JLabel();
         comboEditorialLibroA = new javax.swing.JComboBox<>();
         lblAreaLibroA = new javax.swing.JLabel();
@@ -255,8 +254,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblTamanoLibroA = new javax.swing.JLabel();
         txtTamanoLibroA = new javax.swing.JTextField();
         lblFormatoLibroA = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboFormatoLibroA = new javax.swing.JComboBox<>();
         btnAgregarLibroA = new javax.swing.JButton();
+        comboIdiomaLibroA = new javax.swing.JComboBox<>();
         panelLibroModificar = new javax.swing.JPanel();
         lblIsbnLibroM = new javax.swing.JLabel();
         txtIsbnLibroM = new javax.swing.JTextField();
@@ -268,7 +268,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblAnoLibroM = new javax.swing.JLabel();
         txtAnoLibroM = new javax.swing.JTextField();
         lblIdiomaLibroM = new javax.swing.JLabel();
-        txtIdiomaLibroM = new javax.swing.JTextField();
         lblEditorialLibroM = new javax.swing.JLabel();
         comboEditorialLibroM = new javax.swing.JComboBox<>();
         lblAreaLibroM = new javax.swing.JLabel();
@@ -283,6 +282,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblFormatoLibroM = new javax.swing.JLabel();
         comboFormatoLibroM = new javax.swing.JComboBox<>();
         btnModificarLibroM = new javax.swing.JButton();
+        comboIdiomaLibroM = new javax.swing.JComboBox<>();
         panelLibroConsultar = new javax.swing.JPanel();
         lblIsbnLibroC = new javax.swing.JLabel();
         txtIsbnLibroC = new javax.swing.JTextField();
@@ -294,7 +294,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblAnoLibroC = new javax.swing.JLabel();
         txtAnoLibroC = new javax.swing.JTextField();
         lblIdiomaLibroC = new javax.swing.JLabel();
-        txtIdiomaLibroC = new javax.swing.JTextField();
         lblEditorialLibroC = new javax.swing.JLabel();
         comboEditorialLibroC = new javax.swing.JComboBox<>();
         lblAreaLibroC = new javax.swing.JLabel();
@@ -308,6 +307,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         txtTamanoLibroC = new javax.swing.JTextField();
         lblFormatoLibroC = new javax.swing.JLabel();
         comboFormatoLibroC = new javax.swing.JComboBox<>();
+        comboIdiomaLibroC = new javax.swing.JComboBox<>();
         panelLibroEliminar = new javax.swing.JPanel();
         lblIsbnLibroE = new javax.swing.JLabel();
         txtIsbnLibroE = new javax.swing.JTextField();
@@ -319,7 +319,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblAnoLibroE = new javax.swing.JLabel();
         txtAnoLibroE = new javax.swing.JTextField();
         lblIdiomaLibroE = new javax.swing.JLabel();
-        txtIdiomaLibroE = new javax.swing.JTextField();
         lblEditorialLibroE = new javax.swing.JLabel();
         comboEditorialLibroE = new javax.swing.JComboBox<>();
         lblAreaLibroE = new javax.swing.JLabel();
@@ -334,6 +333,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblFormatoLibroE = new javax.swing.JLabel();
         comboFormatoLibroE = new javax.swing.JComboBox<>();
         btnEliminarLibroE = new javax.swing.JButton();
+        comboIdiomaLibroE = new javax.swing.JComboBox<>();
         panelTodosLosLibros = new javax.swing.JPanel();
         panelTablaTodosLosLibros = new javax.swing.JPanel();
         scrollTodosLosLibros = new javax.swing.JScrollPane();
@@ -1053,8 +1053,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblIdiomaLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdiomaLibroA.setText("Idioma:");
 
-        txtIdiomaLibroA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
         lblEditorialLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEditorialLibroA.setText("Editorial:");
 
@@ -1065,7 +1063,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblAreaLibroA.setText("Área:");
 
         comboAreaLibroA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        comboAreaLibroA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboAreaLibroA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC001 - Matematicas", "AC002 - Fisica", "AC003 - Quimica", "AC004 - Biologia", "AC005 - Informatica", "AC006 - Ingenieria de Civil", "AC007 - Ingenieria Mecanica", "AC008 - Medicina", "AC009 - Psicologia", "AC010 - Filosofia", "AC011 - Algebra", "AC012 - Geometria", "AC013 - Calculo", "AC014 - Mecanica Clasica", "AC015 - Fisica Cuantica", "AC016 - Termodinamica", "AC017 - Quimica Organica", "AC018 - Quimica Inorganica", "AC019 - Algebra Lineal", "AC020 - Geometria Analitica", "AC021 - Calculo Vectorial", "AC022 - Fisica Nuclear", "AC023 - Fisica de Particulas", "AC024 - Mecanica de Fluidos", "AC025 - Electromagnetismo", "AC026 - Bioquimica", "AC027 - Quimica Analitica", "AC028 - Ingenieria Electrica", "AC029 - Ingenieria de Materiales", "AC030 - Neurociencia", "AC031 - Ciencias de la Computacion", "AC032 - Ingenieria de Software", "AC033 - Inteligencia Artificial", "AC034 - Redes y Comunicaciones", "AC035 - Sistemas Operativos", "AC036 - Literatura", "AC037 - Literatura Colombiana", "AC038 - Historia" }));
 
         lblDigitalLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblDigitalLibroA.setText("Digital:");
@@ -1089,11 +1087,14 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblFormatoLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblFormatoLibroA.setText("Formato:");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboFormatoLibroA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboFormatoLibroA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnAgregarLibroA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnAgregarLibroA.setText("Agregar");
+
+        comboIdiomaLibroA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboIdiomaLibroA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout panelLibroAnadirLayout = new javax.swing.GroupLayout(panelLibroAnadir);
         panelLibroAnadir.setLayout(panelLibroAnadirLayout);
@@ -1111,13 +1112,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelLibroAnadirLayout.createSequentialGroup()
-                        .addComponent(txtIsbnLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPaginasLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPaginasLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNombreLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelLibroAnadirLayout.createSequentialGroup()
                         .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtAnoLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboEditorialLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1125,20 +1119,24 @@ public class VistaEmpleado extends javax.swing.JFrame {
                                 .addComponent(btnSiLibroA)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnNoLibroA))
-                            .addComponent(txtTamanoLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTamanoLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIsbnLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(32, 32, 32)
-                        .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblPaginasLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblIdiomaLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblAreaLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblUrlLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblFormatoLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comboAreaLibroA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtIdiomaLibroA)
-                            .addComponent(txtUrlLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(comboAreaLibroA, javax.swing.GroupLayout.Alignment.LEADING, 0, 230, Short.MAX_VALUE)
+                            .addComponent(txtUrlLibroA, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboFormatoLibroA, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboIdiomaLibroA, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPaginasLibroA)))
+                    .addComponent(txtNombreLibroA))
+                .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroAnadirLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAgregarLibroA)
@@ -1152,21 +1150,19 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addComponent(txtNombreLibroA)
                     .addComponent(lblNombreLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblIsbnLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblIsbnLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtIsbnLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPaginasLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelLibroAnadirLayout.createSequentialGroup()
                         .addComponent(lblPaginasLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)))
+                        .addComponent(txtPaginasLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAnoLibroA, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtIdiomaLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtAnoLibroA)
-                        .addComponent(lblIdiomaLibroA)))
+                        .addComponent(lblIdiomaLibroA)
+                        .addComponent(comboIdiomaLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroAnadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(comboAreaLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
@@ -1187,7 +1183,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(txtTamanoLibroA)
                         .addComponent(lblFormatoLibroA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblTamanoLibroA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1))
+                    .addComponent(comboFormatoLibroA))
                 .addGap(48, 48, 48)
                 .addComponent(btnAgregarLibroA)
                 .addGap(150, 150, 150))
@@ -1224,8 +1220,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
         lblIdiomaLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdiomaLibroM.setText("Idioma:");
-
-        txtIdiomaLibroM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblEditorialLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEditorialLibroM.setText("Editorial:");
@@ -1267,6 +1261,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnModificarLibroM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnModificarLibroM.setText("Modificar");
 
+        comboIdiomaLibroM.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboIdiomaLibroM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout panelLibroModificarLayout = new javax.swing.GroupLayout(panelLibroModificar);
         panelLibroModificar.setLayout(panelLibroModificarLayout);
         panelLibroModificarLayout.setHorizontalGroup(
@@ -1296,7 +1293,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addGroup(panelLibroModificarLayout.createSequentialGroup()
                         .addComponent(lblIdiomaLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtIdiomaLibroM))
+                        .addComponent(comboIdiomaLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelLibroModificarLayout.createSequentialGroup()
                         .addComponent(lblAreaLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1314,7 +1311,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(lblFormatoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(comboFormatoLibroM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroModificarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnModificarLibroM)
@@ -1341,7 +1338,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtAnoLibroM)
                         .addComponent(lblIdiomaLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                        .addComponent(txtIdiomaLibroM))
+                        .addComponent(comboIdiomaLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblAnoLibroM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1370,7 +1367,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                             .addGroup(panelLibroModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtTamanoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblFormatoLibroM, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addComponent(btnModificarLibroM)
                         .addGap(29, 29, 29))))
         );
@@ -1411,9 +1408,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblIdiomaLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdiomaLibroC.setText("Idioma:");
 
-        txtIdiomaLibroC.setEditable(false);
-        txtIdiomaLibroC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
         lblEditorialLibroC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEditorialLibroC.setText("Editorial:");
 
@@ -1453,6 +1447,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
         comboFormatoLibroC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         comboFormatoLibroC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        comboIdiomaLibroC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboIdiomaLibroC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout panelLibroConsultarLayout = new javax.swing.GroupLayout(panelLibroConsultar);
         panelLibroConsultar.setLayout(panelLibroConsultarLayout);
         panelLibroConsultarLayout.setHorizontalGroup(
@@ -1482,7 +1479,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addGroup(panelLibroConsultarLayout.createSequentialGroup()
                         .addComponent(lblIdiomaLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtIdiomaLibroC))
+                        .addComponent(comboIdiomaLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelLibroConsultarLayout.createSequentialGroup()
                         .addComponent(lblAreaLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1500,7 +1497,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(lblFormatoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(comboFormatoLibroC, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         panelLibroConsultarLayout.setVerticalGroup(
             panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1523,7 +1520,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtAnoLibroC)
                         .addComponent(lblIdiomaLibroC, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                        .addComponent(txtIdiomaLibroC))
+                        .addComponent(comboIdiomaLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblAnoLibroC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1548,7 +1545,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addGroup(panelLibroConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtTamanoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblFormatoLibroC, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         btnCheckLibroC.setBackground(Color.WHITE);
@@ -1582,8 +1579,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
         lblIdiomaLibroE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblIdiomaLibroE.setText("Idioma:");
-
-        txtIdiomaLibroE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblEditorialLibroE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEditorialLibroE.setText("Editorial:");
@@ -1625,6 +1620,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnEliminarLibroE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnEliminarLibroE.setText("Eliminar");
 
+        comboIdiomaLibroE.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        comboIdiomaLibroE.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout panelLibroEliminarLayout = new javax.swing.GroupLayout(panelLibroEliminar);
         panelLibroEliminar.setLayout(panelLibroEliminarLayout);
         panelLibroEliminarLayout.setHorizontalGroup(
@@ -1654,7 +1652,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addGroup(panelLibroEliminarLayout.createSequentialGroup()
                         .addComponent(lblIdiomaLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtIdiomaLibroE))
+                        .addComponent(comboIdiomaLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelLibroEliminarLayout.createSequentialGroup()
                         .addComponent(lblAreaLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1672,7 +1670,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                         .addComponent(lblFormatoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(comboFormatoLibroE, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLibroEliminarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEliminarLibroE)
@@ -1699,7 +1697,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                     .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtAnoLibroE)
                         .addComponent(lblIdiomaLibroE, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                        .addComponent(txtIdiomaLibroE))
+                        .addComponent(comboIdiomaLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblAnoLibroE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1728,7 +1726,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
                             .addGroup(panelLibroEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtTamanoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblFormatoLibroE, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addComponent(btnEliminarLibroE)
                         .addGap(29, 29, 29))))
         );
@@ -3228,20 +3226,24 @@ public class VistaEmpleado extends javax.swing.JFrame {
         return txtIdMultas;
     }
 
-    public JTextField getTxtIdiomaLibroA() {
-        return txtIdiomaLibroA;
+    public JComboBox<String> getComboIdiomaLibroA() {
+        return comboIdiomaLibroA;
     }
 
-    public JTextField getTxtIdiomaLibroC() {
-        return txtIdiomaLibroC;
+    public JComboBox<String> getComboIdiomaLibroC() {
+        return comboIdiomaLibroC;
     }
 
-    public JTextField getTxtIdiomaLibroE() {
-        return txtIdiomaLibroE;
+    public JComboBox<String> getComboIdiomaLibroE() {
+        return comboIdiomaLibroE;
     }
 
-    public JTextField getTxtIdiomaLibroM() {
-        return txtIdiomaLibroM;
+    public JComboBox<String> getComboIdiomaLibroM() {
+        return comboIdiomaLibroM;
+    }
+
+    public JComboBox<String> getComboFormatoLibroA() {
+        return comboFormatoLibroA;
     }
 
     public JTextField getTxtIsbnEjemplarA() {
@@ -3755,10 +3757,14 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboEditorialLibroM;
     private javax.swing.JComboBox<String> comboEjemplarPrestamoA;
     private javax.swing.JComboBox<String> comboEjemplarPrestamoM;
+    private javax.swing.JComboBox<String> comboFormatoLibroA;
     private javax.swing.JComboBox<String> comboFormatoLibroC;
     private javax.swing.JComboBox<String> comboFormatoLibroE;
     private javax.swing.JComboBox<String> comboFormatoLibroM;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> comboIdiomaLibroA;
+    private javax.swing.JComboBox<String> comboIdiomaLibroC;
+    private javax.swing.JComboBox<String> comboIdiomaLibroE;
+    private javax.swing.JComboBox<String> comboIdiomaLibroM;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblAnoLibroA;
     private javax.swing.JLabel lblAnoLibroC;
@@ -3937,10 +3943,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdManejoE;
     private javax.swing.JTextField txtIdManejoM;
     private javax.swing.JTextField txtIdMultas;
-    private javax.swing.JTextField txtIdiomaLibroA;
-    private javax.swing.JTextField txtIdiomaLibroC;
-    private javax.swing.JTextField txtIdiomaLibroE;
-    private javax.swing.JTextField txtIdiomaLibroM;
     private javax.swing.JTextField txtIsbnEjemplarA;
     private javax.swing.JTextField txtIsbnEjemplarC;
     private javax.swing.JTextField txtIsbnEjemplarE;

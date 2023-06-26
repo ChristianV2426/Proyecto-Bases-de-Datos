@@ -1127,14 +1127,6 @@
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="txtIsbnLibroA" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="lblPaginasLibroA" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroA" min="-2" pref="150" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtNombreLibroA" min="-2" pref="500" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtAnoLibroA" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                           <Component id="comboEditorialLibroA" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
@@ -1144,24 +1136,28 @@
                                               <Component id="btnNoLibroA" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="txtTamanoLibroA" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="txtIsbnLibroA" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="lblPaginasLibroA" max="32767" attributes="0"/>
                                           <Component id="lblIdiomaLibroA" max="32767" attributes="0"/>
                                           <Component id="lblAreaLibroA" max="32767" attributes="0"/>
                                           <Component id="lblUrlLibroA" alignment="0" max="32767" attributes="0"/>
                                           <Component id="lblFormatoLibroA" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="comboAreaLibroA" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtIdiomaLibroA" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtUrlLibroA" alignment="0" pref="150" max="32767" attributes="0"/>
-                                          <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="comboAreaLibroA" alignment="0" pref="230" max="32767" attributes="0"/>
+                                          <Component id="txtUrlLibroA" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="comboFormatoLibroA" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="comboIdiomaLibroA" max="32767" attributes="0"/>
+                                          <Component id="txtPaginasLibroA" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Component id="txtNombreLibroA" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace pref="20" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
@@ -1178,25 +1174,22 @@
                                   <Component id="txtNombreLibroA" max="32767" attributes="0"/>
                                   <Component id="lblNombreLibroA" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblIsbnLibroA" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtIsbnLibroA" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPaginasLibroA" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblPaginasLibroA" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lblIsbnLibroA" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="txtIsbnLibroA" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblPaginasLibroA" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="txtPaginasLibroA" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblAnoLibroA" alignment="1" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtIdiomaLibroA" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtAnoLibroA" alignment="3" max="32767" attributes="0"/>
                                       <Component id="lblIdiomaLibroA" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="comboIdiomaLibroA" alignment="3" pref="31" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1223,7 +1216,7 @@
                                       <Component id="lblFormatoLibroA" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblTamanoLibroA" max="32767" attributes="0"/>
-                                  <Component id="jComboBox1" max="32767" attributes="0"/>
+                                  <Component id="comboFormatoLibroA" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                               <Component id="btnAgregarLibroA" min="-2" max="-2" attributes="0"/>
@@ -1301,13 +1294,6 @@
                         <Property name="text" type="java.lang.String" value="Idioma:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtIdiomaLibroA">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="18" style="0"/>
-                        </Property>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroA">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1348,11 +1334,45 @@
                           <Font name="Segoe UI" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="4">
-                            <StringItem index="0" value="Item 1"/>
-                            <StringItem index="1" value="Item 2"/>
-                            <StringItem index="2" value="Item 3"/>
-                            <StringItem index="3" value="Item 4"/>
+                          <StringArray count="38">
+                            <StringItem index="0" value="AC001 - Matematicas"/>
+                            <StringItem index="1" value="AC002 - Fisica"/>
+                            <StringItem index="2" value="AC003 - Quimica"/>
+                            <StringItem index="3" value="AC004 - Biologia"/>
+                            <StringItem index="4" value="AC005 - Informatica"/>
+                            <StringItem index="5" value="AC006 - Ingenieria de Civil"/>
+                            <StringItem index="6" value="AC007 - Ingenieria Mecanica"/>
+                            <StringItem index="7" value="AC008 - Medicina"/>
+                            <StringItem index="8" value="AC009 - Psicologia"/>
+                            <StringItem index="9" value="AC010 - Filosofia"/>
+                            <StringItem index="10" value="AC011 - Algebra"/>
+                            <StringItem index="11" value="AC012 - Geometria"/>
+                            <StringItem index="12" value="AC013 - Calculo"/>
+                            <StringItem index="13" value="AC014 - Mecanica Clasica"/>
+                            <StringItem index="14" value="AC015 - Fisica Cuantica"/>
+                            <StringItem index="15" value="AC016 - Termodinamica"/>
+                            <StringItem index="16" value="AC017 - Quimica Organica"/>
+                            <StringItem index="17" value="AC018 - Quimica Inorganica"/>
+                            <StringItem index="18" value="AC019 - Algebra Lineal"/>
+                            <StringItem index="19" value="AC020 - Geometria Analitica"/>
+                            <StringItem index="20" value="AC021 - Calculo Vectorial"/>
+                            <StringItem index="21" value="AC022 - Fisica Nuclear"/>
+                            <StringItem index="22" value="AC023 - Fisica de Particulas"/>
+                            <StringItem index="23" value="AC024 - Mecanica de Fluidos"/>
+                            <StringItem index="24" value="AC025 - Electromagnetismo"/>
+                            <StringItem index="25" value="AC026 - Bioquimica"/>
+                            <StringItem index="26" value="AC027 - Quimica Analitica"/>
+                            <StringItem index="27" value="AC028 - Ingenieria Electrica"/>
+                            <StringItem index="28" value="AC029 - Ingenieria de Materiales"/>
+                            <StringItem index="29" value="AC030 - Neurociencia"/>
+                            <StringItem index="30" value="AC031 - Ciencias de la Computacion"/>
+                            <StringItem index="31" value="AC032 - Ingenieria de Software"/>
+                            <StringItem index="32" value="AC033 - Inteligencia Artificial"/>
+                            <StringItem index="33" value="AC034 - Redes y Comunicaciones"/>
+                            <StringItem index="34" value="AC035 - Sistemas Operativos"/>
+                            <StringItem index="35" value="AC036 - Literatura"/>
+                            <StringItem index="36" value="AC037 - Literatura Colombiana"/>
+                            <StringItem index="37" value="AC038 - Historia"/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -1428,7 +1448,7 @@
                         <Property name="text" type="java.lang.String" value="Formato:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Component class="javax.swing.JComboBox" name="comboFormatoLibroA">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="0"/>
@@ -1455,6 +1475,24 @@
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnAgregarLibroA.setBackground(Color.WHITE);"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboIdiomaLibroA">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="0"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>
@@ -1499,7 +1537,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="lblIdiomaLibroM" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtIdiomaLibroM" max="32767" attributes="0"/>
+                                      <Component id="comboIdiomaLibroM" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblAreaLibroM" min="-2" pref="150" max="-2" attributes="0"/>
@@ -1523,7 +1561,7 @@
                                       <Component id="comboFormatoLibroM" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace pref="32" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
@@ -1557,7 +1595,7 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtAnoLibroM" alignment="3" max="32767" attributes="0"/>
                                       <Component id="lblIdiomaLibroM" alignment="3" pref="31" max="32767" attributes="0"/>
-                                      <Component id="txtIdiomaLibroM" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="comboIdiomaLibroM" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblAnoLibroM" max="32767" attributes="0"/>
                               </Group>
@@ -1596,7 +1634,7 @@
                                               <Component id="lblFormatoLibroM" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                                      <EmptySpace pref="47" max="32767" attributes="0"/>
                                       <Component id="btnModificarLibroM" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
@@ -1683,13 +1721,6 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Idioma:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtIdiomaLibroM">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="18" style="0"/>
-                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroM">
@@ -1841,6 +1872,24 @@
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnModificarLibroM.setBackground(Color.WHITE);"/>
                       </AuxValues>
                     </Component>
+                    <Component class="javax.swing.JComboBox" name="comboIdiomaLibroM">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="0"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="panelLibroConsultar">
@@ -1883,7 +1932,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblIdiomaLibroC" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtIdiomaLibroC" max="32767" attributes="0"/>
+                                      <Component id="comboIdiomaLibroC" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblAreaLibroC" min="-2" pref="150" max="-2" attributes="0"/>
@@ -1907,7 +1956,7 @@
                                       <Component id="comboFormatoLibroC" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace pref="32" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1936,7 +1985,7 @@
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="txtAnoLibroC" alignment="3" max="32767" attributes="0"/>
                                       <Component id="lblIdiomaLibroC" alignment="3" pref="31" max="32767" attributes="0"/>
-                                      <Component id="txtIdiomaLibroC" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="comboIdiomaLibroC" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblAnoLibroC" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -1970,7 +2019,7 @@
                                       <Component id="lblFormatoLibroC" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="107" max="32767" attributes="0"/>
+                              <EmptySpace pref="106" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2056,14 +2105,6 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Idioma:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtIdiomaLibroC">
-                      <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="18" style="0"/>
-                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroC">
@@ -2206,6 +2247,24 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
+                    <Component class="javax.swing.JComboBox" name="comboIdiomaLibroC">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="0"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="panelLibroEliminar">
@@ -2248,7 +2307,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblIdiomaLibroE" min="-2" pref="150" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtIdiomaLibroE" max="32767" attributes="0"/>
+                                      <Component id="comboIdiomaLibroE" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblAreaLibroE" min="-2" pref="150" max="-2" attributes="0"/>
@@ -2272,7 +2331,7 @@
                                       <Component id="comboFormatoLibroE" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace pref="32" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
@@ -2306,7 +2365,7 @@
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                       <Component id="txtAnoLibroE" alignment="3" max="32767" attributes="0"/>
                                       <Component id="lblIdiomaLibroE" alignment="3" pref="31" max="32767" attributes="0"/>
-                                      <Component id="txtIdiomaLibroE" alignment="3" max="32767" attributes="0"/>
+                                      <Component id="comboIdiomaLibroE" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblAnoLibroE" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -2345,7 +2404,7 @@
                                               <Component id="lblFormatoLibroE" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                                      <EmptySpace pref="47" max="32767" attributes="0"/>
                                       <Component id="btnEliminarLibroE" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
@@ -2432,13 +2491,6 @@
                           <Font name="Georgia" size="20" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Idioma:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="txtIdiomaLibroE">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="18" style="0"/>
-                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblEditorialLibroE">
@@ -2588,6 +2640,24 @@
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="btnEliminarLibroE.setBackground(Color.WHITE);"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="comboIdiomaLibroE">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="14" style="0"/>
+                        </Property>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="Item 1"/>
+                            <StringItem index="1" value="Item 2"/>
+                            <StringItem index="2" value="Item 3"/>
+                            <StringItem index="3" value="Item 4"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
                   </SubComponents>
