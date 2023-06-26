@@ -28,13 +28,13 @@ public class ControladorEmpleado {
     private Biblioteca biblioteca;
     private VistaEmpleado vista;
     private Empleado empleado;
-
+    private ControladorSolicitudes controladorSolicitudes;
+    private ControladorEjemplar controladorEjemplar;
     public ControladorEmpleado(VistaEmpleado vista, Biblioteca biblioteca, Empleado empleado) {
         this.biblioteca = biblioteca;
         this.vista = vista;
         this.empleado = empleado;
         vista.addListeners(new ManejadoraDeMouse());
-        
         //Listener para close
         vista.addWindowListener(new java.awt.event.WindowAdapter(){
             public void windowClosing(java.awt.event.WindowEvent windowEvent){
@@ -46,8 +46,8 @@ public class ControladorEmpleado {
         ControladorLibros controladorLibros = new ControladorLibros(vista, biblioteca, empleado,this);
         ControladorPrestamos controladorPrestamos = new ControladorPrestamos(vista, biblioteca, empleado,this);
         ControladorMultas controladorMultas = new ControladorMultas(vista, biblioteca, empleado,this);
-        ControladorSolicitudes controladorSolicitudes = new ControladorSolicitudes(vista, biblioteca, empleado,this);
-        ControladorEjemplar controladorEjemplar = new ControladorEjemplar(vista, biblioteca, empleado,this);
+        controladorSolicitudes = new ControladorSolicitudes(vista, biblioteca, empleado,this);
+        controladorEjemplar = new ControladorEjemplar(vista, biblioteca, empleado,this);
         if (empleado.getEsAdministrador() == true){
             ControladorManejoPersonal controladorManejoPersonal = new ControladorManejoPersonal(vista, biblioteca, empleado,this);
         }
@@ -130,10 +130,39 @@ public class ControladorEmpleado {
 
     private void opcionLibros() {
         
+        //Estableciendo el ISBN del libro
+        vista.getTxtIsbnLibroA().setText(biblioteca.getSerialLibro());
+        vista.disenoTabla(vista.getTablaTodosLosLibros(), vista.getScrollTodosLosLibros());
+        String[] cabeceraLibros = vista.getCabeceraConsultarLibros();
+        String[][] todosLosLibros = biblioteca.getLibros().obtenerTodosLosElementos();
+        vista.getTablaTodosLosLibros().setModel(asignarModelo(todosLosLibros,cabeceraLibros));
+        vista.getPanelLibro().removeTabAt(3);
+        
+        //Modificando elementos gráficos del panel libro añadir
+        vista.getBtnSiLibroA().setEnabled(true);
+        vista.getBtnNoLibroA().setEnabled(false);
+        vista.getTxtUrlLibroA().setVisible(false);
+        vista.getTxtTamanoLibroA().setVisible(false);
+        vista.getComboFormatoLibroA().setVisible(false);
+        vista.getLblFormatoLibroA().setVisible(false);
+        vista.getLblUrlLibroA().setVisible(false);
+        vista.getLblTamanoLibroA().setVisible(false);
+        
+        //Modificando elementos gráficos del panel libro eliminar
+        vista.getBtnSiLibroE().setEnabled(false);
+        vista.getBtnEliminarLibroE().setEnabled(false);
+        vista.getBtnNoLibroE().setEnabled(false);
+        vista.getTxtUrlLibroE().setVisible(false);
+        vista.getTxtTamanoLibroE().setVisible(false);
+        vista.getComboFormatoLibroE().setVisible(false);
+        vista.getLblFormatoLibroE().setVisible(false);
+        vista.getLblUrlLibroE().setVisible(false);
+        vista.getLblTamanoLibroE().setVisible(false);
+        
         //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardLibro");
         
-        //Modificando elementos gráficos
+        //Modificando elementos gráficos del menú
         vista.getBtnLibros().setEnabled(false);
         vista.getBtnPrestamos().setEnabled(true);
         vista.getBtnMultas().setEnabled(true);
@@ -148,7 +177,7 @@ public class ControladorEmpleado {
         
         //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardPrestamo");
-        
+        vista.getPanelPrestamo().removeTabAt(1);
         //Modificando elementos gráficos
         vista.getBtnPrestamos().setEnabled(false);
         vista.getBtnLibros().setEnabled(true);
@@ -180,7 +209,8 @@ public class ControladorEmpleado {
         
         //Mostrando el panel de manejo de personal
         vista.getCardLayout().show(vista.getPanelPrincipal(), "cardSolicitud");
-        
+        vista.disenoTabla(vista.getTableSolicitud(), vista.getScrollTableSolicitud());
+        controladorSolicitudes.actualizarTabla();
         //Modificando elementos gráficos
         vista.getBtnSolicitudes().setEnabled(false);
         vista.getBtnLibros().setEnabled(true);
@@ -289,5 +319,9 @@ public class ControladorEmpleado {
                 }
             }
         });
+    }
+
+    public ControladorEjemplar getControladorEjemplar() {
+        return controladorEjemplar;
     }
 }

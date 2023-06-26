@@ -20,6 +20,7 @@ package co.edu.univalle.persistencia;
 import co.edu.univalle.modelo.*;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.*;
 
 public class DaoPrestamo implements DaoGeneral<Prestamo> {
   Connection conexionBD;
@@ -67,14 +68,17 @@ public class DaoPrestamo implements DaoGeneral<Prestamo> {
   }
 
   public String[][] obtenerPrestamosUsuario(String id_usuario) {
-    String sentenciaSelect = "SELECT codigo_prestamo, titulo, codigo_ejemplar, fecha_prestamo, fecha_devolucion_esperada, fecha_devolucion_real " +
+    String sentenciaSelect = "SELECT codigo_presta, titulo, codigo_ejemplar, fecha_prestamo, fecha_devolucion_esperada, fecha_devolucion_real " +
       "FROM prestamo NATURAL JOIN usuario NATURAL JOIN presta NATURAL JOIN ejemplar NATURAL JOIN libro " +
-      "WHERE id_usuario='" + id_usuario + "' ORDER BY codigo_prestamo, codigo_presta;";
+      "WHERE id_usuario='" + id_usuario + "' ORDER BY codigo_presta;";
 
     return calcularEstadoPrestamo(Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD), 6);
   }
 
   public String[][] calcularEstadoPrestamo(String[][] prestamos, int columnaAActualizar){
+  if(prestamos == null)
+    return null;
+    
   String[][] prestamosConEstado = new String[prestamos.length][columnaAActualizar + 1];
   for(int i=0; i < prestamos.length; i++)
     for(int j=0; j < columnaAActualizar; j++)
@@ -108,6 +112,12 @@ public class DaoPrestamo implements DaoGeneral<Prestamo> {
     }
 
     return prestamosConEstado;
+  }
+
+  public String[][] relacionesPrestaEnPrestamo(String codigoPrestamo){
+    String sentenciaSelect = "SELECT codigo_presta FROM presta WHERE codigo_prestamo='" + codigoPrestamo + "';";
+
+    return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
   }
 
   @Override
