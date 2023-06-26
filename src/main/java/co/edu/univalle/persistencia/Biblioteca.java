@@ -47,6 +47,7 @@ public class Biblioteca {
   private Integer serialSolicitud;
   private Integer serialDescarga;
   private Integer serialPrestamo;
+  private Integer serialPresta;
   private Integer serialMulta;
 
   public Biblioteca(Connection conexionBD) {
@@ -84,6 +85,7 @@ public class Biblioteca {
     String selectSerialSolicitu = "SELECT MAX(substring(codigo_solicitud, 3)) FROM solicitud;";
     String selectSerialDescarga = "SELECT MAX(substring(codigo_descarga, 3)) FROM descarga;";
     String selectSerialPrestamo = "SELECT MAX(substring(codigo_prestamo, 3)) FROM prestamo;";
+    String selectSerialPresta = "SELECT MAX(substring(codigo_presta, 3)) FROM presta;";
     String selectSerialMulta = "SELECT MAX(substring(codigo_multa, 3)) FROM multa;";
 
     try{
@@ -112,6 +114,10 @@ public class Biblioteca {
       ResultSet serialPrestamoBD = sentenciaSQL.executeQuery(selectSerialPrestamo);
       serialPrestamoBD.next();
       serialPrestamo = serialPrestamoBD.getInt(1) + 1;
+
+      ResultSet serialPrestaBD = sentenciaSQL.executeQuery(selectSerialPresta);
+      serialPrestaBD.next();
+      serialPresta = serialPrestaBD.getInt(1) + 1;
 
       ResultSet serialMultaBD = sentenciaSQL.executeQuery(selectSerialMulta);
       serialMultaBD.next();
@@ -269,6 +275,17 @@ public class Biblioteca {
       return "PR" + serialPrestamo;
   }
 
+  public String getSerialPresta() {
+    if(serialPresta < 10)
+      return "PT00" + serialPresta;
+    
+    else if (serialPresta < 100)
+      return "PT0" + serialPresta;
+
+    else
+      return "PT" + serialPresta;
+  }
+
   public String getSerialMulta() {
     if(serialMulta < 10)
       return "MU00" + serialMulta;
@@ -326,6 +343,14 @@ public class Biblioteca {
 
   public void restarSerialPrestamo() {
     serialPrestamo--;
+  }
+
+  public void sumarSerialPresta() {
+    serialPresta++;
+  }
+
+  public void restarSerialPresta() {
+    serialPresta--;
   }
 
   public void sumarSerialMulta() {

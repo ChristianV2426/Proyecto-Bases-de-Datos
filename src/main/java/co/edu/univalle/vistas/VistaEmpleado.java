@@ -37,8 +37,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private JTableHeader th;
     private DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
     private String[] cabeceraConsultarEmpleados = {"ID","Nombre","Cargo"};
-    private String[] cabeceraPrestamo = {"ISBN","Título","Ejemplar", "Retorno"};
-    private String[] cabeceraConsultarPrestamo = {"Préstamo","Libros","Ejemplar","FPréstamo","Retorno","Estado"};
+    private String[] cabeceraPrestamo = {"Ejemplar", "Título", "FPréstamo", "FRetorno"};
+    private String[] cabeceraConsultarPrestamo = {"Presta","Libro","Ejemplar","FPréstamo","FRetorno", "FRetornado", "Estado"};
     private String[] cabeceraDescargas = {"Descarga", "Usuario","IP","Fecha","Título"};
     private String[] cabeceraSolicitudes = {"Solicitud", "Estado","Usuario","Fecha","Título","ISBN"};
     private String[] cabeceraMultas = {"Multas", "Ejemplar","Titulo","FechaMulta","Valor","Estado"};
@@ -2715,6 +2715,10 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
     public String[] getCabeceraConsultarPrestamo() {
         return cabeceraConsultarPrestamo;
+    }  
+
+    public String[] getCabeceraPrestamo() {
+        return cabeceraPrestamo;
     }
 
     public String[] getCabeceraDescargas() {
