@@ -2363,26 +2363,26 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblEstanteEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblEstanteEjemplarM.setText("Estante:");
 
-        txtEstanteEjemplarM.setEditable(false);
         txtEstanteEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtEstanteEjemplarM.setEnabled(false);
 
         lblCajonEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblCajonEjemplarM.setText("Número de cajón:");
 
-        txtCajonEjemplarM.setEditable(false);
         txtCajonEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCajonEjemplarM.setEnabled(false);
 
         lblPasilloEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblPasilloEjemplarM.setText("Número de pasillo:");
 
-        txtPasilloEjemplarM.setEditable(false);
         txtPasilloEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtPasilloEjemplarM.setEnabled(false);
 
         lblSalaEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblSalaEjemplarM.setText("Número de sala:");
 
-        txtSalaEjemplarM.setEditable(false);
         txtSalaEjemplarM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtSalaEjemplarM.setEnabled(false);
 
         btnModificarEjemplarM.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnModificarEjemplarM.setText("Modificar");

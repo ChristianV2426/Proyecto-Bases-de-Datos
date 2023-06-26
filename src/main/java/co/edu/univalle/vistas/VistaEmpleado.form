@@ -4579,10 +4579,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtEstanteEjemplarM">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblCajonEjemplarM">
@@ -4595,10 +4595,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtCajonEjemplarM">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPasilloEjemplarM">
@@ -4611,10 +4611,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPasilloEjemplarM">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSalaEjemplarM">
@@ -4627,10 +4627,10 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSalaEjemplarM">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="0"/>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnModificarEjemplarM">

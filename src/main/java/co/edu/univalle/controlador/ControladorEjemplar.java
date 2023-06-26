@@ -162,27 +162,26 @@ public class ControladorEjemplar {
             vista.getTxtPasilloEjemplarA().getText(),
             vista.getTxtSalaEjemplarA().getText(),
             true);
-        biblioteca.getEjemplares().insertarElemento(ejemplar);
-        JOptionPane.showMessageDialog(vista, 
-                    "<html><p style = \" font:12px; \">Ejemplar añadido con éxito.</p></html>", 
-                    "Información", JOptionPane.OK_OPTION, 
-                    UIManager.getIcon("OptionPane.informationIcon"));
-        vista.getBtnCheckEjemplarA().setText("Check");
-        vista.getTxtIsbnEjemplarA().setEnabled(true);
-        
-        if(solicitud){
-            vista.getCardLayout().show(vista.getPanelPrincipal(), "cardSolicitud");
-            solicitud = false;
-            vista.getBtnSolicitudes().setEnabled(false);
-            vista.getBtnEjemplar().setEnabled(true);
+        if(biblioteca.getEjemplares().insertarElemento(ejemplar)){
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">Ejemplar añadido con éxito.</p></html>", 
+                        "Información", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.informationIcon"));
+            vista.getBtnCheckEjemplarA().setText("Check");
+            vista.getTxtIsbnEjemplarA().setEnabled(true);
+            if(solicitud){
+                vista.getCardLayout().show(vista.getPanelPrincipal(), "cardSolicitud");
+                solicitud = false;
+                vista.getBtnSolicitudes().setEnabled(false);
+                vista.getBtnEjemplar().setEnabled(true);
+            }
+            swicheCheckA = false;
+            vista.getTxtNumeroEjemplarA().setText("");
+            vista.getTxtEstanteEjemplarA().setText("");
+            vista.getTxtCajonEjemplarA().setText("");
+            vista.getTxtPasilloEjemplarA().setText("");
+            vista.getTxtSalaEjemplarA().setText("");   
         }
-        
-        swicheCheckA = false;
-        vista.getTxtNumeroEjemplarA().setText("");
-        vista.getTxtEstanteEjemplarA().setText("");
-        vista.getTxtCajonEjemplarA().setText("");
-        vista.getTxtPasilloEjemplarA().setText("");
-        vista.getTxtSalaEjemplarA().setText("");
     }
 
     private void opcionCheckM() {
@@ -230,11 +229,23 @@ public class ControladorEjemplar {
                         "Información", JOptionPane.OK_OPTION, 
                         UIManager.getIcon("OptionPane.informationIcon"));
             vista.getTxtEstanteEjemplarM().setEnabled(true);
+            vista.getTxtCajonEjemplarM().setEnabled(true);
+            vista.getTxtPasilloEjemplarM().setEnabled(true);
+            vista.getTxtSalaEjemplarM().setEnabled(true);
             vista.getTxtEstanteEjemplarM().setText(ejemplar.getEstante());
             vista.getTxtCajonEjemplarM().setText(ejemplar.getNumCajon());
             vista.getTxtPasilloEjemplarM().setText(ejemplar.getNumPasillo());
             vista.getTxtSalaEjemplarM().setText(ejemplar.getNombreSala());
         } else {
+            vista.getTxtEstanteEjemplarM().setEnabled(false);
+            vista.getTxtCajonEjemplarM().setEnabled(false);
+            vista.getTxtPasilloEjemplarM().setEnabled(false);
+            vista.getTxtSalaEjemplarM().setEnabled(false);
+            vista.getTxtEstanteEjemplarM().setText("");
+            vista.getTxtCajonEjemplarM().setText("");
+            vista.getTxtPasilloEjemplarM().setText("");
+            vista.getTxtSalaEjemplarM().setText("");
+            
             vista.getBtnCheckEjemplarM().setText("Check");
             vista.getTxtIsbnEjemplarM().setEnabled(true);
             vista.getTxtNumeroEjemplarM().setEnabled(true);
@@ -435,20 +446,26 @@ public class ControladorEjemplar {
             vista.getTxtPasilloEjemplarE().getText(),
             vista.getTxtSalaEjemplarE().getText(),
             true);
-        biblioteca.getEjemplares().eliminarElemento(codigo);
-        JOptionPane.showMessageDialog(vista, 
-                    "<html><p style = \" font:12px; \">Ejemplar eliminado con éxito.</p></html>", 
-                    "Información", JOptionPane.OK_OPTION, 
-                    UIManager.getIcon("OptionPane.informationIcon"));
-        vista.getBtnCheckEjemplarE().setText("Check");
-        vista.getTxtIsbnEjemplarE().setEnabled(true);
-        vista.getTxtNumeroEjemplarE().setEnabled(true);
-        swicheCheckE = false;
-        vista.getTxtNumeroEjemplarE().setText("");
-        vista.getTxtEstanteEjemplarE().setText("");
-        vista.getTxtCajonEjemplarE().setText("");
-        vista.getTxtPasilloEjemplarE().setText("");
-        vista.getTxtSalaEjemplarE().setText("");
+        if(biblioteca.getEjemplares().eliminarElemento(codigo)){
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">Ejemplar eliminado con éxito.</p></html>", 
+                        "Información", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.informationIcon"));
+            vista.getBtnCheckEjemplarE().setText("Check");
+            vista.getTxtIsbnEjemplarE().setEnabled(true);
+            vista.getTxtNumeroEjemplarE().setEnabled(true);
+            swicheCheckE = false;
+            vista.getTxtNumeroEjemplarE().setText("");
+            vista.getTxtEstanteEjemplarE().setText("");
+            vista.getTxtCajonEjemplarE().setText("");
+            vista.getTxtPasilloEjemplarE().setText("");
+            vista.getTxtSalaEjemplarE().setText("");
+        } else {
+            JOptionPane.showMessageDialog(vista, 
+                        "<html><p style = \" font:12px; \">Por las políticas de integridad de la BD, no se puede eliminar este ejemplar.</p></html>", 
+                        "Error", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.errorIcon"));
+        }
     }
     
     public void provieneDeSolicitud(){

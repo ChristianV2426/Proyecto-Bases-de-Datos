@@ -136,7 +136,6 @@ public class ControladorEmpleado {
         String[] cabeceraLibros = vista.getCabeceraConsultarLibros();
         String[][] todosLosLibros = biblioteca.getLibros().obtenerTodosLosElementos();
         vista.getTablaTodosLosLibros().setModel(asignarModelo(todosLosLibros,cabeceraLibros));
-        vista.getPanelLibro().removeTabAt(3);
         
         //Modificando elementos gráficos del panel libro añadir
         vista.getBtnSiLibroA().setEnabled(true);
