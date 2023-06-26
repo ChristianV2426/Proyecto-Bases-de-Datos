@@ -63,7 +63,7 @@ public class DaoPrestamo implements DaoGeneral<Prestamo> {
     String sentenciaSelect = "SELECT codigo_prestamo, id_usuario, nombre_usuario, codigo_presta, ISBN, titulo, num_ejemplar, fecha_prestamo, fecha_devolucion_esperada, fecha_devolucion_real " +
       "FROM prestamo NATURAL JOIN usuario NATURAL JOIN presta NATURAL JOIN ejemplar NATURAL JOIN libro ORDER BY codigo_prestamo, codigo_presta;";
 
-    return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+    return calcularEstadoPrestamo(Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD), 10);
   }
 
   public String[][] obtenerPrestamosUsuario(String id_usuario) {
@@ -71,40 +71,40 @@ public class DaoPrestamo implements DaoGeneral<Prestamo> {
       "FROM prestamo NATURAL JOIN usuario NATURAL JOIN presta NATURAL JOIN ejemplar NATURAL JOIN libro " +
       "WHERE id_usuario='" + id_usuario + "' ORDER BY codigo_prestamo, codigo_presta;";
 
-    return calcularEstadoPrestamo(Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD));
+    return calcularEstadoPrestamo(Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD), 6);
   }
 
-  public String[][] calcularEstadoPrestamo(String[][] prestamos){
-  String[][] prestamosConEstado = new String[prestamos.length][7];
+  public String[][] calcularEstadoPrestamo(String[][] prestamos, int columnaAActualizar){
+  String[][] prestamosConEstado = new String[prestamos.length][columnaAActualizar + 1];
   for(int i=0; i < prestamos.length; i++)
-    for(int j=0; j < 6; j++)
+    for(int j=0; j < columnaAActualizar; j++)
       prestamosConEstado[i][j] = prestamos[i][j];
 
   LocalDate fechaActual = LocalDate.now();
 
   for(int i = 0; i < prestamos.length; i++){
-    LocalDate fechaDevolucionEsperada = LocalDate.parse(prestamos[i][4]);
+    LocalDate fechaDevolucionEsperada = LocalDate.parse(prestamos[i][columnaAActualizar-2]);
     LocalDate fechaDevolucionReal;
 
-    if (prestamos[i][5] == null){
+    if (prestamos[i][columnaAActualizar-1] == null){
       fechaDevolucionReal = null;
-      prestamosConEstado[i][5] = "";
-      prestamosConEstado[i][6] = "";
+      prestamosConEstado[i][columnaAActualizar-1] = "";
+      prestamosConEstado[i][columnaAActualizar] = "";
     }
     else
-      fechaDevolucionReal = LocalDate.parse(prestamos[i][5]);
+      fechaDevolucionReal = LocalDate.parse(prestamos[i][columnaAActualizar-1]);
     
     if(fechaDevolucionReal == null && fechaActual.isBefore(fechaDevolucionEsperada))
-      prestamosConEstado[i][6] = "Vigente";
+      prestamosConEstado[i][columnaAActualizar] = "Vigente";
     
     else if(fechaDevolucionReal == null && fechaActual.isAfter(fechaDevolucionEsperada))
-      prestamosConEstado[i][6] = "En mora";
+      prestamosConEstado[i][columnaAActualizar] = "En mora";
 
     else if(fechaDevolucionReal.isBefore(fechaDevolucionEsperada) || fechaDevolucionReal.isEqual(fechaDevolucionEsperada))
-      prestamosConEstado[i][6] = "Entregado";
+      prestamosConEstado[i][columnaAActualizar] = "Entregado";
     
     else // fechaDevolucionReal.isAfter(fechaDevolucionEsperada)
-      prestamosConEstado[i][6] = "Entregado con retraso";
+      prestamosConEstado[i][columnaAActualizar] = "Entregado con retraso";
     }
 
     return prestamosConEstado;

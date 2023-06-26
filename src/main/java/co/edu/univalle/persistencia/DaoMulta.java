@@ -67,8 +67,11 @@ public class DaoMulta implements DaoGeneral<Multa> {
   public String[][] obtenerTodosLosElementos() {
     String sentenciaSelect = "SELECT codigo_multa, nombre_usuario, codigo_ejemplar, titulo, fecha_multa, valor_multa, estado_multa " +
       " FROM multa NATURAL JOIN presta NATURAL JOIN prestamo NATURAL JOIN usuario NATURAL JOIN ejemplar NATURAL JOIN libro;";
+
+    String[][] multasUsuarios = Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+    actualizarEstadoMulta(multasUsuarios, 6);
     
-    return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+    return multasUsuarios;
   }
 
   public String[][] obtenerMultasUsuario(String id_usuarioString) {
@@ -77,21 +80,21 @@ public class DaoMulta implements DaoGeneral<Multa> {
       "WHERE id_usuario='" + id_usuarioString + "';";
 
     String[][] multasUsuario = Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
-    actualizarEstadoMulta(multasUsuario);
+    actualizarEstadoMulta(multasUsuario, 5);
 
     return multasUsuario;
   }
 
-  public void actualizarEstadoMulta(String[][] multas) {
+  public void actualizarEstadoMulta(String[][] multas, int columnaAActualizar) {
   if (multas == null){
       return;
   }
   for(int i = 0; i < multas.length; i++){
-    if (multas[i][5].toLowerCase().equals("true") || multas[i][5].toLowerCase().equals("t"))
-      multas[i][5] = "Pagada";
+    if (multas[i][columnaAActualizar].toLowerCase().equals("true") || multas[i][columnaAActualizar].toLowerCase().equals("t"))
+      multas[i][columnaAActualizar] = "Pagada";
 
     else 
-      multas[i][5] = "No pagada";
+      multas[i][columnaAActualizar] = "No pagada";
     }
   }
 

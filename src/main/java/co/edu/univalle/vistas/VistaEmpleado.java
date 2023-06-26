@@ -93,6 +93,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnSolicitudes.addMouseListener(listener);
         btnDescargas.addMouseListener(listener);
         btnEjemplar.addMouseListener(listener);
+        btnDescargarInfo.addMouseListener(listener);
         btnCerrar.addMouseListener(listener);
     }
     
