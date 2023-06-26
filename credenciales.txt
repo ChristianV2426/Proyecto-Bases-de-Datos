@@ -1,0 +1,19 @@
+|| ======================================================================= ||
+||                                                                         ||
+   URL base de datos: jdbc:postgresql://localhost:5432/biblioteca
+   Usuario: postgres
+   Contraseña: password
+||                                                                         ||
+|| ======================================================================= ||
+
+
+
+|| ======================================================================= ||
+||             CREDENCIALES PARA CONECTARSE A LA BASE DE DATOS             ||
+|| ======================================================================= ||
+||                                                                         ||
+||  Ingrese la dirección de la base de datos, el usuario y la contraseña   ||
+||  después de los dos puntos, en los espacios de arriba ↑↑↑.              ||
+||                                                                         ||
+||                                                                         ||
+|| ======================================================================= ||
