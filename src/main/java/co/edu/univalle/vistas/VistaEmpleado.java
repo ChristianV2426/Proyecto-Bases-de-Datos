@@ -650,6 +650,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         panelManejo.setFocusable(false);
         panelManejo.setRequestFocusEnabled(false);
 
+        txtIdManejoA.setEditable(false);
         txtIdManejoA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblIdManejoA.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
@@ -851,8 +852,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblNombreManejoC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblNombreManejoC.setText("Nombre:");
 
+        txtNombreManejoC.setEditable(false);
         txtNombreManejoC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNombreManejoC.setEnabled(false);
 
         lblCargoManejoC.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblCargoManejoC.setText("Cargo:");
@@ -970,8 +971,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lblNombreManejoE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         lblNombreManejoE.setText("Nombre:");
 
+        txtNombreManejoE.setEditable(false);
         txtNombreManejoE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtNombreManejoE.setEnabled(false);
 
         btnEliminarManejoE.setFont(new java.awt.Font("Georgia", 0, 20)); // NOI18N
         btnEliminarManejoE.setText("Eliminar");
