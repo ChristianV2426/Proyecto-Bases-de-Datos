@@ -83,6 +83,10 @@ public class Ejemplar extends Libro {
     return disponible;
   }
 
+  public void setDisponible(Boolean disponible) {
+    this.disponible = disponible;
+  }
+
   @Override
   public String toString() {
     return super.toString() + " libro físico. Ejemplar con código: " + codigoEjemplar;

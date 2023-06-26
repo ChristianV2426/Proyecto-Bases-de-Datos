@@ -381,6 +381,7 @@ public class Test {
     System.out.println(biblioteca.getSerialSolicitud());
     System.out.println(biblioteca.getSerialDescarga());
     System.out.println(biblioteca.getSerialPrestamo());
+    System.out.println(biblioteca.getSerialPresta());
     System.out.println(biblioteca.getSerialMulta());
 
     System.out.println(biblioteca.getEjemplares().ejemplaresEnTotal("LI001"));
