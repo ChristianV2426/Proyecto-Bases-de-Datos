@@ -383,6 +383,8 @@ public class Test {
     System.out.println(biblioteca.getSerialPrestamo());
     System.out.println(biblioteca.getSerialMulta());
 
+    System.out.println(biblioteca.getEjemplares().ejemplaresEnTotal("LI001"));
+
 
 
     // // Descomentar el siguiente bloque de código para obtener un archivo de texto plano con la información más relevante de la base de datos
