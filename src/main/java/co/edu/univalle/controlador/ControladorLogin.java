@@ -123,8 +123,7 @@ public class ControladorLogin {
 
         } else if (empleado != null && biblioteca.getContrasenasEmpleados().validarContrasena(idUsuario, contrasena)) {
                 vista.dispose();
-                // new vistaConsultarLibroEmpleado("empleado");
-                new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento(idUsuario)); // Se debe de cambiar esta línea
+                new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento(idUsuario));
 
         } else {
                 JOptionPane.showMessageDialog(vista, "Contraseña incorrecta.\nPor favor intente nuevamente.", "Error", JOptionPane.ERROR_MESSAGE);

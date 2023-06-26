@@ -302,7 +302,6 @@ public class ControladorPrestamos {
             RelacionPresta relacion = new RelacionPresta(biblioteca.getSerialPresta(), codigoPrestamo, ejemplar[0], LocalDate.now().plusDays(10));
             Ejemplar ejemplarPrestado = biblioteca.getEjemplares().obtenerElemento(ejemplar[0]);
             ejemplarPrestado.setDisponible(Boolean.FALSE);
-            System.out.println(ejemplarPrestado.getCodigoEjemplar() + " "+  ejemplarPrestado.getDisponible());
             biblioteca.getEjemplares().editarElemento(ejemplarPrestado);
             biblioteca.sumarSerialPresta();
             listaRelaciones.add(relacion);
@@ -404,8 +403,10 @@ public class ControladorPrestamos {
         }
 
         presta.setFechaDevolucionReal(LocalDate.now());
+        Ejemplar ejemplarDevuelto = biblioteca.getEjemplares().obtenerElemento(presta.getCodigoEjemplar());
+        ejemplarDevuelto.setDisponible(Boolean.TRUE);
 
-        if(biblioteca.getRelacionesPresta().editarElemento(presta)){
+        if(biblioteca.getRelacionesPresta().editarElemento(presta) && biblioteca.getEjemplares().editarElemento(ejemplarDevuelto)){
             JOptionPane.showMessageDialog(vista, 
                 "<html><p style = \" font:12px; \">El ejemplar se ha devuelto con éxito.</p></html>", 
                 "Operación exitosa", JOptionPane.OK_OPTION, 
