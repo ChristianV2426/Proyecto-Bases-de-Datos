@@ -93,6 +93,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         btnSolicitudes.addMouseListener(listener);
         btnDescargas.addMouseListener(listener);
         btnEjemplar.addMouseListener(listener);
+        btnDescargarInfo.addMouseListener(listener);
         btnCerrar.addMouseListener(listener);
     }
     
@@ -3423,6 +3424,10 @@ public class VistaEmpleado extends javax.swing.JFrame {
 
     public JButton getBtnPrestamos() {
         return btnPrestamos;
+    }
+
+    public javax.swing.JPanel getSubPanelMulta() {
+        return subPanelMulta;
     }
 
     public JButton getBtnSolicitudes() {

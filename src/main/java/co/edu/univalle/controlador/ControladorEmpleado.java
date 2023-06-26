@@ -17,17 +17,12 @@
 
 package co.edu.univalle.controlador;
 
-import co.edu.univalle.modelo.Empleado;
 import co.edu.univalle.persistencia.Biblioteca;
-import co.edu.univalle.vistas.VistaEmpleado;
-import co.edu.univalle.vistas.VistaLogin;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import co.edu.univalle.modelo.*;
+import co.edu.univalle.vistas.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 public class ControladorEmpleado {
     private Biblioteca biblioteca;
@@ -102,6 +97,12 @@ public class ControladorEmpleado {
                   if (e.getButton() == 1){
                       opcionEjemplar();
                   }
+            }
+
+            if (e.getSource() == vista.getBtnDescargarInfo()){
+                    if (e.getButton() == 1){
+                        opcionDescargarInfo();
+                    }
             }
             
             if (e.getSource() == vista.getBtnCerrar()){
@@ -227,6 +228,22 @@ public class ControladorEmpleado {
         vista.getBtnDescargas().setEnabled(true);
         if(empleado.getEsAdministrador() == true)
             vista.getBtnManejoPersonal().setEnabled(true);
+    }
+
+    private void opcionDescargarInfo() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int seleccion = fileChooser.showOpenDialog(null);
+
+        if(seleccion != JFileChooser.CANCEL_OPTION){
+            String ruta = fileChooser.getSelectedFile().getAbsolutePath();
+            if(ManejadorArchivos.guardarEnArchivoTextoPlano(biblioteca, ruta)){
+                JOptionPane.showMessageDialog(null,"¡El resumen de la base de datos se guardó correctamente en un archivo de texto plano!", "Operación realizada con éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null,"¡Hubo un problema al guardar el estado de la aplicación en un archivo de texto plano!" +
+                "\nAsegurese de haber seleccionado una carpeta de destino correcta. \nSi considera que este es un error, por favor póngase en contacto con el administrador del sistema.", "Operación fallida", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     private void opcionCerrar() {

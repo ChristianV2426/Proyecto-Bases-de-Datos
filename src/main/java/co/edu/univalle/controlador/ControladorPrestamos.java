@@ -17,9 +17,11 @@
 
 package co.edu.univalle.controlador;
 
-import co.edu.univalle.modelo.Empleado;
 import co.edu.univalle.persistencia.Biblioteca;
-import co.edu.univalle.vistas.VistaEmpleado;
+import co.edu.univalle.modelo.*;
+import co.edu.univalle.vistas.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class ControladorPrestamos {
     private VistaEmpleado vista;
@@ -32,6 +34,8 @@ public class ControladorPrestamos {
         this.biblioteca = biblioteca;
         this.empleado = empleado;
         this.controladorEmpleado = controladorEmpleado;
+
+
     }
     
     
