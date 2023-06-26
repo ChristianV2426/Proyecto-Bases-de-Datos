@@ -22,6 +22,7 @@ import co.edu.univalle.persistencia.*;
 import java.sql.*;
 import java.time.*;
 import java.math.BigDecimal;
+import javax.swing.*;
 
 
 public class Test {
@@ -381,6 +382,8 @@ public class Test {
     System.out.println(biblioteca.getSerialDescarga());
     System.out.println(biblioteca.getSerialPrestamo());
     System.out.println(biblioteca.getSerialMulta());
+
+    System.out.println(biblioteca.getEjemplares().ejemplaresEnTotal("LI001"));
 
 
 

@@ -28,8 +28,10 @@ public class App {
         FachadaBD fachadaBD = new FachadaBD(rutaArchivoCredenciales);
         Connection conexionBD = fachadaBD.getConexionBD();
         Biblioteca biblioteca = new Biblioteca(conexionBD);
+
         //VistaLogin vistaLogin = new VistaLogin("Login", biblioteca);
 
+        // VistaUsuario vistaUsuario = new VistaUsuario("Menú Usuario", biblioteca, biblioteca.getUsuarios().obtenerElemento("US001"));
         VistaEmpleado vistaEmpleado = new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento("EM001"));
     }
 }
