@@ -24,6 +24,7 @@ import co.edu.univalle.persistencia.Biblioteca;
 import co.edu.univalle.vistas.VistaEmpleado;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -481,8 +482,36 @@ public class ControladorLibros {
                         UIManager.getIcon("OptionPane.errorIcon"));
             return;
         }
+        String codigoDigitalABorrar = "";
+        if(biblioteca.getDigitales().obtenerElemento(isbn) != null){
+            codigoDigitalABorrar = biblioteca.getDigitales().obtenerElemento(isbn).getCodigoDigital();
+            
+        }
+        String codigo;
+        String[][] numero = biblioteca.getEjemplares().obtenerTodosLosElementos();
+        ArrayList<String> ejemplaresAEliminar = new ArrayList();
         
-        if(biblioteca.getLibros().eliminarElemento(isbn)){
+        //Bucle para extraer los códigos de los ejemplares a eliminar
+        for(int i = 0; i < numero.length; i++){
+            if(numero[0][i].equals(isbn)){
+                if (Integer.parseInt(numero[2][i]) < 10) {
+                    JOptionPane.showMessageDialog(vista, vista);
+                    ejemplaresAEliminar.add(isbn + "-N0" + numero[2][i]);
+                } else {
+                    ejemplaresAEliminar.add(isbn + "-N" + numero[2][i]);
+                }
+            }
+        }
+        
+        ArrayList<Boolean> ejemplaresEliminados = new ArrayList();
+        //Bucle para eliminar todos los ejemplares
+        for(int i = 0; i < ejemplaresAEliminar.size(); i++){
+            if(biblioteca.getEjemplares().eliminarElemento(ejemplaresAEliminar.get(i))){
+                ejemplaresEliminados.add(true);
+            }
+        }
+        
+        if(biblioteca.getLibros().eliminarElemento(isbn) && biblioteca.getDigitales().eliminarElemento(codigoDigitalABorrar) && ejemplaresEliminados.size() == ejemplaresAEliminar.size()){
             JOptionPane.showMessageDialog(vista, 
                 "<html><p style = \" font:12px; \">El libro fue eliminado con éxito.</p></html>", 
                 "Operación realizada con éxito", JOptionPane.OK_OPTION, 
