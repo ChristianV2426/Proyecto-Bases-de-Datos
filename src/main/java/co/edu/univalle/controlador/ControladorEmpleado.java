@@ -30,6 +30,8 @@ public class ControladorEmpleado {
     private Empleado empleado;
     private ControladorSolicitudes controladorSolicitudes;
     private ControladorEjemplar controladorEjemplar;
+    private DefaultTableCellRenderer alinear = new DefaultTableCellRenderer();
+
     public ControladorEmpleado(VistaEmpleado vista, Biblioteca biblioteca, Empleado empleado) {
         this.biblioteca = biblioteca;
         this.vista = vista;
@@ -51,6 +53,7 @@ public class ControladorEmpleado {
         if (empleado.getEsAdministrador() == true){
             ControladorManejoPersonal controladorManejoPersonal = new ControladorManejoPersonal(vista, biblioteca, empleado,this);
         }
+        alinear.setHorizontalAlignment(SwingConstants.CENTER);
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
@@ -136,6 +139,10 @@ public class ControladorEmpleado {
         String[] cabeceraLibros = vista.getCabeceraConsultarLibros();
         String[][] todosLosLibros = biblioteca.getLibros().obtenerTodosLosElementos();
         vista.getTablaTodosLosLibros().setModel(asignarModelo(todosLosLibros,cabeceraLibros));
+        vista.getTablaTodosLosLibros().getColumnModel().getColumn(0).setCellRenderer(alinear);
+        vista.getTablaTodosLosLibros().getColumnModel().getColumn(2).setCellRenderer(alinear);
+        vista.getTablaTodosLosLibros().getColumnModel().getColumn(6).setCellRenderer(alinear);
+
         
         //Modificando elementos gráficos del panel libro añadir
         vista.getBtnSiLibroA().setEnabled(true);

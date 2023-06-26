@@ -66,10 +66,10 @@ public class DaoLibro implements DaoGeneral<Libro>{
   @Override
   public String[][] obtenerTodosLosElementos() {
     String sentenciaSelect = "SELECT " +
-      "libro.ISBN, titulo, COUNT(codigo_ejemplar), string_agg(DISTINCT primer_nombre || ' ' || primer_apellido, ', ') AS autor, " +
+      "libro.ISBN, titulo, COUNT(codigo_ejemplar), string_agg(DISTINCT primer_nombre || ' ' || primer_apellido, ', ') AS autores, " +
       "nombre_editorial, idioma, CASE WHEN EXISTS (SELECT 1 FROM digital WHERE digital.ISBN = libro.ISBN) THEN TRUE ELSE FALSE END AS digital " +
-      "FROM ejemplar NATURAL JOIN libro NATURAL JOIN autor NATURAL JOIN escribe NATURAL JOIN editorial " +
-      "GROUP BY (libro.ISBN, titulo, nombre_editorial, idioma) ORDER BY libro.ISBN;";
+      "FROM libro LEFT JOIN ejemplar ON libro.ISBN=ejemplar.ISBN LEFT JOIN editorial ON libro.codigo_editorial = editorial.codigo_editorial " +
+      "LEFT JOIN escribe ON libro.ISBN = escribe.ISBN NATURAL JOIN autor GROUP BY libro.ISBN, titulo, nombre_editorial ORDER BY libro.ISBN;";
 
     String[][] todosLibros = Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
     actualizarDigital(todosLibros);

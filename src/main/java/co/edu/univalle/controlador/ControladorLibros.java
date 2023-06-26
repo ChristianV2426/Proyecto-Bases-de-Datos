@@ -27,7 +27,9 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableCellRenderer;
 
 public class ControladorLibros {
     private VistaEmpleado vista;
@@ -36,6 +38,7 @@ public class ControladorLibros {
     private ControladorEmpleado controladorEmpleado;
     private boolean switchCheckM = false;
     private boolean switchCheckE = false;
+    private DefaultTableCellRenderer alinear = new DefaultTableCellRenderer();
 
     public ControladorLibros(VistaEmpleado vista, Biblioteca biblioteca, Empleado empleado, ControladorEmpleado controladorEmpleado) {
         this.vista = vista;
@@ -51,6 +54,8 @@ public class ControladorLibros {
         controladorEmpleado.verificarNumero(vista.getTxtPaginasLibroE());
         controladorEmpleado.verificarNumero(vista.getTxtAnoLibroE());
         vista.addListenersLibros(new ManejadoraDeMouse());
+
+        alinear.setHorizontalAlignment(SwingConstants.CENTER);
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
@@ -160,6 +165,12 @@ public class ControladorLibros {
                             "Operación realizada con éxito", JOptionPane.OK_OPTION, 
                             UIManager.getIcon("OptionPane.informationIcon"));
                 limpiarAnadir();
+                String[] cabeceraLibros = vista.getCabeceraConsultarLibros();
+                String[][] todosLosLibros = biblioteca.getLibros().obtenerTodosLosElementos();
+                vista.getTablaTodosLosLibros().setModel(ControladorEmpleado.asignarModelo(todosLosLibros,cabeceraLibros));
+                vista.getTablaTodosLosLibros().getColumnModel().getColumn(0).setCellRenderer(alinear);
+                vista.getTablaTodosLosLibros().getColumnModel().getColumn(2).setCellRenderer(alinear);
+                vista.getTablaTodosLosLibros().getColumnModel().getColumn(6).setCellRenderer(alinear);
                 return;
             } else {
                 JOptionPane.showMessageDialog(vista, 
@@ -185,6 +196,14 @@ public class ControladorLibros {
                         "Operación realizada con éxito", JOptionPane.OK_OPTION, 
                         UIManager.getIcon("OptionPane.informationIcon"));
             limpiarAnadir();
+            String[] cabeceraLibros = vista.getCabeceraConsultarLibros();
+            String[][] todosLosLibros = biblioteca.getLibros().obtenerTodosLosElementos();
+            vista.getTablaTodosLosLibros().setModel(ControladorEmpleado.asignarModelo(todosLosLibros,cabeceraLibros));
+            vista.getTablaTodosLosLibros().setModel(ControladorEmpleado.asignarModelo(todosLosLibros,cabeceraLibros));
+            vista.getTablaTodosLosLibros().getColumnModel().getColumn(0).setCellRenderer(alinear);
+            vista.getTablaTodosLosLibros().getColumnModel().getColumn(2).setCellRenderer(alinear);
+            vista.getTablaTodosLosLibros().getColumnModel().getColumn(6).setCellRenderer(alinear);
+
         } else {
             JOptionPane.showMessageDialog(vista, 
                         "<html><p style = \" font:12px; \">No se pudo agregar el libro.</p></html>", 
@@ -491,7 +510,7 @@ public class ControladorLibros {
             return;   
         } else {
             JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">No se pudo eliminar el libro..</p></html>", 
+                         "<html><p style = \" font:12px; \">Por las políticas de integridad de la BD, no se puede eliminar este ejemplar.</p></html>", 
                         "Error", JOptionPane.OK_OPTION, 
                         UIManager.getIcon("OptionPane.errorIcon"));
             return;  
