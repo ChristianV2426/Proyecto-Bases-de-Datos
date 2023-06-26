@@ -157,7 +157,7 @@ public class ControladorManejoPersonal {
             if(biblioteca.getContrasenasEmpleados().eliminarElemento(identificacion) && biblioteca.getEmpleados().eliminarElemento(identificacion)){
                 JOptionPane.showMessageDialog(vista, "El empleado ha sido eliminado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(vista, "El empleado se encuentra en otras transacciones.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(vista, "Por las políticas de integridad de la BD, no se puede eliminar este empleado", "Error", JOptionPane.ERROR_MESSAGE);
             }
             actualizarEmpleados();
         }

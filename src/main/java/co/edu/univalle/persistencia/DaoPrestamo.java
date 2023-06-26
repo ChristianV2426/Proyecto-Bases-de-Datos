@@ -20,7 +20,6 @@ package co.edu.univalle.persistencia;
 import co.edu.univalle.modelo.*;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.*;
 
 public class DaoPrestamo implements DaoGeneral<Prestamo> {
   Connection conexionBD;
