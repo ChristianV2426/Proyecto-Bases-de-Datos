@@ -300,6 +300,8 @@ public class ControladorPrestamos {
             RelacionPresta relacion = new RelacionPresta(biblioteca.getSerialPresta(), codigoPrestamo, ejemplar[0], LocalDate.now().plusDays(10));
             Ejemplar ejemplarPrestado = biblioteca.getEjemplares().obtenerElemento(ejemplar[0]);
             ejemplarPrestado.setDisponible(Boolean.FALSE);
+            System.out.println(ejemplarPrestado.getCodigoEjemplar() + " "+  ejemplarPrestado.getDisponible());
+            biblioteca.getEjemplares().editarElemento(ejemplarPrestado);
             biblioteca.sumarSerialPresta();
             listaRelaciones.add(relacion);
         }
@@ -307,8 +309,8 @@ public class ControladorPrestamos {
 
 
         if(biblioteca.getPrestamos().insertarElemento(prestamo) &&
-            (listaRelaciones.stream().map(presta -> biblioteca.getRelacionesPresta().insertarElemento(presta)).allMatch(e -> e)) &&
-            (listaEjemplares.stream().map(ejemplar -> biblioteca.getEjemplares().editarElemento(ejemplar)).allMatch(e -> e))){
+            (listaRelaciones.stream().map(presta -> biblioteca.getRelacionesPresta().insertarElemento(presta))).allMatch(e -> e) &&
+                (listaEjemplares.stream().map(ejemplar -> biblioteca.getEjemplares().editarElemento(ejemplar))).allMatch(e -> e)){
             JOptionPane.showMessageDialog(vista, 
                 "<html><p style = \" font:12px; \">El préstamo se ha realizado con éxito.</p></html>", 
                 "Operación exitosa", JOptionPane.OK_OPTION, 
