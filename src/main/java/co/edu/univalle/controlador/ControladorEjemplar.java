@@ -45,6 +45,8 @@ public class ControladorEjemplar {
         
         controladorEmpleado.verificarNumero(vista.getTxtNumeroEjemplarA());
         controladorEmpleado.verificarNumero(vista.getTxtNumeroEjemplarM());
+        controladorEmpleado.verificarNumero(vista.getTxtNumeroEjemplarC());
+        controladorEmpleado.verificarNumero(vista.getTxtNumeroEjemplarE());
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
