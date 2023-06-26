@@ -24,7 +24,6 @@ import co.edu.univalle.persistencia.Biblioteca;
 import co.edu.univalle.vistas.VistaEmpleado;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -42,6 +41,8 @@ public class ControladorLibros {
         this.biblioteca = biblioteca;
         this.empleado = empleado;
         this.controladorEmpleado = controladorEmpleado;
+        
+        //Consume entradas que no correspondan con el tipo de dato requerido
         controladorEmpleado.verificarNumero(vista.getTxtPaginasLibroA());
         controladorEmpleado.verificarNumero(vista.getTxtAnoLibroA());
         controladorEmpleado.verificarNumero(vista.getTxtPaginasLibroM());
@@ -63,6 +64,18 @@ public class ControladorLibros {
                   }
             }
                
+            if (e.getSource() == vista.getBtnModificarLibroM()){
+                if (e.getButton() == 1){
+                    opcionModificarLibro();
+                }
+            }
+            
+            if (e.getSource() == vista.getBtnEliminarLibroE()){
+                if (e.getButton() == 1){
+                    opcionEliminarLibro();
+                }
+            }
+            
             if (e.getSource() == vista.getBtnCheckLibroC()){
                 if (e.getButton() == 1){
                     opcionCheckConsultarLibro();
@@ -75,18 +88,6 @@ public class ControladorLibros {
                 }
             }
             
-            if (e.getSource() == vista.getBtnModificarLibroM()){
-                if (e.getButton() == 1){
-                    opcionModificarLibro();
-                }
-            }
-            
-            if (e.getSource() == vista.getBtnEliminarLibroE()){
-                if (e.getButton() == 1){
-                    opcionEliminarLibro();
-                }
-            }
-
             if (e.getSource() == vista.getBtnCheckLibroE()){
                 if (e.getButton() == 1){
                     opcionCheckEliminarLibro();
@@ -194,139 +195,6 @@ public class ControladorLibros {
         }
     }
 
-    private void opcionCheckConsultarLibro() {
-        String isbn = vista.getTxtIsbnLibroC().getText();
-        if(isbn.isBlank()){
-            JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">Ingrese un ISBN válido.</p></html>", 
-                        "Error", JOptionPane.OK_OPTION, 
-                        UIManager.getIcon("OptionPane.errorIcon"));
-            return;
-        }
-        Libro libroAConsultar = biblioteca.getLibros().obtenerElemento(isbn);
-        if(libroAConsultar == null){
-            JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">Este libro no existe en la biblioteca.</p></html>", 
-                        "Error", JOptionPane.OK_OPTION, 
-                        UIManager.getIcon("OptionPane.errorIcon"));
-            return;
-        }
-        String codigoEditorial = libroAConsultar.getCodigoEditorial();
-        String nombreEditorial = biblioteca.getEditoriales().obtenerElemento(codigoEditorial).getNombreEditorial();
-        String codigoArea = libroAConsultar.getCodigoArea();
-        String nombreArea = biblioteca.getAreas().obtenerElemento(codigoArea).getNombreArea();
-
-        vista.getTxtTituloLibroC().setText(libroAConsultar.getTitulo());
-        vista.getTxtAnoLibroC().setText(libroAConsultar.getAnioPublicacion().toString());
-        vista.getTxtPaginasLibroC().setText(libroAConsultar.getNumPagina().toString());
-        vista.getComboIdiomaLibroC().setSelectedItem(libroAConsultar.getIdioma());
-        vista.getComboEditorialLibroC().setSelectedItem(codigoEditorial + "-" + nombreEditorial);
-        vista.getComboAreaLibroC().setSelectedItem(codigoArea + " - " + nombreArea);
-        if(biblioteca.getDigitales().obtenerElemento(isbn) != null){
-            Digital digital = biblioteca.getDigitales().obtenerElemento(isbn);
-            vista.getTxtUrlLibroC().setText(digital.getUrl());
-            vista.getTxtTamanoLibroC().setText(digital.getTamanoBytes().toString());
-            vista.getComboFormatoLibroC().setSelectedItem(digital.getFormato());
-        } else {
-            vista.getTxtUrlLibroC().setVisible(false);
-            vista.getTxtTamanoLibroC().setVisible(false);
-            vista.getComboFormatoLibroC().setVisible(false);
-            vista.getLblFormatoLibroC().setVisible(false);
-            vista.getLblUrlLibroC().setVisible(false);
-            vista.getLblTamanoLibroC().setVisible(false);
-        }
-    }
-    
-    private void opcionCheckModificarLibro() {
-        String isbn = vista.getTxtIsbnLibroM().getText();
-        if(isbn.isBlank()){
-            JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">Ingrese un ISBN válido.</p></html>", 
-                        "Error", JOptionPane.OK_OPTION, 
-                        UIManager.getIcon("OptionPane.errorIcon"));
-            return;
-        }
-        Libro libroAConsultar = biblioteca.getLibros().obtenerElemento(isbn);
-        if(libroAConsultar == null){
-            JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">Este libro no existe en la biblioteca.</p></html>", 
-                        "Error", JOptionPane.OK_OPTION, 
-                        UIManager.getIcon("OptionPane.errorIcon"));
-            return;
-        }
-        
-        if(switchCheckM == false){
-            vista.getBtnCheckLibroM().setText("Cancelar");
-            switchCheckM = true;
-            
-            //Modificando la vista
-            vista.getBtnModificarLibroM().setEnabled(true);
-            vista.getTxtIsbnLibroM().setEnabled(false);
-            vista.getTxtTituloLibroM().setEnabled(true);
-            vista.getTxtAnoLibroM().setEnabled(true);
-            vista.getTxtPaginasLibroM().setEnabled(true);
-            vista.getComboIdiomaLibroM().setEnabled(true);
-            vista.getComboEditorialLibroM().setEnabled(true);
-            vista.getComboAreaLibroM().setEnabled(true);
-            
-            //Ingresando los datos del libro
-            String codigoEditorial = libroAConsultar.getCodigoEditorial();
-            String nombreEditorial = biblioteca.getEditoriales().obtenerElemento(codigoEditorial).getNombreEditorial();
-            String codigoArea = libroAConsultar.getCodigoArea();
-            String nombreArea = biblioteca.getAreas().obtenerElemento(codigoArea).getNombreArea();
-
-            vista.getTxtTituloLibroM().setText(libroAConsultar.getTitulo());
-            vista.getTxtAnoLibroM().setText(libroAConsultar.getAnioPublicacion().toString());
-            vista.getTxtPaginasLibroM().setText(libroAConsultar.getNumPagina().toString());
-            vista.getComboIdiomaLibroM().setSelectedItem(libroAConsultar.getIdioma());
-            vista.getComboEditorialLibroM().setSelectedItem(codigoEditorial + "-" + nombreEditorial);
-            vista.getComboAreaLibroM().setSelectedItem(codigoArea + " - " + nombreArea);
-            
-            if(biblioteca.getDigitales().obtenerElemento(isbn) != null){
-                Digital digital = biblioteca.getDigitales().obtenerElemento(isbn);
-                vista.getTxtUrlLibroM().setText(digital.getUrl());
-                vista.getTxtTamanoLibroM().setText(digital.getTamanoBytes().toString());
-                vista.getComboFormatoLibroM().setSelectedItem(digital.getFormato());
-                vista.getTxtUrlLibroM().setVisible(true);
-                vista.getTxtTamanoLibroM().setVisible(true);
-                vista.getComboFormatoLibroM().setVisible(true);
-                vista.getTxtUrlLibroM().setEnabled(true);
-                vista.getTxtTamanoLibroM().setEnabled(true);
-                vista.getComboFormatoLibroM().setEnabled(true);
-                vista.getBtnSiLibroM().setEnabled(false);
-                vista.getBtnNoLibroM().setEnabled(true);
-                
-            } else {
-                vista.getBtnSiLibroM().setEnabled(true);
-                vista.getBtnNoLibroM().setEnabled(false);
-                vista.getTxtUrlLibroM().setVisible(false);
-                vista.getTxtTamanoLibroM().setVisible(false);
-                vista.getComboFormatoLibroM().setVisible(false);
-                vista.getLblFormatoLibroM().setVisible(false);
-                vista.getLblUrlLibroM().setVisible(false);
-                vista.getLblTamanoLibroM().setVisible(false);
-            }
-            
-        } else if (switchCheckM == true){
-            vista.getBtnCheckLibroM().setText("Check");
-            switchCheckM = false;
-            
-            //Modificando la vista
-            vista.getTxtIsbnLibroM().setEnabled(true);
-            vista.getTxtTituloLibroM().setEnabled(false);
-            vista.getTxtAnoLibroM().setEnabled(false);
-            vista.getTxtPaginasLibroM().setEnabled(false);
-            vista.getComboIdiomaLibroM().setEnabled(false);
-            vista.getComboEditorialLibroM().setEnabled(false);
-            vista.getComboAreaLibroM().setEnabled(false);
-            vista.getBtnSiLibroM().setEnabled(false);
-            vista.getBtnNoLibroM().setEnabled(false);
-            vista.getBtnModificarLibroM().setEnabled(false);
-            
-            limpiarModificar();
-        }
-    }
-    
     private void opcionModificarLibro() {
         
         //Obteniendo los datos del libro
@@ -411,24 +279,195 @@ public class ControladorLibros {
             return;
         }
     }
-
-    private void opcionCheckEliminarLibro() {
+    
+    private void opcionEliminarLibro() {
+        
+        //Obteniendo el isbn del libro a eliminar
         String isbn = vista.getTxtIsbnLibroE().getText();
-        if(isbn.isBlank()){
+        
+        //Obteniendo el libro a eliminar de la BD
+        Libro libroAEliminar = biblioteca.getLibros().obtenerElemento(isbn);
+        
+        if(libroAEliminar == null){
             JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">Ingrese un ISBN válido.</p></html>", 
-                        "Error", JOptionPane.OK_OPTION, 
-                        UIManager.getIcon("OptionPane.errorIcon"));
+                "<html><p style = \" font:12px; \">Este libro no existe en la biblioteca.</p></html>", 
+                "Error", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
             return;
         }
+        
+        //Eliminando el libro de la BD
+        if(biblioteca.getLibros().eliminarElemento(isbn)){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Se eliminó el libro correctamente.</p></html>", 
+                "Operación realizada con éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.informationIcon"));
+            limpiarEliminar();
+        } else {
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">No se pudo eliminar el libro..</p></html>", 
+                "Error", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+        }
+    }
+    
+    private void opcionCheckConsultarLibro() {
+        
+        //Obteniendo el isbn del libro a consultar
+        String isbn = vista.getTxtIsbnLibroC().getText();
+        
+        if(isbn.isBlank()){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Ingrese un ISBN válido.</p></html>", 
+                "Error", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        
+        //Obteniendo el libro a consultar en la BD
+        Libro libroAConsultar = biblioteca.getLibros().obtenerElemento(isbn);
+        if(libroAConsultar == null){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Este libro no existe en la biblioteca.</p></html>", 
+                "Error", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        
+        //Obteniendo los datos del libro
+        String codigoEditorial = libroAConsultar.getCodigoEditorial();
+        String nombreEditorial = biblioteca.getEditoriales().obtenerElemento(codigoEditorial).getNombreEditorial();
+        String codigoArea = libroAConsultar.getCodigoArea();
+        String nombreArea = biblioteca.getAreas().obtenerElemento(codigoArea).getNombreArea();
+
+        //Ingresando los datos en la ventana
+        vista.getTxtTituloLibroC().setText(libroAConsultar.getTitulo());
+        vista.getTxtAnoLibroC().setText(libroAConsultar.getAnioPublicacion().toString());
+        vista.getTxtPaginasLibroC().setText(libroAConsultar.getNumPagina().toString());
+        vista.getComboIdiomaLibroC().setSelectedItem(libroAConsultar.getIdioma());
+        vista.getComboEditorialLibroC().setSelectedItem(codigoEditorial + "-" + nombreEditorial);
+        vista.getComboAreaLibroC().setSelectedItem(codigoArea + " - " + nombreArea);
+        
+        //Validando si el libro tiene versión digital e ingresando esos datos
+        if(biblioteca.getDigitales().obtenerElemento(isbn) != null){
+            Digital digital = biblioteca.getDigitales().obtenerElemento(isbn);
+            vista.getTxtUrlLibroC().setText(digital.getUrl());
+            vista.getTxtTamanoLibroC().setText(digital.getTamanoBytes().toString());
+            vista.getComboFormatoLibroC().setSelectedItem(digital.getFormato());
+        } else {
+            vista.getTxtUrlLibroC().setVisible(false);
+            vista.getTxtTamanoLibroC().setVisible(false);
+            vista.getComboFormatoLibroC().setVisible(false);
+            vista.getLblFormatoLibroC().setVisible(false);
+            vista.getLblUrlLibroC().setVisible(false);
+            vista.getLblTamanoLibroC().setVisible(false);
+        }
+    }
+    
+    private void opcionCheckModificarLibro() {
+        
+        //Obteniendo el isbn del libro a modificar
+        String isbn = vista.getTxtIsbnLibroM().getText();
+        if(isbn.isBlank()){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Ingrese un ISBN válido.</p></html>", 
+                "Error", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        
+        //Obteniendo el libro a modificar de la BD
+        Libro libroAModificar = biblioteca.getLibros().obtenerElemento(isbn);
+        if(libroAModificar == null){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Este libro no existe en la biblioteca.</p></html>", 
+                "Error", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        
+        //Switch para cambiar el botón de check a cancelar y generar cambios en la vista
+        if(switchCheckM == false){
+            vista.getBtnCheckLibroM().setText("Cancelar");
+            switchCheckM = true;
+            
+            //Modificando la vista
+            vista.getBtnModificarLibroM().setEnabled(true);
+            vista.getTxtIsbnLibroM().setEnabled(false);
+            vista.getTxtTituloLibroM().setEnabled(true);
+            vista.getTxtAnoLibroM().setEnabled(true);
+            vista.getTxtPaginasLibroM().setEnabled(true);
+            vista.getComboIdiomaLibroM().setEnabled(true);
+            vista.getComboEditorialLibroM().setEnabled(true);
+            vista.getComboAreaLibroM().setEnabled(true);
+            
+            //Obteniendo los datos del libro
+            String codigoEditorial = libroAModificar.getCodigoEditorial();
+            String nombreEditorial = biblioteca.getEditoriales().obtenerElemento(codigoEditorial).getNombreEditorial();
+            String codigoArea = libroAModificar.getCodigoArea();
+            String nombreArea = biblioteca.getAreas().obtenerElemento(codigoArea).getNombreArea();
+
+            //Ingresando los datos del libro en la vista
+            vista.getTxtTituloLibroM().setText(libroAModificar.getTitulo());
+            vista.getTxtAnoLibroM().setText(libroAModificar.getAnioPublicacion().toString());
+            vista.getTxtPaginasLibroM().setText(libroAModificar.getNumPagina().toString());
+            vista.getComboIdiomaLibroM().setSelectedItem(libroAModificar.getIdioma());
+            vista.getComboEditorialLibroM().setSelectedItem(codigoEditorial + "-" + nombreEditorial);
+            vista.getComboAreaLibroM().setSelectedItem(codigoArea + " - " + nombreArea);
+            
+            //Validando si el libro tiene versión digital e ingresando sus datos
+            if(biblioteca.getDigitales().obtenerElemento(isbn) != null){
+                Digital digital = biblioteca.getDigitales().obtenerElemento(isbn);
+                habilitarOpcionesDigital(digital);
+                
+            } else {
+                desabilitarOpcionesDigital();
+            }
+            
+        } else if (switchCheckM == true){
+            vista.getBtnCheckLibroM().setText("Check");
+            switchCheckM = false;
+            
+            //Modificando la vista
+            vista.getTxtIsbnLibroM().setEnabled(true);
+            vista.getTxtTituloLibroM().setEnabled(false);
+            vista.getTxtAnoLibroM().setEnabled(false);
+            vista.getTxtPaginasLibroM().setEnabled(false);
+            vista.getComboIdiomaLibroM().setEnabled(false);
+            vista.getComboEditorialLibroM().setEnabled(false);
+            vista.getComboAreaLibroM().setEnabled(false);
+            vista.getBtnSiLibroM().setEnabled(false);
+            vista.getBtnNoLibroM().setEnabled(false);
+            vista.getBtnModificarLibroM().setEnabled(false);
+            
+            limpiarModificar();
+        }
+    }
+    
+    private void opcionCheckEliminarLibro() {
+        
+        //Obteniendo el isbn del libro a eliminar
+        String isbn = vista.getTxtIsbnLibroE().getText();
+        
+        if(isbn.isBlank()){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Ingrese un ISBN válido.</p></html>", 
+                "Error", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+        
+        //Obteniendo el libro a eliminar de la BD
         Libro libroAEliminar = biblioteca.getLibros().obtenerElemento(isbn);
         if(libroAEliminar == null){
             JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">Este libro no existe en la biblioteca.</p></html>", 
-                        "Error", JOptionPane.OK_OPTION, 
-                        UIManager.getIcon("OptionPane.errorIcon"));
+                "<html><p style = \" font:12px; \">Este libro no existe en la biblioteca.</p></html>", 
+                "Error", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
             return;
         }
+        
+        //Switch para cambiar el botón de check a cancelar y generar cambios en la vista
         if(switchCheckE == false){
             vista.getBtnCheckLibroE().setText("Cancelar");
             vista.getBtnEliminarLibroE().setEnabled(true);
@@ -448,6 +487,7 @@ public class ControladorLibros {
             vista.getComboEditorialLibroE().setSelectedItem(codigoEditorial + "-" + nombreEditorial);
             vista.getComboAreaLibroE().setSelectedItem(codigoArea + " - " + nombreArea);
 
+            //Validando si el libro tiene versión digital e ingresando sus datos
             if(biblioteca.getDigitales().obtenerElemento(isbn) != null){
                 Digital digital = biblioteca.getDigitales().obtenerElemento(isbn);
                 vista.getTxtUrlLibroE().setText(digital.getUrl());
@@ -470,33 +510,6 @@ public class ControladorLibros {
         }
     }
     
-    private void opcionEliminarLibro() {
-        String isbn = vista.getTxtIsbnLibroE().getText();
-        Libro libroAEliminar = biblioteca.getLibros().obtenerElemento(isbn);
-        
-        if(libroAEliminar == null){
-            JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">Este libro no existe en la biblioteca.</p></html>", 
-                        "Error", JOptionPane.OK_OPTION, 
-                        UIManager.getIcon("OptionPane.errorIcon"));
-            return;
-        }
-        
-        if(biblioteca.getLibros().eliminarElemento(isbn)){
-            JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">Se eliminó el libro correctamente.</p></html>", 
-                        "Operación realizada con éxito", JOptionPane.OK_OPTION, 
-                        UIManager.getIcon("OptionPane.informationIcon"));
-            limpiarEliminar();
-            return;   
-        } else {
-            JOptionPane.showMessageDialog(vista, 
-                        "<html><p style = \" font:12px; \">No se pudo eliminar el libro..</p></html>", 
-                        "Error", JOptionPane.OK_OPTION, 
-                        UIManager.getIcon("OptionPane.errorIcon"));
-            return;  
-        }
-    }
     private void opcionSiDigital(JButton boton) {
         if(boton == vista.getBtnSiLibroA()){
             boton.setEnabled(false);
@@ -519,7 +532,6 @@ public class ControladorLibros {
             vista.getLblFormatoLibroM().setVisible(true);
             vista.getLblUrlLibroM().setVisible(true);
             vista.getLblTamanoLibroM().setVisible(true);
-            return;
         }
     }
 
@@ -534,6 +546,7 @@ public class ControladorLibros {
             vista.getLblUrlLibroA().setVisible(false);
             vista.getLblTamanoLibroA().setVisible(false);
         }
+        
         if(boton == vista.getBtnNoLibroM() && boton.isEnabled()){
             boton.setEnabled(false);
             vista.getBtnSiLibroM().setEnabled(true);
@@ -544,8 +557,32 @@ public class ControladorLibros {
             vista.getLblFormatoLibroM().setVisible(false);
             vista.getLblUrlLibroM().setVisible(false);
             vista.getLblTamanoLibroM().setVisible(false);
-            return;
         }
+    }
+    
+    private void habilitarOpcionesDigital(Digital digital){
+        vista.getTxtUrlLibroM().setText(digital.getUrl());
+        vista.getTxtTamanoLibroM().setText(digital.getTamanoBytes().toString());
+        vista.getComboFormatoLibroM().setSelectedItem(digital.getFormato());
+        vista.getTxtUrlLibroM().setVisible(true);
+        vista.getTxtTamanoLibroM().setVisible(true);
+        vista.getComboFormatoLibroM().setVisible(true);
+        vista.getTxtUrlLibroM().setEnabled(true);
+        vista.getTxtTamanoLibroM().setEnabled(true);
+        vista.getComboFormatoLibroM().setEnabled(true);
+        vista.getBtnSiLibroM().setEnabled(false);
+        vista.getBtnNoLibroM().setEnabled(true);
+    }
+    
+    private void desabilitarOpcionesDigital(){
+        vista.getBtnSiLibroM().setEnabled(true);
+        vista.getBtnNoLibroM().setEnabled(false);
+        vista.getTxtUrlLibroM().setVisible(false);
+        vista.getTxtTamanoLibroM().setVisible(false);
+        vista.getComboFormatoLibroM().setVisible(false);
+        vista.getLblFormatoLibroM().setVisible(false);
+        vista.getLblUrlLibroM().setVisible(false);
+        vista.getLblTamanoLibroM().setVisible(false);
     }
     
     private void limpiarAnadir(){
@@ -601,6 +638,5 @@ public class ControladorLibros {
         vista.getComboIdiomaLibroE().setSelectedItem(vista.getComboIdiomaLibroE().getModel().getElementAt(0));
         vista.getComboAreaLibroE().setSelectedItem(vista.getComboAreaLibroE().getModel().getElementAt(0));
         vista.getComboEditorialLibroE().setSelectedItem(vista.getComboEditorialLibroE().getModel().getElementAt(0));
-        
     }
 }
