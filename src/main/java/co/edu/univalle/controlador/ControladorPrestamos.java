@@ -21,11 +21,13 @@ import co.edu.univalle.persistencia.Biblioteca;
 import co.edu.univalle.modelo.*;
 import co.edu.univalle.vistas.*;
 import java.awt.event.*;
+import java.math.BigDecimal;
 import javax.swing.*;
 import javax.swing.table.*;
 import java.time.*;
 import java.awt.*;
 import java.util.*;
+import java.time.temporal.*;
 
 public class ControladorPrestamos {
     private VistaEmpleado vista;
@@ -328,18 +330,207 @@ public class ControladorPrestamos {
     }
 
     private void opcionVerificarUsuarioConsultar() {
+        String idUsuario = vista.getTxtUsuarioPrestamoC().getText();
 
-    }
+        if(idUsuario.isBlank()){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Por favor ingrese el ID del usuario.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+        Usuario usuario = biblioteca.getUsuarios().obtenerElemento(idUsuario);
+
+        if(usuario == null){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">El usuario no se encuentra registrado en el sistema.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+        String[][] listaPrestamos = biblioteca.getPrestamos().obtenerPrestamosUsuario(idUsuario);
+
+        if(listaPrestamos == null){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">El usuario no tiene préstamos registrados en el sistema.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+
+
+        String[] cabecera = vista.getCabeceraConsultarPrestamo();
+        vista.getTablaPrestamoC().setModel(ControladorEmpleado.asignarModelo(listaPrestamos, cabecera));
+        vista.getTablaPrestamoC().getColumnModel().getColumn(0).setCellRenderer(alinear);
+        vista.getTablaPrestamoC().getColumnModel().getColumn(2).setCellRenderer(alinear);
+        vista.getTablaPrestamoC().getColumnModel().getColumn(3).setCellRenderer(alinear);
+        vista.getTablaPrestamoC().getColumnModel().getColumn(4).setCellRenderer(alinear);
+        vista.getTablaPrestamoC().getColumnModel().getColumn(5).setCellRenderer(alinear);
+        vista.getTablaPrestamoC().getColumnModel().getColumn(6).setCellRenderer(alinear);
+        }
     
     private void opcionDevolverEjemplar() {
+        int filaSeleccionada = vista.getTablaPrestamoC().getSelectedRow();
 
+        if(filaSeleccionada == -1){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Por favor seleccione el ejemplar que desea devolver.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+        String codigoPresta = (String) vista.getTablaPrestamoC().getValueAt(filaSeleccionada, 0);
+        RelacionPresta presta = biblioteca.getRelacionesPresta().obtenerElemento(codigoPresta);
+        String estado = (String) vista.getTablaPrestamoC().getValueAt(filaSeleccionada, 6);
+
+        if(presta == null){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">El préstamo del ejemplar no se encuentra registrado en el sistema.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+        if(estado.equals("Entregado") || estado.equals("Entregado con retraso")){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">El ejemplar ya ha sido devuelto.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+        presta.setFechaDevolucionReal(LocalDate.now());
+
+        if(biblioteca.getRelacionesPresta().editarElemento(presta)){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">El ejemplar se ha devuelto con éxito.</p></html>", 
+                "Operación exitosa", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.informationIcon"));
+            opcionVerificarUsuarioConsultar();
+
+            if(presta.getFechaDevolucionReal().isAfter(presta.getFechaDevolucionEsperada())){
+                JOptionPane.showMessageDialog(vista, 
+                    "<html><p style = \" font:12px; \">Sin embargo, el ejemplar ha sido devuelto con mora. Por lo tanto se generará una multa</p></html>", 
+                    "Operación exitosa", JOptionPane.OK_OPTION, 
+                    UIManager.getIcon("OptionPane.informationIcon"));
+
+                String codigoMulta = biblioteca.getSerialMulta();
+                long diasDiferencia = ChronoUnit.DAYS.between(presta.getFechaDevolucionEsperada(), presta.getFechaDevolucionReal());
+                BigDecimal valorMulta = BigDecimal.valueOf(1200).multiply(BigDecimal.valueOf(diasDiferencia));   
+                Multa multa = new Multa(codigoMulta, presta.getCodigoPresta(), LocalDate.now(), valorMulta, "Multa por mora", Boolean.FALSE);
+
+                if(biblioteca.getMultas().insertarElemento(multa)){
+                    JOptionPane.showMessageDialog(vista, 
+                        "La multa se ha generado con éxito. A continuación los datos de la multa: \n" + multa.toString() + "\n", 
+                        "Operación exitosa", JOptionPane.OK_OPTION, 
+                        UIManager.getIcon("OptionPane.informationIcon"));
+                    biblioteca.sumarSerialMulta();
+                    return;
+                }
+            }
+
+
+            return;
+        }
     }
 
     private void opcionVerificarUsuarioEliminar() {
+        String codigoPrestamo = vista.getTxtPrestamoE().getText();
+
+        if(codigoPrestamo.isBlank()){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Por favor ingrese el código del préstamo.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+        Prestamo prestamo = biblioteca.getPrestamos().obtenerElemento(codigoPrestamo);
+
+        if(prestamo == null){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">El préstamo no se encuentra registrado en el sistema. Por favor ingrese un código de préstamo valido.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+        vista.getTxtUsuarioPrestamoE().setText(prestamo.getIdUsuario());
+        String[][] listaPrestamos = biblioteca.getPrestamos().obtenerPrestamosUsuario(prestamo.getIdUsuario());
+        String[] cabecera = vista.getCabeceraConsultarPrestamo();
+        vista.getTablaPrestamoE().setModel(ControladorEmpleado.asignarModelo(listaPrestamos, cabecera));
+        vista.getTablaPrestamoE().getColumnModel().getColumn(0).setCellRenderer(alinear);
+        vista.getTablaPrestamoE().getColumnModel().getColumn(2).setCellRenderer(alinear);
+        vista.getTablaPrestamoE().getColumnModel().getColumn(3).setCellRenderer(alinear);
+        vista.getTablaPrestamoE().getColumnModel().getColumn(4).setCellRenderer(alinear);
+        vista.getTablaPrestamoE().getColumnModel().getColumn(5).setCellRenderer(alinear);
 
     }
     
     private void opcionEliminarPrestamo() {
+        String codigoPrestamo = vista.getTxtPrestamoE().getText();
 
+        if(codigoPrestamo.isBlank()){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">Por favor ingrese el código del préstamo.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+        Prestamo prestamo = biblioteca.getPrestamos().obtenerElemento(codigoPrestamo);
+
+        if(prestamo == null){
+            JOptionPane.showMessageDialog(vista, 
+                "<html><p style = \" font:12px; \">El préstamo no se encuentra registrado en el sistema. Por favor ingrese un código de préstamo valido.</p></html>", 
+                "Operación sin éxito", JOptionPane.OK_OPTION, 
+                UIManager.getIcon("OptionPane.errorIcon"));
+            return;
+        }
+
+        vista.getTxtUsuarioPrestamoE().setText(prestamo.getIdUsuario());
+        String[][] listaPrestamos = biblioteca.getPrestamos().obtenerPrestamosUsuario(prestamo.getIdUsuario());
+        String[] cabecera = vista.getCabeceraConsultarPrestamo();
+        vista.getTablaPrestamoE().setModel(ControladorEmpleado.asignarModelo(listaPrestamos, cabecera));
+        vista.getTablaPrestamoE().getColumnModel().getColumn(0).setCellRenderer(alinear);
+        vista.getTablaPrestamoE().getColumnModel().getColumn(2).setCellRenderer(alinear);
+        vista.getTablaPrestamoE().getColumnModel().getColumn(3).setCellRenderer(alinear);
+        vista.getTablaPrestamoE().getColumnModel().getColumn(4).setCellRenderer(alinear);
+        vista.getTablaPrestamoE().getColumnModel().getColumn(5).setCellRenderer(alinear);
+
+        int opcionSeleccionada = JOptionPane.showConfirmDialog(vista, 
+            "<html><p style = \" font:12px; \">¿Está seguro que desea eliminar el préstamo?</p></html>", 
+            "Confirmación", JOptionPane.YES_NO_OPTION, 
+            JOptionPane.QUESTION_MESSAGE, UIManager.getIcon("OptionPane.questionIcon"));
+
+        if(opcionSeleccionada == JOptionPane.YES_OPTION){
+            String[][] relacionesPresta = biblioteca.getPrestamos().relacionesPrestaEnPrestamo(codigoPrestamo);
+            ArrayList<String> codigosPresta = new ArrayList<>();
+            for(int i = 0; i < relacionesPresta.length; i++){
+                codigosPresta.add(relacionesPresta[i][0]);
+            }
+
+            if((codigosPresta.stream().map(codigo -> biblioteca.getRelacionesPresta().eliminarElemento(codigo))).allMatch(e -> e) && biblioteca.getPrestamos().eliminarElemento(codigoPrestamo)){
+                JOptionPane.showMessageDialog(vista, 
+                    "<html><p style = \" font:12px; \">El préstamo se ha eliminado con éxito.</p></html>", 
+                    "Operación exitosa", JOptionPane.OK_OPTION, 
+                    UIManager.getIcon("OptionPane.informationIcon"));
+
+                    vista.getTxtPrestamoE().setText("");
+                    vista.getTxtUsuarioPrestamoE().setText("");
+                    vista.getTablaPrestamoE().setModel(ControladorEmpleado.asignarModelo(null, cabecera));
+                return;
+            } else {
+                JOptionPane.showMessageDialog(vista, 
+                    "Ha sucedio un error al intentar elimianr el prestamo. ¡Hay una multa asociada al préstamo!\nEste registro no se puede eliminar por integridad referencial en la Base de Datos.", 
+                    "Operación sin éxito", JOptionPane.OK_OPTION, 
+                    UIManager.getIcon("OptionPane.errorIcon"));
+                return;
+            }
+        }
     }
 }

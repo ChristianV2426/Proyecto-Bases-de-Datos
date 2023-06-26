@@ -59,8 +59,8 @@ public class DaoRelacionPresta implements DaoGeneral<RelacionPresta>{
       "UPDATE presta SET codigo_prestamo='" + relacionPresta.getCodigoPrestamo() +
       "', codigo_ejemplar='" + relacionPresta.getCodigoEjemplar() +
       "', fecha_devolucion_esperada='" + relacionPresta.getFechaDevolucionEsperada() + 
-      "', fecha_devolucion_real=" + fechaDevolucionReal +
-      " WHERE codigo_presta='" + relacionPresta.getCodigoPresta() + "';";
+      "', fecha_devolucion_real='" + fechaDevolucionReal +
+      "' WHERE codigo_presta='" + relacionPresta.getCodigoPresta() + "';";
 
     return Consultas.ejecutarSentenciaInsertUpdateDelete(sentenciaUpdate, conexionBD);
   }
