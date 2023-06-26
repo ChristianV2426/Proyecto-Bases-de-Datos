@@ -17,9 +17,8 @@
 
 package co.edu.univalle.controlador;
 
-import co.edu.univalle.modelo.ContrasenaEmpleado;
-import co.edu.univalle.modelo.Empleado;
-import co.edu.univalle.persistencia.Biblioteca;
+import co.edu.univalle.modelo.*;
+import co.edu.univalle.persistencia.*;
 import co.edu.univalle.vistas.VistaEmpleado;
 
 import java.awt.CardLayout;
@@ -54,7 +53,6 @@ public class ControladorManejoPersonal {
                 System.exit(0);
             }
         });
-
     }
     
     class ManejadoraDeMouse extends MouseAdapter{
@@ -156,10 +154,11 @@ public class ControladorManejoPersonal {
 
         int opcion = JOptionPane.showConfirmDialog(vista, "¿Está seguro que desea eliminar el empleado?", "Confirmación", JOptionPane.YES_NO_OPTION);
         if(opcion == JOptionPane.YES_OPTION){
-            biblioteca.getContrasenasEmpleados().eliminarElemento(identificacion);
-            biblioteca.getEmpleados().eliminarElemento(identificacion);
-            JOptionPane.showMessageDialog(vista, "El empleado ha sido eliminado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
-            biblioteca.restarSerialEmpleado();
+            if(biblioteca.getContrasenasEmpleados().eliminarElemento(identificacion) && biblioteca.getEmpleados().eliminarElemento(identificacion)){
+                JOptionPane.showMessageDialog(vista, "El empleado ha sido eliminado correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(vista, "El empleado se encuentra en otras transacciones.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
             actualizarEmpleados();
         }
         limpiarCampos("E");
