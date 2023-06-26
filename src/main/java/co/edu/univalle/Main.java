@@ -22,9 +22,10 @@ import co.edu.univalle.vistas.*;
 import java.sql.*;
 
 
-public class App {
+public class Main {
     public static void main(String[] args) {
         String rutaArchivoCredenciales = "./credenciales.txt";
+        
         FachadaBD fachadaBD = new FachadaBD(rutaArchivoCredenciales);
         Connection conexionBD = fachadaBD.getConexionBD();
         Biblioteca biblioteca = new Biblioteca(conexionBD);
