@@ -69,6 +69,10 @@ public class Multa {
     return estadoMulta;
   }
 
+  public void setEstadoMulta(Boolean estado) {
+    this.estadoMulta = estado;
+  }
+
   @Override
   public String toString() {
     String stringEstadoMulta;

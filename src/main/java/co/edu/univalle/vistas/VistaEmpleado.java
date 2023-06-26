@@ -3422,6 +3422,10 @@ public class VistaEmpleado extends javax.swing.JFrame {
         return btnPrestamos;
     }
 
+    public javax.swing.JPanel getSubPanelMulta() {
+        return subPanelMulta;
+    }
+
     public JButton getBtnSolicitudes() {
         return btnSolicitudes;
     }

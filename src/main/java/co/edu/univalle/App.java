@@ -31,6 +31,7 @@ public class App {
 
         //VistaLogin vistaLogin = new VistaLogin("Login", biblioteca);
 
+        // VistaUsuario vistaUsuario = new VistaUsuario("Menú Usuario", biblioteca, biblioteca.getUsuarios().obtenerElemento("US001"));
         VistaEmpleado vistaEmpleado = new VistaEmpleado("Menú Empleado", biblioteca,biblioteca.getEmpleados().obtenerElemento("EM001"));
     }
 }

@@ -59,7 +59,7 @@ public class ControladorRegistroProfesor {
         String profesion = vista.getComboProfesion().getSelectedItem().toString();
         List<String> listaAreasInteres = vista.getListaArea().getSelectedValuesList();
 
-        if (nombre.isEmpty() || identificacion.isEmpty() || contrasena.isEmpty() || email.isEmpty() || telefono.isEmpty() || direccion.isEmpty() || dependencia.isEmpty() || profesion.isEmpty() || listaAreasInteres.isEmpty()) {
+        if (nombre.isBlank() || identificacion.isBlank() || contrasena.isBlank() || email.isBlank() || telefono.isBlank() || direccion.isBlank() || dependencia.isBlank() || profesion.isBlank() || listaAreasInteres.isEmpty()) {
             JOptionPane.showMessageDialog(vista, "Todos los campos son obligatorios.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }

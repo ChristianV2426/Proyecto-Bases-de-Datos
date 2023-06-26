@@ -17,21 +17,12 @@
 
 package co.edu.univalle.controlador;
 
-import co.edu.univalle.modelo.Empleado;
-import co.edu.univalle.modelo.ManejadorArchivos;
 import co.edu.univalle.persistencia.Biblioteca;
-import co.edu.univalle.vistas.VistaEmpleado;
-import co.edu.univalle.vistas.VistaLogin;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import co.edu.univalle.modelo.*;
+import co.edu.univalle.vistas.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.table.*;
 
 public class ControladorEmpleado {
     private Biblioteca biblioteca;
