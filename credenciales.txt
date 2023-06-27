@@ -1,8 +1,8 @@
 || ======================================================================= ||
 ||                                                                         ||
-   URL base de datos: jdbc:postgresql://localhost:5432/biblioteca
+   URL base de datos: jdbc:postgresql://localhost:5432/biblioteca_database
    Usuario: postgres
-   Contraseña: password
+   Contraseña: Ulven_1729
 ||                                                                         ||
 || ======================================================================= ||
 
