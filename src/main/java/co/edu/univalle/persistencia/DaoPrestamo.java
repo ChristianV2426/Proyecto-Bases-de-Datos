@@ -114,9 +114,11 @@ public class DaoPrestamo implements DaoGeneral<Prestamo> {
   }
 
   public String[][] relacionesPrestaEnPrestamo(String codigoPrestamo){
-    String sentenciaSelect = "SELECT codigo_presta FROM presta WHERE codigo_prestamo='" + codigoPrestamo + "';";
+    String sentenciaSelect = "SELECT codigo_presta, titulo, codigo_ejemplar, fecha_prestamo, fecha_devolucion_esperada, fecha_devolucion_real " +
+      "FROM prestamo NATURAL JOIN usuario NATURAL JOIN presta NATURAL JOIN ejemplar NATURAL JOIN libro " +
+      "WHERE codigo_prestamo='" + codigoPrestamo + "' ORDER BY codigo_presta;";
 
-    return Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD);
+    return calcularEstadoPrestamo(Consultas.traerTodosLosElementos(sentenciaSelect, conexionBD), 6);
   }
 
   @Override

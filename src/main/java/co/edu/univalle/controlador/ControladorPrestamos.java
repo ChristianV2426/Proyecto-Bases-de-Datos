@@ -461,7 +461,7 @@ public class ControladorPrestamos {
         }
 
         vista.getTxtUsuarioPrestamoE().setText(prestamo.getIdUsuario());
-        String[][] listaPrestamos = biblioteca.getPrestamos().obtenerPrestamosUsuario(prestamo.getIdUsuario());
+        String[][] listaPrestamos = biblioteca.getPrestamos().relacionesPrestaEnPrestamo(codigoPrestamo);
         String[] cabecera = vista.getCabeceraConsultarPrestamo();
         vista.getTablaPrestamoE().setModel(ControladorEmpleado.asignarModelo(listaPrestamos, cabecera));
         vista.getTablaPrestamoE().getColumnModel().getColumn(0).setCellRenderer(alinear);
@@ -494,7 +494,7 @@ public class ControladorPrestamos {
         }
 
         vista.getTxtUsuarioPrestamoE().setText(prestamo.getIdUsuario());
-        String[][] listaPrestamos = biblioteca.getPrestamos().obtenerPrestamosUsuario(prestamo.getIdUsuario());
+        String[][] listaPrestamos = biblioteca.getPrestamos().relacionesPrestaEnPrestamo(codigoPrestamo);
         String[] cabecera = vista.getCabeceraConsultarPrestamo();
         vista.getTablaPrestamoE().setModel(ControladorEmpleado.asignarModelo(listaPrestamos, cabecera));
         vista.getTablaPrestamoE().getColumnModel().getColumn(0).setCellRenderer(alinear);
