@@ -182,11 +182,13 @@ public class ControladorManejoPersonal {
                 JOptionPane.showMessageDialog(vista, "El empleado con la identificación proporcionada no existe.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             } else if(swicheCheckC==false) {
+                vista.getTxtIdManejoC().setEnabled(false);
                 vista.getBtnCheckManejoC().setText("Cancelar");
                 vista.getTxtNombreManejoC().setText(empleadoABuscar.getNombreEmpleado());
                 vista.getComboCargoManejoC().setSelectedItem(empleadoABuscar.getCargo());
                 swicheCheckC = true;
             } else if (swicheCheckC==true) {
+                vista.getTxtIdManejoC().setEnabled(false);
                 vista.getBtnCheckManejoC().setText("Check");
                 swicheCheckC = false;
                 limpiarCampos("C");
@@ -206,11 +208,13 @@ public class ControladorManejoPersonal {
                 JOptionPane.showMessageDialog(vista, "El empleado con la identificación proporcionada no existe.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             } else if(swicheCheckE==false) {
+                vista.getTxtIdManejoE().setEnabled(false);
                 vista.getBtnCheckManejoE().setText("Cancelar");
                 vista.getTxtNombreManejoE().setText(empleadoABuscar.getNombreEmpleado());
                 vista.getComboCargoManejoE().setSelectedItem(empleadoABuscar.getCargo());
                 swicheCheckE = true;
             } else if (swicheCheckE==true) {
+                vista.getTxtIdManejoE().setEnabled(true);
                 vista.getBtnCheckManejoE().setText("Check");
                 swicheCheckE = false;
                 limpiarCampos("E");
@@ -333,12 +337,14 @@ public class ControladorManejoPersonal {
         else if (tipo.equals("E")) {
             // Limpiar campos de Eliminar.
             vista.getTxtIdManejoE().setText("");
+            vista.getTxtIdManejoE().setEnabled(true);
             vista.getTxtNombreManejoE().setText("");
             vista.getComboCargoManejoE().setSelectedIndex(0);
             vista.getTxtIdManejoA().setText(biblioteca.getSerialEmpleado());
         }
         else if (tipo.equals("C")) {
             vista.getTxtIdManejoC().setText("");
+            vista.getTxtIdManejoC().setEnabled(true);
             vista.getTxtNombreManejoC().setText("");
             vista.getComboCargoManejoC().setSelectedIndex(0);
         }
